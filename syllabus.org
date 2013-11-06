@@ -1,0 +1,38 @@
+* Week 1: Functions
+** R^n as a vector space
+** functions from R^n to R^m
+** linear functions from R^n to R^m
+** the matrix of a linear function
+** composition of functions and matrix multiplication
+** applications
+*** formula for angle sum of sine and cosine
+*** basic image manipulation
+* Week 2: Limits
+** look at graphs
+** define limits
+** compute limits
+* Week 3: Derivative
+** very rapid single variable calculus 
+** definition of total derivative
+** a bunch of approximation questions
+** partial derivatives
+** low dimensional examples
+** points versus vectors
+** Find the tangent plane for a surface at a point.
+* Week 4: Chain rule
+** chain rule
+** computations
+** reprove product rule and rule for f(x)^g(x)
+** gradient, R^n to R
+** inner product and geometry
+** a tangent on bilinear forms
+* Week 5: Optimization
+** Lagrange multipliers
+** Find critical points of a function.
+** Define local maximum and local minimum.
+** positive definiteness
+* Week 6: Integration
+** definition of integral
+** chain of variables
+** determinants
+

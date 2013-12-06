@@ -31,8 +31,41 @@
 ** Find critical points of a function.
 ** Define local maximum and local minimum.
 ** positive definiteness
-* Week 6: Integration
+* Week 6: Integration of "functions" (Really top level forms)
 ** definition of integral
+** determinants 
 ** chain of variables
-** determinants
+* Week 7: Integration of 1-form on a 1-chain
+** Observe that total derivative of a function is a one form: use this to motivate definition of general 1-form.
+** Prove FTC for 1-forms.  Observe that "d\theta" cannot be exact on the annulus.
+** When can we find f so that df=w?  Natural question because then we can use FTC.  At least need mixed partials to commute.
+(secretly this is just saying dw=0, but they do not know that yet.).  Answer: Poincare's lemma says that at least on simply 
+connected domains this is always true.
+** Talk about how Poincare lemma gives LOCAL solution to df=w for any closed form.  Global obstruction comes from going around loops.
+** See how d\theta is "essentially" only closed 1-form on annulus up to an exact form
+** At least see in principle how there should be "essentially" n closed 1-forms on a region in R^2 with n holes.
+*** Give explicit formula for generators of the 1st de Rham cohomology group
+** Note that one form level down if df = 0, f is locally constant. Number of constants needed gives number of connected componenets.
+* Week 8: higher dimensional forms
+** To be able to integrate over a parameterized k-chain, we will need something that eats k tangent vectors and spits out numbers.  
+Motivative multilinearity and the fact that they are alternating.
+** Show that the n choose k wedges of dx_i's generate all k-forms.
+** Define pullback of forms.
+** Define wedge product.
+** Define exterior derivative.
+*** Observe that dw=0 exactly says w is closed using our previous definition for 1-forms.
+** Define hodge star operator.
+** (Maybe?) write laws of electromagnetism.  Hodge star needs to be modified for the lorentzian metric though, so I am not sure...
+Week 9: Integration and Stoke's theorem
+** Definition of integration
+** Stoke's theorem
+** Topological consequences
+* Week 10: Focus on R^3 (Anticlimax)
+** See how to interpret 0,1,2,3 forms as functions or vector fields in R^3 
+** Work out the definitions of grad, curl, and div from this and defintion of exterior derivative
+** Work out what Stoke's theorem says in this notation
+
+
+
+ 
 

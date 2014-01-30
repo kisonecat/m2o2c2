@@ -1,0 +1,41 @@
+\\This should be an interactive demo page which gives a lot of different ways to visualize functions.  
+
+\\Each domain/codomain choice should come with an interesting function already being plotted, but the user should be able to input any function they like.
+
+"Play around with these different visualizations of functions from $\R^n \to \R^m$.  We only attempt to visualize such functions when $n$ and $m$ are $3$ or less.
+Above that, you can still deal with these functions symbolically, but it becomes really hard to visualize them."
+Domain: drop down R^1 to R^3, codomain: drop down R^1 \to R^3 Mode:  drop down depending on domain/codomain choices.
+
+\\Each option has an explanation of how the function is being visualized.
+
+1-->1:  
+	parameterized particle:  move particle on domain line, other particle moves on codomain line
+	graph: regular graph of function.  Movable point on domain, and graph
+  -->2:
+ 	parameterized particle on image curve
+  -->3: parameterized particle on image curve
+  
+2-->1:
+	graph:  3d graph of function.
+	Moving point:  move point in domain plane, see movement of point in codomain line
+	contour plot: give a contour map.  Allow change in increment between contour lines.  Move point in codomain to see a differently colored contour line move in domain.
+  -->2:
+  	vector field: might be a bit messy though
+  	moving point in domain and codomain plane
+  	distorted lattice:  paint a lattice on the domain, see where that lattice ends up in the codomain
+    phase plot:  color codomain with ROYGBIV phase and BW magnitude, color domain by pulling back color
+  -->3: 
+  	parameterized surface with moving point
+
+3 -->1:
+	Moving point
+	contour plot
+	colored balls at lattice points, given coloring on codomain line
+  -->2:
+  	moving point 
+  	vector field <f,g,0>
+  -->3:
+  	moving point
+  	vector field
+  	distorted lattice	
+		

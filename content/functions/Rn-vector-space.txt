@@ -1,0 +1,105 @@
+\begin{document}
+\section{$\R^n$ as a vector space}
+It will be convenient for us to equip $\R^n$ with two algebraic operations:  "vector addition" and "scalar multiplication" (to be defined soon).
+This additional structure will transform $\R^n$ from a mere set into a "vector space".  To distinguish between $\R^n$ the set and $\R^n$ the vector space,
+ we think of elements of $\R^n$ the set as being ordered lists , like this 
+ 
+ $$(x_1,x_2,x_3, ...,x_,n)$$, 
+ 
+ but elements of $\R^n$ the vector space will be written typographically as vertically oriented lists flanked with square brackets, like this 
+ 
+  $$\begin{bmatrix}
+ 		x_1\\
+ 		x_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		x_n
+ 	 \end{bmatrix}
+	 	$$
+ 
+ We use the same symbol $\R^n$ to refer to both the vector space $\R^n$ and the underlying set of points $\R^n$.
+ 
+ Vector addition is defined as follows:
+ 
+ $$\begin{bmatrix}
+ 		x_1\\
+ 		x_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		x_n
+ 	 \end{bmatrix} +
+ 		\begin{bmatrix}
+ 		y_1\\
+ 		y_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		y_n
+ 	 \end{bmatrix}=
+ 	 \begin{bmatrix}
+ 		x_1+y_1\\
+ 		x_2+y_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		x_n+y_n
+ 	 \end{bmatrix}
+	 	$$
+	 	
+	An element of $\R$ is also called a "scalar" in this context, and vectors can be multiplied by scalars as follows:
+	
+	$$ c\begin{bmatrix}
+ 		x_1\\
+ 		x_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		x_n
+ 	 \end{bmatrix} = 
+ 	 \begin{bmatrix}
+ 		cx_1\\
+ 		cx_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		cx_n
+ 	 \end{bmatrix}$$
+ 	 
+ 	Important:  We do not define multiplication of vectors!
+ 	
+ 	\begin{question}
+ 		What is $\begin{bmatrix}
+ 		1\\2\\3
+ 	 \end{bmatrix}+\begin{bmatrix}
+ 		3\\-2\\4
+ 	 \end{bmatrix}?$
+ 	
+ 	\end{question}
+ 	
+ 	\begin{question}
+ 		What is $3\begin{bmatrix}
+ 		3\\-2\\4
+ 	 \end{bmatrix}?$
+ 	 
+ 	 \begin{question}
+ 	 	If $v_1 = \begin{bmatrix}
+ 		3\\-2
+ 	 \end{bmatrix} $,
+ 	  $v_2 = \begin{bmatrix}
+ 		1\\5
+ 	 \end{bmatrix}$,  and 
+ 	 $v_3 = \begin{bmatrix}
+ 		1\\1
+ 	 \end{bmatrix}$
+ 	 can you find $a,b \in \R$ so that $a_1v_1+a_2v_2=v_3$?
+ 	 \end{question}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+ 
+\end{document}

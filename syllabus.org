@@ -70,6 +70,8 @@ Motivative multilinearity and the fact that they are alternating.
 Week 10: Integration and Stoke's theorem
 ** Definition of integration
 ** Stoke's theorem
+*** Show that Stoke's theorem gives us a more intuitive definition of exterior derivative as 
+integral around "infinitesmal parallopipeds"
 ** Topological consequences
 * Week 11: Focus on R^3 (Anticlimax)
 ** See how to interpret 0,1,2,3 forms as functions or vector fields in R^3 

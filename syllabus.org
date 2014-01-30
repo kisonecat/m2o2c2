@@ -10,6 +10,7 @@
 * Week 2: Limits
 ** look at graphs
 ** define limits
+***Which deltas work?  Is this limit right, if not give an epsilon which has no delta.
 ** compute limits
 * Week 3: Derivative
 ** very rapid single variable calculus 
@@ -26,16 +27,26 @@
 ** gradient, R^n to R
 ** inner product and geometry
 ** a tangent on bilinear forms
-* Week 5: Optimization
-** Lagrange multipliers
+* Week 5: Second Derivative and Optimization
+** Second derivative as a bilinear form, Hessian "Matrix"
+** Second order taylor expansion
+** Compactness (maybe just "closed and bounded")
 ** Find critical points of a function.
 ** Define local maximum and local minimum.
-** positive definiteness
-* Week 6: Integration of "functions" (Really top level forms)
+** Positive definite bilinear forms, second derivative test
+** Lagrange multipliers
+
+* Week 6: Multivariable Talyor's theorem
+** nth derivatives as symmetric n-tensors
+** multivariable taylors theorem with remainder
+** analyze critical points with higher level taylor polynomials if second derivative test failed
+
+
+* Week 7: Integration of "functions" (Really top level forms)
 ** definition of integral
 ** determinants 
 ** chain of variables
-* Week 7: Integration of 1-form on a 1-chain
+* Week 8: Integration of 1-form on a 1-chain
 ** Observe that total derivative of a function is a one form: use this to motivate definition of general 1-form.
 ** Prove FTC for 1-forms.  Observe that "d\theta" cannot be exact on the annulus.
 ** When can we find f so that df=w?  Natural question because then we can use FTC.  At least need mixed partials to commute.
@@ -46,7 +57,7 @@ connected domains this is always true.
 ** At least see in principle how there should be "essentially" n closed 1-forms on a region in R^2 with n holes.
 *** Give explicit formula for generators of the 1st de Rham cohomology group
 ** Note that one form level down if df = 0, f is locally constant. Number of constants needed gives number of connected componenets.
-* Week 8: higher dimensional forms
+* Week 9: higher dimensional forms
 ** To be able to integrate over a parameterized k-chain, we will need something that eats k tangent vectors and spits out numbers.  
 Motivative multilinearity and the fact that they are alternating.
 ** Show that the n choose k wedges of dx_i's generate all k-forms.
@@ -56,11 +67,11 @@ Motivative multilinearity and the fact that they are alternating.
 *** Observe that dw=0 exactly says w is closed using our previous definition for 1-forms.
 ** Define hodge star operator.
 ** (Maybe?) write laws of electromagnetism.  Hodge star needs to be modified for the lorentzian metric though, so I am not sure...
-Week 9: Integration and Stoke's theorem
+Week 10: Integration and Stoke's theorem
 ** Definition of integration
 ** Stoke's theorem
 ** Topological consequences
-* Week 10: Focus on R^3 (Anticlimax)
+* Week 11: Focus on R^3 (Anticlimax)
 ** See how to interpret 0,1,2,3 forms as functions or vector fields in R^3 
 ** Work out the definitions of grad, curl, and div from this and defintion of exterior derivative
 ** Work out what Stoke's theorem says in this notation

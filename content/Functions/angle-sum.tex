@@ -1,0 +1,32 @@
+\begin{document}
+\section{The angle sum formulas for sine and cosine}
+
+In the following sequence of exercises you will see how to find the angle sum formulas for sine and cosine using linear algebra.
+
+\begin{question}
+	Let $R_\theta : \R^2 \to \R^2$ be the map which takes a vector, and returns that vector rotated $\theta$ radians counterclockwise.
+	Complete the following picture showing that $R_\theta(v+w) = R_\theta(v)+R_\theta(w)$:
+	
+	BADBAD PICTURE
+	
+	Complete the following picture showing that $R_\theta(av) = aR_\theta(v)$
+	
+	BADBAD PICTURE
+\end{question}
+
+	So $R_\theta$ is a linear map.
+	
+	\begin{question}
+		What is the matrix of $R_\theta$?
+	\end{question}
+	
+	Note that $R_{\alpha+\beta} = R_{\alpha} \circ R_{\beta}$ because rotating a vector through an angle $\alpha +\beta$
+	 is the same as rotating it through the angle $\beta$ and then rotating and then rotating that through the angle $\alpha$.
+	 
+	 \begin{question}
+	 	Using the formula developed in the last question, what is the matrix of $R_{\alpha+\beta}$?
+	 	By multiplying the two matrixes for $R_\alpha$ and $R_\beta$, we get another matrix representation of $R_{\alpha +\beta}$.  What is it?
+	 	Now by equating entries of these two matrixes, what is $\sin(\alpha+\beta)$ in terms of sines and cosines of $\alpha$ and $\beta$?
+	 	What is $\cos(\alpha+\beta)$?
+	 \end{question}
+\end{document}

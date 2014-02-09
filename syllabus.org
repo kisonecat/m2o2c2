@@ -55,7 +55,7 @@
 ** At least see in principle how there should be "essentially" n closed 1-forms on a region in R^2 with n holes.
 *** Give explicit formula for generators of the 1st de Rham cohomology group
 ** Note that one form level down if df = 0, f is locally constant. Number of constants needed gives number of connected componenets.
-* Week 8: higher dimensional forms
+*Week 8: higher dimensional forms
 ** To be able to integrate over a parameterized k-chain, we will need something that eats k tangent vectors and spits out numbers.  
 Motivative multilinearity and the fact that they are alternating.
 ** Show that the n choose k wedges of dx_i's generate all k-forms.
@@ -70,7 +70,7 @@ Motivative multilinearity and the fact that they are alternating.
 ** Stoke's theorem
 *** Show that Stoke's theorem gives us a more intuitive definition of exterior derivative as integral around "infinitesmal parallopipeds"
 ** Topological consequences
-* Week 11: Focus on R^3 (Anticlimax)
+* Week 10: Focus on R^3 (Anticlimax)
 ** See how to interpret 0,1,2,3 forms as functions or vector fields in R^3 
 ** Work out the definitions of grad, curl, and div from this and defintion of exterior derivative
 ** Work out what Stoke's theorem says in this notation

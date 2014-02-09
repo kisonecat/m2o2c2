@@ -1,0 +1,21 @@
+In this exploration, we will play with some visual effects that you can achieve using linear algebra.
+
+The image on your screen is 2 dimensional, so we can think of it as part of $\R^2$, with its center at the origin.
+
+A $2 \times 2$ matrix represents a map from $\R^2$ to itself, so it be be used to transform the image.  For example, the linear map given by
+
+$\begin{bmatrix}
+	1 & 0\\
+	0 & -1
+\end{bmatrix}$
+
+should turn the image upside down (think about why).
+
+Input any matrix you like below to see the visual effect.  Can you get a reflection over the line $y=x$?  A rotation of $\pi/2$?  A vertical stretch by a factor of $2$?
+By using the parameter $t$, you can have an animated effect.  $t$ represents the number of seconds since clicking the "run" button.  A fun one to try is 
+
+$\begin{bmatrix}
+	cos(t) & -sin(t)\\
+	sin(t) & cos(t)
+\end{bmatrix}$
+

@@ -1,0 +1,214 @@
+\begin{document}
+\section{$\R^n$ as an inner product space}
+In order to do geometry in $\R^n$, we will want to be able to compute the length of a vector, and the angle between two vectors.   Miraculously, a single operation will allow us to
+compute both quantities.
+
+\begin{definition}
+	A \textit{covector} on $\R^n$ is a linear map from $\R^n \to R$.  As a matrix, it is a single row of length $n$.
+\end{definition}
+
+\begin{example}
+	$\begin{bmatrix} 2 & -1 & 3 \end{bmatrix}$ is a covector on $\R^3$.
+\end{example}
+
+\begin{question}
+	What is $\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3 \\5\\7 \end{bmatrix}$?
+\end{question}
+
+\begin{question}
+	What is $\begin{bmatrix} x_1 & x_2 & x_3 \end{bmatrix} \begin{bmatrix} y_1 \\y_2\\y_3 \end{bmatrix}$?
+\end{question}
+
+There is a natural way to turn a vector into a covector, or a covector into a vector:  just turn the matrix $90^\circ$ one direction or the other!
+
+\begin{definition}
+	We define the transpose of a vector $v = \begin{bmatrix} x_1 \\x_2\\ .\\.\\. \\ x_n\ \end{bmatrix}$ to be the covector $v^\top$ with matrix 
+	$\begin{bmatrix} x_1 &x_2& ... &x_n \end{bmatrix}$.
+	
+	Similarly we define the transpose of a covector $\omega: \begin{bmatrix} x_1 &x_2& ... &x_n\ \end{bmatrix}$ to be the vector $\omega^\top$ with matrix
+	$\begin{bmatrix} x_1 \\x_2\\ .\\.\\. \\ x_n\ \end{bmatrix}$.  
+\end{definition}
+
+Observe that $(v^\top)^\top = v$ and $(\omega^\top)^\top = \omega$ for any vector $v$ and covector $\omega$.
+
+\begin{question}
+	If $v = \begin{bmatrix}  5 \\ 3 \\ 1\end{bmatrix}$ and $w = \begin{bmatrix}  2 \\ -2 \\ 7\end{bmatrix}$ what is $v^\top(w)$? What is $w \circ v^\top$?
+\end{question}
+
+\begin{definition}
+	Given two vectors $v,w \in \R^n$, we define their inner product $\langle v, w\rangle$ by $\langle v,w \rangle = v^\top(w) \in \R$.  We sometimes use the notation 
+	$v \cdot w$ for $\langle v , w \rangle$, and call the operation a textit{dot product}. 
+\end{definition}
+
+
+\begin{question}
+	Make sure for yourself , by using the definition, that 
+	$\begin{bmatrix} x_1 \\x_2\\ .\\.\\. \\ x_n\ \end{bmatrix} \cdot \begin{bmatrix} y_1 \\y_2\\ .\\.\\. \\ y_n\ \end{bmatrix}  = x_1y_1+x_2y_2+x_3y_3 + ...+x_ny_n$
+\end{question}
+
+\begin{question}
+	Prove the following facts about the dot product.  $u,v,w \in \R^n$ and $a \in \R$
+		\begin{itemize}
+			\item $v \cdot w = w \cdot v$ (The dot product is commutative)
+			
+			\item $u \cdot (v+w) = u\cdot v+ u\cdot w$ and  $v \cdot (aw) = a(v \cdot  w)$ (The dot product is linear in the second argument)
+			
+			\item $(u+v)\cdot w = u\cdot w + v\cdot w$ 	and $(av)\cdot w = a(v \cdot w)$ 	(The dot product is linear in the first argument)
+			
+			\item $v\cdot v \geq 0$		(The dot product is positive definite)
+			
+			\item if $v \cdot z = 0$ for all $z \in \R^n$, then $v =0$ (The dot product is nondegenerate)
+		\end{itemize}
+\end{question}
+
+
+So far, the inner product seems like a sort of algebraic game.  In the next few exercises, we will start to see some hints of its geometric meaning.
+
+\begin{question}
+	Let $v  = \begin{bmatrix}  5  \\ 1\end{bmatrix}$.  What is $\langle v,v\rangle$?  
+	
+	Using plane geometry, compute the distance from the point $(0,0)$ to the point $(5,1)$.  What is this distance?
+	
+	How are these two related?
+\end{question}
+
+\begin{question}
+	$v  = \begin{bmatrix}  x  \\ y\end{bmatrix}$.  What is $\langle v,v\rangle$?  
+	
+	Using plane geometry, compute the distance from the point $(0,0)$ to the point $(x,y)$.  What is this distance?
+	
+	How are these two related?
+\end{question}
+
+You should have discovered that $v\cdot v$ is the square of the length of the vector $v$ when viewed as an arrow based at the origin.  So far, you have only shown this in the 
+$2$ dimensional case.  See if you can do it in three dimensions:
+
+\begin{problem}
+	Show that the length of the line segment from $(0,0,0)$ to $(x,y,z)$ is $\sqrt{v \cdot v}$, where $v  = \begin{bmatrix}  x  \\ y \\ z\end{bmatrix}$.
+\end{problem}
+
+Until now, you have probably not seen a treatment of length in higher dimensions.  Generalizing the results of the previous two problems, we define
+
+\begin{definition}
+	The \textit{length} of a vector $v \in \R^n$ is defined by $|v| = \sqrt{v \cdot v}$.
+\end{definition}
+
+\begin{question}
+	What is the length of the vector $\verticalvector(6,2,3,1)$?
+\end{question}
+
+\begin{question}
+	What is the distance between the points $(2,3)$ and $(5,9)$?
+\end{question}
+
+\begin{question}
+	What is the distance between the points $(2,7,3,1)$ and $(5,6,9,8)$?
+\end{question}
+
+\begin{question}
+	Write an equation for the sphere in $\R^4$ of radius $r$ using the coordinates $x,y,z,w$ on $\R^4$.
+\end{question}
+
+\begin{question}
+	Write an inequality stating that the point $(x,y,z,w)$ is more than $4$ units away from the point $(2,3,1,9)$
+\end{question}
+
+\begin{question}
+	Give a vector of length $1$ which points in the same direction as $\verticalvector(1,2)$.
+\end{question}
+
+Now that we understand the relationship between the inner product and length of vectors, we will attempt to establish a connection between the inner product and the 
+angle between two vectors.
+
+Do you remember the law of cosines?  It states the following:
+
+\begin{theorem}
+	BADBAD PICTURE
+	If a triangle has side lengths $a$,$b$, and $c$, then $c^2 = a^2+b^2 - 2ab\cos(\theta)$, where $\theta$ is the angle opposite the side with length $c$.
+\end{theorem}
+
+\begin{question}
+Prove the law of cosines.
+\end{question}
+
+We can rephrase this in terms of vectors, since geometrically if $v$ and $w$ are vectors, the third side of the triangle is the vector $w-v$.
+
+BADBAD PICTURE
+
+\begin{theorem}
+	For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v^2| - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
+\end{theorem}
+
+(For you sticklers, this could actually be taken as the definition of the angle between two vectors in arbitrary dimension)
+
+\begin{question}
+	Rewrite the theorem above by using our definition of length in terms of the dot product.  Performing some algebra you should obtain a nice expression for $v\cdot w$
+	in terms of $|v|, |w|$, and $\cos(\theta)$.
+ \end{question}
+ 
+ You should have discovered the following theorem:
+ 
+ \begin{theorem}
+ 	For any two vectors $v,w \in \R^n$,  $v \cdot w = |v||w|\cos(\theta)$.  In words, the dot product of two vectors is the product of the lengths of the two vectors,
+ 	times the cosine of the angle between them.
+ \end{theorem}
+ 
+ \begin{question}
+ 	What is the angle between the vectors $BLAH$  and $BLAH$?
+ \end{question}
+	 	
+ 	\begin{question}
+ 		Find a vector which is perpendicular to $\verticalvector(2,3,1)$.  
+ 	\end{question}
+ 	
+ 	\begin{question}
+ 		Find a vector which is perpendicular to both $\verticalvector(2,3,1)$ and $\verticalvector(5,9,2)$
+ 	\begin{question}
+ 	
+ 	Armed with this theorem we can find a much more geometric interpretation of the inner product in terms of ``projections''.
+ 	
+ 	
+ \begin{question}
+ 	Prove that if $w= c_1v + p_1 = c_2v+p_2$ where $c_1,c_2 \in \R$ and $p_1\perp v and p_2\perp v$, then $c_1 = c_2$ and $p_1 = p_2$.
+ 	BADBAD PICTURE
+ \end{question}
+ 
+ 	In words, this theorem says that if a vector can be written as a linear combination of some other vector $v$ with a vector perpendicular to $v$, then 
+ 	there is only one way to do it.   
+ 
+ \begin{question}
+ 	Let $v,w \in \R^n$ and define $p = w - \frac{(v \cdot w)}{|v|}v$.  Show that $p \perp v$.  It follows that we can write $w = \frac{v \cdot w}{|v|} v + p$, with $p\perp v$.
+ \end{question}
+ 
+	 In words, this shows that every vector $w$ can be written as a linear combination of $v$ and a vector perpendicular to $v$, and by the previous theorem this representation is
+	 unique.
+ 
+ \begin{definition}
+ 	Let $v \in \R^n$.  Define the map $Proj_v:\R^n \to \R^n$ by $Proj_v(w) = \frac{v \cdot w}{|v|} v$.    $Proj_v$ enjoys the following properties:
+ 		\begin{itemize}
+ 			\item $Proj_v$ is a linear map
+ 			\item $Proj_v(v) = v$
+ 			\item for all $w \in \R^n$,  $w - Proj_v(w) \perp w$
+ 			\item If $w \perp v$, $Proj_v(w) = 0$
+ 		\end{itemize}
+ \end{definition}
+ 	
+ 	The following picture shows how this jives with the fact that $v \cdot w = |v||w| \cos(\theta)$
+ 	BADBAD PICTURE
+ 	
+ 	So, intuitively, we can say that the dot product $v \cdot w$ is ``almost'' measuring the length of the projection of $w$ in the direction of $v$.  This is spot on if $v$ is a unit vector,
+ 	but if $v$ has a length other than $1$, you have to scale the length of the projection by the length of $v$.
+ 	 	
+		BADBAD Exploration:  Essentially http://demonstrations.wolfram.com/DotProduct/, only show the projection vector.  Also, have a 3D version, 
+			where you input the coordinates of the two vectors.
+			
+			
+		\begin{question}
+			What is the projection of $BLAH$ in the direction of $BLAH$?
+		\end{question}
+		
+			
+			 
+
+
+\end{document}

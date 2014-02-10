@@ -96,10 +96,68 @@ This additional structure will transform $\R^n$ from a mere set into a "vector s
  	 can you find $a,b \in \R$ so that $a_1v_1+a_2v_2=v_3$?
  	 \end{question}
  	
- 	
- 	
- 	
- 	
- 
- 
+	Graphically, we depict a vector $\begin{bmatrix}
+ 		x_1\\
+ 		x_2\\
+ 		.\\
+ 		.\\
+ 		.\\
+ 		x_n
+ 	 \end{bmatrix}$ in $\R^n$ as an arrow whose base is at the origin and whose head is at  the point $(x_1,x_2,...,x_n)$.  For example, in $\R^2$ 
+ 	 we would depict the vector $\begin{bmatrix}3\\4\end{bmatrix}$ as follows
+ 	 
+ 	 BADBAD PICTURE
+ 	 
+ 	 \begin{question}
+ 	 	What is the vector $v$ pictured below?
+ 	 	BADBAD PICTURE
+  	 \end{question}
+  	 
+  	 \begin{question}
+  	 	Drag the vector below so that it represents the vector \begin{bmatrix}-2\\5\end{bmatrix}.
+  	 	BADBAD INTERACTIVE
+  	 \end{question}
+  	 
+  	 \begin{question}
+  	 	Below $v_1$ and $v_2$ are fixed, but $v_3$ is draggable.  Drag $v_3$ so that $v_1+v_2 = v_3$.
+  	 	BADBAD INTERACTIVE  
+  	 \end{question}
+  	 
+  	 \begin{question}
+  	 	Below $v$ is fixed , but $w$ is draggable.  Drag $w$ so that $w = 3v$.
+  	 	BADBAD INTERACTIVE
+  	 \end{question}
+  	 
+  	 \begin{question}
+  	 	Below $v_1$ and $v_2$ are fixed, but $v_3$ is draggable.  Drag $v_3$ so that $2v_1+3v_2 = v_3$.
+  	 	BADBAD INTERACTIVE  
+  	 \end{question}
+  	 
+  		By playing around above, you may have noticed that you can sum vectors graphically by placing them "head to tail" as in the picture below.
+  		
+  		BADBAD PICTURE
+  		
+  		You also may have noticed that multiplying a vector by a scalar leaves the vector pointing in the same direction but "scales" its length.  That is the reason we give 
+  		numbers the name "scalars" when they are coefficients of vectors:  it is to remind us that they act geometrically by scaling the vector.
+  		
+  		\begin{definition}
+  			We say that a vector $w$ is a \textit{linear combination} of the vectors $v_1,v_2,v_3,...,v_k$ if there are scalars $a_1,a_2,...a_k$ 
+  			so that $w = a_1v_1+a_2v_2+...+a_kv_k$
+  		\end{definition}
+  		
+  		\begin{definition}
+  			The \textit{span} of a set of vectors $v_1,v_2, ..,v_k \in \R^n$ is the set of all linear combinations of the vectors.
+  			Symbolically, $\vspan(v_1,v_2,...,v_k) = \{ a_1v_1+a_2v_2+...+a_kv_k : a_1,a_2, ...,a_k \in \R^n\}$
+  		\end{definition}
+  	 
+  	 	\begin{question}
+  	 		Is $\begin{bmatrix} 3//4//2\end{bmatrix}$ in the span of $\begin{bmatrix} 1\\2\\0\end{bmatrix}$ and $\begin{bmatrix}  3\\-3\\0\begin{bmatrix}$?
+  	 	\end{question}
+  	 	
+  	 	\begin{question}
+  	 		Write $u= \begin{bmatrix} 14 \\15\\-4\end{bmatrix}$ as a linear combination of 
+  	 		$v = \begin{bmatrix} 1\\0\\1\end{bmatrix}$ and $w = \begin{bmatrix} 2\\3\\0\end{bmatrix}$
+  	 		BADBAD FORMAT?
+  	 	\end{question}
+  	 	 
 \end{document}

@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\geometry{paperwidth=3in,paperheight=1.7in,margin=0in,bottom=0in,top=0in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\usepackage{xcolor}
+\usepackage{sansmath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\sffamily\sansmath
+\thispagestyle{empty}
+
+% x^2 + y^2 + z^2 = 1
+% (2/7,3/7,6/7)
+% 2x + 3y + 6z = 7
+
+\begin{tikzpicture}[overlay,remember picture,anchor=north west,inner sep=0pt, outer sep=0pt]
+\node[xshift=-2cm,yshift=0.25cm] at (current page.south east) {%
+ \begin{tikzpicture}[x=1in,y=1in,overlay,remember picture, inner sep=0pt, outer sep=0pt]
+
+\color{black!50!white}
+
+%\draw[->] (-1.15,0) -- (1.15,0);
+%\draw[->] (0,-1.15) -- (0,1.15);
+
+\foreach \j in {0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9} {
+  \draw[opacity=100,line width=0.25pt] (0,0) circle ({sqrt(1 - (\j)^2)});
+
+  \foreach \i in {0.25,0.50,0.75} {
+    \draw[opacity=50,line width=0.1pt] (0,0) circle ({sqrt(1 - (\j + 0.1*\i)^2)});
+  }
+}
+
+\newcommand{\radius}{0.45}
+% 3*y = 7 - 6*z - 2*x
+% 2*x = 7 - 6*z - 3*y
+\color{red!50!black}
+\foreach \j in {0.8,0.9,1.0} {
+  \foreach \i in {0.0} {
+    \draw[line width=0.25pt] ({2/7 - \radius},{(7 - 6*(\j+0.1*\i) - 2*(2/7 - \radius))/3}) -- ({(7 - 6*(\j+0.1*\i) - 3*(-0.2))/2},{-0.2});
+  }
+
+  \foreach \i in {-0.5,-0.4,-0.3,-0.2,-0.1,0.1,0.2,0.3,0.4} {
+    \draw[line width=0.1pt] ({2/7 - \radius},{(7 - 6*(\j+0.1*\i) - 2*(2/7 - \radius))/3}) -- ({(7 - 6*(\j+0.1*\i) - 3*(-0.2))/2},{-0.2});
+  }
+}
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,45 @@
+\begin{document}
+\section{The single variable derivative, revisited}
+	
+	Our goal is to define the derivative of a multivariable function, but first we will recast the derivative of a single variable function in a
+	manner which is ripe for generalization.
+	
+	The derivative of a function $f:\R \to \R$ at an abscissa $x = a$ is the "instantaneous rate of change" of $f(x)$ with respect to $x$.
+	In other words, 
+	
+	$f(a + \Delta x) \approx f(x) +f'(a)\Delta x$.
+	
+	This is really the essential thing to understand about the derivative.
+	
+	BADBAD conceptual mooculus questions on derivative here.
+	
+	We have not made precise what we mean the approximate sign.  After all, if $\Delta x$ is small enough and $f$ is continuous, 
+	$f(a+\Delta x)$ will be close to $f(x)$, but we do not want to say that the derivative is always $0$!  We will make the  $\approx$ sign precise by asking that the difference 
+	between the actual value and the estimated value go to $0$ faster than $\Delta x$ does:
+	
+	\begin{definition}
+		Let $f: \R \to \R$ be a function, and let $a \in \R$.  $f$ is said to be differentiable at $x=a$ if there is a number $m$ such that 
+		
+		\[ f(a+\Delta x) = f(a) + m\Delta x + Error_a(\Delta x)\]
+		
+		\[ \lim_{\Delta x \to 0} \frac{\left|Error_a(\Delta x)|}{\left|\Delta x\right|} = 0 \].
+		
+		If $f$ is differentiable at $a$, there is only one such number $m$, which we call the derivative of $f$ at $a$.  
+		
+		Verbally,  $m$ is the number which makes the error between the function value $f(a+\Delta x)$ and the linear approximation $f(a)+m\Delta x$ go to zero 
+		"faster than $\Delta x$" does.
+	\end{definition}
+	
+	This definition looks more complicated than the usual definition (and it is!), but it has the advantage that it will 
+	generalize directly to the derivative of a multivariable function.
+	
+	\begin{question}
+		Confirm that for $f(x)=x^2$, $f'(2)=4$ using our definition of the derivative.
+	\end{question}
+	
+	\begin{question}
+		Show the equivalence of our definition of the derivative with the ``usual'' definition.  That is, show that the number $m$ in our definition satisfies
+		$m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$.  This also shows the uniqueness of $m$.
+	\end{question}
+	
+	\end{document}

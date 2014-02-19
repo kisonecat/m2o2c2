@@ -27,9 +27,14 @@
 ** chain rule
 ** computations
 ** reprove product rule and rule for f(x)^g(x)
-** review everything we have done up until now, some harder problems
+** Review everything up til now by generalizing:
+** Vector spaces and linear maps (in general) Examples:  spaces of polynomials, space of linear maps
+** basis, dimension
+** Inner products and norms in general, orthogonal basis (gram-schmidt)
+** The derivative between normed spaces
 
 * Second Derivative and Optimization
+** Operator norm on L(V,W)
 ** Second derivative as a bilinear form, Hessian "Matrix"
 ** Second order taylor expansion
 ** Compactness (maybe just "closed and bounded")

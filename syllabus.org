@@ -8,6 +8,7 @@
 *** formula for angle sum of sine and cosine
 *** basic image manipulation
 ** Inner product, length, and angles
+
 * Limits and the derivative
 ** look at graphs
 ** define limits
@@ -21,11 +22,13 @@
 ** points versus vectors
 ** Find the tangent plane for a surface at a point.
 ** gradient vector for maps to R, and geometry (level curves, "steepist increase")
+
 *  Chain rule and review
 ** chain rule
 ** computations
 ** reprove product rule and rule for f(x)^g(x)
 ** review everything we have done up until now, some harder problems
+
 * Second Derivative and Optimization
 ** Second derivative as a bilinear form, Hessian "Matrix"
 ** Second order taylor expansion
@@ -34,6 +37,10 @@
 ** Define local maximum and local minimum.
 ** Positive definite bilinear forms, second derivative test
 ** Lagrange multipliers
+** Eigenvectors
+** Spectral theorem for real symmetric matricies (Use lagrange multipliers proof)
+** (Show connections to completing the square)
+** Using spectral theorem to test for positive definiteness (use computer algebra software to compute eigenvalues)
 
 * Multivariable Talyor's theorem
 ** nth derivatives as symmetric n-tensors

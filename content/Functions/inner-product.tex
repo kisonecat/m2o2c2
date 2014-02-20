@@ -139,7 +139,7 @@ BADBAD PICTURE
 	For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v^2| - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
 \end{theorem}
 
-(For you sticklers, this could actually be taken as the definition of the angle between two vectors in arbitrary dimension)
+(For you sticklers, this is really being taken as the definition of the angle between two vectors in arbitrary dimension)
 
 \begin{question}
 	Rewrite the theorem above by using our definition of length in terms of the dot product.  Performing some algebra you should obtain a nice expression for $v\cdot w$
@@ -153,6 +153,41 @@ BADBAD PICTURE
  	times the cosine of the angle between them.
  \end{theorem}
  
+ As mentioned above, this theorem is really being used to \textit{define} the angle between two vectors.  This is not quite rigorous:  how do we even know that 
+ $\frac{v \cdot w}{|v||w|}$ is even between $-1$ and $1$, so that it could be the cosine of an angle?  This is clear from the ``Euclidean Geometry'' perspective, 
+ but not as clear from the ``Cartesian Geometry'' perspective.  To make sure that everything is okay, we prove the ``Cauchy-Schwarz'' theorem which reconciles these two
+ worlds:
+ 
+ \begin{theorem}
+ 	$v \cdot w \leq |v||w|$ for any two vectors $v,w \in \R^n$
+ \end{theorem} 
+ 
+\begin{question}
+	Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
+	\[
+		\langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+		2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
+	\]
+	
+	Now notice that the left hand side is unaffected by scaling $v$ by a scalar $\lambda$ and $w$ by $\frac{1}{\lambba}$, but the left hand side is!
+	This allows us to breath new life into the inequality:  we know that for every scalar $\lambda \in (0,\infty)$ 
+	
+	\[
+		\langle  v,w \rangle \leq \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2
+	\] 
+	
+	This new inequality is strongest when the left hand side (LHS) is minimized.  As it stands the LHS is just a function of one real variable $\lamba$.
+	
+	What is the value of $\lambda$ which minimizes the LHS? 
+	\begin{answer} \sqrt{|w|/|v|}\end{answer}
+	
+	Conclude that the Cauchy-Schwarz theorem is true!
+	
+	Credit for this beautiful line of reasoning goes to Terry Tao at \url{https://terrytao.wordpress.com/2007/09/05/amplification-arbitrage-and-the-tensor-power-trick/}.
+	
+\end{question}
+
+
  \begin{question}
  	What is the angle between the vectors $BLAH$  and $BLAH$?
  \end{question}

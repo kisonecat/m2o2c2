@@ -1,0 +1,16 @@
+By the end of the course you should understand the following paragraph, 
+and intimately know how to work and compute with everything mentioned:
+
+A \href{http://en.wikipedia.org/wiki/Linear_map}{linear map} is a function between \href{http://en.wikipedia.org/wiki/Vector_space}{vector spaces} 
+which respects vector addition and scalar multiplication.  A \href{http://en.wikipedia.org/wiki/Norm_(mathematics)}{norm} on a vector space is a notion of
+length for a vector.  \href{http://en.wikipedia.org/wiki/Differentiable#Differentiability_in_higher_dimensions}{Differentiable functions} between normed vector
+ spaces are those which can be locally approximated by linear maps.  
+The derivative of a differentiable function takes a point in the domain of the function, and returns a linear map from the domain to the codomain of the function:
+this linear map takes (small) changes in the input and returns an approximation of the resulting (small) change in the output.  Symbolically, if $f: V \to W$ is a function, 
+$Df: V \to L(V,W)$, where $L(V,W)$ is the space of linear maps from $V$ to $W$.  We can place a natural norm on $L(V,W)$, the 
+\href{http://en.wikipedia.org/wiki/Operator_norm}{``operator norm''}.
+ The second derivative, then, is a map $D^2f: V \to L(V,L(V,W))$.  These can be reinterpreted as \href{http://en.wikipedia.org/wiki/Bilinear_operator}{bilinear maps}.  
+ Similarly, the higher order derivatives are higher order \href{http://en.wikipedia.org/wiki/Multilinear_map}{multilinear maps}, which are also known as 
+ \href{http://en.wikipedia.org/wiki/Tensor}{tensors}.  
+ The \href{http://en.wikipedia.org/wiki/Taylors_theorem#Taylor.27s_theorem_for_multivariate_functions}{Multivariable Taylor's Theorem} 
+ uses all of these tensors to approximate the original function.

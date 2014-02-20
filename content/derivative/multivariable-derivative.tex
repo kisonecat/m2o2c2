@@ -1,0 +1,161 @@
+\begin{document}
+\section{The Multivariable Derivative}
+
+The single variable derivative allows us to find the best linear approximation to a function at a point.  In several variables we will \textit{define} 
+the derivative to be a linear approximation which approximates the change in the values of a function.
+
+\begin{example}
+	Consider the function $f:\R^3 \to \R^2$ defined by $f(\verticalvector(x,y,z)) = \verticalvector(x^2y+1,x+y+2)$.  The derivative of $f$ at the point $(1,2,3)$ is the 
+	linear map $D(f)\big|_{(1,2,3)}$ whose matrix is given by $\begin{bmatrix} BLAH \end{bmatrix}$.  We can use the derivative to approximate the value of $f$ at nearby points.
+	
+	For example, $f(\verticalvector(1.01,2.03,3.1)) \approx f(\verticalvector(1,2,3))+ D(f)\big|_{(1,2,3)}(\verticalvector(0.01,0.03,0.1))$.
+	
+	Let's see whether this approximation looks any good:
+	
+	$f(\verticalvector(1.01,2.03,3.1))  = BLAH$
+	$ f(\verticalvector(1,2,3))+ D(f)\big|_{(1,2,3)}(\verticalvector(0.01,0.03,0.1)) = BLAH$
+	
+	These really do look quite close.
+\end{example}
+
+Let's deal with this concept on the intuitive level a bit before we jump into a rigorous definition:
+
+\begin{question}
+	Given point and derivative approximate function value at new point.
+\end{question}
+
+\begin{question}
+	Given function and values at $a+he_i$, approximate the derivative map.
+\end{question}
+
+Mimicking our development of the single variable derivative, we define:
+
+\begin{definition}
+	Let $f :\R^n \to \R^m$ be a function, and let $\mathbf{a} \in \R^n$.  
+	 $f$ is said to be differentiable at $\mathbf{a}$ if there is a linear map $M:\R^n \to \R^m$ such that 
+		
+		\[ f(\mathbf{a}+\vec{h}) = f(\mathbf{a}) + M(\vec{h})+ Error_{\mathbf{a}}(\vec{h})\]
+		
+		\[ \lim_{\vec{h} \to 0} \frac{\left|Error_a(\vec{h})|}{\left|\vec{h}\right|} = 0 \].
+		
+		If $f$ is differentiable at $\mathbf{a}$, there is only one such linear map $M$, which we call the (total) derivative of $f$ at $\mathbf{a}$.  
+		
+		Verbally,  $M$ is the linear function which makes the error between the function value $f(\mathbf{a}+\vec{h})$ and the affine approximation 
+		$f(\mathbf{a})+M(\vec{h})$ go to zero "faster than $\vec{h}$" does.
+\end{definition}
+
+This definition is great, but it doesn't tell us how to actually compute the derivative of a differentiable function!  Lets dig a little deeper:
+
+\begin{example}
+	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f(\verticalvector(x,y)) = \verticalvector(f_1(x),f_2(x))$. 
+	 Assuming $f$ is differentiable at the point $(1,2)$, lets try to compute the derivative there. 
+	 Let $M$ be the derivative of $f$ at $(1,2)$.  Then 
+	 \[\lim_{h \to 0} \frac{\left|f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - M(\verticalvector(h,0)))\right|}{\left|h\right|} = 0\]
+	 \[ \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - hM(\verticalvector(1,0)))}{h} \right| = 0\]
+	 \[ \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h} -M(\verticalvector(1,0))\right| = 0\]
+	 \[ M(\verticalvector(1,0)) = \lim_{ h \to 0 } \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h}\]
+	 \[ M(\verticalvector(1,0)) = \lim_{ h \to 0 } \verticalvector(\frac{f_1(\verticalvector(1+h,2)) - f_1(\verticalvector(1,2)}{h}, \frac{f_2(\verticalvector(1+h,2)) - f_2(\verticalvector(1,2)}{h})\]
+	 
+	 But each of the remaining quantities are derivatives of \textit{one} variable functions!  In particular, we have that
+	 
+	 $M(\verticalvector(1,0)) = \verticalvector(\frac{d}{dx}(f_1(x,2))\big|_{x=1},)frac{d}{dx}(f_2(x,2))\big|_{x=1}$.  
+	 We call these kinds of quantities \textit{partial derivatives}  because they are part of the derivative.
+\end{example}
+
+\begin{question}
+	Without copying the work in the example above (if you can) try to find $M(0,1)$.
+	Use the results of this question and the previous example to find the derivative of the function $f(\verticalvector(x,y)) = \verticalvector(x^2+y^2,xy)$.
+	What is the matrix of the derivative of $f$ at $(1,2)$?
+\end{question}
+
+\begin{definition}
+	Let $\mathbf{a} \in \R^n$, and $1\leq i \leq n$ be a natural number.  We introduce the notation
+	
+	$L_{i,\mathbf{a}}$ for the function from $\R \to \R^n$ defined by $t \mapto (a_1,a_2,...a_{i-1},t,a_{i+1},...,a_n)$.  In other words, $L_{i,\mathbf{a}}$ parameterizes the
+	affine line in $\R^n$ whose coordinates agree with $a$ except in the $i^{th}$ slot, which is allowed to vary.
+\end{definition}
+
+\begin{example}
+	If $\mathbf{a} = (2,4,7) , L_{2,\mathbf{a}}(t) = (2,t,7)$
+\end{example}
+
+\begin{problem}
+	If $\mathbf{a} = (5,4,2,9)$, what is $L_{3,\mathbf{a}}(21)$?
+\end{problem}
+
+\begin{problem}
+	If $f:\R^3 \to \R$ is defined by $f(x,y,z) =  x^2y+z$, and $\mathbf{a} = (2,-3,-4)$ what is a formula for the function $f\comp L_{2,\mathbf{a}}$ as a function of $t$?
+\end{problem}
+
+\begin{definition}
+	Consider $f:\R^n \to \R$.   For each $i = 1,2,3, ..., n$,  and each point $\mathbf(p) = (p_1,p_2,.,.,.,p_n)$ we obtain a function $f \comp L_{i,\mathbf{p}} : \R \to \R$.
+	 We then define the \textit{partial derivative} of $f$ with respect to $x_i$ at the point $\mathbf{p} \in \R^n$ by
+	
+	$ \frac{partial f}{\partial x_i}\\left( \mathbf{p} \right):=  (f \comp L_{i,\mathbf{p}})'(p_i)$.
+	
+	In other words, $f_{x_i}(\mathbf{p})$ is the instantaneous rate of change in $f$ when leaving all variables fixed except for $x_i$.
+\end{definition}
+
+	\begin{question}
+		Prove that $f_{x_i}(\mathbf{a}) = \lim_{h \to 0} \frac{f(a_1,a_2,...,a_{i-1},a_i+h,a_{i+1},...,a_n) - f(a_1,a_2,...,a_n)}{h}$
+	\end{question}
+	
+	
+	\begin{example}
+		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
+		because this is really the only type of higher dimensional function we can effectively graph.
+		
+		The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		plane $x_2 = b$, as pictured below:
+		
+		BADBAD PICTURE
+		
+		Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		plane $x_1=a$:
+		
+		BADBAD PICTURE
+		
+	\end{example}
+	
+	Computing partial derivatives is no harder than computing derivatives of single variable functions.  You take a 
+	 partial derivative of a function with respect to $x_i$ just by treating all other variables as constants, and taking the derivative with respect to $x_i$.
+	
+	\begin{question}
+	Let $f:\R^2 \to \R$ be defined by $f(x,y) = x\sin(y)$.  What is $f_x(a,b)$?  What is $f_y(a,b)$?
+	\end{question}
+	
+	We have already proven the following theorem in the special case $n=m=2$.  Proving it in the general case requires no new ideas: 
+	 only better notational bookkeeping.
+	
+	\begin{theorem}
+		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
+		$f(\mathbf{a}) = \verticalvector(f_1(\mathbf{a}),f_2(\mathbf{a}),f_3(\mathbf{a}),.,.,., f_m(\mathbf{a}))$.  If $f$ is differentiable at $\mathbf{a}$,
+		 then its derivative has the matrix 
+		  \[
+		  \begin{bmatrix}
+		  \frac{\partial f_1}{\partial x_1} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_1} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_1} \\
+		  \frac{\partial f_1}{\partial x_2} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_2} \\
+		  \frac{\partial f_1}{\partial x_3} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_3} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_3} \\
+		    .&.&...&.\\
+		    .&.&...&.\\
+		    .&.&...&.\\
+		 \frac{\partial f_1}{\partial x_n} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_n} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_n} \\
+		  \end{bmatrix}
+		  \]
+		  
+		  More compactly, we might write
+		  
+		  \[
+		  	\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)
+		  \]
+		  
+		  This matrix is also called the \textit{jacobian} matrix of $f$, in honor of the mathematician Carl Gustav Jacob Jacobi.
+	\end{theorem}
+	
+	\begin{question}
+		Let $f:\R^3 \to \R^2$ be defined by $f(x,y,z) = (x^2+y+z^3,xy+yz^2)$.  What is the jacobian of $f$?
+		
+		Use the jacobian to approximate $f(2.01,1.9,0.1)$
+	\end{question}
+	
+\end{document}

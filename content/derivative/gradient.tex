@@ -1,0 +1,93 @@
+\begin{document}
+\section{The Gradient}
+
+In this section, we will focus on gaining a more "geometric" understanding of derivatives of functions $f:\R^n \to \R$.
+
+If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \R$ is a covector.  So, by the definition of the dot product,
+ we can reinterpret that derivative as the dot product with the fixed vector $Df\left(\mathbf{p}\right)^\top$.
+ 
+ \begin{definition}
+ 	The gradient of a differentiable function $f:\R^n \to \R$ is defined by $\nabla f (\mathbf{p})= Df\left(\mathbf{p}\right)^\top$.
+ 	Equivalently, $\nabla f$ is the (unique) vector which makes the following equation true for all $\vec{v} \in \R^n$:
+ 	\[ \nabla f\mathbf{p} \cdot v = Df(\mathbf{p})(v)\] 
+ \end{definition}
+ 
+ \begin{question}
+ 	If $f:\R^3 \to \R$ is defined by $f(x,y,z) = sin(xyz^2)$, what is $\nabla f(a,b,c)$?
+ \end{question}
+ 
+ We can now use what we know about the geometry of the dot product to understand some interesting things about the derivative.
+ 
+ \begin{question}
+ 	In a sentence, how does the vector $\frac{\vec{v}}{|\vec{v}|}$ relate to the vector $\vec{v}$?
+ 	\begin{answer}
+ 		It is the unit vector pointing in the same direction as  $\vec{v}$. 
+ 	\end{answer}
+ \end{question}
+ 
+ \begin{theorem}
+ 	Let $f:\R^n \to \R$, and $\mathbf{p}\in R^n$. 
+ 	
+ 	If $\left|v\right| = 1$, then $Df(\mathbf{p})(\vec{v}\leq Df(\mathbf{p})( \frac{\nabla f (\mathbf{p})}{|\nabla f (\mathbf{p})|})$
+ \end{theorem}
+
+	More geometrically, this theorem says that $\nabla f(\mathbf{p})$ points in the direction of  ``greatest increase'' for the function $f$.
+	More poetically, $\nabla f$ always points ``straight up the mountain''.
+	
+\begin{question}
+	Prove this theorem.
+	\begin{answer}
+		 $Df(\mathbf{p})(\vec{v}) = \nabla f (\mathbf{p}) \cdot v   \leq v||\nabla f(\mathbf{p})|$, by Cauchy-Schwarz
+		 $ =  |\nabla f(\mathbf{p})|$ since $|v| = 1$ 
+		 
+		 On the other hand, 
+		 
+		 $Df(\mathbf{p})( \frac{\nabla f (\mathbf{p})}{|\nabla f (\mathbf{p})|}) = \nabla f (\mathbf{p}) \cdot \nabla \frac{f (\mathbf{p})}{ |\nabla f (\mathbf{p})|}
+		  = |\nabla f (\mathbf{p})|$
+		  
+		  The inequality follows.
+	\end{answer}
+\end{question}
+
+One of the ways that we learned to visualize functions was via contour plots.  We will see that there is a very nice relationship between contours and gradient vectors.
+
+Let's start with the two dimensional case.  Let $f: \R^2 \to \R$, and consider the contour $\mathcal{C} = \{ (x,y) \in \R^2 :  f(x,y) = c \}$ for some $c \in \R$.
+
+BADBAD PICTURE
+
+\begin{question}
+	If $\vec{v}$ is a tangent vector to $\mathcal{C}$ at a point $\mathbf{p} \in \mathcal{C}$, what is $Df(\mathbf{p})(\vec{v})$?
+	Note:  You should be able to answer this from an intuitive point of view, but we will not develop the formal tool to prove this 
+	(the \href{implicit function theorem}{http://en.wikipedia.org/wiki/Implicit_function_theorem}) in this course.
+	\begin{answer}
+		0
+	\end{answer}
+\end{question}
+
+In general, if $f:\R^n \to \R$, and the contour $\mathcal{C} = \{ \mathbf{p} \in \R^n :  f(\mathbf{p}) = c \}$ for some $c \in \R$, then for every tangent 
+vector $\vec{v}$ to $\mathcal{C}$, we will have $Df{\mathbf{p}}{\vec{v}}  =0$.  
+Intuitively this is true because moving a small amount in the direction of $\vec{v}$ will not change the value of the function much,
+ since you are staying as close as possible to the contour where the function is constant.  Accepting this, we have the following:
+ 
+ \begin{theorem}
+  	If $f:\R^n \to \R$, and the contour $\mathcal{C} = \{ \mathbf{p} \in \R^n :  f(\mathbf{p}) = c \}$ for some $c \in \R$, then for every tangent 
+vector $\vec{v}$ to $\mathcal{C}$, we will have $\nabla f(\mathbf{p}) \cdot v  =0$.  In other words, $\nabla f(\mathbf{p})$ is perpendicular to the 
+contour.
+ \end{theorem}
+ 
+ \begin{question}
+ BADBAD interactive:
+ 	Given contour plot, draw in a possible gradient vector at specified point
+ \end{question}
+ 
+ \begin{question}
+ BADBAD multiple choice:
+ 	Given contour plot, which of the following is the gradient vector field?
+ \end{question}
+
+\begin{question}
+	Write an equation for the tangent plane to the surface $x^2+y^2+4z^2 = 1$ at the point $(a,b,c)$.
+\end{question}
+
+
+\end{document}

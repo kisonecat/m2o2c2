@@ -1,0 +1,50 @@
+\begin{document}
+\section{The Chain Rule}
+
+The chain rule of single variable calculus tells you how the derivative of a composition of functions relates to the derivatives of each of the original functions.
+
+\begin{question}
+	Let $f:\R^2 \to R^3$ and $g:\R^3 \to \R^1$.  Given the table of values of $f$, $g$, $Df$ and $Dg$, approximate $g(f(1.01,2.03))$ as well as you can.
+	
+	BADBAD: 
+	Have various values for $f$, including $f(1,2)$
+	Have various values for $g$, including $g(f(1,2))$
+	Have various values for $Df$, including $Df(1,2)$
+	Have various values for $Dg$, including $Dg(f(1,2))$
+	\begin{answer}
+		$g(f(1.01,2.03)) \approx g(f(1,2)+ Df(1,2)(\verticalvector{0.01,0.03}))
+								 \approx g(f(1,2))+ Dg(f(1,2))(Df(1,2)(\verticalvector{0.01,0.03}))$
+	\end{answer}
+\end{question}
+
+\begin{question}
+	Same as previous question, but do not have function values for $g$.  Question is :  what is $D(g \comp f)(1,2)$?
+\end{question}
+
+\begin{theorem}
+	Let $f:\R^n \to \R^m$ and $g: \R^m \to \R^k$ be differentiable functions, and $\mathbf{p} \in \R^n$.  Then 
+	\[
+		D(g \comp f)(\mathbf{p}) = Dg(\mathbf{f(p)}) \comp Df(\mathbf{p})
+	\]
+	
+	In other words, the derivative of a composition of functions is the composition of the derivatives of the functions.
+\end{theorem}
+
+\begin{question}
+	Let us rederive the product rule of single variable calculus using the chain rule of multivariable calculus.
+	Let $f,g:\R \to \R$ be differentiable functions.  Let $Multiply:\R^2 \to \R$ be defined by $Multiply(x,y) = xy$.  
+	Define $Both:\R \to \R^2$  by $Both(x) = (f(x),g(x))$. 
+	Write a formula for $Multiply(Both(x))$.
+	What is the jacobian of $D(Multiply)(a,b)$?
+	What is the jacobian of $D(Both)(t)$?
+	What is the jacobian of $D(Multiply(Both))(t)$?
+	Do you see that this reproves the product rule?
+\end{question}
+
+\begin{question}
+	Problems where they compute $Df$, $Dg$,  $D(g \comp f)$ via chain rule, $g \comp f$ and then $D(g \comp f)$ again directly.
+\end{question}
+
+
+
+\end{document}

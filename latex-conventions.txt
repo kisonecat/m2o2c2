@@ -1,3 +1,6 @@
 \R := \mathbb{R}
 \DeclareMathOperator{\vspan}{span}
-\verticalvector(a_1,a_2,...,a_n):= \begin{bmatrix} a_1 \\a_2\\a_3 ...a_n\end{bmatrix} 
+\verticalvector(a_1,a_2,...,a_n):= \begin{bmatrix} a_1 \\a_2\\a_3 ...a_n\end{bmatrix}
+vectors are denoted \vec{v}, while points are \mathbf{p}
+
+ 

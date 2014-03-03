@@ -51,18 +51,18 @@ Observe that $(v^\top)^\top = v$ and $(\omega^\top)^\top = \omega$ for any vecto
 		\begin{itemize}
 			\item $v \cdot w = w \cdot v$ (The dot product is commutative)
 			
+			\item $(u+v)\cdot w = u\cdot w + v\cdot w$ 	and $(av)\cdot w = a(v \cdot w)$ (The dot product is linear in the first argument)
+			
 			\item $u \cdot (v+w) = u\cdot v+ u\cdot w$ and  $v \cdot (aw) = a(v \cdot  w)$ (The dot product is linear in the second argument)
 			
-			\item $(u+v)\cdot w = u\cdot w + v\cdot w$ 	and $(av)\cdot w = a(v \cdot w)$ 	(The dot product is linear in the first argument)
-			
-			\item $v\cdot v \geq 0$		(The dot product is positive definite)
+			\item $v\cdot v \geq 0$ (The dot product is positive definite)
 			
 			\item if $v \cdot z = 0$ for all $z \in \R^n$, then $v =0$ (The dot product is nondegenerate)
 		\end{itemize}
 \end{question}
 
 
-So far, the inner product seems like a sort of algebraic game.  In the next few exercises, we will start to see some hints of its geometric meaning.
+So far, the inner product feels like it belongs to the realm of pure algebra.  In the next few exercises, we will start to see some hints of its geometric meaning.
 
 \begin{question}
 	Let $v  = \begin{bmatrix}  5  \\ 1\end{bmatrix}$.  What is $\langle v,v\rangle$?  
@@ -114,7 +114,16 @@ Until now, you have probably not seen a treatment of length in higher dimensions
 \end{question}
 
 \begin{question}
+	Show that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \mathbb{R}$. (Note these two uses of $|\cdot|$ are distinct:  $|a|$ means the absolute value of $a$, and $|\vec{v}|$ is the 
+	length of $\vec{v}$)
+\end{question}
+
+\begin{question}
 	Give a vector of length $1$ which points in the same direction as $\verticalvector(1,2)$.
+\end{question}
+
+\begin{question}
+	Given a nonzero vector $\vec{v} \in \R^n$, show that $\frac{1}{|\vec{v}|}\vec{v}$ is a unit vector.
 \end{question}
 
 Now that we understand the relationship between the inner product and length of vectors, we will attempt to establish a connection between the inner product and the 
@@ -131,7 +140,7 @@ Do you remember the law of cosines?  It states the following:
 Prove the law of cosines.
 \end{question}
 
-We can rephrase this in terms of vectors, since geometrically if $v$ and $w$ are vectors, the third side of the triangle is the vector $w-v$.
+We can rephrase this in terms of vectors, since geometrically if $\vec{v}$ and $\vec{w}$ are vectors, the third side of the triangle is the vector $w-v$.
 
 BADBAD PICTURE
 
@@ -153,6 +162,10 @@ BADBAD PICTURE
  	times the cosine of the angle between them.
  \end{theorem}
  
+ This gives an almost totally geometric picture of the dot product:  Given two vectors $\vec{v}$ and $\vec{w}$,  $|\vec{v}\cos(\theta)|$ can be viewed as the length of the
+ projection of $\vec{v}$ onto the line containing $\vec{w}$.  So $|\vec{v}||\vec{w}|\cos(\theta)$ is the ``length of the projection of $\vec{v}$ in the direction of $\vec{w}$ times the
+ length of $\vec{w}$''.
+ 
  As mentioned above, this theorem is really being used to \textit{define} the angle between two vectors.  This is not quite rigorous:  how do we even know that 
  $\frac{v \cdot w}{|v||w|}$ is even between $-1$ and $1$, so that it could be the cosine of an angle?  This is clear from the ``Euclidean Geometry'' perspective, 
  but not as clear from the ``Cartesian Geometry'' perspective.  To make sure that everything is okay, we prove the ``Cauchy-Schwarz'' theorem which reconciles these two
@@ -162,6 +175,31 @@ BADBAD PICTURE
  	$v \cdot w \leq |v||w|$ for any two vectors $v,w \in \R^n$
  \end{theorem} 
  
+ \begin{proof}
+ 	If $\vec{v}$ or $\vec{w}$ is the zero vector, the result is trivial.  So assume $\vec{v} \neq \vec{0}$ and $\vec{w} \neq \vec{0}$
+	Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
+	\[
+		\langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+		2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
+	\]
+	
+	Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
+	
+	\[
+	2\langle \vec{v}, \vec{w} \rangle \leq 2
+	\langle \vec{v},\vec{w}\rangle \leq 1
+	\]
+	
+	Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
+	
+	\[
+	\langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \leq 1
+	\langle v,w\rangle \leq  |v||w|
+	\]
+ \end{proof}
+   
+In the next question, we ask you to fill in the details of an alternative proof which, while a little harder than the one above, is at least as beautiful.
+
 \begin{question}
 	Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
 	\[
@@ -175,6 +213,8 @@ BADBAD PICTURE
 	\[
 		\langle  v,w \rangle \leq \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2
 	\] 
+	
+	This is somewhat miraculous:  we have a stronger inequality than the one we started with ``for free".
 	
 	This new inequality is strongest when the left hand side (LHS) is minimized.  As it stands the LHS is just a function of one real variable $\lamba$.
 	
@@ -199,51 +239,10 @@ BADBAD PICTURE
  	\begin{question}
  		Find a vector which is perpendicular to both $\verticalvector(2,3,1)$ and $\verticalvector(5,9,2)$
  	\begin{question}
+	
+\begin{question}
+	Prove the ``Triangle inequality'':  For any two vector $\vec{v},\vec{w} \in \R^n$, $|\vec{v}+\vec{w}|\leq |\vec{v}+\vec{w}|$.  Draw a picture.  Why is this called the triangle inequality?
+\end{question}
  	
- 	Armed with this theorem we can find a much more geometric interpretation of the inner product in terms of ``projections''.
- 	
- 	
- \begin{question}
- 	Prove that if $w= c_1v + p_1 = c_2v+p_2$ where $c_1,c_2 \in \R$ and $p_1\perp v and p_2\perp v$, then $c_1 = c_2$ and $p_1 = p_2$.
- 	BADBAD PICTURE
- \end{question}
- 
- 	In words, this theorem says that if a vector can be written as a linear combination of some other vector $v$ with a vector perpendicular to $v$, then 
- 	there is only one way to do it.   
- 
- \begin{question}
- 	Let $v,w \in \R^n$ and define $p = w - \frac{(v \cdot w)}{|v|}v$.  Show that $p \perp v$.  It follows that we can write $w = \frac{v \cdot w}{|v|} v + p$, with $p\perp v$.
- \end{question}
- 
-	 In words, this shows that every vector $w$ can be written as a linear combination of $v$ and a vector perpendicular to $v$, and by the previous theorem this representation is
-	 unique.
- 
- \begin{definition}
- 	Let $v \in \R^n$.  Define the map $Proj_v:\R^n \to \R^n$ by $Proj_v(w) = \frac{v \cdot w}{|v|} v$.    $Proj_v$ enjoys the following properties:
- 		\begin{itemize}
- 			\item $Proj_v$ is a linear map
- 			\item $Proj_v(v) = v$
- 			\item for all $w \in \R^n$,  $w - Proj_v(w) \perp w$
- 			\item If $w \perp v$, $Proj_v(w) = 0$
- 		\end{itemize}
- \end{definition}
- 	
- 	The following picture shows how this jives with the fact that $v \cdot w = |v||w| \cos(\theta)$
- 	BADBAD PICTURE
- 	
- 	So, intuitively, we can say that the dot product $v \cdot w$ is ``almost'' measuring the length of the projection of $w$ in the direction of $v$.  This is spot on if $v$ is a unit vector,
- 	but if $v$ has a length other than $1$, you have to scale the length of the projection by the length of $v$.
- 	 	
-		BADBAD Exploration:  Essentially http://demonstrations.wolfram.com/DotProduct/, only show the projection vector.  Also, have a 3D version, 
-			where you input the coordinates of the two vectors.
-			
-			
-		\begin{question}
-			What is the projection of $BLAH$ in the direction of $BLAH$?
-		\end{question}
-		
-			
-			 
-
 
 \end{document}

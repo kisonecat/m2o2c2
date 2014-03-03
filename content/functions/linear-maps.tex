@@ -39,13 +39,13 @@
 	
 	\begin{definition}
 		A $m \times n$ \textit{matrix} is an array of numbers which has $m$ rows and $n$ columns.  The numbers in a matrix are called \textit{enteries}. If $A$ is a matrix, 
-		we will often write $a_ij$ for the entry in the $i^{th}$  row and $j^{th}$ column of the matrix.
+		we will often write $a_{i,j}$ for the entry in the $i^{th}$  row and $j^{th}$ column of the matrix.
 	\end{definition}
 	
 	\begin{definition}
 		To each linear map $L: \R^n \to \R^m$  we associate a $m \times n$ matrix $A_L$ called the \textit{matrix of the linear map}.  It is defined 
-		by letting $a_{i,j}$ be the $i^{th}$ component of $L(e_j)$.  In other words, the $j^{th}$ column of the matrix $A_L$ is the vector $L(e_i)$.  We also associate to each 
-		matrix $m \times n$ matrix $M$ a linear map $L_M: \R^n \to \R^m$ by requiring that $L(e_i)$ is the $j^{th}$ column of the matrix $M$. 
+		by letting $a_{i,j}$ be the $i^{th}$ component of $L(e_j)$.  In other words, the $j^{th}$ column of the matrix $A_L$ is the vector $L(e_j)$.  We also associate to each 
+		matrix $m \times n$ matrix $M$ a linear map $L_M: \R^n \to \R^m$ by requiring that $L(e_j)$ is the $j^{th}$ column of the matrix $M$. 
 	\end{definition}
 	
 	\begin{question}
@@ -110,9 +110,9 @@
 	
 	\begin{question}
 		In the local barter economy, there is an exchange rate :
-			 $1$ spoon $\to$ $2$ apples and $1$ orange
-			 $1$ knife $\to$  $2$ oranges
-			 $1$ fork $\to$  $3$ apples and $4$ oranges
+			 $1$ spoon $\mapsto$ $2$ apples and $1$ orange
+			 $1$ knife $\mapsto$  $2$ oranges
+			 $1$ fork $\mapsto$  $3$ apples and $4$ oranges
 			 
 			 Model this as a linear map from $L:\R^3 \to \R^2$, where the coordinates on $\R^3$ are $\verticalvector(\text{spoons},\text{knives},\text{forks}) $ and the coordinates on $\R^2$ are
 			 $\verticalvector(\text{apples},\text{oranges})$.
@@ -129,9 +129,6 @@
 		If the matrix of $S$ is $M_S = BLAH$ and the matrix of $T$ is $M_T = BLAH$, find the matrix of $T \circ S$.
 	\end{question}
 	
-	\begin{question}
-		If the matrix of $S$ is $M_S = BLAH$ and the matrix of $T$ is $M_T = BLAH$, find the matrix of $T \circ S$.
-	\end{question}
 	
 	\begin{definition}
 		If $M$ is a $m\times n$ matrix and $N$ is a $k \times m$ matrix, then the \textit{product} $NM$ of the matrices is
@@ -140,7 +137,7 @@
 	\end{definition}
 	
 	WARNING:  you may have seen another definition for matrix multiplication in the past.  That definition could be seen as a shortcut for how
-	to compute the product, but it is usually presented devoid of mathematical meaning.  Hopefully our definition seems properly motivated:  matrix definition is 
+	to compute the product, but it is usually presented devoid of mathematical meaning.  Hopefully our definition seems properly motivated:  matrix multiplication is 
 	just what you do to compose linear maps.  We suggest working out the problems here using our definition:  you will develop your own efficient shortcuts in time.
 	
 	\begin{question}

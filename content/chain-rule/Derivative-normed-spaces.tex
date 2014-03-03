@@ -1,0 +1,21 @@
+\begin{document}
+\section{The derivative of a function between normed vector spaces}
+
+	\begin{definition}
+		Let $V$ be a normed vector space with norm $|\cdot|_V$ and $W$ be a normed vector space with norm $|\cdot |_W$.
+		Let $f :V \to W$ be a function, and let $\mathbf{p} \in V$.  
+	 $f$ is said to be differentiable at $\mathbf{p}$ if there is a linear map $M:V \to W$ such that 
+		
+		\[ f(\mathbf{p}+\vec{h}) = f(\mathbf{p}) + M(\vec{h})+ Error_{\mathbf{p}}(\vec{h})\]
+		
+		\[ \lim_{\vec{h} \to \vec{0}} \frac{\left|Error_p(\vec{h})|_W}{\left|\vec{h}\right|_V} = 0 \].
+		
+		If $f$ is differentiable at $\mathbf{a}$, there is only one such linear map $M$, which we call the (total) derivative of $f$ at $\mathbf{p}$.  
+		
+		Verbally,  $M$ is the linear function which makes the error between the function value $f(\mathbf{p}+\vec{h})$ and the affine approximation 
+		$f(\mathbf{p})+M(\vec{h})$ go to zero "faster than $\vec{h}$" does.
+	\end{definition}
+	
+	
+
+\end{document}

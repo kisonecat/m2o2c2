@@ -1,0 +1,58 @@
+\begin{document}
+	\section{Normed Vector Spaces}
+	In order to discuss differentiation between vector spaces, we will need a way to talk about the length of a vector, so that we can take limits.  
+	We will generalize the notion of length of a vector in $\R^n$ to the concept of a \textit{norm} on a vector space.
+	
+	\begin{definition}
+		A \textit{norm} on a vector space $V$ is a function $p: V \to \mathbb{R}$ with the following properties:
+			\begin{itemize}
+				\item (Positivity) For all $\vec{v} \in V$, $p(\vec{v}) \geq 0$
+				\item (Absolute Homogeneity) For all $c \ in \R$ and $\vec{v} \in V$,  $p(c\vec{v}) = |c|p(\vec{v})$
+				\item (Triangle inequality) For all $\vec{v},\vec{u} \in V$, $p(\vec{v}+\vec{u}) \leq p(\vec{v})+p(\vec{u})$
+				\item (Separates points) If $p(\vec{v}) =  0$, then $\vec{v} = \vec{0}$
+			\end{itemize}
+			
+			A vector space equipped with a norm is called a \textit{normed vector space}.
+	\end{definition}
+	
+	We will also sometimes write $|\cdot|_V$ for a norm on $V$, in this case $|\vec{v}|_V$ is the norm of $\vec{v}$.
+	
+	\begin{question}
+		Show that $|\cdot|$ is a norm on $\R^n$.  In other words, the map $p:\R^n \to \R$ defined by $p(\vec{v}) = \sqrt{v \cdot v}$ is a norm.
+	\end{question}
+	
+	\begin{question}
+		Show that the map $p:\R^3 \to \R$ defined by $p(\verticalvector{x_1,x_2,x_3}) = max(|x_1|,|x_2|,|x_3|)$ is a norm.
+	\end{question}
+	
+	\begin{question}
+		Show that the map $p:\R^2 \to \R$ defined by $p(\verticalvector{x_1,x_2}) = |x_1|+|x_2|$ is a norm.
+	\end{question}
+	
+	The most important example for us:  
+	
+	\begin{question}
+		Let $V$ and $W$ be normed finite dimensional vector spaces with norms  $|\cdot|_V$ and $|\cdot|_W$ respectively.  Then there is a norm $|\cdot|_{op}$ of the vector space
+		$\mathcal{L}(V,W)$ of all linear maps from $V$ to $W$ defined by
+		
+		$|A|_{op} = max_{\vec{v} \in V} \left( \frac{|A(\vec{v})|_W}{|\vec{v}|_V}\right)$.
+		
+		Prove that $|\cdot|_{op}$ is a norm.
+	\end{question}
+	
+	\begin{question}
+		Let $A: \R^2 \to \R^2$ have the matrix $\begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2\end{bmatrix}$ with respect to the standard basis.  Prove that
+		$A_{op} = max(|\lambda_1|,|\lambda_2|)$
+	\end{question}
+	
+	\begin{question}
+		Prove that the axiom of positivity is redundant, i.e. it follows from the other axioms.
+	\end{question}
+	
+	A norm is exactly what we need to be able to discuss limits in a vector space:
+	BADBAD
+	
+	
+	
+	
+\end{document}

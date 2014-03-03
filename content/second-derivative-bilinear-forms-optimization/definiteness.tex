@@ -1,0 +1,85 @@
+\begin{document}
+\section{Definiteness of a bilinear form and the Real Spectral Theorem}
+
+\begin{definition}
+	A bilinear form $B$ is called 
+	\begin{itemize}
+		\item \textit{Positive definite} if $B(\vec{v},\vec{v}) > 0 $ for all $\vec{v} \neq \vec{0}$
+		\item \textit{Positive semidefinite} if $B(\vec{v},\vec{v}) \geq 0 $ for all $\vec{v}$
+		\item \textit{Negative definite} if $B(\vec{v},\vec{v}) < 0 $ for all $\vec{v} \neq \vec{0}$
+		\item \textit{Negative semidefinite} if $B(\vec{v},\vec{v}) \leq 0 $ for all $\vec{v}$	
+		\item \textit{Indefinite} if $B$ there are $v$ and $w$ with $B(v,v)>0$ and $B(w,w)<0$
+		\end{itemize}
+\end{definition}
+
+\begin{question}
+	What is the definiteness of the bilinear form associated with the matrix $BLAH$?
+\end{question}
+
+\begin{question}
+	Let $M$ be a diagonal matrix.  Can you relate the sign of the entries $M_{i,i}$ to the definiteness of the associated bilinear form? 
+\end{question}
+
+Our goal will now be to reduce the study of general symmetric bilinear forms to those whose associated matrix is diagonal.
+
+\begin{question}
+	Let $L: \R^n \to R^n$ be a symmetric linear operator.  Prove that if $\vec{v}_1$ and $\vec{v}_2$ are eigenvectors with 
+	distinct eigenvalues $\lambda_1$  and $\lambda_2$, then $\vec{v_1} \perp \vec{v}_2$.
+\end{question}
+
+\begin{question}
+	Let $L:\R^n \to \R^n$ be a self adjoint linear operator.  Let $\vec{v}$ be an eigenvector of $L$.  Prove that $L$ restricts to a symmetric linear operator
+	on the space of vectors perpendicular to $\vec{v}$,  $\vec{v}^\perp$.  
+\end{question}
+
+\begin{theorem}
+	If $L: \R^n \to \R^n$ is a self adjoint linear operator, then $L$ has an eigenvector.
+\end{theorem}
+
+\begin{proof}
+	First assume that $L$ is not the identically $0$ map.  If it is, we are done because $0$ is an eigenvector in that case.
+	
+	Since the unit sphere in $\R^n$ is compact, the function $\vec{v} \mapsto |L(\vec{v})|$ achieves its maximum $M$.  So there is a unit vector 
+	$\vec{u}$ so that $|L(\vec{u})| = M$, and $|L(v)| \leq M$ for all other unit vectors $\vec{v}$.  $M > 0$ because WHYWHY
+	
+	Now let $w = L(v)/M$.  This is another unit vector.
+	
+	Note that $\langle w, L(v)\rangle = M$, so we also have $\langle L(w), v \rangle = M$, since $L$ is self adjoint.
+	
+	$\langle L(\vec{w}),\vec{v}\rangle \leq |L(\vec{w})||\vec{v}|$ with equality if and only if $L(\vec{w}) \in span(\vec{v})$ by the WHYWHY theorem.
+	
+	But $|L(\vec{w})||\vec{v}| = \vec{L(\vec{w})}$ because WHYWHY.
+	
+	So since $M$ is the maximum value of $|L(\vec{u})|$ over all unit vectors $\vec{u}$, we must have  $L(\vec{w}) \in spam{\vec{v}}$
+	
+	We can conclude that $L(\vec{w}) = M\vec{v}$.
+	
+	Now either $\vec{v}+\vec{w} \neq 0$ or $\vec{v}-\vec{w} \neq 0$ .  In either case,
+	
+	$L(\vec{v} \pm \vec{w}) = M\vec{v} \pm M\vec{w}$, so the nonzero $\vec{v} \pm \vec{w}$ is an eigenvector of $L$.
+	
+	Credit for this beautiful line of reasoning goes to \href{http://mathoverflow.net/a/118759/1106}{Marcos Cossarini}.  Most proofs of this theorem use either 
+	Lagrange Multipliers (which we will learn about soon), or complex analysis.  Here we use only linear algebra along with the one analytic fact that a continuous 
+	function on a compact set achieves its maximum value.
+\end{proof}
+
+\begin{question}
+	Combine the previous theorem and question to prove the ``Spectral Theorem for Real Self-adjoint Operators'':  
+	
+	\begin{theorem}
+		A self adjoint operator $L : \R^n \to \R^n$ has an orthonormal basis of eigenvectors.
+	\end{theorem}
+	
+\end{question}
+
+This, in some sense, completely answers the question of how to characterize the definiteness of a symmetric bilinear form.  Look at its associated linear operator, 
+which must be self adjoint.  By the Spectral Theorem, it has a orthonormal basis of eigenvectors.  Then 
+\begin{itemize}
+	\item $B$ positive definite $\Longleftrightarrow$ $L_B$ has all positive eigenvalues
+	\item $B$ positive semidefinite $\Longleftrightarrow$ $L_B$ has all nonnegative eigenvalues
+	\item $B$ negative definite $\Longleftrightarrow$ $L_B$ has all negative eigenvalues
+	\item $B$ negative semidefinite $\Longleftrightarrow$ $L_B$ has all nonpositive eigenvalues
+	\item $B$ indefinite $\Longleftrightarrow$ $L_B$ has both positive and negative eigenvalues
+\end{itemize}
+	
+\end{document}

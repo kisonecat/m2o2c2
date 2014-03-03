@@ -1,0 +1,22 @@
+\begin{document}
+	\section{Multilinear maps}
+	
+	\begin{definition}
+		A map $M: \R^{n_1} \times \R^{n_2} \times ... \times \R^{n_k} \to \R^m$ is called \textit{multilinear} if it is linear in each slot separately.  In this case
+		it could also be called $k$-linear.
+		  Symbolically,
+		$M(v_1,v_2,...,u_i+w_i,...,v_k) = M(v_1,v_2,...,u_i,...,v_k)+ M(v_1,v_2,...,w_i,...,v_k)$ and $i  = 1,2,3,...,k$
+		$M(v_1,v_2,...,cv_i,...,v_k) = cM(v_1,v_2,...,v_i,...,v_k)$ for all $c\in \R$ and $i  = 1,2,3,...,k$.
+	\end{definition}
+	
+	\begin{question}
+		Show that if $S: \R^{n_1} \times \R^{n_2} \times ... \times \R^{n_k} \to \R$ and  $T: \R^{n_{k+1}} \times \R^{n_{k+2}} \times ... \times \R^{n_{k+m}} \to \R$
+		are a $k$- linear map and $m$-linear map respectively, then the map $S \otimes T: \R^{n_1} \times \R^{n_2} \times ... \times \R^{n_{k+m}} \to \R$ defined by
+		$S \otimes T(v_1,v_2,...,v_{k+m}) = S(v_1,v_2,...,v_k)T(v_{k+1},v_{k+2},...,v_{k+m})$ is also multilinear.  
+		It is called the \textit{tensor product} of the forms $S$ and $T$.
+	\end{question}
+	
+	Some notation.  $I = (i_1,i_2,i_3,...,i_k)$ is a list of $k$ integers with $  0< i_j < n_j $, we write $dx_I$ for the tensor $dx_{}$
+	
+	
+\end{document}

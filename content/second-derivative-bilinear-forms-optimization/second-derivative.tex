@@ -1,0 +1,90 @@
+\begin{document}
+\section{The Second Derivative}
+	From our perspective, the second derivative of a function $f: \R^n \to \R$ at a point will be a bilinear form on $\R^n$.  
+	Let us take some time to understand, intuitively, why that should be the case.
+	
+	Let $f:\mathbb{R}^2 \to \mathbb{R}$ be defined by $f(x,y) = x^2y$.
+
+$D(f)\big|_{(x,y)}$ is the linear map given by the matrix $\left[ \begin{matrix} 2xy&x^2\end{matrix} \right]$.  
+That is to say, $D(f)\big|_{(x,y)}(\Delta x,\Delta y) = 2xy\Delta x + x^2\Delta y \approx f(x+\Delta x,y+\Delta y) - f(x,y)$.  
+
+
+The second derivative should now tell you how much the derivative changes from point to point.  
+If we increment $(x,y)$ by a little bit to $(x+\Delta x,y)$ then we should expect the derivative to 
+increase by about $\left[ \begin{matrix} 2y\Delta x&2x \Delta x\end{matrix} \right]$.  
+Similarly, when we increase $y$ by $\Delta y$, the derivative should change by about $\left[ \begin{matrix} 2x \Delta y&0\Delta y\end{matrix} \right]$.
+
+By linearity, if we change from $(x,y)$ to $(x+\Delta x,y+\Delta y)$, 
+we expect the derivative to change by
+ $$\left[ \begin{matrix} \Delta x&\Delta y\end{matrix} \right] \left[ \begin{matrix} 2y&2x\\2x&0\end{matrix} \right]$$
+
+This gives a matrix which is the approximate change in the derivative.  You can then apply this to another vector if you so wish.  
+
+Summing it up, if you wanted to see approximately how much the derivative changes from $p = (x,y)$ to $(x+\Delta x_2,y+\Delta y_2) = p+\vec{h_2}$ 
+($\vec{h_2} = \verticalvector{\Delta x_2,\Delta y_2}$)
+when both are evaluated in the same direction  $\vec{h_1} = (\Delta x_1,\Delta y_1)$, you would perform the computation:
+
+\[ 
+Df_{p+\vec{h_2}}(\vec{h_1})  -Df_p(\vec{h_1}) \approx
+\begin{bmatrix} 
+\Delta x_2&\Delta y_2\end{bmatrix} 
+ \begin{bmatrix} 2x&2x\\2x&0\end{bmatrix} \begin{bmatrix} \Delta x_1\\ \Delta y_1\end{matrix}
+ \]
+ 
+ This is exactly using the matrix $\begin{bmatrix} 2x&2x\\2x&0\end{bmatrix} \begin{bmatrix}$ as a bilinear form applied to the two vectors 
+ $\vec{h_1} = \verticalvector{\Delta x_1,\Delta y_1}$ and $\vec{h_2} = \verticalvector{\Delta x_2,\Delta y_2}$.
+ 
+With all of this as motivation, we define
+
+\begin{definition}
+	The second derivative of a function $f:\R^n \to \R$ is a bilinear form at a point $\mathbf{p}\in \R^n$  
+	is a bilinear form $D^2f\big|_\mathbf{p} : \R^n \times \R^n \to \R$ enjoying the following estimates:
+	
+	\[
+		Df\big|_{\mathbf{p}+\vec{h_1}}(\vec{h_2})  = Df\Big|_\mathbf{p}{\vec{h_2}} + Error(\vec{h_1},\vec{h_2})
+	\]
+	
+	with $\lim_{\vec{h_1},\vec{h_2} \to \vec{0}} \frac{Error(\vec{h_1},\vec{h_2})}{\vec{h_1},\vec{h_2}}$
+\end{definition} 
+
+\begin{theorem}
+	If $f$ has continuous second partial derivatives everywhere, then 
+	\[
+		D^2f|_\mathbf{p}  = \Sum_{i,j=1}^n \frac{\partial^2 f}{\partial x^i \partial x^j} dx^i \otimes dx^j
+	\]
+	
+	The matrix associated to this bilinear form is the matrix:
+	
+		\[ 
+		
+		\mathcal{H}(f)\big|_\mathbf{p} = [\frac{\partial^2 f}{\partial x^i \partial x^j}]
+	
+		\]
+		
+		and is called the Hessian matrix of $f$ at $\mathbf{p}$.
+\end{theorem}
+
+\begin{question}
+	If $f:\R^n \to \R$ is a function and $Df = BLAH$ what is the hessian matrix of $f$?
+\end{question}
+
+\begin{question}
+	If $Df|_p = BLAH$ and $Hf|_p = BLAH$, approximate $Df_{p+blah}$.
+\end{question}
+
+\begin{question}
+	If $Df\big|_{\mathbf{(1,2)}} = \blah$ and $Hf\big|_{\mathbf{p}} = blah$, approximate $Df\big|_{(1.2,1.1)}(\verticalvector{-0.2,0.3})$.
+\end{question}
+
+\begin{question}
+	What is the hessian of $f(x,y) = x\sin(xy)$?
+\end{question}
+
+In working out Hessians of various functions, you might have noticed that the matrix you get is symmetric, i.e.  that ``mixed partials commute'' 
+$frac{\partial^2 f}{\partial x^i \partial x^j}$
+
+\begin{theorem}
+	If $f$ has continuous second partial derivatives, then $D^2f$ is a symmetric bilinear form.
+\end{theorem}
+ 
+\end{document}

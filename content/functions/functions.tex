@@ -88,12 +88,12 @@ def g(x):
 def h(x,y):
 	#Your code here
 	
-# Here is an example of a higher order function horizontalShift.  It takes a function f of one variable, and a horizontal shift a, and returns the function whose graph is the same as f, only shifted a units.
+# Here is an example of a higher order function horizontalShift.  It takes a function f of one variable, and a horizontal shift H, and returns the function whose graph is the same as f, only shifted H units.
 
-def horizontalShift(f,a):
+def horizontalShift(f,H):
 	# first we define a new function shiftF which is the appropriate shift of f
 	def shiftedF(x):  
-		return f(x-a) 
+		return f(x-H) 
 	# then we return that function
 	return shiftedF
 

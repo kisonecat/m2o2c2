@@ -39,7 +39,7 @@ in the second plane.  Why does the function behave this way?
 Let $f:\R^4 \to \R^2$ be defined by $f((x_1,x_2,x_3,x_4)) = (x_1*x_2+x_3,x_4^2+x_1)$.
 What is $f(3,4,1,9)$?
 
-Note that this function has too many dimensions to visualize easily.  It does not stop it from being a useful and meaningful function.
+Note that this function has too many dimensions to visualize easily.  That does not stop it from being a useful and meaningful function.
 \end{question}
 
 Function from $\R^n \to \R^m$ are not the only useful kind of function.  While such functions are our primary object of study in 
@@ -54,13 +54,23 @@ If g(x)  = x^2, what is $I(g)$?
 \begin{question}
 Let $C^{\infty}(\R)$ be the set of all infinitely differentiable functions on $\R$.  Define $Q: C^{\infty}(\R) \to C^{\infty}(\R)$ by $Q(f)(x) = f(0)+f'(0)x+\dfrac{f''(0)}{2}x^2$..
 
-If $f(x) = \cos(x)$, what is $Q(f)(3)$?
+If $f(x) = \cos(x)$, what is $Q(f)(x)$?
 
-This is an example of an operator, that is a function which eats a function and spits out another function.
+What is $Q(f)(3)?$
+
+This is an example of a function which eats a function and spits out another function.
 \end{question}
 
+\begin{definition}
+	Let $A$ and $B$ be two sets.  The \textit{product}  $A\times B$ of the two sets is the set of all ordered pairs $A \times B = \{ (a,b): a \in A and b \in B\}$.
+\end{definition}
+
+\begin{example}
+	If $A = \{ 1,2,\text{Wolf}\}$  and $B = \{4,5\}$, then $A \times B = \{(1,4),(1,5),(2,4),(2,5),(\text{Wolf},4),(\text{Wolf},5)\}$
+\end{example}
+
 \begin{question}
-Let $Func(\R,\R)$ be te set of all functions from $R$ to $R$. Define $\R \times Func(\R,\R) = \{(x,f): x in \R and f in Func(\R,\R)\}$.  Define $Eval: \R \times Func(\R,\R) \to \R$ by $Eval(x,f) = f(x)$.
+Let $Func(\R,\R)$ be the set of all functions from $R$ to $R$.  Define $Eval: \R \times Func(\R,\R) \to \R$ by $Eval(x,f) = f(x)$.
 If $g(x) = |x|$, what is $Eval(-3,g)$?
 \end{question}
 
@@ -99,11 +109,19 @@ def horizontalShift(f,H):
 
 #Try  letting  k= horizontalShift(g,3) 	, and try evaluating k(3), k(4), k(-2).  Also try horizontalShift(f,2)(3).
 
-# Write a function discreteDerivative which takes a function f:R --> R and returns another function Df:R -->R defined by Df(x) = f(x+1)-f(x).
+# Write a function forwardDifference which takes a function f:R --> R and returns another function forwardDifference(f):R -->R defined 
+# by forwardDifference(f)(x) = f(x+1)-f(x).
 
-def discreteDerivative(f):
+def forwardDifference(f):
 	#Your code here
 	
+# Write a function approximateDerivative which takes a function f:R -->R  and a number h and returns another function approximateDerivative(f,h)(x) = [f(x+h)-f(x-h)]/(2h)
+
+def approximateDerivative(f,h):
+	#Your code here
+	
+#Try letting f(x) = x^2, and g = approximateDerivative(f,0.001).  Then try evaluating g(0),g(1),g(2),g(3),g(4).  Does this agree with what you know about differentiation?
+
 #Python supports lists
 
 	myList = [3,6,9,12]

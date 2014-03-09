@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\title{Matrices}
+
+\begin{document}
+
+\begin{abstract}
+  Matrices are a way to represent linear maps.
+\end{abstract}
+
+To make writing a linear map a little less cumbersome, we will develop
+a compact notation for them using the observation above.
+
+\begin{definition}
+  A $m \times n$ \textit{matrix} is an array of numbers which has $m$ rows and $n$ columns.  The numbers in a matrix are called \textit{enteries}. If $A$ is a matrix, 
+  we will often write $a_{i,j}$ for the entry in the $i^{th}$  row and $j^{th}$ column of the matrix.
+\end{definition}
+	
+\begin{definition}
+  To each linear map $L: \R^n \to \R^m$  we associate a $m \times n$ matrix $A_L$ called the \textit{matrix of the linear map}.  It is defined 
+  by letting $a_{i,j}$ be the $i^{th}$ component of $L(e_j)$.  In other words, the $j^{th}$ column of the matrix $A_L$ is the vector $L(e_j)$.  We also associate to each 
+  matrix $m \times n$ matrix $M$ a linear map $L_M: \R^n \to \R^m$ by requiring that $L(e_j)$ is the $j^{th}$ column of the matrix $M$. 
+\end{definition}
+
+\begin{question}
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  is an $n \times m$ matrix.  What are $n$ and $m$? 
+\end{question}
+
+\begin{question}
+  The $3 \times 4$ matrix $A$ has $a_{i,j} = i+j$.  What is $A$?
+\end{question}
+
+\begin{question}
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  What is $a_{3,2}$?
+\end{question}
+	
+\begin{question}
+  The linear map $L:\mathbb{R^2}\to\mathbb{R^3}$ satisfies $L(\verticalvector(1,0)) = \verticalvector(3,-5,2)$ and $L(\verticalvector(0,1)) = \verticalvector(1,1,1)$. 
+  What is the matrix of $L$?
+\end{question}
+	
+\begin{question}
+  The matrix of $L$ is 
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  What is the dimension of the domain of $L$?  The codomain?
+\end{question}
+
+\begin{question}
+  The matrix of $L$ is 
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  
+  What is $L(0,1)$?
+\end{question}
+	
+\begin{question}
+  The matrix of $L$ is 
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  
+  What is $L(4,5)$?
+\end{question}
+
+\begin{question}
+  The matrix of $L$ is 
+  $A = \begin{bmatrix}
+    1&-1\\2&4\\3&-5
+  \end{bmatrix}$
+  
+  What is $L(x,y)$?
+\end{question}
+
+As an antidote to the abstraction of these examples, lets look at a simplistic "real world" example:
+
+\begin{question}
+  In the local barter economy, there is an exchange rate :
+  $1$ spoon $\mapsto$ $2$ apples and $1$ orange
+  $1$ knife $\mapsto$  $2$ oranges
+  $1$ fork $\mapsto$  $3$ apples and $4$ oranges
+  
+  Model this as a linear map from $L:\R^3 \to \R^2$, where the coordinates on $\R^3$ are $\verticalvector(\text{spoons},\text{knives},\text{forks}) $ and the coordinates on $\R^2$ are
+  $\verticalvector(\text{apples},\text{oranges})$.
+  
+  What is the matrix of this linear map?  
+  What is $L(\verticalvector(3,4))$?  Try to solve  this problem both by applying the matrix to the vector, and also as a $5$ year old would solve it. 
+\end{question} 
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

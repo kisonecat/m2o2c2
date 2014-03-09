@@ -1,0 +1,108 @@
+\documentclass{ximera}
+
+\title{Linear maps}
+
+\begin{document}
+
+\begin{abstract}
+  Linear maps respect addition and scalar multiplication.
+\end{abstract}
+
+\begin{definition}
+  A function $L: \R^n \to \R^m$ is called a \textit{linear map} if it
+  ``respects addition and scalar multiplication.''  Symbolically, for
+  a map to be linear, we must have that $L(v+w) = L(v)+L(w)$ for all
+  $v,w \in \R^n$ and also $L(av) = a L(v)$ for all $a \in \R$ and
+  $v\in \R^n$.
+\end{definition}
+
+\begin{exercise}
+  Here is a multiple choice problem.
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice{Wrong answer A}
+      \choice{Wrong answer B}
+      \choice{Wrong answer C}
+      \choice[correct]{Correct answer D}
+    \end{multiple-choice}
+  \end{solution}
+
+  Here is some text after the multiple choice.
+\end{exercise}
+
+
+\begin{question}
+  Which of the following functions are linear?
+  \begin{solution}
+    \begin{multiple-choice}
+    \choice[correct] $f: \R^2 \to \R^1$ defined by $f(\verticalvector(x,y)) = x+2y$
+    \choice $h:\R^2 \to \R^2$ defined by $h(x,y) = \verticalvector(17,x)$
+    \end{multiple-choice}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Which of the following functions are linear?
+  \begin{solution}
+    \begin{multiple-choice}
+    \choice $g: \R^3 \to R^2$ defined by $g(\verticalvector(x,y,z)) = \verticalvector(x,xy)$
+    \choice[correct] $h:\R \to \R^4$ defined by $h(x) = \verticalvector(x,x,x,4x)$
+    \end{multiple-choice}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Which of the following functions are linear?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice $G: \R^4 \to  \R^3$ defined by $G(\verticalvector(x,y,z,t)) = \verticalvector(e^{x+y},x+y,sin(x+y))$
+      \choice $A: \R^2 \to R^2$ defined by $A(\verticalvector(x,y))=\verticalvector(0,0)$
+    \end{multiple-choice}
+  \end{solution}
+\end{question}
+	
+\begin{question}
+  Let $L:\R^3 \to \R^2$ be a linear function.  Suppose $L(\verticalvector(1,0,0)) = \verticalvector(3,4)$, 
+  $L(\verticalvector(0,1,0)) = \verticalvector(-2,0)$,  and  $L(\verticalvector(0,0,1)) = \verticalvector(1,-1)$.
+  
+  \begin{solution}
+    What is $L (4,-1,2)$?
+
+    \begin{matrix-answer}[name=M]
+      function validator(m) {
+        console.log( "validating ", m );
+        return m[0][0].v == '17';
+      }
+    \end{matrix-answer}
+    
+    After the matrix answer.
+  \end{solution}
+\end{question}
+
+
+\begin{question}
+  Let $L:\R^3 \to \R^2$ be a linear function.  Suppose $L(\verticalvector(1,0,0)) = \verticalvector(3,4)$, 
+  $L(\verticalvector(0,1,0)) = \verticalvector(-2,0)$,  and  $L(\verticalvector(0,0,1)) = \verticalvector(1,-1)$.
+  
+  \begin{solution}
+    What is $L(x,y,z)$?
+
+    \begin{matrix-answer}[name=M]
+      function validator(m) {
+        console.log( "validating ", m );
+        return m[0][0].v == '17';
+      }
+    \end{matrix-answer}
+    
+    After the matrix answer.
+  \end{solution}
+
+\end{question}
+
+As you have already discovered a linear map $L: \R^n \to \R^m$ is
+fully determined by its action on the "standard basis vectors" $e_1 =
+\verticalvector(1,0,0,...,0), e_2 = \verticalvector(0,1,0,...,0), e_3
+= (0,0,1,0,...,0)$, and $e_n = (0,0,0,...,0,1)$.
+
+\end{document}

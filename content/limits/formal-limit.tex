@@ -1,0 +1,30 @@
+\section{The $\epsilon -\delta$ definition of a limit}
+
+This optional section explores limits a formal and rigorous point of view.   
+The level of mathematical maturity required to get through this section is much higher than others. 
+If you get through it and understand everything, you can consider yourself "hardcore".
+
+\begin{definition}
+	Let $U \subset \R^n$.  The \textit{closure} $\overline{U}$ of $U$ is defined to be the set of all $\mathbf{p} \in \R^n$ such that
+	every solid ball centered at $p$ contains at least one point of $U$.  Symbolically 
+	$\overline{U} = \{ \mathbf{p} \in \R^n : \forall r>0 \exists \mathbf{x} \in U \textit{ with } |x-p|<r\}$.
+\end{definition}
+
+\begin{question}
+Prove that $U \subset \overline{U}$ for any subset $U$ of $\R^n$.
+\end{question}
+
+\begin{question}
+Prove that the closure of the open unit ball is the closed unit ball.  That is show that if $U = \{\mathbf{x}:|x|<1\}$, then the closure of $U$ is $\{\mathbf{x}:|x|\leq 1\}$
+\end{question}
+
+\begin{definition}
+	Let $f:U \to  V$  with $U \subset \R^n$, $V \subset \R^m$ and $\mathbf{p} \in \overline{U}$.  We say that $\lim_{\mathbf{x} \to \mathbf{p}}f(x) = \mathbf{L}$ if for every $\epsilon >0$ we can find a 
+	$\delta>0$ so that if $0<|\mathbf{x}-\mathbf{p}|<\delta$ and $\mathbf{x} \in U$, then $|\mathbf{p}-\mathbf{x}|<\epsilon$.
+\end{definition}
+
+BADBAD: Prove sum, product, composition are continuous.  Division away from zeros of denominator, etc
+
+\begin{question}
+Give an epsilon delta proof that lim BLAH =BLAH.
+\end{question}

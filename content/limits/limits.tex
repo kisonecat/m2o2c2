@@ -1,0 +1,68 @@
+\begin{document}
+\section{Limits}
+	Limits are the backbone of calculus.  Multivariable calculus is no different.  In this section we will deal with limits on an \textit{intuitive} level.  
+	We will save the rigorous $\epsilon-\delta$ analysis for the next section.
+	
+	Let $f: \R^n \to \R^m$ and let $\mathbf{p} \in \R^n$.  We say that $\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{L}$ for some $\mathbf{L} \in \R^m$ 
+	if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\mathbf{x})$ ``get arbitrarily close to $\mathbf{L}$''.  
+	
+	\begin{problem}
+		In this problem $f:\R^2 \to \R^3$ is a function.  You are allowed to plug in whatever input you like except for $(2,3)$.   By playing with inputs close to $(2,3)$, can
+		you determine
+		$\lim_{\mathbf{x} \to (2,3)} f(mathbf{x})$?
+	\end{problem}
+	
+	\begin{problem}
+		In this problem $f: \R \to \R^2$ is a function.  You have access to a graphical tool visualizing this function.  By sliding the point along the number line, you can 
+		see where $f$ carries that point in the plane.
+		
+		What is $\lim_{t \to 2} f(t)$?
+	\end{problem}
+	
+	\begin{problem}
+		In this problem $f:\R^2 \to R$ is a function.  You have access to a $3D$ graph of this function.  
+		
+		What is $\lim_{\mathbf{x} \to (0,0)} f(\mathbf{x})$?
+	\end{problem}
+	
+	\begin{definition}
+		A function $f: \R^n \to \R^m$ is said to be \textit{continuous} at a point $\mathbf{p} \in \R^n$ if $lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{p}$
+	\end{definition}
+	
+	Most functions defined by formulas are continuous where they are defined.  For example, the function
+	$f(x,y) = (\cos(xy+y^2),e^{\sin(x)+y}+y^2)$ is continuous because each component function is a string of composites of continuous functions. 
+	$f(x,y) = (xy,cos(x)/(x+y))$ is continuous everywhere it is defined (it is not defined on the line $y=-x$, because the denominator of the 
+	second component function vanishes there).  This is basically because all of the functions we have names for like $\cos(x),\sin(x), e^x$, polynomials, 
+	rational functions, are all continuous, so if you can write down a function as a ``single formula'' it is probably continuous. 
+	The problematic points are basically just zeros of denominators, like our example above.  Piecewise defined functions can also be problematic:
+	
+	\begin{question}
+		Argue intuitively that the function $f:\R^2 \to \R$ defined by 
+			$f(x,y) = \begin{cases}
+			0 if x<y\\
+			1 if x\geq y
+			\end{cases}$
+			
+			is continuous at every point off the line $y=x$, and is discontinuous at every point on the line $y=x$
+	\end{question}
+	
+	\begin{question}
+		$\lim_{(x,y) \to (1,1) BLAHcontinuous} = $?
+	\end{question}
+	
+	If we are confronted with a limit like $\lim_{(x,y) \to (0,0) \frac{xy}{x+y}}$, this is actually a little bit interesting.  The function is not continuous at $0$, because it is
+	not even defined at $0$.  What is more, the numerator and denominator are both approaching $0$.  There are essentially two ways to work with this: 
+	1. Show that it does not have a limit by finding two different ways of approaching $(0,0)$ which give different limiting values
+	2. Show that it does have a limit by rewriting the expression algebraically as a continuous function, and just plug in to get the limit.
+	3.  Rewrite it algebraically so that it ``obviously" has a certain limit.
+	
+	\begin{question}
+		Before moving on, do you think $\lim_{(x,y) \to (0,0) \frac{xy}{x+y}}$ exists?  If so, what is the value of the limit?  If not, why do you think it doesn't have a limit?
+	\end{question}
+	
+	\begin{question}
+		Does $\lim_{(x,y) \to (0,0)} \frac{x^2+xy}{x+y}$ exist?  If so, what  is its value?
+	\end{question}
+	
+	
+\end{document}

@@ -63,46 +63,32 @@ We begin by defining linear maps.
     Let $\vec{v} = L \left(\verticalvector{4\\-1\\2}\right)$.  What is $\vec{v}$?
 
     \begin{matrix-answer}[name=v]
-      function validator(m) {
-        if (isNotColumnVector(m, 2)) return false;
-
-        console.log( "validating ", m );
-        return m[0][0].v == '17';
-      }
+      correctMatrix = [['16'],['14']]
     \end{matrix-answer}
     
   \end{solution}
 
-  After the matrix answer.
-\end{question}
+  Can you generalize this?
 
-
-\begin{question}
-  Let $L:\R^3 \to \R^2$ be a linear function.  Suppose $L\left(\verticalvector{1\\0\\0}\right) = \verticalvector{3\\4}$, 
-  $L\left(\verticalvector{0\\1\\0}\right) = \verticalvector{-2\\0}$,  and  $L\left(\verticalvector{0\\0\\1}\right) = \verticalvector{1\\-1}$.
-  
   \begin{solution}
     What is $L\left(\verticalvector{x\\y\\z}\right)$?
 
     \begin{matrix-answer}[name=M]
-      function validator(m) {
-        console.log( "validating ", m );
-        return m[0][0].v == '17';
-      }
+      correctMatrix = [['3*x - 2*y + z'],['4*x - z']]
     \end{matrix-answer}
     
   \end{solution}
 
-  After the matrix answer.
+  As you have already discovered a linear map $L: \R^n \to \R^m$ is
+  fully determined by its action on the ``standard basis vectors''
+  $e_1 = \verticalvector{1\\0\\0\\\vdots\\0}$, $e_2 =
+  \verticalvector{0\\1\\0\\\vdots\\0}$, and so on, until we reach $e_n
+  = \verticalvector{0\\0\\\vdots\\0\\1}$.
+
+  Argue convincingly that if $L:\R^n \to\R^m$ is a linear map and you know $L(\vec{e}_i)$ for $i=1,2,3,...,n$, then you could figure out $L(\vec{v})$ for
+  any $\vec{v} \in \R^n$.
+  \begin{free-response}
+  \end{free-response}
 \end{question}
-
-As you have already discovered a linear map $L: \R^n \to \R^m$ is
-fully determined by its action on the ``standard basis vectors'' $e_1 =
-\verticalvector{1\\0\\0\\\vdots\\0}$, $e_2 = \verticalvector{0\\1\\0\\\vdots\\0}$, and so on, until we reach $e_n = \verticalvector{0\\0\\\vdots\\0\\1}$.
-
-Argue convincingly that if $L:\R^n \to\R^m$ is a linear map and you know $L(\vec{e}_i)$ for $i=1,2,3,...,n$, then you could figure out $L(\vec{v})$ for
-any $\vec{v} \in \R^n$.
-\begin{free-response}
-\end{free-response}
 
 \end{document}

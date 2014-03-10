@@ -64,7 +64,8 @@ We begin by defining linear maps.
 
     \begin{matrix-answer}[name=v]
       function validator(m) {
-        feedback('Trying to evaluate it.' );
+        if (isNotColumnVector(m, 2)) return false;
+
         console.log( "validating ", m );
         return m[0][0].v == '17';
       }

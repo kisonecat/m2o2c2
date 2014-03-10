@@ -33,8 +33,8 @@ We begin by defining linear maps.
   Which of the following functions are linear?
   \begin{solution}
     \begin{multiple-choice}
-    \choice{$g: \R^3 \to R^2$ defined by $g(\verticalvector(x,y,z)) = \verticalvector(x,xy)$}
-    \choice[correct]{$h:\R \to \R^4$ defined by $h(x) = \verticalvector(x,x,x,4x)$}
+    \choice{$g: \R^3 \to R^2$ defined by $g\left(\verticalvector{x\\y\\z}\right) = \verticalvector{x\\xy}$}
+    \choice[correct]{$h:\R \to \R^4$ defined by $h(x) = \verticalvector{x\\x\\x\\4x\right)$}
     \end{multiple-choice}
   \end{solution}
 \end{question}
@@ -43,10 +43,12 @@ We begin by defining linear maps.
   Which of the following functions are linear?
   \begin{solution}
     \begin{multiple-choice}
-      \choice{$G: \R^4 \to  \R^3$ defined by $G(\verticalvector(x,y,z,t)) = \verticalvector(e^{x+y},x+y,sin(x+y))$}
-      \choice{$A: \R^2 \to R^2$ defined by $A(\verticalvector(x,y))=\verticalvector(0,0)$}
+      \choice{$G: \R^4 \to  \R^3$ defined by $G\left(\verticalvector{x\\y\\z\\t}\right) = \verticalvector{e^{x+y}\\x+y\\ \sin(x+y)}$}
+      \choice{$A: \R^2 \to R^2$ defined by $A\left(\verticalvector{x\\y}\right)=\verticalvector{0\\0}$}
     \end{multiple-choice}
   \end{solution}
+
+  The function which sends every vector to the zero vector \textit{is} linear.
 \end{question}
 	
 \begin{question}
@@ -69,11 +71,11 @@ We begin by defining linear maps.
 
 
 \begin{question}
-  Let $L:\R^3 \to \R^2$ be a linear function.  Suppose $L(\verticalvector(1,0,0)) = \verticalvector(3,4)$, 
-  $L(\verticalvector(0,1,0)) = \verticalvector(-2,0)$,  and  $L(\verticalvector(0,0,1)) = \verticalvector(1,-1)$.
+  Let $L:\R^3 \to \R^2$ be a linear function.  Suppose $L\left(\verticalvector{1\\0\\0}\right) = \verticalvector{3\\4}$, 
+  $L\left(\verticalvector{0\\1\\0}\right) = \verticalvector{-2\\0}$,  and  $L\left(\verticalvector{0\\0\\1}\right) = \verticalvector\left(1\\-1\right)$.
   
   \begin{solution}
-    What is $L(x,y,z)$?
+    What is $L\left(\verticalvector{x\\y\\z}\right)$?
 
     \begin{matrix-answer}[name=M]
       function validator(m) {
@@ -88,13 +90,12 @@ We begin by defining linear maps.
 \end{question}
 
 As you have already discovered a linear map $L: \R^n \to \R^m$ is
-fully determined by its action on the "standard basis vectors" $e_1 =
-\verticalvector(1,0,0,...,0), e_2 = \verticalvector(0,1,0,...,0), e_3
-= (0,0,1,0,...,0)$, and $e_n = (0,0,0,...,0,1)$.
+fully determined by its action on the ``standard basis vectors'' $e_1 =
+\verticalvector{1\\0\\0\\\vdots\\0}$, $e_2 = \verticalvector{0\\1\\0\\\vdots\\0}$, and so on, until we reach $e_n = \verticalvector{0\\0\\\vdots\\0\\1}$.
 
+Argue convincingly that if $L:\R^n \to\R^m$ is a linear map and you know $L(\vec{e}_i)$ for $i=1,2,3,...,n$, then you could figure out $L(\vec{v})$ for
+any $\vec{v} \in \R^n$.
 \begin{free-response}
-  Argue convincingly that if $L:\R^n \to\R^m$ is a linear map and you know $L(\vec{e_i})$ for $i=1,2,3,...,n$, then you could figure out $L(\vec{v})$ for
-  any $\vec{v} \in \R^n$.
 \end{free-response}
 
 \end{document}

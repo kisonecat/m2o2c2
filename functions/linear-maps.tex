@@ -12,10 +12,11 @@ We begin by defining linear maps.
 
 \begin{definition}
   A function $L: \R^n \to \R^m$ is called a \textit{linear map} if it
-  ``respects addition and scalar multiplication.''  Symbolically, for
-  a map to be linear, we must have that $L(v+w) = L(v)+L(w)$ for all
-  $v,w \in \R^n$ and also $L(av) = a L(v)$ for all $a \in \R$ and
-  $v\in \R^n$.
+  ``respects addition and scalar multiplication.''
+
+  Symbolically, for a map to be linear, we must have that $L(v+w) =
+  L(v)+L(w)$ for all $v,w \in \R^n$ and also $L(av) = a L(v)$ for all
+  $a \in \R$ and $v\in \R^n$.
 \end{definition}
 
 \begin{question}
@@ -59,10 +60,11 @@ We begin by defining linear maps.
   \verticalvector{1\\-1}$.
   
   \begin{solution}
-    What is $L \left(\verticalvector{4\\-1\\2}\right)$?
+    Let $\vec{v} = L \left(\verticalvector{4\\-1\\2}\right)$.  What is $\vec{v}$?
 
-    \begin{matrix-answer}[name=M]
+    \begin{matrix-answer}[name=v]
       function validator(m) {
+        feedback('Trying to evaluate it.' );
         console.log( "validating ", m );
         return m[0][0].v == '17';
       }

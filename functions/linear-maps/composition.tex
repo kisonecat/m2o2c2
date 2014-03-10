@@ -6,84 +6,60 @@
   The composition of linear maps can be computed with matrices.
 \end{abstract}
 
-	\begin{question}
-		Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to R^k$ is also linear.
-	\end{question}
+\begin{question}
+  Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to R^k$ is also linear.
+
+  \begin{free-response}
+  \end{free-response}
+\end{question}
 	
-	\begin{question}
-		If the matrix of $S$ is $M_S = BLAH$ and the matrix of $T$ is $M_T = BLAH$, find the matrix of $T \circ S$.
-	\end{question}
+\begin{question}
+  If the matrix of $S$ is $M_S = BLAH$ and the matrix of $T$ is $M_T = BLAH$, find the matrix of $T \circ S$.
+\end{question}
 	
-	\begin{definition}
-		If $M$ is a $m\times n$ matrix and $N$ is a $k \times m$ matrix, then the \textit{product} $NM$ of the matrices is
-		defined as the matrix of the composition of the linear maps defined by $M$ and $N$.  In other words  $MN$ is the matrix of 
-		$L_M\ circ L_N$.
-	\end{definition}
+\begin{definition}
+  If $M$ is a $m\times n$ matrix and $N$ is a $k \times m$ matrix, then the \textit{product} $NM$ of the matrices is
+  defined as the matrix of the composition of the linear maps defined by $M$ and $N$.  In other words  $MN$ is the matrix of 
+  $L_M\ circ L_N$.
+\end{definition}
+
+\begin{warning}
+  You may have seen another definition for matrix multiplication in
+  the past.  That definition could be seen as a shortcut for how to
+  compute the product, but it is usually presented devoid of
+  mathematical meaning.  Hopefully our definition seems properly
+  motivated: matrix multiplication is just what you do to compose
+  linear maps.  We suggest working out the problems here using our
+  definition: you will develop your own efficient shortcuts in time.
+\end{warning}
+
+\begin{question}
+  If $M = BLAH$ and $N=BLAH$, compute $NM$.
+\end{question}
 	
-	WARNING:  you may have seen another definition for matrix multiplication in the past.  That definition could be seen as a shortcut for how
-	to compute the product, but it is usually presented devoid of mathematical meaning.  Hopefully our definition seems properly motivated:  matrix multiplication is 
-	just what you do to compose linear maps.  We suggest working out the problems here using our definition:  you will develop your own efficient shortcuts in time.
+Note:  it may be easier to think about the following questions if you think about linear maps first, and convert everything over to matrices after.
+
+\begin{question}
+  Find $2\times 2$ matrices $A$ and $B$ with $AB \neq BA$.
+\end{question}
 	
-	\begin{question}
-		If $M = BLAH$ and $N=BLAH$, compute $NM$.
-	\end{question}
+\begin{question}
+  Find $A \neq 0$  with $AA = 0$.
+\end{question}
 	
-	Note:  it may be easier to think about the following questions if you think about linear maps first, and convert everything over to matrices after.
+\begin{question}
+  If $A = BLAH$, find $v \neq 0$ with $Av = 0$ 
+\end{question}
 	
-	\begin{question}
-		Find $2\times 2$ matrices $A$ and $B$ with $AB \neq BA$.
-	\end{question}
+\begin{question}
+  If $A = BLAH$, find $v$ with $Av = BLAH$ 
+\end{question}
 	
-	\begin{question}
-		Find $A \neq 0$  with $AA = 0$.
-	\end{question}
-	
-	\begin{question}
-		If $A = BLAH$, find $v \neq 0$ with $Av = 0$ 
-	\end{question}
-	
-	\begin{question}
-		If $A = BLAH$, find $v$ with $Av = BLAH$ 
-	\end{question}
-	
-	In the last two exercises, you found that solving matrix equations is equivalent to solving systems of linear equations.
-	
-	\begin{question}
-	Rewrite  $System of linear equations$ as $matrix equation$.
-	\end{question}
-	
-	\begin{python}
-		#We will store a matrix as a list of lists.   For example the list [[1,2],[3,4],[5,6]] will represent the matrix 
-		# 1 3 5
-		# 2 4 6
-		
-		#write a function multiply(M_1,M_2) which takes two matrices stored in the above format, and returns the matrix of their product
-		
-		def multiply(M_1,M_2):
-			#your code here
-		
-		#Write a function makeFunction(M) which takes a matrix and returns the linear map associated to the matrix.
-		#For example, makeFunction([[1,2],[3,4]])([2,5]) = [12 32]
-		
-		def makeFunction(M):
-			#your code here
-		
-		#Write a function makeMatrix(L) which takes a linear function L ( given as a python function which takes and returns lists) and returns the matrix associated to L.
-		#For example if  
-		#def L(v):
-		#  return [2*v[0]+3*v[1], -4*v[0]]
-		#Then makeMatrix(L) = BLAH (polymorphism is weird here)
-		
-		def makeMatrix(L):
-			#your code here
-		
-		#You should double check for some examples that the following is true (as it ought to be)
-		# makeMatrix(makeFunction(M_1)(makeFunction(M_2))) = multiply(M_1,M_2)
-		
-		
-	\end{python}
-	
-	
+In the last two exercises, you found that solving matrix equations is equivalent to solving systems of linear equations.
+
+\begin{question}
+  Rewrite  $System of linear equations$ as $matrix equation$.
+\end{question}
 
 
 \end{document}

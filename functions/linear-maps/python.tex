@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\begin{document}
+
+\begin{abstract}
+  The composition of linear maps can be computed with matrices.
+\end{abstract}
+
+\begin{python}
+#We will store a matrix as a list of lists.   For example the list [[1,2],[3,4],[5,6]] will represent the matrix 
+# 1 3 5
+# 2 4 6
+		
+#write a function multiply(M_1,M_2) which takes two matrices stored in the above format, and returns the matrix of their product
+		
+def multiply(M_1,M_2):
+  #your code here
+		
+#Write a function makeFunction(M) which takes a matrix and returns the linear map associated to the matrix.
+#For example, makeFunction([[1,2],[3,4]])([2,5]) = [12 32]
+		
+def makeFunction(M):
+  #your code here
+		
+#Write a function makeMatrix(L) which takes a linear function L ( given as a python function which takes and returns lists) and returns the matrix associated to L.
+#For example if  
+#def L(v):
+#  return [2*v[0]+3*v[1], -4*v[0]]
+#Then makeMatrix(L) = BLAH (polymorphism is weird here)
+		
+def makeMatrix(L):
+  #your code 
+
+  #You should double check for some examples that the following is true (as it ought to be)
+  # makeMatrix(makeFunction(M_1)(makeFunction(M_2))) = multiply(M_1,M_2)
+\end{python}
+
+	
+
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,58 +1,128 @@
 \documentclass{ximera}
 
+\title{Composition}
+
 \begin{document}
 
 \begin{abstract}
   The composition of linear maps can be computed with matrices.
 \end{abstract}
 
-\begin{question}
-  Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to R^k$ is also linear.
-
-  \begin{free-response}
-  \end{free-response}
-\end{question}
+Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to R^k$ is also linear.
+  
+\begin{free-response}
+\end{free-response}
 	
 \begin{question}
-  If the matrix of $S$ is $M_S = BLAH$ and the matrix of $T$ is $M_T = BLAH$, find the matrix of $T \circ S$.
+  Suppose the matrix of $S$ is $M_S = \begin{bmatrix}
+2 & 0 & -1 \\
+-1 & 1 & 1
+\end{bmatrix}$ and the matrix of $T$ is $M_T = \begin{bmatrix}
+-1 & -1 \\
+0 & 2 \\
+-1 & 1
+\end{bmatrix}$.
+
+\begin{solution}
+  What is the matrix of $S \circ T$?
+
+  \begin{matrix-answer}[name=M]
+    correctMatrix = [['-1','-3'],['0','4']]
+  \end{matrix-answer}
+\end{solution}
+
+\begin{solution}
+  What is the matrix of $T \circ S$?
+
+  \begin{matrix-answer}[name=M]
+    correctMatrix = [['-1', '-1', '0'],['-2','2','2'],['-3','1','2']]
+  \end{matrix-answer}
+\end{solution}
+
 \end{question}
 	
 \begin{definition}
-  If $M$ is a $m\times n$ matrix and $N$ is a $k \times m$ matrix, then the \textit{product} $NM$ of the matrices is
-  defined as the matrix of the composition of the linear maps defined by $M$ and $N$.  In other words  $MN$ is the matrix of 
-  $L_M\ circ L_N$.
+  If $M$ is a $m\times n$ matrix and $N$ is a $k \times m$ matrix,
+  then the \textit{product} $NM$ of the matrices is defined as the
+  matrix of the composition of the linear maps defined by $M$ and $N$.
+
+  In other words, $MN$ is the matrix of $L_M\ circ L_N$.
 \end{definition}
 
 \begin{warning}
   You may have seen another definition for matrix multiplication in
   the past.  That definition could be seen as a shortcut for how to
   compute the product, but it is usually presented devoid of
-  mathematical meaning.  Hopefully our definition seems properly
-  motivated: matrix multiplication is just what you do to compose
-  linear maps.  We suggest working out the problems here using our
-  definition: you will develop your own efficient shortcuts in time.
+  mathematical meaning.
+
+  Hopefully our definition seems properly motivated: \textit{matrix
+    multiplication is just what you do to compose linear maps.} We
+  suggest working out the problems here using our definition: you will
+  develop your own efficient shortcuts in time.
 \end{warning}
+	
+\begin{observation}
+It may be easier to think about the following questions if you think about linear maps first, and convert everything over to matrices after.
+\end{observation}
 
 \begin{question}
-  If $M = BLAH$ and $N=BLAH$, compute $NM$.
-\end{question}
-	
-Note:  it may be easier to think about the following questions if you think about linear maps first, and convert everything over to matrices after.
+  Suppose $B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.  Find a $2 \times 2$ matrix $A$ so that $AB \neq BA$.
 
-\begin{question}
-  Find $2\times 2$ matrices $A$ and $B$ with $AB \neq BA$.
+  \begin{solution}
+    \begin{matrix-answer}[name=A]
+    function validator(m) {
+      if (isWrongSize(m, 2, 2)) return false;
+      
+      var b = [['1','2'],['3','4']]
+      var ab = matrixProduct(m,b);
+      var ba = matrixProduct(b,m);
+      if (isMatrixCorrect(ab,ba))
+        return false;
+
+      return true;
+    }
+    \end{matrix-answer}  
+  \end{solution}
 \end{question}
 	
 \begin{question}
-  Find $A \neq 0$  with $AA = 0$.
+  Find $A \neq 0$ with $AA = 0$.
+
+  \begin{solution}
+    \begin{matrix-answer}[name=A]
+    function validator(m) {
+      if (rows(m) != columns(m)) {
+        feedback( 'You should try using a square matrix.' );
+        return false;
+      }
+      
+      var m2 = matrixProduct(m,m);
+      
+      var zeroMatrix = [];
+      var i;
+      for( i=0; i<rows(m); i++ ) {
+        zeroMatrix[i] = [];
+        var j;
+        for( j=0; j<columns(m); j++ ) {
+          zeroMatrix[i][j] = '0';
+        }
+      }
+
+      if (isMatrixCorrect(m2,zeroMatrix))
+        return false;
+
+      return true;
+    }
+    \end{matrix-answer}
+  \end{solution}
 \end{question}
 	
 \begin{question}
-  If $A = BLAH$, find $v \neq 0$ with $Av = 0$ 
+  If $A = BLAH$, find $v \neq 0$ with $Av = 0$.
 \end{question}
 	
 \begin{question}
-  If $A = BLAH$, find $v$ with $Av = BLAH$ 
+  If $A = BLAH$, find $v$ with $Av = BLAH$.
 \end{question}
 	
 In the last two exercises, you found that solving matrix equations is equivalent to solving systems of linear equations.

@@ -23,20 +23,29 @@ We begin by defining linear maps.
   Which of the following functions are linear?
   \begin{solution}
     \begin{hint}
-    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f(5 \vecticalvector{1\\1})$ compares to $f(\verticalvector{1\\1})$, and also how
-        $h(5 \vecticalvector{1\\1})$ compares to $h(\verticalvector{1\\1})$.  
+    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f(5 \verticalvector{1\\1})$ compares to $f(\verticalvector{1\\1})$, and also how
+        $h(5 \verticalvector{1\\1})$ compares to $h(\verticalvector{1\\1})$.  
 	
         \begin{question}
         	\begin{solution}
+		\begin{hint}
+			Remember $f$ is defined by $f( \verticalvector{x\\y}) =x+2y$, so
+			$f(5 \verticalvector{1\\1}) = f(\verticalvector{5\\5}) = 5+2(5) = 15$
+			
+		\end{hint}
         	 What is $f(5 \verticalvector{1\\1})$?
         	 \answer{15}
         	\end{solution}
         	\begin{solution}
+		\begin{hint}
+			Remember $f$ is defined by $f( \verticalvector{x\\y}) =x+2y$, so
+			$f(\verticalvector{1\\1}) = 1+2(1) = 5$
+		\end{hint}
         	 What is $f(\verticalvector{1\\1})$?
         	 \answer{3}
         	\end{solution}
         	\begin{solution}
-        		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
+        		Is $f(5 \verticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
         		\begin{multiple-choice}
         		\choice[correct]{Yes}
         		\choice{No}
@@ -45,19 +54,27 @@ We begin by defining linear maps.
         	Great!  So $f$ has a chance of being linear, since it is respecting scalar multiplication in this case.
         	What about $h$?
         	\begin{solution}
+		\begin{hint}
+			Remember $h$ is defined by $h( \verticalvector{x\\y}) =\verticalvector{17\\x}$, so
+			$h(5 \verticalvector{1\\1}) = h(\verticalvector{5\\5}) = \verticalvector{17\\5}$
+		\end{hint}
         	 What is $h(5 \verticalvector{1\\1})$?
         	\begin{matrix-answer}[name=v]
     			  correctMatrix = [['17'],['5']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
+		\begin{hint}
+			Remember $h$ is defined by $h( \verticalvector{x\\y}) =\verticalvector{17\\x}$, so
+			$h(\verticalvector{1\\1}) =  \verticalvector{17\\1}$
+		\end{hint}
         	 What is $h(\verticalvector{1\\1})$?
         	 \begin{matrix-answer}[name=v]
     			  correctMatrix = [['17'],['1']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
-        		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
+        		Is $h(5 \verticalvector{1\\1}) = 5 h(\verticalvector{1\\1})$?
         		\begin{multiple-choice}
         		\choice{Yes}
         		\choice[correct]{No}

@@ -23,81 +23,78 @@ We begin by defining linear maps.
   Which of the following functions are linear?
   \begin{solution}
     \begin{hint}
-      $2x + 1$.
+    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f(5 \vecticalvector{1\\1})$ compares to $f(\verticalvector{1\\1})$, and also how
+        $h(5 \vecticalvector{1\\1})$ compares to $h(\verticalvector{1\\1})$.  
+	
+        \begin{question}
+        	\begin{solution}
+        	 What is $f(5 \verticalvector{1\\1})$?
+        	 \answer{15}
+        	\end{solution}
+        	\begin{solution}
+        	 What is $f(\verticalvector{1\\1})$?
+        	 \answer{3}
+        	\end{solution}
+        	\begin{solution}
+        		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
+        		\begin{multiple-choice}
+        		\choice[correct]{Yes}
+        		\choice{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	Great!  So $f$ has a chance of being linear, since it is respecting scalar multiplication in this case.
+        	What about $h$?
+        	\begin{solution}
+        	 What is $h(5 \verticalvector{1\\1})$?
+        	\begin{matrix-answer}[name=v]
+    			  correctMatrix = [['17'],['5']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        	 What is $h(\verticalvector{1\\1})$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['17'],['1']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
+        		\begin{multiple-choice}
+        		\choice{Yes}
+        		\choice[correct]{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	Great!  So $h$ is not linear:  by looking at this particular example, we can see that $h$ does not always respect scalar multiplication.  So $h$ is not linear.
+		
+        	Since we know one of the two functions is linear, we can already answer the question:  The answer is $f$.  To be through, lets check that $f$ really is linear.
+		
+        	First we check that $f$ really does respect scalar multiplication:
+		
+        	Let $a \in \R$ be an arbitrary scalar and $\verticalvector{x\\y} \in \R^2$ be an arbitrary vector.  Then
+		
+        	\begin{align*}
+        	 f(a\verticalvector{x\\y} \in \R^2) &= f(\verticalvector{ax\\ay})\\
+        	 &= ax+2ay\\
+        	 &= a(x+2y)\\
+        	 &=af(\verticalvector{x\\y}) 		
+        	 \end{align*}
+		 
+        	 Now we check that $f$ really does respect vector addition:
+		 
+        	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Thn
+		 
+        	 \begin{align*}
+        	 f(\verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2})&= f(\verticalvector{x_1+x_2\\y_1+y_2})\\
+        	 &= (x_1+x_2)+2(y_1+y_2)\\
+        	 &= x_1+x_2+2y_1+2y_2\\
+        	 &=(x_1+2y_1)+(x_2+2y_2)\\
+        	 &=f(\verticalvector{x_1\\y_1})+f(\verticalvector{x_2,y_2})
+        	 \end{align*}
+		 
+        	 This proves that $f$ is linear!
+		
+        \end{question}
+	
     \end{hint}
-    % \begin{hint}
-    % 	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f(5 \vecticalvector{1\\1})$ compares to $f(\verticalvector{1\\1})$, and also how
-    %     $h(5 \vecticalvector{1\\1})$ compares to $h(\verticalvector{1\\1})$.  
-	
-    %     \begin{question}
-    %     	\begin{solution}
-    %     	 What is $f(5 \verticalvector{1\\1})$?
-    %     	 \answer{15}
-    %     	\end{solution}
-    %     	\begin{solution}
-    %     	 What is $f(\verticalvector{1\\1})$?
-    %     	 \answer{3}
-    %     	\end{solution}
-    %     	\begin{solution}
-    %     		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
-    %     		\begin{multiple-choice}
-    %     		\choice[correct]{Yes}
-    %     		\choice{No}
-    %     		\end{multiple-choice}
-    %     	\end{solution}
-    %     	Great!  So $f$ has a chance of being linear, since it is respecting scalar multiplication in this case.
-    %     	What about $h$?
-    %     	\begin{solution}
-    %     	 What is $h(5 \verticalvector{1\\1})$?
-    %     	\begin{matrix-answer}[name=v]
-    % 			  correctMatrix = [['17'],['5']]
-    %     	 \end{matrix-answer}
-    %     	\end{solution}
-    %     	\begin{solution}
-    %     	 What is $h(\verticalvector{1\\1})$?
-    %     	 \begin{matrix-answer}[name=v]
-    % 			  correctMatrix = [['17'],['1']]
-    %     	 \end{matrix-answer}
-    %     	\end{solution}
-    %     	\begin{solution}
-    %     		Is $f(5 \vecticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
-    %     		\begin{multiple-choice}
-    %     		\choice{Yes}
-    %     		\choice[correct]{No}
-    %     		\end{multiple-choice}
-    %     	\end{solution}
-    %     	Great!  So $h$ is not linear:  by looking at this particular example, we can see that $h$ does not always respect scalar multiplication.  So $h$ is not linear.
-		
-    %     	Since we know one of the two functions is linear, we can already answer the question:  The answer is $f$.  To be through, lets check that $f$ really is linear.
-		
-    %     	First we check that $f$ really does respect scalar multiplication:
-		
-    %     	Let $a \in \R$ be an arbitrary scalar and $\verticalvector{x\\y} \in \R^2$ be an arbitrary vector.  Then
-		
-    %     	\begin{align*}
-    %     	 f(a\verticalvector{x\\y} \in \R^2) &= f(\verticalvector{ax\\ay})\\
-    %     	 &= ax+2ay\\
-    %     	 &= a(x+2y)\\
-    %     	 &=af(\verticalvector{x\\y}) 		
-    %     	 \end{align*}
-		 
-    %     	 Now we check that $f$ really does respect vector addition:
-		 
-    %     	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Thn
-		 
-    %     	 \begin{align*}
-    %     	 f(\verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2})&= f(\verticalvector{x_1+x_2\\y_1+y_2})\\
-    %     	 &= (x_1+x_2)+2(y_1+y_2)\\
-    %     	 &= x_1+x_2+2y_1+2y_2\\
-    %     	 &=(x_1+2y_1)+(x_2+2y_2)\\
-    %     	 &=f(\verticalvector{x_1\\y_1})+f(\verticalvector{x_2,y_2})
-    %     	 \end{align*}
-		 
-    %     	 This proves that $f$ is linear!
-		
-    %     \end{question}
-	
-    % \end{hint}
 
     \begin{multiple-choice}
       \choice[correct]{\(f: \R^2 \to \R^1\) defined by \(f\left(\verticalvector{x \\ y}\right) = x+2y\)}

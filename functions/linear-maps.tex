@@ -23,29 +23,28 @@ We begin by defining linear maps.
   Which of the following functions are linear?
   \begin{solution}
     \begin{hint}
-    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f(5 \verticalvector{1\\1})$ compares to $f(\verticalvector{1\\1})$, and also how
-        $h(5 \verticalvector{1\\1})$ compares to $h(\verticalvector{1\\1})$.  
+    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $f\left(5 \verticalvector{1\\1}\right)$ compares to $f\left(\verticalvector{1\\1}\right)$, and also how
+        $h\left(5 \verticalvector{1\\1}\right)$ compares to $h\left(\verticalvector{1\\1}\right)$.  
 	
         \begin{question}
         	\begin{solution}
 		\begin{hint}
-			Remember $f$ is defined by $f( \verticalvector{x\\y}) =x+2y$, so
-			$f(5 \verticalvector{1\\1}) = f(\verticalvector{5\\5}) = 5+2(5) = 15$
-			
+			Remember $f$ is defined by $f\left( \verticalvector{x\\y}\right) =x+2y$, so
+			$f\left(5 \verticalvector{1\\1}\right) = f\left(\verticalvector{5\\5}\right) = 5+2(5) = 15$
 		\end{hint}
-        	 What is $f(5 \verticalvector{1\\1})$?
+        	 What is $f\left(5 \verticalvector{1\\1}\right)$?
         	 \answer{15}
         	\end{solution}
         	\begin{solution}
 		\begin{hint}
-			Remember $f$ is defined by $f( \verticalvector{x\\y}) =x+2y$, so
-			$f(\verticalvector{1\\1}) = 1+2(1) = 5$
+			Remember $f$ is defined by $f\left( \verticalvector{x\\y}\right) =x+2y$, so
+			$f\left(\verticalvector{1\\1}\right) = 1+2\left(1\right) = 3$
 		\end{hint}
-        	 What is $f(\verticalvector{1\\1})$?
+        	 What is $f\left(\verticalvector{1\\1}\right)$?
         	 \answer{3}
         	\end{solution}
         	\begin{solution}
-        		Is $f(5 \verticalvector{1\\1}) = 5 f(\verticalvector{1\\1})$?
+        		Is $f\left(5 \verticalvector{1\\1}\right) = 5 f\left(\verticalvector{1\\1}\right)$?
         		\begin{multiple-choice}
         		\choice[correct]{Yes}
         		\choice{No}
@@ -55,26 +54,26 @@ We begin by defining linear maps.
         	What about $h$?
         	\begin{solution}
 		\begin{hint}
-			Remember $h$ is defined by $h( \verticalvector{x\\y}) =\verticalvector{17\\x}$, so
-			$h(5 \verticalvector{1\\1}) = h(\verticalvector{5\\5}) = \verticalvector{17\\5}$
+			Remember $h$ is defined by $h\left( \verticalvector{x\\y}\right) =\verticalvector{17\\x}$, so
+			$h\left(5 \verticalvector{1\\1}\right) = h\left(\verticalvector{5\\5}\right) = \verticalvector{17\\5}$
 		\end{hint}
-        	 What is $h(5 \verticalvector{1\\1})$?
+        	 What is $h\left(5 \verticalvector{1\\1}\right)$?
         	\begin{matrix-answer}[name=v]
     			  correctMatrix = [['17'],['5']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
 		\begin{hint}
-			Remember $h$ is defined by $h( \verticalvector{x\\y}) =\verticalvector{17\\x}$, so
-			$h(\verticalvector{1\\1}) =  \verticalvector{17\\1}$
+			Remember $h$ is defined by $h\left( \verticalvector{x\\y}\right) =\verticalvector{17\\x}$, so
+			$h\left(\verticalvector{1\\1}\right) =  \verticalvector{17\\1}$
 		\end{hint}
-        	 What is $h(\verticalvector{1\\1})$?
+        	 What is $h\left(\verticalvector{1\\1}\right)$?
         	 \begin{matrix-answer}[name=v]
     			  correctMatrix = [['17'],['1']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
-        		Is $h(5 \verticalvector{1\\1}) = 5 h(\verticalvector{1\\1})$?
+        		Is $h\left(5 \verticalvector{1\\1}\right) = 5 h\left(\verticalvector{1\\1}\right)$?
         		\begin{multiple-choice}
         		\choice{Yes}
         		\choice[correct]{No}
@@ -82,17 +81,17 @@ We begin by defining linear maps.
         	\end{solution}
         	Great!  So $h$ is not linear:  by looking at this particular example, we can see that $h$ does not always respect scalar multiplication.  So $h$ is not linear.
 		
-        	Since we know one of the two functions is linear, we can already answer the question:  The answer is $f$.  To be through, lets check that $f$ really is linear.
+        	Since we know one of the two functions is linear, we can already answer the question:  The answer is $f$.  To be thorough, lets check that $f$ really is linear.
 		
         	First we check that $f$ really does respect scalar multiplication:
 		
         	Let $a \in \R$ be an arbitrary scalar and $\verticalvector{x\\y} \in \R^2$ be an arbitrary vector.  Then
 		
         	\begin{align*}
-        	 f(a\verticalvector{x\\y} \in \R^2) &= f(\verticalvector{ax\\ay})\\
+        	 f\left(a\verticalvector{x\\y}\right) &= f\left(\verticalvector{ax\\ay}\right)\\
         	 &= ax+2ay\\
-        	 &= a(x+2y)\\
-        	 &=af(\verticalvector{x\\y}) 		
+        	 &= a\left(x+2y\right)\\
+        	 &=af\left(\verticalvector{x\\y}\right) 		
         	 \end{align*}
 		 
         	 Now we check that $f$ really does respect vector addition:
@@ -100,11 +99,11 @@ We begin by defining linear maps.
         	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Thn
 		 
         	 \begin{align*}
-        	 f(\verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2})&= f(\verticalvector{x_1+x_2\\y_1+y_2})\\
-        	 &= (x_1+x_2)+2(y_1+y_2)\\
+        	 f\left(\verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2}\right)&= f\left(\verticalvector{x_1+x_2\\y_1+y_2}\right)\\
+        	 &= \left(x_1+x_2\right)+2\left(y_1+y_2\right)\\
         	 &= x_1+x_2+2y_1+2y_2\\
-        	 &=(x_1+2y_1)+(x_2+2y_2)\\
-        	 &=f(\verticalvector{x_1\\y_1})+f(\verticalvector{x_2,y_2})
+        	 &=\left(x_1+2y_1\right)+\left(x_2+2y_2\right)\\
+        	 &=f\left(\verticalvector{x_1\\y_1}\right)+f\left(\verticalvector{x_2,y_2}\right)
         	 \end{align*}
 		 
         	 This proves that $f$ is linear!
@@ -122,6 +121,108 @@ We begin by defining linear maps.
 
   What about these two functions?  Which of them is a linear map?
   \begin{solution}
+ 
+    \begin{hint}
+    	For a function to be linear, it must respect scalar addition.  Lets see what how $h(5+2)$ compares to 
+    	$h(5)+h(2)$ and also how $g\left( \verticalvector{2\\3\\1}+\verticalvector{1\\4\\5}\right)$ compares to 
+    	$g\left(\verticalvector{2\\3\\1}\right)+g\left( \verticalvector{1\\4\\5}\right)$.
+	
+        \begin{question}
+        	
+       
+        	
+        	\begin{solution}
+		\begin{hint}
+			Remember $h$ is defined by $h(x) = \verticalvector{x\\x\\x\\4x}$, so
+			$h(5+2) = h(7)= \verticalvector{7\\7\\7\\14}$
+		\end{hint}
+        	 What is $h(5+2)$?
+        	\begin{matrix-answer}[name=v]
+    			  correctMatrix = [['7'],['7'],['7'],['28']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+		\begin{hint}
+			Remember $h$ is defined by $h(x) =\verticalvector{x\\x\\x\\4x}$, so
+			$h(5)+h(2) =  \verticalvector{5\\5\\5\\20}+\verticalvector{2\\2\\2\\8}$
+		\end{hint}
+        	 What is $h\left(\verticalvector{1\\1}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['2'],['2'],['2'],['28']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        		Is $h(5+2) = h(5)+h(2)$?
+        		\begin{multiple-choice}
+        		\choice[correct]{Yes}
+        		\choice{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	
+        	Great!  So $h$ has a chance of being linear, since it is respecting vector addition in this case.
+        	What about $g$?        	
+        	
+        	\begin{solution}
+		\begin{hint}
+			Remember $g$ is defined by $g\left( \verticalvector{x\\y\\z}\right) =\verticalvector{x\\xy}$, so
+			$g\left( \verticalvector{2\\3\\1}+\verticalvector{1\\4\\5}\right) = g\left( \verticalvector{3\\7\\6}\right) = \verticalvector{3\\3(7)} =\verticalvector{3\\21}$
+		\end{hint}
+        	 What is $g\left( \verticalvector{2\\3}+\verticalvector{4\\5}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['3'],['21']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+		\begin{hint}
+			Remember $g$ is defined by $g\left( \verticalvector{x\\y\\z}\right) =\verticalvector{x\\xy}$, so
+			$g\left( \verticalvector{2\\3\\1}\right+g\left(\verticalvector{1\\4\\5}\right) = 
+			\verticalvector{2\\2(3)}+\verticalvector{1\\1(4)}=
+			\verticalvector{2\\6}+\verticalvector{1\\4}=
+			\verticalvector{3\\10}$
+		\end{hint}
+        	 What is $g\left(\verticalvector{2\\3\\1}\right)+g\left( \verticalvector{1\\4\\5}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['3'],['10']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        		Is $g\left( \verticalvector{2\\3\\1}+\verticalvector{1\\4\\5}\right) = g\left(\verticalvector{2\\3\\1}\right)+g\left( \verticalvector{1\\4\\5}\right)$
+        		\begin{multiple-choice}
+        		\choice{Yes}
+        		\choice[correct]{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	
+        	Great!  So $g$ is not linear:  by looking at this particular example, we can see that $g$ does not always respect vector addition.  So $g$ is not linear.
+		
+        	Since we know one of the two functions is linear, we can already answer the question:  The answer is $h$.  To be thorough, lets check that $h$ really is linear.
+		
+        	First we check that $h$ really does respect scalar multiplication:
+		
+        	Let $a \in \R$ be an arbitrary scalar and $x \in \R$ be an arbitrary vector.  Then
+		
+        	\begin{align*}
+        	 h\left(ax\right) &= \verticalvector{ax\\ax\\ax\\4ax}\\
+        	 &= a\verticalvector{x\\x\\x\\4x}\\
+        	 &= ah(x)
+        	 \end{align*}
+		 
+        	 Now we check that $h$ really does respect vector addition:
+		 
+        	 Let $x$ and $y$ be arbitrary vectors in $\R^1$.  Then
+		 
+        	 \begin{align*}
+        	 h\left(x+y\right)&= \verticalvector{x+y\\x+y\\x+y\\4(x+y)}\\
+        	 &= \verticalvector{x+y\\x+y\\x+y\\4x+4y}\\
+        	 &= \verticalvector{x\\x\\x\\4x}+\verticalvector{y\\y\\y\\4y}\\
+        	 &=h(x)+h(y)
+        	 \end{align*}
+		 
+        	 This proves that $h$ is linear!
+		
+        \end{question}
+	
+    \end{hint}
     \begin{multiple-choice}
     \choice{$g: \R^3 \to R^2$ defined by $g\left(\verticalvector{x\\y\\z}\right) = \verticalvector{x\\xy}$}
     \choice[correct]{$h:\R \to \R^4$ defined by $h(x) = \verticalvector{x\\x\\x\\4x}$}
@@ -129,9 +230,115 @@ We begin by defining linear maps.
   \end{solution}
 
   And finally, which of the following functions are linear?
+  
   \begin{solution}
+  
+    \begin{hint}
+    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $A\left( 2\verticalvector{2\\3}$ compares to 
+    	$2A\left(\verticalvector{2\\3}\right)$ and also how $G\left(2\verticalvector{1\\2\\3\\4}\right)$ compares to 
+    	$2G\left(1\\2\\3\\4\right)$.
+	
+        \begin{question}
+        	
+        	\begin{solution}
+		\begin{hint}
+			Remember $A$ is defined by $A\left(\verticalvector{x\\y}\right) = \verticalvector{0\\0}$, so
+			$A\left(2\verticalvector{2\\3}\right) = A\left(\verticalvector{4\\6}\right)=\verticalvector{0\\0}$
+		\end{hint}
+        	 What is $A\left(2\verticalvector{2\\3}\right)$?
+        	\begin{matrix-answer}[name=v]
+    			  correctMatrix = [['0'],['0']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+		\begin{hint}
+			Remember $A$ is defined by $A\left(\verticalvector{x\\y}\right) = \verticalvector{0\\0}$, so
+			$2A\left(\verticalvector{2\\3}\right) = 2\verticalvector{0\\0} = \verticalvector{0\\0}$
+		\end{hint}
+        	 What is $2A\left(\verticalvector{2\\3}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['0'],['0']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        		Is $A\left(2\verticalvector{2\\3}\right) = 2A\left(\verticalvector{2\\3}\right))$?
+        		\begin{multiple-choice}
+        		\choice[correct]{Yes}
+        		\choice{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	
+        	Great!  So $A$ has a chance of being linear, since it is respecting vector addition in this case.
+        	What about $G$?        	
+        	
+        	\begin{solution}
+		\begin{hint}
+			Remember $G$ is defined by $G\left( \verticalvector{x\\y\\z\\t}\right) =\verticalvector{e^{x+y}\\x+z\\ \sin(x+t)}$, so
+			\begin{align*}
+				G\left( 2\verticalvector{1\\2\\3\\4} \right) &= G\left( \verticalvector{2\\4\\6\\8}\right)\\
+					&=\verticalvector{e^{2+4}\\2+6\\ \sin(2+8)}\\
+					&=\verticalvector{e^6\\8\\ \sin(10)}
+			\end{align*}
+		\end{hint}
+        	 What is $G\left( 2\verticalvector{1\\2\\3\\4}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['e^6'],['8'],['sin(5)']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+		\begin{hint}
+				Remember $G$ is defined by $G\left( \verticalvector{x\\y\\z\\t}\right) =\verticalvector{e^{x+y}\\x+z\\ \sin(x+t)}$, so
+			\begin{align*}
+				2G\left( \verticalvector{1\\2\\3\\4} \right) &= 2\verticalvector{e^{1+2}\\1+3\\ \sin(1+4)}\\
+					&=2\verticalvector{e^{3}\\4\\ \sin(5)}\\
+					&=\verticalvector{2e^3\\8\\ \2sin(5)}
+			\end{align*}
+		\end{hint}
+        	 What is $2G\left(\verticalvector{1\\2\\3\\4}\right)$?
+        	 \begin{matrix-answer}[name=v]
+    			  correctMatrix = [['2e^3'],['8'],['2sin(5)']]
+        	 \end{matrix-answer}
+        	\end{solution}
+        	\begin{solution}
+        		Is $G\left( 2\verticalvector{1\\2\\3\\4}\right) =  2G\left(\verticalvector{1\\2\\3\\4}\right)$?
+        		\begin{multiple-choice}
+        		\choice{Yes}
+        		\choice[correct]{No}
+        		\end{multiple-choice}
+        	\end{solution}
+        	
+        	Great!  So $G$ is not linear:  by looking at this particular example, we can see that $G$ does not always respect scalar multiplication.  So $G$ is not linear.
+		
+        	Since we know one of the two functions is linear, we can already answer the question:  The answer is $A$.  To be thorough, lets check that $A$ really is linear.
+		
+        	First we check that $A$ really does respect scalar multiplication:
+		
+        	Let $c \in \R$ be an arbitrary scalar and $\verticalvector{x\\y} \in \R^2$ be an arbitrary vector.  Then
+		
+        	\begin{align*}
+        	 A\left(c\verticalvector{x\\y}\right) &= A\left( \verticalvector{ax\\ay}\right)\\
+        	 	&=\verticalvector{0\\0}\\
+        	 	&=a\verticalvector{0\\0}
+        	 \end{align*}
+		 
+        	 Now we check that $A$ really does respect vector addition:
+		 
+        	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Then
+		 
+        	 \begin{align*}
+        	 A\left( \verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2}\right) &= A\left( \verticalvector{x_1+x_2\\y_1+y_2}\right)\\
+        	 	&=\verticalvector{0\\0}\\
+        	 	&=\verticalvector{0\\0}+\verticalvector{0\\0}\\
+        	 	&=A\left(\verticalvector{x_1\\y_1}\right+A\left(\verticalvector{x_2\\y_2}\right)
+        	 \end{align*}
+		 
+        	 This proves that $A$ is linear!
+		
+        \end{question}
+	
+    \end{hint}
     \begin{multiple-choice}
-      \choice{$G: \R^4 \to  \R^3$ defined by $G\left(\verticalvector{x\\y\\z\\t}\right) = \verticalvector{e^{x+y}\\x+y\\ \sin(x+y)}$}
+      \choice{$G: \R^4 \to  \R^3$ defined by $G\left(\verticalvector{x\\y\\z\\t}\right) = \verticalvector{e^{x+y}\\x+z\\ \sin(x+t)}$}
       \choice[correct]{$A: \R^2 \to R^2$ defined by $A\left(\verticalvector{x\\y}\right)=\verticalvector{0\\0}$}
     \end{multiple-choice}
   \end{solution}
@@ -141,7 +348,6 @@ We begin by defining linear maps.
     \textit{is} linear.
   \end{warning}
 \end{question}
-% BADBAD: include hints
 	
 \begin{question}
   Let $L:\R^3 \to \R^2$ be a linear function.  Suppose
@@ -151,6 +357,47 @@ We begin by defining linear maps.
   \verticalvector{1\\-1}$.
   
   \begin{solution}
+  
+  	\begin{hint}	
+  		The only thing we know about linear maps is that they respect scalar multiplication and vector addition.  So we need to somehow rewrite the vector
+  		$\verticalvector{4\\-1\\2}$ in terms of the vectors $\verticalvector{1\\0\\0}$, $\verticalvector{0\\1\\0}$ and $\verticalvector{0\\0\\1}$, scalar multiplication,
+  		and vector addition, to exploit what we know about $L$.
+  		
+  		
+  		
+  		\begin{question}
+  			Can you rewrite $\verticalvector{4\\-1\\2}$ in the form $a\verticalvector{1\\0\\0}+b\verticalvector{0\\1\\0}+c\verticalvector{0\\0\\1}$?
+  			\begin{solution}
+  				\begin{hint}
+  					$\verticalvector{4\\-1\\2} = 4\verticalvector{1\\0\\0}+-1\verticalvector{0\\1\\0}+2\verticalvector{0\\0\\1}$
+  				\end{hint}
+  				$a =$ \answer{4}
+  			\end{solution}
+  			\begin{solution}
+  				$b=$ \answer{-1}
+  			\end{solution}
+  			\begin{solution}
+  				$c=$ \answer{2}
+  			\end{solution}
+  		\end{question}
+  		
+  		Now using the linearity of $L$, we can see that 
+  		
+  		\begin{align*}
+  			L\left(\verticalvector{4\\-1\\2}\right) &= L\left( 4\verticalvector{1\\0\\0}+-1\verticalvector{0\\1\\0}+2\verticalvector{0\\0\\1} \right)\\
+  			&= 4L\left(\verticalvector{1\\0\\0}\right)+-1L\left(\verticalvector{0\\1\\0}\right)+2L\left(\verticalvector{0\\0\\1}\right)
+  		\end{align*}
+  		
+  		Can you finish off the computation?
+  	\end{hint}
+  	\begin{hint}
+  		\begin{align*}
+  			&= 4L\left(\verticalvector{1\\0\\0}\right)+-1L\left(\verticalvector{0\\1\\0}\right)+2L\left(\verticalvector{0\\0\\1}\right)\\
+  			&= 4\verticalvector{3\\4}+-1\verticalvector{-2\\0}+2\verticalvector{1\\-1}\\
+  			&= \verticalvector{12\\16}+\verticalvector{2\\0}+\verticalvector{2\\-2}\\
+  			&= \verticalvector{16\\14}
+  		\end{align*}
+  	\end{hint}
     Let $\vec{v} = L \left(\verticalvector{4\\-1\\2}\right)$.  What is $\vec{v}$?
 
     \begin{matrix-answer}[name=v]
@@ -162,6 +409,46 @@ We begin by defining linear maps.
   Can you generalize this?
 
   \begin{solution}
+  \begin{hint}	
+  		The only thing we know about linear maps is that they respect scalar multiplication and vector addition.  So we need to somehow rewrite the vector
+  		$\verticalvector{x\\y\\z}$ in terms of the vectors $\verticalvector{1\\0\\0}$, $\verticalvector{0\\1\\0}$ and $\verticalvector{0\\0\\1}$, scalar multiplication,
+  		and vector addition, to exploit what we know about $L$.
+  		
+  		
+  		
+  		\begin{question}
+  			Can you rewrite $\verticalvector{x\\y\\z}$ in the form $a\verticalvector{1\\0\\0}+b\verticalvector{0\\1\\0}+c\verticalvector{0\\0\\1}$?
+  			\begin{solution}
+  				\begin{hint}
+  					$\verticalvector{x\\y\\z} = x\verticalvector{1\\0\\0}+y\verticalvector{0\\1\\0}+z\verticalvector{0\\0\\1}$
+  				\end{hint}
+  				$a =$ \answer{x}
+  			\end{solution}
+  			\begin{solution}
+  				$b=$ \answer{y}
+  			\end{solution}
+  			\begin{solution}
+  				$c=$ \answer{z}
+  			\end{solution}
+  		\end{question}
+  		
+  		Now using the linearity of $L$, we can see that 
+  		
+  		\begin{align*}
+  			L\left(\verticalvector{x\\y\\z}\right) &= L\left( x\verticalvector{1\\0\\0}+y\verticalvector{0\\1\\0}+z\verticalvector{0\\0\\1} \right)\\
+  			&= xL\left(\verticalvector{1\\0\\0}\right)+yL\left(\verticalvector{0\\1\\0}\right)+zL\left(\verticalvector{0\\0\\1}\right)
+  		\end{align*}
+  		
+  		Can you finish off the computation?
+  	\end{hint}
+  	\begin{hint}
+  		\begin{align*}
+  			&= xL\left(\verticalvector{1\\0\\0}\right)+yL\left(\verticalvector{0\\1\\0}\right)+zL\left(\verticalvector{0\\0\\1}\right)\\
+  			&= x\verticalvector{3\\4}+y\verticalvector{-2\\0}+z\verticalvector{1\\-1}\\
+  			&= \verticalvector{3x\\4x}+\verticalvector{-2y\\0}+\verticalvector{z\\-z}\\
+  			&= \verticalvector{3*x-2*y+z\\4*x-z}
+  		\end{align*}
+  	\end{hint}
     Let $\vec{v} = L\left(\verticalvector{x\\y\\z}\right)$?  What is $\vec{v}$?
 
     \begin{matrix-answer}[name=v]
@@ -179,7 +466,11 @@ We begin by defining linear maps.
   Argue convincingly that if $L:\R^n \to\R^m$ is a linear map and you know $L(\vec{e}_i)$ for $i=1,2,3,...,n$, then you could figure out $L(\vec{v})$ for
   any $\vec{v} \in \R^n$.
   \begin{free-response}
-    % BADBAD: include solution
+    I want to determine what $L$ does to any vector $\vec{v} = \verticalvector{x_1\\x_2\\x_3\\.\\.\\.\\x_n} \in \R^n$.  
+    I can rewrite $\vec{v}$ as $x_1\vec{e_1}+x_2\vec{e_2}+x_3\vec{e_3}+...+\x_n\vec{e_n}$.  By the linearity of $L$,
+    $L(\vec{v}) = x_1L(\vec{e_1})+x_2L(\vec{e_2})+x_3L(\vec{e_3})+...+x_nL(\vec{e_n})$.  Since I already know the value of 
+    $L(\vec{e_i})$ for all $i=1,2,3,...,n$, this allows me to compute $L(\vec{v})$.  So $L$ is completely determined once I know what it does to each of the
+    standard basis vectors. 
   \end{free-response}
 \end{question}
 

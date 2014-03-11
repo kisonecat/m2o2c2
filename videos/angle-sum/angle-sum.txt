@@ -1,0 +1,3 @@
+00000 talk: You may have seen "angle sum" formulas before
+paper: things like sin(a+b) = 
+00003 talk: in this activity, you'll see one way to prove these formulas by using a bit of linear algebra.  good luck!  if you get stuck, let us know---we're here to help!

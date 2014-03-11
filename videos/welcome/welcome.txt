@@ -1,0 +1,8 @@
+steve: Welcome to M2O2C2
+jim: in this course, there's no textbook
+steve: and not too many of these videos
+jim: we firmly believe that people learn math not by watching math, and not even by reading math, 
+steve: people learn but by doing math
+jim: and so this course is mostly built around questions
+steve: and like everything we do, this is an experiment
+jim: but we're glad you're here, and we hope you'll provide us with feedback about what's working well and what isn't working so well

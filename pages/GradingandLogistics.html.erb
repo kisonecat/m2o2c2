@@ -1,0 +1,73 @@
+<% require './course' %>
+
+<%= breadcrumbs('Grading and Logistics') %>
+
+<h3>Course format</h3>
+
+<p>The course is <%= WEEK_COUNT %> weeks long, and begins on
+<%= COURSE_START.strftime('%A, %B %e, %Y') %>.</p>
+
+<p>The complete <a href="/<%= COURSERA_COURSE
+%>/wiki/view?page=syllabus">course calendar</a> is available under
+the <a href="/<%= COURSERA_COURSE
+%>/wiki/view?page=syllabus">Syllabus</a> link to the left.</p>
+
+<h3>Our philosophy is all about problems</h3>
+
+<p>Unlike our other courses which make extensive use of lecture
+videos, this course is built around a series of questions.  In
+short, <strong>it is problem-based.</strong>  The philosophy is that,
+by joining other learners on the noble quest of working through the
+suggested tasks, by getting your hands on the math as quickly as
+possible&mdash;even if it is very challenging at first!&mdash;you will
+<a href="http://en.wikipedia.org/wiki/Constructivism_(philosophy_of_education)">construct the knowledge</a> of multivariable calculus and linear
+algebra.</p>
+
+<p>It won't be easy, but <strong>you aren't alone.</strong>  The
+course staff are here to guide this community on this quest.  If you
+have questions or concerns, please contact us.  We are here to do
+everything we can to make sure that we are all as successful as we set
+out to be.</p>
+
+<p>Each week, we'll provide links to activities related to
+multivariable calculus.  If you get stuck, use the hints.  If you have
+new ideas or questions, write a post.  If you understand something
+very well, summarize your thoughts in a <a href="/<%= COURSERA_COURSE
+%>/forum/index">message on the forum</a>.  Our goal is that everyone
+participate.</p>
+
+<p>Then each week ends with a <a href="/<%= COURSERA_COURSE %>/quiz/index">short quiz</a>, worth
+<%= POINTS_PER_HOMEWORK %> points, and the course concludes with a
+<a href="/<%= COURSERA_COURSE %>/quiz/index?quiz_type=exam">final final examination</a>.</p>
+
+<hr/>
+<h3>Grading policy</h3>
+
+<p>Each week ends with a short quiz; you can attempt these quizzes
+multiple times if you like.  <strong>Each quiz is worth
+<%= POINTS_PER_HOMEWORK %> points,</strong> and there are
+<%= WEEK_COUNT %> quizzes, for a total of <%= POINTS_PER_HOMEWORK *
+WEEK_COUNT %> points to be earned doing quizzes.</p>
+
+<p>The course concludes with a final exam.  <strong>The final exam is
+worth <%= EXAM_POINTS %> points</strong> and will be a reprisal of the
+concepts and skills you have mastered during the course.  You will
+only be able to attempt the final exam twice.</p>
+
+<h4>Late days</h4>
+
+<p>You will have ten late days to use as you wish.</p>
+
+<hr/>
+
+<h3>Certificates</h3>
+
+<p>To earn a certificate, you must earn <%= CERTIFICATE_PERCENTAGE %>%
+of the total possible points.  Since there are <%= TOTAL_POINTS %> points possible, you must earn <%= (CERTIFICATE_PERCENTAGE *
+TOTAL_POINTS / 100.0).floor %> points to earn a certificate.</p>
+
+<p>To earn a certificate <em>with distinction,</em> you must earn
+<%= CERTIFICATE_WITH_DISTINCTION_PERCENTAGE %>% 
+of the total possible points, meaning you must earn
+<%= (CERTIFICATE_WITH_DISTINCTION_PERCENTAGE * TOTAL_POINTS /
+100.0).floor %> points to earn a certificate with distinction.</p>

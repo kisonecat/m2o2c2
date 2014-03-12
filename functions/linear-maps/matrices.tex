@@ -8,12 +8,14 @@
   Matrices are a way to represent linear maps.
 \end{abstract}
 
-To make writing a linear map a little less cumbersome, we will develop a compact notation for linear maps using our previous observations.
+To make writing a linear map a little less cumbersome, we will develop a compact notation for linear maps using our previous observation that a linear 
+map is determined by its action on the standard basis vectors.
 	
 \begin{definition}
   An $m \times n$ \textit{matrix} is an array of numbers which has $m$ rows and $n$ columns.  The numbers in a matrix are called \textit{entries}.
 
-  When $A$ is a matrix, we write $A = (a_{ij})$, meaning that $a_{i,j}$ is the entry in the $i^{th}$  row and $j^{th}$ column of the matrix.
+  When $A$ is a matrix, we write $A = (a_{ij})$, meaning that $a_{i,j}$ is the entry in the $i^{th}$  row and $j^{th}$ column of the matrix.  Note:  We start counting
+  with $1$ not $0$.  So the upper lefthand entry of the matrix is $a_{1,1}$.
 \end{definition}
 
 \begin{question}
@@ -26,6 +28,12 @@ To make writing a linear map a little less cumbersome, we will develop a compact
     \begin{hint}
       Note that this is $n \times m$ whereas the definition above used $m \times n$.
     \end{hint}
+    \begin{hint}
+    	$n$ is the number of rows, and $m$ is the number of columns 
+    \end{hint}
+    \begin{hint}
+    	$n=3$  and $m=2$
+    \end{hint}
 
     In this case, $n$ is \answer{$3$}.
   \end{solution}
@@ -36,17 +44,43 @@ To make writing a linear map a little less cumbersome, we will develop a compact
 
   Remember, we write $a_{i,j}$ for the entry in the $i^{th}$ row and $j^{th}$ column of the matrix.
 
+
   \begin{solution}
+  	\begin{hint}
+  		$a_{3,2}$ is the entry in the $3^{rd}$ row and the $2^{nd}$ column.
+  	\end{hint}
+  	\begin{hint}
+  		$a_{3,2} = -5$
+  	\end{hint}
     Therefore $a_{3,2}$ is \answer{$-5$}.
   \end{solution}
 
   Next, suppose the $3 \times 4$ matrix $B$ has $b_{i,j} = i+j$.
 
   \begin{solution}
+   \begin{hint}
+   		\begin{problem}
+   			\begin{solution}
+   			\begin{hint}
+   				$b_{1,2} = 1+2 = 3$
+   			\end{hint}
+   			According to this rule, $b_{1,2}$ is \answer{$3$}
+   			\end{solution} 
+   		\end{problem}
+   		
+   		So the entry in the first row and second column of this matrix should be  $3$.
+   \end{hint}
+    \begin{hint}
+    	$B = \begin{bmatrix}
+    		2 &3 & 4&5\\
+    		3&4&5&6\\
+    		4&5&6&7\\
+    	\end{bmatrix}$
+    \end{hint}
     What is $B$?
-
+	
     \begin{matrix-answer}[name=B]
-      correctMatrix = [['1','2','3','4'],['2','3','4','5'],['3','4','5','6']]
+      correctMatrix = [['2','3','4','5'],['3','4','5','6'],['4','5','6','7']]
     \end{matrix-answer}
   \end{solution}
 \end{question}
@@ -70,6 +104,20 @@ To make writing a linear map a little less cumbersome, we will develop a compact
   matrix of $L$?
 
   \begin{solution}
+  	\begin{hint}
+  		Remember that, by definition, the first column of this matrix should be $L\left(\verticalvector{1\\0}\right)$ and
+  		the second column should be $L\left( \verticalvector{0\\1}\right)$.
+  	\end{hint}
+  	\begin{hint}
+  		The matrix of $L$ is 
+  		\[
+  			\begin{bmatrix}
+  				3&-1\\
+  				-5&1\\
+  				2&1
+  			\end{bmatrix}
+  			\]
+  	\end{hint}
     \begin{matrix-answer}[name=L]
       correctMatrix = [['3','-1'],['-5','1'],['2','1']]
     \end{matrix-answer}    
@@ -85,47 +133,104 @@ Let's do another example.
   \end{bmatrix}.$
   
   \begin{solution}
+  \begin{hint}
+  	$A$ should have one column for each basis vector of the domain.
+  \end{hint}
+  \begin{hint}
+  	$A$ has $2$ columns, so the dimension of the domain is $2$.
+  \end{hint}
   The dimension of the domain of $L$ is \answer{2}.
   \end{solution}
 
   \begin{solution}
+  	\begin{hint}
+  		Each column of $A$ is the image of a basis vector under the action of $L$
+  	\end{hint}
+  	\begin{hint}
+  		Since the columns are of length $3$, that means $L$ is spitting out vectors of length $3$.
+  	\end{hint}
+  	\begin{hint}
+  		The codomain of $L$ is $\R^3$ which is $3$ dimensional.
+  	\end{hint}
     The dimension of the codomain of $L$ is \answer{3}.
   \end{solution}
   
   Suppose $\vec{v} = L\left(0,1\)$.  What is $\vec{v}$?
     
   \begin{solution}
+  	\begin{hint}
+  		Remember that, by definition, the $i^{th}$ column of $A$ is $L(\ver{e_i})$. 
+  	\end{hint}
+  	\begin{hint}
+  		So, by definition, $L\left(\verticalvector{0\\1}\right)$ is the second column of the matrix $A$.
+  	\end{hint}
+  	\begin{hint}
+  		So $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\4\\-5}$
+  	\end{hint}
     \begin{matrix-answer}[name=v]
       correctMatrix = [['-1'],['4'],['-5']]
     \end{matrix-answer}          
   \end{solution}
 
-  Suppose $\vec{w} = L\left(4,5\)$.  What is $\vec{w}$?
+  Suppose $\vec{w} = L\left(\verticalvector{4\\5}\right)$.  What is $\vec{w}$?
     
   \begin{solution}
-    \begin{matrix-answer}[name=w]
-      correctMatrix = [['-1'],['4'],['-5']]
-    \end{matrix-answer}          
-  \end{solution}
-  
-  What is $L(4,5)$?
-
-  \begin{solution}
+  	\begin{hint}
+  		By definition of the matrix associated to a linear map, we know that $L\left(1\\0\right) = \verticalvector{1\\2\\3}$
+  		and $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\4\\-5}$.
+  	\end{hint}
+  	\begin{hint}
+  		Can you rewrite $\verticalvector{4//5}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
+  		of $L$ to compute $L\left(\verticalvector{4\\5}\right)$?
+  	\end{hint}
+  	\begin{hint}
+  		$L\left(\verticalvector{4\\5}\right) = L\left(4\verticalvector{1\\0}+5\verticalvector{0\\1}\right)$
+  	\end{hint}
+  	\begin{hint}
+  		\begin{align*}
+  		L\left(\verticalvector{4\\5}\right) &= L\left(4\verticalvector{1\\0}+5\verticalvector{0\\1}\right)\\
+  		&= 4L\left(\verticalvector{1\\0}\right)+5L\left(\verticalvector{0\\1}\right)\\
+  		&=4\verticalvector{1\\2\\3}+5\verticalvector{-1\\4\\-5}\\
+  		&=\verticalvector{4\\8\\12}+\verticalvector{-5\\20\\-25}\\
+  		&=\verticalvector{-1\\28\\-13}
+  		\end{align*}
+  	\end{hint}
     \begin{matrix-answer}[name=w]
       correctMatrix = [['-1'],['28'],['-13']]
     \end{matrix-answer}          
   \end{solution}
   
-  What is $L(x,y)$?
+  
+  What is $L\left(\verticalvector{x\\y}\right)$?
 
   \begin{solution}
+  \begin{hint}
+  		By definition of the matrix associated to a linear map, we know that $L\left(1\\0\right) = \verticalvector{1\\2\\3}$
+  		and $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\4\\-5}$.
+  	\end{hint}
+  	\begin{hint}
+  		Can you rewrite $\verticalvector{x//y}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
+  		of $L$ to compute $L\left(\verticalvector{4\\5}\right)$?
+  	\end{hint}
+  	\begin{hint}
+  		$L\left(\verticalvector{x\\y}\right) = L\left(x\verticalvector{1\\0}+y\verticalvector{0\\1}\right)$
+  	\end{hint}
+  	\begin{hint}
+  		\begin{align*}
+  		L\left(\verticalvector{x\\y}\right) &= L\left(x\verticalvector{1\\0}+y\verticalvector{0\\1}\right)\\
+  		&= xL\left(\verticalvector{1\\0}\right)+yL\left(\verticalvector{0\\1}\right)\\
+  		&=x\verticalvector{1\\2\\3}+y\verticalvector{-1\\4\\-5}\\
+  		&=\verticalvector{x\\2x\\3x}+\verticalvector{-y\\4y\\-5y}\\
+  		&=\verticalvector{x-y\\2x+4y\\3x-5y}
+  		\end{align*}
+  	\end{hint}
     \begin{matrix-answer}[name=w]
       correctMatrix = [['x-y'],['2*x + 4*y'],['3*x - 5*y']]
     \end{matrix-answer}          
   \end{solution}
 \end{question}
 
-As an antidote to the abstraction, let's take a look at a simplistic ``real world'' example.''
+As an antidote to the abstraction, let's take a look at a simplistic ``real world'' example.
 
 \begin{question}
   In the local barter economy, there is an exchange where you can 
@@ -138,6 +243,23 @@ As an antidote to the abstraction, let's take a look at a simplistic ``real worl
   $\verticalvector{\text{apples}\\\text{oranges}}$.
 
   \begin{solution}
+  \begin{hint}
+  	Remember the matrix of a linear map is defined by the fact the the $kth$ column of the matrix is
+  	the image of the $kth$ standard basis vector.
+  \end{hint}
+  \begin{hint}
+  	$\verticalvector{1\\0\\0}$ represents one spoon in the codomain.  Its image under this linear map is $2$ apples and $1$ orange, which is 
+  	represented by the vector $\verticalvector{2\\1}$ in the codomain.  So the first column of the matrix should be $\verticalvector{2\\1}$ 
+  \end{hint}
+  \begin{hint}
+  	The full matrix is 
+  	\[
+  		\begin{bmatrix}
+  			2&0&3\\
+  			1&2$4
+  		\end{bmatrix}
+  	\]
+  \end{hint}
     What is the matrix of the linear map $L$?
 
     \begin{matrix-answer}[name=w]
@@ -146,6 +268,23 @@ As an antidote to the abstraction, let's take a look at a simplistic ``real worl
   \end{solution}
 
   \begin{solution}
+  \begin{hint}
+  		\begin{align}
+  		L\left(\verticalvector{3\\0\\4}\right) & = L\left(3 \verticalvector{1\\0\\0}+4\verticalvector{0\\0\\1}\right)\\
+  		&= 3L\left(\verticalvector{1\\0\\0}\right)+4L\left(\verticalvector{0\\0\\1}\right)\\
+  		&=3\verticalvector{2\\1}+4\verticalvector{3\\4}\\
+  		&=\verticalvector{6\\3}+\verticalvector{12\\16}\\
+  		&=\verticalvector{18\\19}
+  		\end{align}
+  		
+  		So you would be able to get $18$ apples and $19$ oranges.
+  \end{hint}
+  \begin{hint}
+  	Now the ``5 year old'' solution: If you have $3$ spoons, $0$ knives, and $4$ forks, and you traded them all in for fruit, how many apples would you have?
+  \end{hint}
+  \begin{hint}
+  	$3$ spoons would get you $6$ apples, and $4$ forks get you $12$ apples, so you would have a total of $18$ apples.
+  \end{hint}
     The first (``apples'') entry of $L\left(\verticalvector{3\\0\\4}\right)$ is \answer{18}.
 
     Try to answer this question both by applying the matrix to the
@@ -156,7 +295,28 @@ As an antidote to the abstraction, let's take a look at a simplistic ``real worl
 Prove the following statement: if $S:\R^n \to\R^m$ and $T:\R^n \to \R^m$ are both linear maps, 
 then the map $(S+T):\R^n \to\R^m$ defined by $(S+T)(\vec{v}) = S(\vec{v})+T(\vec{v})$ is also linear.
 
-\begin{free-response}
+\begin{free-response} 
+ We need to check that $(S+T)$ respects both scalar multiplication and vector addition.
+ 
+ Scalar multiplication:
+ 
+ Choose and arbitrary scalar $c \in \R$ and an arbitrary vector $\vec{v} \ in \R^n$.  Then
+ 	\begin{align*}
+ 	(S+T)(c\vec{v}) &=S(c\vec{v})+T(c\vec{v}) \text{ by definition of } (S+T)\\
+ 	&= cS(\vec{v})+cT(\vec{v}) \text{ by the linearity of } S \text{ and } T\\
+ 	&=c\left( S(\vec{v}) + T(\vec{v})\right) \text{ by the distributivity of scalar multiplication over addition in } \R^m\\
+ 	&=c(S+T)(\vec{v}) \text{ by definition of } (S+T)
+ 	\end{align*}
+ 	
+ 	Vector addition:
+ 	Choose two arbitrary vectors $\vec{v}$ and $\vec{w}$ in $\R^n$.  Then
+ 	
+ 	\begin{align*}
+ 		(S+T)(\vec{v} +\vec{w}) &= S(\vec{v}+\vec{w})+T(\vec{v}+\vec{w}) \text{by definition of } S+T\\
+ 		&= S(\vec{v})+S(\vec{w})+T(\vec{v})+T(\vec{w}) \text{ by the linearity of } S \text{ and } T\\
+ 		&= S(\vec{v})+T(\vec{v}) + S(\vec{w})+T(\vec{w}) \textit{ by the commutativity of vector addition in } \R^m\\
+ 		&=(S+T)(\vec{v})+(S+T)(\vec{w}) \text{ by the definition of } S+T.
+ 	\end{align*}
 \end{free-response}
 
 %\begin{question}
@@ -170,6 +330,26 @@ Prove that if $T:\R^n \to \R^m$ is a linear map and $c \in \R$ is a scalar, then
 \[(cT)(\vec{v}) = cT(\vec{v})\] is also a linear map.
   
 \begin{free-response}
+We need to check that $cT$ respects both scalar multiplication and vector addition.
+ 
+ Scalar multiplication:
+ 
+ Choose and arbitrary scalar $a \in \R$ and an arbitrary vector $\vec{v} \ in \R^n$.  Then
+ 	\begin{align*}
+ 		(cT)(\vec{av}) &= cT(\vec{av})\\
+ 		&= acT(\vec{v})\\
+ 		&=a(cT)(\vec{v})
+ 	\end{align*}
+ 	
+ 	Vector addition:
+ 	Choose two arbitrary vectors $\vec{v}$ and $\vec{w}$ in $\R^n$.  Then
+ 	
+ 	\begin{align*}
+ 		(cT)(\vec{v}+\vec{w}) &= cT(\vec{v}+\vec{w})\\
+ 		&= c\left(T(\vec{v})+T(\vec{w})\right)\\
+ 		&=cT(\vec{v})+cT(\vec{w})\\
+ 		&=(cT)(\vec{v})+(cT)(\vec{w})
+ 	\end{align*}
 \end{free-response}
 
 %\begin{question}

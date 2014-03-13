@@ -44,15 +44,23 @@ def validator():
 \end{python}
 \end{solution}
 
-Next, write a scalar multiplication function.
 
 \begin{solution}
+  \begin{hint}
+    Try a Python ``list comprehension''
+  \end{hint}
+
+  \begin{hint}
+    For example, \verb|return [alpha * x for x in v]|
+  \end{hint}
+
+Next, write a scalar multiplication function.
+
 \begin{python}
 # write a function scale_vector(alpha, v) which takes a number alpha and a vector v
 # and returns alpha * v
 #
 # For example, scale_vector(5,[1,2,3]) equals [5,10,15]
-#
 		
 def scale_vector(alpha, v):
   # your code here
@@ -62,7 +70,7 @@ def validator():
   # It would be better to try more cases
   if scale_vector(-3,[2,3,10])[1] != -9:
     return False
-  if vector_sum(10,[4,3,2,1])[2] != 20:
+  if scale_vector(10,[4,3,2,1])[2] != 20:
     return False
   return True
 

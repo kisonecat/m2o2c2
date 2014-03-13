@@ -100,7 +100,7 @@ map is determined by its action on the standard basis vectors.
 \begin{question}
   The linear map $L:\mathbb{R^2}\to\mathbb{R^3}$ satisfies
   $L\left(\verticalvector{1\\0}\right) = \verticalvector{3\\-5\\2}$ and
-  $L\left(\verticalvector{0\\1}\right) = \verticalvector{1\\1\\1}$.  What is the
+  $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\1\\1}$.  What is the
   matrix of $L$?
 
   \begin{solution}
@@ -155,11 +155,11 @@ Let's do another example.
     The dimension of the codomain of $L$ is \answer{3}.
   \end{solution}
   
-  Suppose $\vec{v} = L\left(0,1\)$.  What is $\vec{v}$?
+  Suppose $\vec{v} = L\left(\verticalvector{0,1}\)$.  What is $\vec{v}$?
     
   \begin{solution}
   	\begin{hint}
-  		Remember that, by definition, the $i^{th}$ column of $A$ is $L(\ver{e_i})$. 
+  		Remember that, by definition, the $i^{th}$ column of $A$ is $L(\vec{e_i})$. 
   	\end{hint}
   	\begin{hint}
   		So, by definition, $L\left(\verticalvector{0\\1}\right)$ is the second column of the matrix $A$.
@@ -176,11 +176,11 @@ Let's do another example.
     
   \begin{solution}
   	\begin{hint}
-  		By definition of the matrix associated to a linear map, we know that $L\left(1\\0\right) = \verticalvector{1\\2\\3}$
+  		By definition of the matrix associated to a linear map, we know that $L\left(\verticalvector{1\\0}\right) = \verticalvector{1\\2\\3}$
   		and $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\4\\-5}$.
   	\end{hint}
   	\begin{hint}
-  		Can you rewrite $\verticalvector{4//5}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
+  		Can you rewrite $\verticalvector{4\\5}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
   		of $L$ to compute $L\left(\verticalvector{4\\5}\right)$?
   	\end{hint}
   	\begin{hint}
@@ -205,11 +205,11 @@ Let's do another example.
 
   \begin{solution}
   \begin{hint}
-  		By definition of the matrix associated to a linear map, we know that $L\left(1\\0\right) = \verticalvector{1\\2\\3}$
+  		By definition of the matrix associated to a linear map, we know that $L\left(\verticalvector{1\\0}\right) = \verticalvector{1\\2\\3}$
   		and $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\4\\-5}$.
   	\end{hint}
   	\begin{hint}
-  		Can you rewrite $\verticalvector{x//y}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
+  		Can you rewrite $\verticalvector{x\\y}$ in terms of $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ so that you can use the linearity
   		of $L$ to compute $L\left(\verticalvector{4\\5}\right)$?
   	\end{hint}
   	\begin{hint}
@@ -256,7 +256,7 @@ As an antidote to the abstraction, let's take a look at a simplistic ``real worl
   	\[
   		\begin{bmatrix}
   			2&0&3\\
-  			1&2$4
+  			1&2&4
   		\end{bmatrix}
   	\]
   \end{hint}

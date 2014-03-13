@@ -11,6 +11,27 @@
 Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to R^k$ is also linear.
   
 \begin{free-response}
+	We need to show that $T \circ S$ respects scalar multiplication and vector addition:
+	
+	Scalar multiplication:
+	For every scalar $a \in \R$ and every vector $\vec{v} \in \R^n$, we have:
+	
+	\begin{align*}	
+		(T\circ S)(a\vec{v}) &= T\left(S(a\vec{v})\right)\\
+		&= T(aS(\vec{v})) \text{ because $S$ respects scalar multiplication}\\
+		&= aT(S(\vec{v})) \text{ because $T$ respects scalar multiplication}\\
+		&=a(T \circ S)(\vec{v})
+	\end{align*}
+	
+	Vector addition:
+	For every two vectors $\vec{v},\vec{w} \in \R^n$, we have:
+		
+		\begin{align*}
+			(T \circ S)(\vec{v}+\vec{w}) &= T\left(S(\vec{v}+\vec{w})\right) \\
+			&= T(S(\vec{v}+S(\vec{w}))) \text{because $S$ respects vector addition}\\
+			&= T(S(\vec{v}))+T(S(\vec{w})) \text{because $T$ respects vector addition}\\
+			&= (T \circ S)(\vec{v})+(T\circ S)(\vec{w})
+		\end{align*}
 \end{free-response}
 	
 \begin{question}
@@ -24,6 +45,50 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 \end{bmatrix}$.
 
 \begin{solution}
+\begin{hint}
+	Remember that the matrix for $S \circ T$ will have columns given by $(S \circ T)\left(\verticalvector{1\\0}\right)$ and $(S \circ T)\left(\verticalvector{0\\1}\right)$
+\end{hint}
+\begin{hint}
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(S \circ T)\left(\verticalvector{1\\0}\right) &= S\left(T\left(\verticalvector{1\\0}\right)\right)\\
+				&= S\left(\verticalvector{-1\\0\\-1}\right) \text{ because by definition, $T\left(\verticalvector{1\\0}\right)$ is the first column of the matrix of $T$}\\
+				&=-1S\left(\verticalvector{1\\0\\0}\right) +-1 S\left(\verticalvector{0\\0\\1}\right) \text{by the linearity of $S$}\\
+				&=-1\verticalvector{2\\-1}+-1\verticalvector{-1\\1} \text{ because ???}\\
+				&=\verticalvector{-1\\0}
+			\end{align*}
+		\end{hint}
+		What is  $(S \circ T)\left(\verticalvector{1\\0}\right)$?
+			\begin{matrix-answer}[name=M]
+ 			   correctMatrix = [['-1'],['0']]
+ 			 \end{matrix-answer}
+		\end{solution}
+		
+	\end{question}
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(S \circ T)\left(\verticalvector{0\\1}\right) &= S\left(T\left(\verticalvector{0\\1}\right)\right)\\
+				&= S\left(\verticalvector{-1\\2\\1}\right) \text{ because by definition, $T\left(\verticalvector{0\\1}\right)$ is the second column of the matrix of $T$}\\
+				&=-1S\left(\verticalvector{1\\0\\0}\right) +2 S\left(\verticalvector{0\\1\\0}\right) + S\left(\verticalvector{0\\0\\1}\right)\text{by the linearity of $S$}\\
+				&=-1\verticalvector{2\\-1}+2\verticalvector{0\\1} +\verticalvector{-1\\1}\text{ because ???}\\
+				&=\verticalvector{-3\\4}
+			\end{align*}
+		\end{hint}
+		What is  $(S \circ T)\left(\verticalvector{0\\1}\right)$?
+			\begin{matrix-answer}[name=M]
+ 			   correctMatrix = [['-3'],['4']]
+ 			 \end{matrix-answer}
+		\end{solution}
+		
+	\end{question}
+\end{hint}
+\begin{hint}
+	The matrix of $(S \circ T)$ is $\begin{bmatrix} -1 & -3\\0 & 4 \end{bmatrix}$
+\end{hint}
   What is the matrix of $S \circ T$?
 
   \begin{matrix-answer}[name=M]
@@ -32,6 +97,69 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 \end{solution}
 
 \begin{solution}
+\begin{hint}
+	Remember that the matrix for $T \circ S$ will have columns given by $(T \circ S)\left(\verticalvector{1\\0\\0}\right)$,  $(S \circ T)\left(\verticalvector{0\\1\\0}\right)$ and 
+	$(S \circ T)\left(\verticalvector{0\\0\\1}\right)$
+\end{hint}
+\begin{hint}
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(T \circ S)\left(\verticalvector{1\\0\\0}\right) &= T\left(S\left(\verticalvector{1\\0\\0}\right)\right)\\
+				&= T\left(\verticalvector{2\\-1}\right) \text{ because by definition, $S\left(\verticalvector{1\\0\\0}\right)$ is the first column of the matrix of $S$}\\
+				&=2T\left(\verticalvector{1\\0}\right) +-1 T\left(\verticalvector{0\\1}\right) \text{by the linearity of $T$}\\
+				&=2\verticalvector{-1\\0\\-1}+-1\verticalvector{-1\\2\\1} \text{ because ???}\\
+				&=\verticalvector{-1\\-2\\-3}
+			\end{align*}
+		\end{hint}
+		What is  $(S \circ T)\left(\verticalvector{1\\0\\0}\right)$?
+			\begin{matrix-answer}[name=M]
+ 			   correctMatrix = [['-1'],['-2'],['-3']]
+ 			 \end{matrix-answer}
+		\end{solution}
+		
+	\end{question}
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(T \circ S)\left(\verticalvector{0\\1\\0}\right) &= T\left(S\left(\verticalvector{0\\1\\0}\right)\right)\\
+				&= T\left(\verticalvector{0\\1}\right) \text{ because by definition, $S\left(\verticalvector{1\\0\\0}\right)$ is the first column of the matrix of $S$}\\
+				&=\verticalvector{-1\\2\\1} \text{ we got lucky: by definition $T\left(\verticalvector{0\\1}\right)$ is the second column of the matrix of $T$ }\\
+			\end{align*}
+		\end{hint}
+		What is  $(S \circ T)\left(\verticalvector{0\\1\\0}\right)$?
+			\begin{matrix-answer}[name=M]
+ 			   correctMatrix = [['-1'],['2'],['1']]
+ 			 \end{matrix-answer}
+		\end{solution}
+		
+	\end{question}
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(T \circ S)\left(\verticalvector{0\\0\\1}\right) &= T\left(S\left(\verticalvector{0\\0\\1}\right)\right)\\
+				&= T\left(\verticalvector{-1\\1}\right) \text{ because by definition, $S\left(\verticalvector{0\\0\\1}\right)$ is the third column of the matrix of $S$}\\
+				&=-1T\left(\verticalvector{1\\0}\right) + T\left(\verticalvector{0\\1}\right) \text{by the linearity of $T$}\\
+				&=-1\verticalvector{-1\\0\\-1}+\verticalvector{-1\\2\\1} \text{ because ???}\\
+				&=\verticalvector{0\\2\\2}
+			\end{align*}
+		\end{hint}
+		What is  $(S \circ T)\left(\verticalvector{0\\0\\1}\right)$?
+			\begin{matrix-answer}[name=M]
+ 			   correctMatrix = [['0'],['2'],['2']]
+ 			 \end{matrix-answer}
+		\end{solution}
+		
+	\end{question}
+	
+	
+\end{hint}
+\begin{hint}
+	The matrix of $(T \circ S)$ is $\begin{bmatrix} -1 & -1 & 0\\-2 & 2&2\\-3&1&2 \end{bmatrix}$
+\end{hint}
   What is the matrix of $T \circ S$?
 
   \begin{matrix-answer}[name=M]
@@ -60,15 +188,45 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
   suggest working out the problems here using our definition: you will
   develop your own efficient shortcuts in time.
 \end{warning}
-	
-\begin{observation}
-It may be easier to think about the following questions if you think about linear maps first, and convert everything over to matrices after.
-\end{observation}
+
+You have already multiplied two matrices, even though you didn't know it, above.  Take some time now to get a whole lot of practice.  You do not need
+us to prompt you:  invent your own matrices and try to multiply them, on paper.  What condition is needed on the rows and columns of the two matrices for matrix
+multiplication to even make sense? You can check your work using a computer algebra system, like 
+\href{http://www.sagemath.org/}{SAGE} or you can use a free web hosted app like \href{http://matrix.reshish.com/}{Reshih}.  Use our definition, and think through it 
+each time.  Try to get faster and more efficient.  Eventually you should be able to do this quite rapidly.
 
 \begin{question}
-  Suppose $B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.  Find a $2 \times 2$ matrix $A$ so that $AB \neq BA$.
+  Suppose $B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.  Find a $2 \times 2$ matrix $A$ so that $AB \neq BA$.  Play around!  Can you find more than one?
 
   \begin{solution}
+  	\begin{hint}
+  		There is no systematic way to answer this question:  you just have to play around, and see what you discover!
+  	\end{hint}
+  	\begin{hint}
+  		\begin{question}
+  			\begin{solution}
+  				\begin{hint}
+  					$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \begin{bmatrix}  1 &0 \\ 0&0\end{bmatrix}  = \begin{bmatrix} 1 & 0\\ 3&0 \end{bmatrix}$
+  				\end{hint}
+  				What is $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \begin{bmatrix}  1 &0 \\ 0&0\end{bmatrix}$?
+  					\begin{matrix-answer}[name=A]
+  						correctMatrix = [['1','0'],['3','0']]
+  					\end{matrix-answer}
+  			\end{solution}
+  		\end{question}
+  		\begin{question}
+  			\begin{solution}
+  				\begin{hint}
+  					$\begin{bmatrix}  1 &0 \\ 0&0\end{bmatrix}  \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}  = \begin{bmatrix} 1 & 2\\ 0&0 \end{bmatrix}$
+  				\end{hint}
+  				What is $\begin{bmatrix}  1 &0 \\ 0&0\end{bmatrix} \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$?
+  					\begin{matrix-answer}[name=A]
+  						correctMatrix = [['1','0'],['3','0']]
+  					\end{matrix-answer}
+  			\end{solution}
+  		\end{question}
+  	\end{hint}
+  	
     \begin{matrix-answer}[name=A]
     function validator(m) {
       if (isWrongSize(m, 2, 2)) return false;
@@ -87,7 +245,26 @@ It may be easier to think about the following questions if you think about linea
 	
 \begin{question}
   Find $A \neq 0$ with $AA = 0$.
-
+	\begin{hint}
+		Try some simple matrices.  Maybe limit yourself to $2\times2$ matrices?
+	\end{hint}
+	\begin{hint}
+		One simple linear map which would work is $L\left(\verticalvector{x\\y}\right) = \verticalvector{y\\0}$.  Applying this twice to any vector would 
+		give you the zero vector.   This linear map is great for cooking up counterexamples to all sorts of naive things you might think about matrices!  See 
+		this \href{http://mathoverflow.net/questions/16829/what-are-your-favorite-instructional-counterexamples/16841#16841}{Mathoverflow  answer} (you will understand
+		more and more of these terms as the course progresses).
+		
+		\begin{question}
+			\begin{hint}
+				The matrix of $L$ is $\begin{bmatrix} 0&1\\0&0 \end{bmatrix}$
+			\end{hint}
+			What is the matrix of this linear map?
+			\begin{matrix-answer}[name=A]
+				correctMatrix = [['0','1'],['0','0']]
+			\end{matrix-answer}
+		\end{question}
+	\end{hint}
+	
   \begin{solution}
     \begin{matrix-answer}[name=A]
     function validator(m) {
@@ -118,17 +295,103 @@ It may be easier to think about the following questions if you think about linea
 \end{question}
 	
 \begin{question}
-  If $A = BLAH$, find $v \neq 0$ with $Av = 0$.
+  If $A = \begin{bmatrix} 2 & 8\\3&12\end{bmatrix}$, find $v \neq 0$ with $Av = \vec{0}$.
+  \begin{solution}
+  \begin{hint}
+  	Let $\vec{v} = \verticalvector{x\\y}$, and solve a system of equations
+  \end{hint}
+  \begin{hint}
+  	\begin{align*}
+  		A(\vec{v}) &= \vec{0}\\
+  		\begin{bmatrix} 2 & 8\\3&12\end{bmatrix}\verticalvector{x\\y}  &=\verticalvector{0\\0}\\
+  		\verticalvector{2x+8y\\3x+12y} = \verticalvector{0\\0}
+  	\end{align*}
+  \end{hint}
+  \begin{hint}
+  	Both of these conditions ($2x+8y  =0$ and $3x+12y = 0$) are saying the same thing:  $x = -4y$.
+  \end{hint}
+  \begin{hint}
+  	So $\verticalvector{-4\\1}$ works, for example.
+  \end{hint}
+  	\begin{matrix-answer}[name=v]
+  		function validator(m){
+  		if ((rows(m) != 2 )||(columns(m) != 1)){
+  			feedback('This needs to be a column vector of length two');
+  			return false;
+  			}
+  		var zeroMatrix = [['0'],['0']]
+  		
+  		if (isMatrixCorrect(m,zeroMatrix)){
+  			feedback('You are not allowed to use the zero vector');
+  			return false;
+  			}
+  		
+  		var A = [['2',8],['3','12']];
+  		
+  		if !(isMatrixCorrect(matrixProduct(A,m),zeroMatrix)){
+  			return false;
+  			}
+  		
+  		return true;
+  		}
+  	\end{matrix-answer}
+  \end{solution}
 \end{question}
 	
 \begin{question}
-  If $A = BLAH$, find $v$ with $Av = BLAH$.
+  If $A = \begin{bmatrix} 1 &3\\2&4\end{bmatrix} $, find $\vec{v}$ with $A\vec{v} = \verticalvector{0\\8}$.
+  \begin{solution}
+  \begin{hint}
+  	Let $\vec{v} = \verticalvector{x\\y}$ and solve a system of equations.
+  \end{hint}
+  \begin{hint}
+  	\begin{align*}
+  		A\vec{v} &= \verticalvector{0\\8}\\
+  		\begin{bmatrix} 1 &3\\2&4\end{bmatrix}\verticalvector{x\\y} &= \verticalvector{0\\8}\\
+  		\verticalvector{x+3y\\2x+4y} = \verticalvector{0\\8}
+  	\end{align*}
+  \end{hint}
+  \begin{hint}
+	\begin{align*}
+    \begin{cases}
+  			x+3y = 0\\
+  			2x+4y=8
+  		\end{cases}
+  		\\
+  		\begin{cases}
+  			x+3y = 0\\
+  			x+2y=4
+  		\end{cases}
+  		\\
+  		\begin{cases}
+  			x+3y = 0\\
+  			y=-4
+  		\end{cases}
+  		\\
+  		\begin{cases}
+  			x=12\\
+  			y=-4
+  		\end{cases}
+\end{align*}
+ \end{hint}
+  	\begin{matrix-answer}[name=v]
+  		correctMatrix=[['12'],['-4']]
+  	\end{matrix-answer}
+  \end{solution}
 \end{question}
 	
 In the last two exercises, you found that solving matrix equations is equivalent to solving systems of linear equations.
 
 \begin{question}
-  Rewrite  $System of linear equations$ as $matrix equation$.
+  Rewrite  $\begin{cases}4x+7y+z =3\\ -x+8y-z =2\end{cases}$ as $A\verticalvector{x\\y\\z} = \verticalvector{3\\2}$.
+  \begin{solution}
+  	\begin{hint}
+  		$A = \begin{bmatrix} 4 & 7 &1 \\ -1&8&-1\end{bmatrix}$
+  	\end{hint}
+  	\begin{matrix-answer}[name = A]
+  		correctMatrix = [['4','7','1'],['-1','8','-1']]
+  	\end{matrix-answer}
+  \end{solution}
 \end{question}
 
 

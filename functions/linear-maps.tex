@@ -14,9 +14,9 @@ We begin by defining linear maps.
   A function $L: \R^n \to \R^m$ is called a \textit{linear map} if it
   ``respects addition and scalar multiplication.''
 
-  Symbolically, for a map to be linear, we must have that $L(v+w) =
-  L(v)+L(w)$ for all $v,w \in \R^n$ and also $L(av) = a L(v)$ for all
-  $a \in \R$ and $v\in \R^n$.
+  Symbolically, for a map to be linear, we must have that $L(\vec{v}+\vec{w}) =
+  L(\vec{v})+L(\vec{w})$ for all $\vec{v},\vec{w} \in \R^n$ and also $L(a\vec{v}) = a L(\vec{v})$ for all
+  $a \in \R$ and $\vec{v}\in \R^n$.
 \end{definition}
 
 \begin{question}
@@ -234,9 +234,9 @@ We begin by defining linear maps.
   \begin{solution}
   
     \begin{hint}
-    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $A\left( 2\verticalvector{2\\3}$ compares to 
+    	For a function to be linear, it must respect scalar multiplication.  Lets see what how $A\left( 2\verticalvector{2\\3}\right)$ compares to 
     	$2A\left(\verticalvector{2\\3}\right)$ and also how $G\left(2\verticalvector{1\\2\\3\\4}\right)$ compares to 
-    	$2G\left(1\\2\\3\\4\right)$.
+    	$2G\left(\verticalvector{1\\2\\3\\4}\right)$.
 	
         \begin{question}
         	
@@ -282,7 +282,7 @@ We begin by defining linear maps.
 		\end{hint}
         	 What is $G\left( 2\verticalvector{1\\2\\3\\4}\right)$?
         	 \begin{matrix-answer}[name=v]
-    			  correctMatrix = [['e^6'],['8'],['sin(5)']]
+    			  correctMatrix = [['e^6'],['8'],['sin(10)']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
@@ -444,6 +444,8 @@ We begin by defining linear maps.
   				$c=$ \answer{z}
   			\end{solution}
   		\end{question}
+  	\end{hint}
+  	\begin{hint}
   		
   		Now using the linearity of $L$, we can see that 
   		

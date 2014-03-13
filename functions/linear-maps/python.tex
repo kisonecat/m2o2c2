@@ -8,14 +8,20 @@
   Build up some linear algebra in python.
 \end{abstract}
 
-We will store a vector as a list.  So the vector $\begin{bmatrix} 1 \\
-  2 \\ 3\end{bmatrix}$ will be stored as \verb|[1,2,3]|.
-
 \begin{exercise}
-  Write a ``vector add'' function.  Your function may assume that the
-  two vectors have the same number of entries.
+  We will store a vector as a list.  So the vector $\begin{bmatrix} 1 \\
+    2 \\ 3\end{bmatrix}$ will be stored as \verb|[1,2,3]|.  Let's try
+  to write some Python code for working with lists as if they were
+  vectors.
 
 \begin{solution}
+  \begin{hint}
+    This was discussed on \url{http://stackoverflow.com/questions/14050824/add-sum-of-values-of-two-lists-into-new-list}{StackOverflow}.
+  \end{hint}
+
+  Write a ``vector add'' function.  Your may function assume that the
+  two vectors have the same number of entries.
+
 \begin{python}
 # write a function vector_sum(v,w) which takes two vectors v and w,
 # and returns the sum v + w.
@@ -30,10 +36,10 @@ def vector_sum(v,w):
 def validator():
   # It would be better to try more cases
   if vector_sum([-5,23],[10,2])[0] != 5:
-    return false
+    return False
   if vector_sum([1,5,6],[2,3,6])[1] != 8:
-    return false
-  return true
+    return False
+  return True
 
 \end{python}
 \end{solution}
@@ -55,10 +61,10 @@ def scale_vector(alpha, v):
 def validator():
   # It would be better to try more cases
   if scale_vector(-3,[2,3,10])[1] != -9:
-    return false
+    return False
   if vector_sum(10,[4,3,2,1])[2] != 20:
-    return false
-  return true
+    return False
+  return True
 
 \end{python}
 \end{solution}
@@ -78,10 +84,10 @@ def dot_product(v,w):
 
 def validator():
   if dot_product([1,2],[-3,5]) != 7:
-    return false
+    return False
   if dot_product([0,4,2],[2,3,-7]) != -2:
-    return false
-  return true
+    return False
+  return True
 \end{python}
 \end{solution}
 
@@ -127,12 +133,12 @@ def validator():
   b = [[-3, 2, -1, -2], [3, 2, 1, 3]]
   result = multiply(a,b)
   if (len(result) != 3):
-    return false
+    return False
   if (len(result[0]) != 4):
-    return false
+    return False
   if (result[2][1] != 4):
-    return false
-  return true
+    return False
+  return True
 \end{python}
 \end{solution}
 
@@ -165,10 +171,10 @@ def matrix_to_function(M):
 
 def validator():
   if matrix_to_function([[-3,2,4],[5,-7,2]])([5,3,2])[0] != -1:
-    return false
+    return False
   if matrix_to_function([[4,3],[2,-1],[-5,3]])([2,-4])[2] != -22:
-    return false
-  return false
+    return False
+  return True
 \end{python}
 \end{solution}
 
@@ -199,14 +205,14 @@ def function_to_matrix(L):
 def validator():
   M = function_to_matrix( lambda v: [3*v[0]+5*v[1], -2*v[0] + 4*v[1]] )
   if (M[0][0] != 3):
-    return false
+    return False
   M = function_to_matrix( lambda v: [2*v[0]-3*v[1], -7*v[0] - 5*v[1]] )
   if (M[1][0] != -7):
-    return false
+    return False
   M = function_to_matrix( lambda v: [v[0]+7*v[1], 3*v[0] - 2*v[1]] )
   if (M[1][1] != -2):
-    return false
-  return true
+    return False
+  return True
 \end{python}
 \end{solution}
 

@@ -8,40 +8,209 @@
   Build up some linear algebra in python.
 \end{abstract}
 
+We will store a vector as a list.  So the vector $\begin{bmatrix} 1 \\
+  2 \\ 3\end{bmatrix}$ will be stored as \verb|[1,2,3]|.
+
+\begin{exercise}
+  Write a ``vector add'' function.  Your function may assume that the
+  two vectors have the same number of entries.
+
+\begin{solution}
 \begin{python}
-#We will store a matrix as a list of lists.   For example the list [[1,2],[3,4],[5,6]] will represent the matrix 
-# 1 3 5
-# 2 4 6
+# write a function vector_sum(v,w) which takes two vectors v and w,
+# and returns the sum v + w.
+#
+# For example, vector_sum([1,2], [4,1]) equals [5,3]
+#
 		
-#write a function multiply(M_1,M_2) which takes two matrices stored in the above format, and returns the matrix of their product
-		
-def multiply(M_1,M_2):
-  #your code here
-		
-#Write a function makeFunction(M) which takes a matrix and returns the linear map associated to the matrix.
-#For example, makeFunction([[1,2],[3,4]])([2,5]) = [12 32]
-		
-def makeFunction(M):
-  #your code here
-		
-#Write a function makeMatrix(L) which takes a linear function L ( given as a python function which takes and returns lists) and returns the matrix associated to L.
-#For example if  
-#def L(v):
-#  return [2*v[0]+3*v[1], -4*v[0]]
-#Then makeMatrix(L) = BLAH (polymorphism is weird here)
-		
-def makeMatrix(L):
-  #your code 
+def vector_sum(v,w):
+  # your code here
+  return # the sum v+w
 
-  #You should double check for some examples that the following is true (as it ought to be)
-  # makeMatrix(makeFunction(M_1)(makeFunction(M_2))) = multiply(M_1,M_2)
+def validator():
+  # It would be better to try more cases
+  if vector_sum([-5,23],[10,2])[0] != 5:
+    return false
+  if vector_sum([1,5,6],[2,3,6])[1] != 8:
+    return false
+  return true
+
 \end{python}
+\end{solution}
 
-	
+Next, write a scalar multiplication function.
 
+\begin{solution}
+\begin{python}
+# write a function scale_vector(alpha, v) which takes a number alpha and a vector v
+# and returns alpha * v
+#
+# For example, scale_vector(5,[1,2,3]) equals [5,10,15]
+#
+		
+def scale_vector(alpha, v):
+  # your code here
+  return # the sum v+w
+
+def validator():
+  # It would be better to try more cases
+  if scale_vector(-3,[2,3,10])[1] != -9:
+    return false
+  if vector_sum(10,[4,3,2,1])[2] != 20:
+    return false
+  return true
+
+\end{python}
+\end{solution}
+
+Let's write a dot product function.
+
+\begin{solution}
+\begin{python}
+# Write a function dot_product(v,w) which takes two vectors v and w,
+# and returns the dot product of v and w.
+#
+# For example, dot_product([1,2],[0,3]) is 6.
+		
+def dot_product(v,w):
+  # your code here
+  return # the dot product "v dot w"
+
+def validator():
+  if dot_product([1,2],[-3,5]) != 7:
+    return false
+  if dot_product([0,4,2],[2,3,-7]) != -2:
+    return false
+  return true
+\end{python}
+\end{solution}
+
+\end{exercise}
+
+And we will store a matrix as a list of lists.  For example the list
+\verb|[[1,3,5],[2,4,6]]| will represent the matrix
+\[
+\begin{bmatrix}
+ 1 & 3 & 5 \\
+ 2 & 4 & 6  
+\end{bmatrix}.
+\]
+Note that there are two different conventions that we could have
+chosen: the innermost lists could be the rows, or the columns.  There
+are good reasons to have chosen the opposite convention: after all,
+when thinking of a matrix as a linear map, we should be paying
+attention to the columns, since the $i$th column tells us what the
+corresponding linear map does when applied to $\vec{e}_i$.
+
+Nevertheless, \textbf{the innermost lists are rows in our chosen
+  representation}.  This way, to talk about the entry $m_{ij}$, we
+write \verb|m[i][j]|.  Had we made the other choice, the $m_{ij}$
+entry would have been accessed by writing $j$ and $i$ in the other
+order.  This is also the same convention used by the computer algebra
+system, Sage.
+
+\begin{exercise}
+Write a ``matrix multiplication'' function.
+
+\begin{solution}
+\begin{python}
+# write a function multiply(A,B) which takes two matrices A and B stored in the above format,
+# and returns the matrix of their product
+		
+def multiply(A,B):
+  # your code here
+  return # the product AB
+
+def validator():
+  # It would be better to try more cases
+  a = [[-2, 0], [-2, -3], [-1, 3]]
+  b = [[-3, 2, -1, -2], [3, 2, 1, 3]]
+  result = multiply(a,b)
+  if (len(result) != 3):
+    return false
+  if (len(result[0]) != 4):
+    return false
+  if (result[2][1] != 4):
+    return false
+  return true
+\end{python}
+\end{solution}
+
+Fantastic!
+
+Next, let's think more about how matrices and linear maps are related.
+
+\begin{solution}
+  \begin{hint}
+  \begin{warning}
+    This is a function whose output is a function.
+  \end{warning}
+  \end{hint}
+
+  \begin{hint}
+    Try using \verb|lambda|.
+  \end{hint}
+
+  Write a function \verb|matrix_to_function| which takes a matrix
+  $M_L$ representing the linear map $L$, and returns a Python
+  function.  The returned Python function should take a vector
+  $\vec{v}$ and send it to $L(\vec{v})$.
+
+\begin{python}
+# For example, if M = [[1,2],[3,4]], then matrix_to_function(M)([0,1]) should be [2,4]
+
+def matrix_to_function(M):
+  #your code here
+  return # the function which sends v to M(v)
+
+def validator():
+  if matrix_to_function([[-3,2,4],[5,-7,2]])([5,3,2])[0] != -1:
+    return false
+  if matrix_to_function([[4,3],[2,-1],[-5,3]])([2,-4])[2] != -22:
+    return false
+  return false
+\end{python}
+\end{solution}
+
+Now you can go back and check---for some examples of $A$, $B$, and $\vec{v}$---that the following is true:
+\verb|matrix_to_function(A)(matrix_to_function(B)(v))| is the same as \verb|matrix_to_function(multiply(A,B))(v)|.
+
+\begin{solution}
+  Now let's go the other way.  Write a function
+  \verb|function_to_matrix| which takes a Python function
+  \verb|f|---assumed to be a linear map from $\R^2$ to $\R^2$---and
+  returns the $2 \times 2$ matrix representing that linear map.
+
+\begin{python}
+# For example if you had defined
+# 
+# def L(v):
+#   return [2*v[0]+3*v[1], -4*v[0]]
+#
+# Then function_to_matrix(L) is 
+		
+# You may assume that L takes [x,y] to another list with two entries
+# and you may assume that L is linear
+
+def function_to_matrix(L):
+  #your code here
+  return # the matrix
+
+def validator():
+  M = function_to_matrix( lambda v: [3*v[0]+5*v[1], -2*v[0] + 4*v[1]] )
+  if (M[0][0] != 3):
+    return false
+  M = function_to_matrix( lambda v: [2*v[0]-3*v[1], -7*v[0] - 5*v[1]] )
+  if (M[1][0] != -7):
+    return false
+  M = function_to_matrix( lambda v: [v[0]+7*v[1], 3*v[0] - 2*v[1]] )
+  if (M[1][1] != -2):
+    return false
+  return true
+\end{python}
+\end{solution}
+
+Great work!  If you like, you can try to compute \verb|function_to_matrix(matrix_to_function(M))|.  You should get back $M$.
+\end{exercise}
 
 \end{document}
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: t
-%%% End: 

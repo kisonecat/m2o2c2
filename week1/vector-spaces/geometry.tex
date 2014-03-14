@@ -8,53 +8,125 @@
   Vectors can be viewed geometrically.
 \end{abstract}
 
-	Graphically, we depict a vector $\verticalvector{x_1\\x_2\\.\\.\\x_n}$ in $\R^n$ as an arrow whose base is at the origin and whose head is at  the point $(x_1,x_2,...,x_n)$.  
-	For example, in $\R^2$ we would depict the vector $\verticalvector{3,4}$ as follows
- 	 
- 	 BADBAD PICTURE
- 	 
- 	 \begin{question}
- 	 	What is the vector $v$ pictured below?
- 	 	BADBAD PICTURE
-  	 \end{question}
+Graphically, we depict a vector $\verticalvector{x_1\\x_2\\.\\.\\x_n}$
+in $\R^n$ as an arrow whose base is at the origin and whose head is at
+the point $(x_1,x_2,...,x_n)$.  For example, in $\R^2$ we would depict
+the vector $\vec{v} = \verticalvector{3,4}$ as follows
+
+\begin{tikzpicture}
+  \draw[color=gray,->] (-5,0) -- (5,0);
+  \draw[color=gray,->] (0,-5,0) -- (0,5);
+  
+  \draw[->] (0,0) -- (3,4);
+  \node[anchor=south west] () at (3,4) {$\vec{v}$};
+\end{tikzpicture}
+
+\begin{question}
+  What is the vector $\vec{w}$ pictured below?
+  \begin{tikzpicture}
+    \draw[color=gray,->] (-5,0) -- (5,0);
+    \draw[color=gray,->] (0,-5,0) -- (0,5);
+    
+    \draw[->] (0,0) -- (-4,2);
+    \node[anchor=south east] () at (-4,2) {$\vec{w}$};
+  \end{tikzpicture}
+
+  \begin{solution}
+    \begin{hint}
+      Consider whether the $x$ and $y$ coordinates are positive or negative.
+    \end{hint}
+    \begin{multiple-choice}
+      \choice[correct]{$(-4,2)$}
+      \choice{$(3,-3)$}
+      \choice{$(-4,-2)$}
+      \choice{$(4,2)$}
+    \end{multiple-choice}
+  \end{solution}
+\end{question}
   	 
-  	 \begin{question}
-  	 	\begin{hint}
-  	 		BADBAD picture
-  	 	\end{hint}
-  	 	On a sheet of paper, draw the vector $\vec{3}{1}$. Click the hint to see if you got it right.
-  	 	%BADBAD INTERACTIVE
-  	 \end{question}
+\begin{question}
+  \begin{hint}
+  \begin{tikzpicture}
+    \draw[color=gray,->] (-5,0) -- (5,0);
+    \draw[color=gray,->] (0,-5,0) -- (0,5);
+    
+    \draw[->] (0,0) -- (3,1);
+    \node[anchor=south west] () at (3,1) {$\vec{v}$};
+  \end{tikzpicture}
+  \end{hint}
+  On a sheet of paper, draw the vector $\vec{v} = \vec{3}{1}$. Click the hint to see if you got it right.
+  
+\end{question}
   	 
-  	 \begin{question}
-  	 \begin{hint}
-  	 	BADBAD PICTURE
-  	 \end{hint}
-  	 	 $\vec{v}_1$ and $\vec{v}_2$ are drawn below.  Redraw them on a sheet of paper, and also draw their sum $\vec{v}_1+\vec{v}_2$.
-  	 	 Click the hint to see if you got it right.
-  	 	
-  	 	%BADBAD INTERACTIVE  
-  	 \end{question}
+\begin{question}
+  \begin{hint}
+  \begin{tikzpicture}
+    \draw[color=gray,->] (-1,0) -- (8,0);
+    \draw[color=gray,->] (0,-1,0) -- (0,8);
+    
+    \draw[->] (0,0) -- (2,3);
+    \node[anchor=south west] () at (2,3) {$\vec{v}_1$};
+
+    \draw[->] (0,0) -- (4,1);
+    \node[anchor=south west] () at (4,1) {$\vec{v}_2$};
+
+    \draw[->] (2,3) -- (6,4);
+    \node[anchor=south west] () at (4,1) {$\vec{v}_2$};
+
+    \draw[->] (4,1) -- (6,4);
+    \node[anchor=south west] () at (4,1) {$\vec{v}_2$};
+
+    \draw[->] (0,0) -- (6,4);
+    \node[anchor=south west] () at (4,1) {$\vec{v}_1 + \vec{v}_2$};
+  \end{tikzpicture}
+  \end{hint}
+  $\vec{v}_1$ and $\vec{v}_2$ are drawn below.  Redraw them on a sheet of paper, and also draw their sum $\vec{v}_1+\vec{v}_2$.
+  Click the hint to see if you got it right.
+
+  \begin{tikzpicture}
+    \draw[color=gray,->] (-1,0) -- (8,0);
+    \draw[color=gray,->] (0,-1,0) -- (0,8);
+    
+    \draw[->] (0,0) -- (2,3);
+    \node[anchor=south west] () at (2,3) {$\vec{v}_1$};
+
+    \draw[->] (0,0) -- (4,1);
+    \node[anchor=south west] () at (4,1) {$\vec{v}_2$};
+  \end{tikzpicture}
+  
+\end{question}
   	 
-  	 \begin{question}
-  	 \begin{hint}
-  	 BADBAD PICTURE
-  	 \end{hint}
-  	 	$\vec{v}$ is drawn below.  Redraw it on a sheet of paper, and also draw $3\vec{v}$.  Click the hint to see if you got it right
-  	 	BADBAD INTERACTIVE
-  	 \end{question}
-  	 
-  	% \begin{question}
-  	 	%Below $v_1$ and $v_2$ are fixed, but $v_3$ is draggable.  Drag $v_3$ so that $2v_1+3v_2 = v_3$.
-  	 	%BADBAD INTERACTIVE  
-  	 %\end{question}
-  	 
-  		By playing around above, you may have noticed that you can sum vectors graphically by forming a parallelogram as in the picture below.
+\begin{question}
+  \begin{hint}
+    \begin{tikzpicture}
+      \draw[color=gray,->] (-1,0) -- (8,0);
+      \draw[color=gray,->] (0,-1,0) -- (0,8);
+      
+      \draw[->] (0,0) -- (1,2);
+      \node[anchor=south] () at (2,3) {$\vec{v}$};
+      \draw[->] (0,0) -- (3,6);
+      \node[anchor=south] () at (3,6) {$3 \vec{v}$};
+    \end{tikzpicture}
+  \end{hint}
+  $\vec{v}$ is drawn below.  Redraw it on a sheet of paper, and also draw $3\vec{v}$.  Click the hint to see if you got it right
+
+  \begin{tikzpicture}
+    \draw[color=gray,->] (-1,0) -- (8,0);
+    \draw[color=gray,->] (0,-1,0) -- (0,8);
+    
+    \draw[->] (0,0) -- (1,2);
+    \node[anchor=south west] () at (1,2) {$\vec{v}$};
+  \end{tikzpicture}
+\end{question}
+
+You may have noticed that you can sum vectors graphically by forming a
+parallelogram.
   		
-  		BADBAD PICTURE
-  		
-  		You also may have noticed that multiplying a vector by a scalar leaves the vector pointing in the same direction but "scales" its length.  That is the reason we call real
-  		numbers  "scalars" when they are coefficients of vectors:  it is to remind us that they act geometrically by scaling the vector.
+You also may have noticed that multiplying a vector by a scalar leaves
+the vector pointing in the same direction but ``scales'' its length.
+That is one reason to call real numbers ``scalars'' when they are
+coefficients of vectors: it is to remind us that they act
+geometrically by scaling the vector.
   		
 \end{document}
 

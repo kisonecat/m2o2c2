@@ -10,6 +10,7 @@ week1/functions
     week1/functions/higher-order/currying
   week1/functions/python
     week1/functions/python/higher-order
+    week1/functions/python/calculus
 week1/linear-maps
   week1/linear-maps/matrices
   week1/linear-maps/composition

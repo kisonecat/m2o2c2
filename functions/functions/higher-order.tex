@@ -1,0 +1,156 @@
+\documentclass{ximera}
+
+\title{Higher-order functions}
+
+\begin{document}
+
+\begin{abstract}
+  Sometimes functions act on functions.
+\end{abstract}
+
+Functions from $\R^n \to \R^m$ are not the only useful kind of
+function.  While such functions are our primary object of study in
+this multivariable calculus class, it will often be helpful to think
+about ``functions of functions.''  The next examples might seem a bit
+peculiar, but later on in the course these kinds of mappings will
+become very important.
+
+\begin{question}
+  Let $C_{[0,1]}$ be the set of all continuous functions from $[0,1]$ to $\R$.  Define $I:C_{[0,1]} \to \R$ by $I(f) = \displaystyle \int_0^1 f(x)dx$ 
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        I(g) &= \int_0^1 g(x)dx\\
+        &= \int_0^1 x^2dx\\
+        &= \frac{1}{3} x^3\big|_0^1\\
+        &= \frac{1}{3}(1-0)\\
+        &= \frac{1}{3}.
+      \end{align*}
+    \end{hint}
+    
+    If $g(x)  = x^2$, then $I(g)$ = \answer{1/3}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Let $C^{\infty}(\R)$ be the set of all infinitely differentiable (``smooth'') functions on $\R$.  Define $Q: C^{\infty}(\R) \to C^{\infty}(\R)$ by $Q(f)(x) = f(0)+f'(0)x+\dfrac{f''(0)}{2}x^2$.
+  \begin{solution}
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          \begin{hint}
+            $f(0)=\cos(0)=1$
+          \end{hint}
+          $f(0) = $ \answer{1}
+        \end{solution}
+      \end{question}
+      \begin{question}
+        \begin{solution}
+          \begin{hint}
+            $f'(x) = -\sin(x)$, so $f'(0)=-\sin(0)=0$
+          \end{hint}
+          $f'(0) = $ \answer{0}
+        \end{solution}
+      \end{question}
+      \begin{question}
+        \begin{solution}
+          \begin{hint}
+            $f''(x) = -\cos(x)$, so $f''(0)=-\cos(0)=-1$
+          \end{hint}
+          $f''(0) = $ \answer{-1}
+        \end{solution}
+      \end{question}
+    \end{hint}
+    \begin{hint}
+      So $Q(f)(x) = 1-\frac{x^2}{2}$
+    \end{hint}
+    If $f(x) = \cos(x)$, then $Q(f)(x)=$ \answer{$1-x^2/2$}?
+  \end{solution}
+  This is an example of a function which eats a function and spits out
+  another function. In particular, this takes a function and returns
+  the second order MacLaurin polynomial of that function.
+\end{question}
+
+\begin{question}
+  Define $dot_n:\R^n \times \R^n \to \R$ by $dot((x_1,x_2,...,x_n),(y_1,y_2,...,y_n))=x_1y_1+x_2y_2+x_3y_3+...+x_ny_n$.  
+  \begin{solution}
+    \begin{hint}
+      $dot_3((2,4,5),(0,1,4))= 2(0)+4(1)+5(4) = 24$
+    \end{hint}
+    $dot_3((2,4,5),(0,1,4))=$ \answer{24}
+  \end{solution}
+\end{question}
+
+Programming Prompts:
+
+#See if you can formalize the following functions in python
+
+#Model the function f(x)=x^2 as a python function
+
+def f(x):
+	return #your code here
+	
+#Model the function g(x)=-1 if x<=0 , g(x)=1 if x>0 as a python function
+
+def g(x):
+	#Your code here
+	
+#Model the function h(x,y)=xysin(1/y) if y=/=0, 0 if y=0
+
+def h(x,y):
+	#Your code here
+	
+# Here is an example of a higher order function horizontalShift.  It takes a function f of one variable, and a horizontal shift H, and returns the function whose graph is the same as f, only shifted H units.
+
+def horizontalShift(f,H):
+	# first we define a new function shiftF which is the appropriate shift of f
+	def shiftedF(x):  
+		return f(x-H) 
+	# then we return that function
+	return shiftedF
+
+#Try  letting  k= horizontalShift(g,3) 	, and try evaluating k(3), k(4), k(-2).  Also try horizontalShift(f,2)(3).
+
+# Write a function forwardDifference which takes a function f:R --> R and returns another function forwardDifference(f):R -->R defined 
+# by forwardDifference(f)(x) = f(x+1)-f(x).
+
+def forwardDifference(f):
+	#Your code here
+	
+# Write a function approximateDerivative which takes a function f:R -->R  and a number h and returns another function approximateDerivative(f,h)(x) = [f(x+h)-f(x-h)]/(2h)
+
+def approximateDerivative(f,h):
+	#Your code here
+	
+#Try letting f(x) = x^2, and g = approximateDerivative(f,0.001).  Then try evaluating g(0),g(1),g(2),g(3),g(4).  Does this agree with what you know about differentiation?
+
+#Python supports lists
+
+	myList = [3,6,9,12]
+
+#Try print myList[2] to see how lists work
+
+#Model the function F(x,y,z)=(x+y,z^2x) as a function which takes the list [x,y,z] and returns the list [x+y,z*z*x]
+
+def F(inputList):
+	#your code here
+	
+#Model dot:R^2 x R^2 --> R as a function which takes two lists, X = [x_1,x_2] and Y=[y_1,y_2], and returns x_1y_1+ x_2y_2
+
+def dot(X,Y):
+	#your code here
+	
+
+
+
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

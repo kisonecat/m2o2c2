@@ -19,6 +19,11 @@ We begin by defining linear maps.
   $a \in \R$ and $\vec{v}\in \R^n$.
 \end{definition}
 
+
+\begin{definition}
+	\textit{Linear Algebra} is the branch of mathematics concerning vector spaces and linear mappings between such spaces.
+\end{definition}
+
 \begin{question}
   Which of the following functions are linear?
   \begin{solution}
@@ -134,7 +139,7 @@ We begin by defining linear maps.
         	\begin{solution}
 		\begin{hint}
 			Remember $h$ is defined by $h(x) = \verticalvector{x\\x\\x\\4x}$, so
-			$h(5+2) = h(7)= \verticalvector{7\\7\\7\\14}$
+			$h(5+2) = h(7)= \verticalvector{7\\7\\7\\28}$
 		\end{hint}
         	 What is $h(5+2)$?
         	\begin{matrix-answer}[name=v]
@@ -144,11 +149,11 @@ We begin by defining linear maps.
         	\begin{solution}
 		\begin{hint}
 			Remember $h$ is defined by $h(x) =\verticalvector{x\\x\\x\\4x}$, so
-			$h(5)+h(2) =  \verticalvector{5\\5\\5\\20}+\verticalvector{2\\2\\2\\8}$
+			$h(5)+h(2) =  \verticalvector{5\\5\\5\\20}+\verticalvector{2\\2\\2\\8} = \verticalvector{7\\7\\7\\28}$
 		\end{hint}
-        	 What is $h\left(\verticalvector{1\\1}\right)$?
+        	 What is $h(5) + h(2)$?
         	 \begin{matrix-answer}[name=v]
-    			  correctMatrix = [['2'],['2'],['2'],['28']]
+    			  correctMatrix = [['7'],['7'],['7'],['28']]
         	 \end{matrix-answer}
         	\end{solution}
         	\begin{solution}
@@ -167,7 +172,7 @@ We begin by defining linear maps.
 			Remember $g$ is defined by $g\left( \verticalvector{x\\y\\z}\right) =\verticalvector{x\\xy}$, so
 			$g\left( \verticalvector{2\\3\\1}+\verticalvector{1\\4\\5}\right) = g\left( \verticalvector{3\\7\\6}\right) = \verticalvector{3\\3(7)} =\verticalvector{3\\21}$
 		\end{hint}
-        	 What is $g\left( \verticalvector{2\\3}+\verticalvector{4\\5}\right)$?
+        	 What is $g\left( \verticalvector{2\\3\\1}+\verticalvector{1\\4\\5}\right)$?
         	 \begin{matrix-answer}[name=v]
     			  correctMatrix = [['3'],['21']]
         	 \end{matrix-answer}
@@ -175,10 +180,11 @@ We begin by defining linear maps.
         	\begin{solution}
 		\begin{hint}
 			Remember $g$ is defined by $g\left( \verticalvector{x\\y\\z}\right) =\verticalvector{x\\xy}$, so
-			$g\left( \verticalvector{2\\3\\1}\right+g\left(\verticalvector{1\\4\\5}\right) = 
-			\verticalvector{2\\2(3)}+\verticalvector{1\\1(4)}=
-			\verticalvector{2\\6}+\verticalvector{1\\4}=
-			\verticalvector{3\\10}$
+			\begin{align*}
+			g\left( \verticalvector{2\\3\\1}\right)+g\left(\verticalvector{1\\4\\5}\right) &= \verticalvector{2\\2(3)}+\verticalvector{1\\1(4)}\\
+			&=\verticalvector{2\\6}+\verticalvector{1\\4}\\
+			&=\verticalvector{3\\10}
+			\end{align*}
 		\end{hint}
         	 What is $g\left(\verticalvector{2\\3\\1}\right)+g\left( \verticalvector{1\\4\\5}\right)$?
         	 \begin{matrix-answer}[name=v]
@@ -291,7 +297,7 @@ We begin by defining linear maps.
 			\begin{align*}
 				2G\left( \verticalvector{1\\2\\3\\4} \right) &= 2\verticalvector{e^{1+2}\\1+3\\ \sin(1+4)}\\
 					&=2\verticalvector{e^{3}\\4\\ \sin(5)}\\
-					&=\verticalvector{2e^3\\8\\ \2sin(5)}
+					&=\verticalvector{2e^3\\8\\ 2\sin(5)}
 			\end{align*}
 		\end{hint}
         	 What is $2G\left(\verticalvector{1\\2\\3\\4}\right)$?
@@ -329,7 +335,7 @@ We begin by defining linear maps.
         	 A\left( \verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2}\right) &= A\left( \verticalvector{x_1+x_2\\y_1+y_2}\right)\\
         	 	&=\verticalvector{0\\0}\\
         	 	&=\verticalvector{0\\0}+\verticalvector{0\\0}\\
-        	 	&=A\left(\verticalvector{x_1\\y_1}\right+A\left(\verticalvector{x_2\\y_2}\right)
+        	 	&=A\left(\verticalvector{x_1\\y_1}\right)+A\left(\verticalvector{x_2\\y_2}\right)
         	 \end{align*}
 		 
         	 This proves that $A$ is linear!

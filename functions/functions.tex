@@ -8,57 +8,165 @@ $B$ which is uniquely assigned to $a$ by $f$.
 
 We call $A$ the domain of $f$, and $B$ the codomain of $f$.  We will also commonly write $f:A \to B$ which reads "$f$ from $A$ to $B$"
 
-\begin{question}
-Let  $D =\{ "yes","no"\}$ and $Q = \{ Dog, Cat, Walrus\}$.  Let $f:Q \to D$ be the function which assigns to each animal in $Q$ the answer to the question "Is this animal commonly a pet?".
-Is this a function?
-What is $f(Dog)$?
-What is $f(Walrus)$?
-\end{question}
+\begin{example}
+Let  $W =\{ \text{``yes"},\text{``no"}\}$ and $A = \{ \text{Dog}, \text{Cat}, \text{Walrus}\}$.  Let $f:Q \to D$ be the function which assigns to each animal in $Q$ the answer to the question "Is this animal commonly a pet?".
+Then $f(\text{Dog}) = \text{``yes''}$, $f(\text{Cat}) = \text{``yes''}$, and $f(\text{Walrus}) = \text{``no''}$.  $A$ is the domain, and $W$ is the codomain. 
+\end{example}
 
 In this class we will mostly study functions  from $\R^n$ to $\R^m$.
 
 \begin{question}
 	Let $g:\R^1 \to \R^2$ be defined by $g(\theta) = (cos(\theta),\sin(\theta))$.
-What is $g(\pi/2)$?
-What is $g(\pi/4)$?
+	\begin{solution}
+	\begin{hint}
+		$g(\frac{\pi}{6}) = (\cos(\frac{\pi}{6}),\sin(\frac{\pi}{6}))$
+	\end{hint}
+	\begin{hint}
+		If you remember your trig facts, this is $(\frac{\sqrt{3}}{2},\frac{1}{2})$.  Format this as $\verticalvector{\frac{\sqrt{3}}{2} \\ \frac{1}{2}}$ for this question.
+	\end{hint}
+	What is$g(\frac{\pi}{6})$ ?  Give your answer as a vertical column of numbers.
+	\begin{matrix-answer}
+		correctMatrix = [['cos(pi/6)'],[sin('pi/6')]]
+	\end{matrix-answer}
+	\end{solution}
 
-To visualize this function, here is a number line for $\theta$.  As you move $\theta$, what happens to $g(\theta)$ in the plane?  Why?
+	Can you imagine what would happen to the point $g(\theta)$ as $\theta$ moved from $0$ to $2\pi$?
 \end{question}
 
 \begin{question}
 Let $h:\R^2 \to \R^2$ be defined by $h(x,y) = (x,-y)$.
-What is $h((2,1))$?
-What is $h((0,0))$?
-If $h((x,y)) = (4,4)$, what is $(x,y)$?
+\begin{solution}
+		\begin{hint}
+			$h(2,1)$
+		\end{hint}
+		\begin{hint}
+			BADBAD PICTURE
+			$h$ takes any point $(x,y)$ to its reflection in the $x-$axis.
+		\end{hint}
+		What is $h(2,1)$?  Format your answer as a vertical column of numbers.
+		
+		Try to understand this function graphically.  How does it transform the plane?  Click the hint twice for an answer to this question.
+		\begin{matrix-answer}
+		correctMatrix = [['2'],['-1']]
+		\end{matrix-answer}
+	\end{solution}
 
-To visualize this function, we have a pair of coordinate planes.  Move the point $(x,y)$ around in the first plane, and see what happens to $h(x,y)$
-in the second plane.  Why does the function behave this way?
+%To visualize this function, we have a pair of coordinate planes.  Move the point $(x,y)$ around in the first plane, and see what happens to $h(x,y)$
+%in the second plane.  Why does the function behave this way?
 \end{question}
 
 \begin{question}
 Let $f:\R^4 \to \R^2$ be defined by $f((x_1,x_2,x_3,x_4)) = (x_1*x_2+x_3,x_4^2+x_1)$.
-What is $f(3,4,1,9)$?
+\begin{solution}
+\begin{hint}
+	$f(3,4,1,9) = (3*4+1,9^2+3) = (13,84)$.  Format this as $\verticalvector{13\\84}$.
+\end{hint}
+What is $f(3,4,1,9)$? Format your answer as a vertical column of numbers.
+\begin{matrix-answer}
+	correctMatrix = [['13'],['84']]
+\end{matrix-answer}
+\end{solution}
 
 Note that this function has too many dimensions to visualize easily.  That does not stop it from being a useful and meaningful function.
 \end{question}
 
-Function from $\R^n \to \R^m$ are not the only useful kind of function.  While such functions are our primary object of study in 
+One of the most important things you can do with functions is compose them.
+
+\begin{definition}
+	Let $f:A \to B$ and $g:B \to C$.  Then there is another function $(g \circ f): A \to C$ defined by $(g \circ f)(a) = g\left[f(a)\right]$ for each $a \in A$.
+	It is called the composition of $g$ with $f$.
+\end{definition}
+
+\begin{warning}
+	The composition is only defined if the codomain of $f$ is the domain of $g$
+\end{warning}
+
+\begin{question}
+		Let $A = {\text{cat},\text{dog}}$, $B = {(2,3),(5,6),(7,8)}$, $C = \R$. Let $f$ be defined by $f(\text{cat}) = (2,3)$ and $f(\text{dog} = (7,8))$.  Let $g$ be defined by
+		the rule $g((x,y)) = x+y$.  
+		\begin{solution}
+			\begin{hint}
+				$(g \circ f)(\text{cat}) = g\left[f(\text(cat))\right] =g((2,3)) = 2+3=5$
+			\end{hint}
+			 $(g \circ f)(\text{cat}) = \answer{5}$
+		\end{solution} 
+\end{question}
+
+\begin{question}
+	Let $h: \R^2 \to \R^3$ be defined by $h(x,y) = (x^2,xy,z+y)$, and let $\omega: \R^3 \to \R^2$ be defined by $\omega(x,y,z) = (\sin(xyz),z)$.
+	\begin{solution}
+		\begin{hint}
+			\begin{align*}
+			(\omega\circ h)(x,y) &= \omega\left[h(x,y)\right]\\
+			&= \omega(x^2,xy,z+y)\\
+			&= (\sin((x^2)(xy)(z+y)), z+y)\\
+			&=(\sin(x^3yz+x^3y^2),z+y)
+			\end{align*}
+		\end{hint}
+		What is $(\omega\circ h)(x,y)$?  Format your answer as a vertical column of formulas.
+		\begin{matrix-answer}
+			correctMatrix = [['sin(x^3*y*z+x^3*y^2)'],['z+y']]
+		\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+Functions from $\R^n \to \R^m$ are not the only useful kind of function.  While such functions are our primary object of study in 
 this multivariable calculus class,  it will often be helpful to think about "functions of functions".  The next examples might seem a 
 bit peculiar, but later on in the course these kinds of mappings will become very important.
 
 \begin{question}
 Let $C_{[0,1]}$ be the set of all continuous functions from $[0,1]$ to $\R$.  Define $I:C_{[0,1]} \to \R$ by $I(f) = \displaystyle \int_0^1 f(x)dx$ 
-If g(x)  = x^2, what is $I(g)$?
+	\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				I(g) &= \int_0^1 g(x)dx\\
+				&= \int_0^1 x^2dx\\
+				&= \frac{1}{3} x^3\big|_0^1\\
+				&= \frac{1}{3}(1-0)\\
+				&= \frac{1}{3}
+			\end{align*}
+		\end{hint}
+		
+		If g(x)  = x^2,  $I(g)$ = \answer{'1/3'}
+	\end{solution}
 \end{question}
 
 \begin{question}
-Let $C^{\infty}(\R)$ be the set of all infinitely differentiable functions on $\R$.  Define $Q: C^{\infty}(\R) \to C^{\infty}(\R)$ by $Q(f)(x) = f(0)+f'(0)x+\dfrac{f''(0)}{2}x^2$..
-
-If $f(x) = \cos(x)$, what is $Q(f)(x)$?
-
-What is $Q(f)(3)?$
-
-This is an example of a function which eats a function and spits out another function.
+Let $C^{\infty}(\R)$ be the set of all infinitely differentiable functions on $\R$.  Define $Q: C^{\infty}(\R) \to C^{\infty}(\R)$ by $Q(f)(x) = f(0)+f'(0)x+\dfrac{f''(0)}{2}x^2$.
+\begin{solution}
+\begin{hint}
+	\begin{question}
+		\begin{solution}
+			\begin{hint}
+				$f(0)=\cos(0)=1$
+			\end{hint}
+			$f(0) = $ \answer{1}
+		\end{solution}
+	\end{question}
+	\begin{question}
+		\begin{solution}
+			\begin{hint}
+				$f'(x) = -\sin(x)$, so $f'(0)=-\sin(0)=0$
+			\end{hint}
+			$f'(0) = $ \answer{0}
+		\end{solution}
+	 \end{question}
+	 \begin{question}
+		\begin{solution}
+			\begin{hint}
+				$f''(x) = -\cos(x)$, so $f''(0)=-\cos(0)=-1$
+			\end{hint}
+			$f''(0) = $ \answer{-1}
+		\end{solution}
+	 \end{question}
+\end{hint}
+\begin{hint}
+	So $Q(f)(x) = 1-\frac{x^2}{2}$
+\end{hint}
+If $f(x) = \cos(x)$, $Q(f)(x)=$ \answer{'1-x^2/2'}?
+\end{solution}
+This is an example of a function which eats a function and spits out another function. In particular, this takes a function and 
+returns the second order MacLaurin polynomial of that function.
 \end{question}
 
 \begin{definition}
@@ -70,13 +178,45 @@ This is an example of a function which eats a function and spits out another fun
 \end{example}
 
 \begin{question}
+
 Let $Func(\R,\R)$ be the set of all functions from $R$ to $R$.  Define $Eval: \R \times Func(\R,\R) \to \R$ by $Eval(x,f) = f(x)$.
-If $g(x) = |x|$, what is $Eval(-3,g)$?
+\begin{solution}
+\begin{hint}
+	$Eval(-3,g) = g(-3)=|-3|=3$
+\end{hint}
+If $g(x) = |x|$,  $Eval(-3,g)=$ \answer{3}?
+\end{solution}
 \end{question}
 
 \begin{question}
-Define $dot_n:\R^n \times \R^n \to \R$ by $dot((x_1,x_2,...,x_n),(y_1,y_2,...,y_n))=x_1y_1+x_2y_2+x_3y_3+...+x_ny_n$.  What is $dot_3((2,4,5),(0,1,4))$?
-Can you find  two different $(y_1,y_2)$ with $dot_2((1,1),(y_1,y_2))=0$?
+	Let $Func(A,B)$ be the set of all functions from $A$ to $B$ for any two sets $A$ and $B$.  
+	Let $Curry:Func(\R^2,\R)\times \R \to  Func(\R,\R)$ be defined by $Curry(f,x)(y) = f(x,y)$.
+	Let $h:\R^2 \times \R$ be defined by $h(x,y) = x^2 +xy$.  
+	\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				G(3) &= Curry(h,2)(3)\\
+				&= h(2,3)\\
+				&= 2^2+2(3)\\
+				&=10
+			\end{align*}
+		\end{hint}
+		Let $G = Curry(h,2)$.  Then $G(3) =$ \answer{10}
+	\end{solution}
+	
+	This wacky way of thinking is needed if you want to understand the \href{http://en.wikipedia.org/wiki/Lambda_calculus}{$\lambda$-calculus}.  It also helps a lot if
+	you ever want to learn to program in Haskell (which this course is partially written in!)
+	
+\end{question}
+
+\begin{question}
+Define $dot_n:\R^n \times \R^n \to \R$ by $dot((x_1,x_2,...,x_n),(y_1,y_2,...,y_n))=x_1y_1+x_2y_2+x_3y_3+...+x_ny_n$.  
+\begin{solution}
+\begin{hint}
+	$dot_3((2,4,5),(0,1,4))= 2(0)+4(1)+5(4) = 24$
+\end{hint}
+$dot_3((2,4,5),(0,1,4))=$ \answer{24}
+\end{solution}
 \end{question}
 
 Programming Prompts:

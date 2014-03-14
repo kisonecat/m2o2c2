@@ -31,29 +31,29 @@ Practically the most important things you can do with functions is to compose th
       First, $(g \circ f)(\text{cat}) = g\left(f(\text{cat}\right)$.
     \end{hint}
     \begin{hint}
-      Then note that $g\left(f\left(\text{cat}\right)\right)$.
+      Then note that $f\left(\text{cat}\right) = (2,3)$.
     \end{hint}
     \begin{hint}
-      But this is $g\left((2,3)\right) = 2 + 3 = 5$.
+      So this is $g\left((2,3)\right) = 2 + 3 = 5$.
     \end{hint}
     $(g \circ f)(\text{cat}) =$ \answer{5}
   \end{solution} 
 \end{question}
 
 \begin{question}
-  Let $h: \R^2 \to \R^3$ be defined by $h(x,y) = (x^2,xy,z+y)$, and let $\omega: \R^3 \to \R^2$ be defined by $\omega(x,y,z) = (\sin(xyz),z)$.
+  Let $h: \R^2 \to \R^3$ be defined by $h(x,y) = (x^2,xy,z+y)$, and let $\omega: \R^3 \to \R^2$ be defined by $\omega(x,y,z) = (xyz,z)$.
   \begin{solution}
     \begin{hint}
       \begin{align*}
         (\omega\circ h)(x,y) &= \omega\left[h(x,y)\right]\\
         &= \omega(x^2,xy,z+y)\\
-        &= (\sin((x^2)(xy)(z+y)), z+y)\\
-        &=(\sin(x^3yz+x^3y^2),z+y)
+        &= ((x^2)(xy)(z+y), z+y)\\
+       
       \end{align*}
     \end{hint}
     What is $(\omega\circ h)(x,y)$?  Format your answer as a vertical column of formulas.
     \begin{matrix-answer}
-      correctMatrix = [['sin(x^3yz+x^3y^2)'],['z+y']]
+      correctMatrix = [['x^3yz+x^3y^2'],['z+y']]
     \end{matrix-answer}
   \end{solution}
 \end{question}

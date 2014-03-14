@@ -4,14 +4,16 @@ description: This massively multivariable open online calculus course presents m
 ---
 
 welcome
-week1/functions
-  week1/functions/composition
-  week1/functions/higher-order
-    week1/functions/higher-order/currying
-  week1/functions/python
-    week1/functions/python/higher-order
-    week1/functions/python/calculus
-week1/linear-maps
-  week1/linear-maps/matrices
-  week1/linear-maps/composition
-  week1/linear-maps/python
+week1
+  week1/Rn
+  week1/functions
+    week1/functions/composition
+    week1/functions/higher-order
+      week1/functions/higher-order/currying
+    week1/functions/python
+      week1/functions/python/higher-order
+      week1/functions/python/calculus
+  week1/linear-maps
+    week1/linear-maps/matrices
+    week1/linear-maps/composition 
+    week1/linear-maps/python

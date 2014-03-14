@@ -1,202 +1,119 @@
 \documentclass{ximera}
 
+\title{An n-dimensional vector space}
+
 \begin{document}
 
-\title{$\R^n$ as a vector space}
 \begin{abstract}
 	Vector spaces let you add and scale vectors.
 \end{abstract}
-It will be convenient for us to equip $\R^n$ with two algebraic operations:  "vector addition" and "scalar multiplication" (to be defined soon).
-This additional structure will transform $\R^n$ from a mere set into a "vector space".  To distinguish between $\R^n$ the set and $\R^n$ the vector space,
- we think of elements of $\R^n$ the set as being ordered lists , like this 
+
+It will be convenient for us to equip $\R^n$ with two algebraic
+operations: ``vector addition'' and ``scalar multiplication'' (to be
+defined soon).  This additional structure will transform $\R^n$ from a
+mere set into a ``vector space.''  To distinguish between $\R^n$ as a
+set and $\R^n$ as a vector space, we think of elements of $\R^n$ as a
+set as being ordered lists, such as
  
- \[\mathbf{p} = (x_1,x_2,x_3, ...,x_,n)\],
+ \[\mathbf{p} = (x_1,x_2,x_3, ...,x_n)\],
  
- but elements of $\R^n$ the vector space will be written typographically as vertically oriented lists flanked with square brackets, like this 
+but elements of $\R^n$ the vector space will be written typographically as vertically oriented lists flanked with square brackets, like this 
  
   \[ \vec{v}= \verticalvector{x_1\\x_2\\x_3\\.\\.\\x_n}\]
  
 We will try to stick to the convention that bold letters like $\mathbf{p}$ represent points, while letters with little arrows above them (like $\vec{v}$) represent vectors. 
-Unfortunately, we use the same symbol $\R^n$ to refer to both the vector space $\R^n$ and the underlying set of points $\R^n$.
+
+Unfortunately (like practically everybody else in the world), we use
+the same symbol $\R^n$ to refer to both the vector space $\R^n$ and
+the underlying set of points $\R^n$.
  
- Vector addition is defined as follows:
+Vector addition is defined as follows:
  
- \[\verticalvector{x_1\\x_2\\.\\.\\x_n} +\verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1+y_1\\x_2+y_2\\.\\.\\x_n+y_n}\]
-	 	
-	An element of $\R$ is also called a "scalar" in this context, and vectors can be multiplied by scalars as follows:
+\[\verticalvector{x_1\\x_2\\.\\.\\x_n} +\verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1+y_1\\x_2+y_2\\.\\.\\x_n+y_n}\]
+
+\begin{warning}
+  You cannot add vectors in $\R^n$ and $\R^m$ unless $n = m$.
+\end{warning}
+
+An element of $\R$ is a number, but it is also called a ``scalar'' in this context, and vectors can be multiplied by scalars as follows:
 	
-	\[ c\verticalvector{x_1\\x_2\\.\\.\\x_n} = \verticalvector{cx_1\\cx_2\\.\\.\\cx_n} \]
+\[ c\verticalvector{x_1\\x_2\\.\\.\\x_n} = \verticalvector{cx_1\\cx_2\\.\\.\\cx_n} \]
  	 
- 	\begin{warning}
- 	  We have not yet defined a notion of multiplication for vectors.  You might think it is reasonable to define 
- 	  \[\verticalvector{x_1\\x_2\\.\\.\\x_n} \verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1y_1\\x_2y_2\\.\\.\\x_ny_n}\], but 
- 	  actually this operation is not very useful, and will \textit{never} be utilized in this course.  We will have a notion of ``vector multiplication'' called the dot 
- 	  product, but that is not the (faulty) definition above.
- 	\end{warning}
+\begin{warning}
+  We have not yet defined a notion of multiplication for vectors.  You might think it is reasonable to define 
+  \[\verticalvector{x_1\\x_2\\.\\.\\x_n} \verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1y_1\\x_2y_2\\.\\.\\x_ny_n}\], but 
+  actually this operation is not especially useful, and will \textit{never} be utilized in this course.  We will have a notion of ``vector multiplication'' called the \textit{dot product,} but that is not the (faulty) definition above.
+\end{warning}
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      $\verticalvector{1\\2\\3}+\verticalvector{3\\-2\\4} = \verticalvector{1+3\\2+-2\\3+4} = \verticalvector{4\\0\\7}$
+    \end{hint}
+    What is $\verticalvector{1\\2\\3}+\verticalvector{3\\-2\\4}$?
+    
+    \begin{matrix-answer}[name=v]
+      correctMatrix = [['4'],['0'],['7']]
+    \end{matrix-answer}
+  \end{solution}
+\end{question}
  	
- 	\begin{question}
- 		\begin{solution}
- 		\begin{hint}
- 			$\verticalvector{1\\2\\3}+\verticalvector{3\\-2\\4} = \verticalvector{1+3\\2+-2\\3+4} = \verticalvector{4\\0\\7}$
- 		\end{hint}
- 		What is $\verticalvector{1\\2\\3}+\verticalvector{3\\-2\\4}$?
- 		
- 		\begin{matrix-answer}[name=v]
- 			correctMatrix = [['4'],['0'],['7']]
- 		\end{matrix-answer}
- 		\end{solution}
- 	\end{question}
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      $3\verticalvector{3\\-2\\4} = \verticalvector{3(3)\\3(-2)\\3(4)  = \verticalvector{9\\6\\12}}$
+    \end{hint}
+    What is $3\verticalvector{3\\-2\\4}$?
+    \begin{matrix-answer}[name=v]
+      correctMatrix = [['9'],['-6'],['12']]
+    \end{matrix-answer}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  
+  If $\vec{v}_1 = \verticalvector{3\\-2} $, $\vec{v}_2 = \verticalvector{1\\5}$,  and  $\vec{v}_3 = \verticalvector{1\\1}$
+  can you find $a,b \in \R$ so that $a\vec{v}_1+b\vec{v}_2=v_3$?
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        a\vec{v}_1+b\vec{v}_2&=v_3\\
+        a\verticalvector{3\\-2} +b\verticalvector{1\\5} =  \verticalvector{1\\1}
+        \verticalvector{3a\\-2a}+\verticalvector{b\\5b} = \verticalvector{1\\1}
+        \verticalvector{3a+b\\-2a+5b} = \verticalvector{1\\1}
+      \end{align*}
+      
+      Can you turn this into a system of two equations?
+    \end{hint}
+    \begin{hint}	
+      \begin{align*}
+        \begin{cases}
+          3a+b&=1\\
+          -2a+5b&=1
+        \end{cases}\\
+        \begin{cases}
+          15a+5b &= 5\\
+          -2a+5b&=1
+        \end{cases}\\
+        \begin{cases}
+          17a &= 4\\
+          -2a+5b&=1
+        \end{cases}
+        \begin{cases}
+          a &= \frac{4}{17}\\
+          -2(\frac{4}{17})+5b &=1
+        \end{cases}
+        \begin{cases}
+          a &= \frac{4}{17}\\
+          b &= \frac{5}{17}
+        \end{cases}
+      \end{align*}
+    \end{hint}
+    $a = $\answer{4/17}
+  \end{solution}
+  \begin{solution}
+    $b=$ \answer{5/17}
+  \end{solution}
+\end{question}
  	
- 	\begin{question}
- 		\begin{solution}
- 		\begin{hint}
- 			$3\verticalvector{3\\-2\\4} = \verticalvector{3(3)\\3(-2)\\3(4)  = \verticalvector{9\\6\\12}}$
- 		\end{hint}
- 		What is $3\verticalvector{3\\-2\\4}$?
- 			\begin{matrix-answer}[name=v]
- 				correctMatrix = [['9'],['-6'],['12']]
- 			\end{matrix-answer}
- 		\end{solution}
- 	 \end{question}
- 	 
- 	 \begin{question}
- 	 
- 	 	If $\vec{v}_1 = \verticalvector{3\\-2} $, $\vec{v}_2 = \verticalvector{1\\5}$,  and  $\vec{v}_3 = \verticalvector{1\\1}$
- 	 can you find $a,b \in \R$ so that $a\vec{v}_1+b\vec{v}_2=v_3$?
- 	 \begin{question}
- 	 	\begin{solution}
- 	 	\begin{hint}
- 	 		\begin{align*}
- 	 			a\vec{v}_1+b\vec{v}_2&=v_3\\
- 	 			a\verticalvector{3\\-2} +b\verticalvector{1\\5} =  \verticalvector{1\\1}
- 	 			\verticalvector{3a\\-2a}+\verticalvector{b\\5b} = \verticalvector{1\\1}
- 	 			\verticalvector{3a+b\\-2a+5b} = \verticalvector{1\\1}
- 	 		\end{align*}
- 	 		
- 	 		Can you turn this into a system of two equations?
- 	 	\end{hint}
- 	 	\begin{hint}	
- 	 		\begin{align*}
- 	 		\begin{cases}
- 	 			3a+b&=1\\
- 	 			-2a+5b&=1
- 	 		\end{cases}\\
- 	 		\begin{cases}
- 	 			15a+5b &= 5\\
- 	 			-2a+5b&=1
- 	 		\end{cases}\\
- 	 		\begin{cases}
- 	 			17a &= 4\\
- 	 			-2a+5b&=1
- 	 		\end{cases}
- 	 		\begin{cases}
- 	 			a &= \frac{4}{17}\\
- 	 			-2(\frac{4}{17})+5b &=1
- 	 		\end{cases}
- 	 		\begin{cases}
- 	 			a &= \frac{4}{17}\\
- 	 			b &= \frac{5}{17}
- 	 		\end{cases}
- 	 		\end{align*}
- 	 	\end{hint}
- 	 		$a = $\answer{4/17}
- 	 	\end{solution}
- 	 \end{question}
- 	 \begin{question}
- 	 	\begin{solution}
- 	 	$b=$ \answer{5/17}
- 	 	\end{solution}
- 	 \end{question}
- 	 \end{question}
- 	
-	Graphically, we depict a vector $\verticalvector{x_1\\x_2\\.\\.\\x_n}$ in $\R^n$ as an arrow whose base is at the origin and whose head is at  the point $(x_1,x_2,...,x_n)$.  
-	For example, in $\R^2$ we would depict the vector $\verticalvector{3,4}$ as follows
- 	 
- 	 BADBAD PICTURE
- 	 
- 	 \begin{question}
- 	 	What is the vector $v$ pictured below?
- 	 	BADBAD PICTURE
-  	 \end{question}
-  	 
-  	 \begin{question}
-  	 	\begin{hint}
-  	 		BADBAD picture
-  	 	\end{hint}
-  	 	On a sheet of paper, draw the vector $\vec{3}{1}$. Click the hint to see if you got it right.
-  	 	%BADBAD INTERACTIVE
-  	 \end{question}
-  	 
-  	 \begin{question}
-  	 \begin{hint}
-  	 	BADBAD PICTURE
-  	 \end{hint}
-  	 	 $\vec{v}_1$ and $\vec{v}_2$ are drawn below.  Redraw them on a sheet of paper, and also draw their sum $\vec{v}_1+\vec{v}_2$.
-  	 	 Click the hint to see if you got it right.
-  	 	
-  	 	%BADBAD INTERACTIVE  
-  	 \end{question}
-  	 
-  	 \begin{question}
-  	 \begin{hint}
-  	 BADBAD PICTURE
-  	 \end{hint}
-  	 	$\vec{v}$ is drawn below.  Redraw it on a sheet of paper, and also draw $3\vec{v}$.  Click the hint to see if you got it right
-  	 	BADBAD INTERACTIVE
-  	 \end{question}
-  	 
-  	% \begin{question}
-  	 	%Below $v_1$ and $v_2$ are fixed, but $v_3$ is draggable.  Drag $v_3$ so that $2v_1+3v_2 = v_3$.
-  	 	%BADBAD INTERACTIVE  
-  	 %\end{question}
-  	 
-  		By playing around above, you may have noticed that you can sum vectors graphically by forming a parallelogram as in the picture below.
-  		
-  		BADBAD PICTURE
-  		
-  		You also may have noticed that multiplying a vector by a scalar leaves the vector pointing in the same direction but "scales" its length.  That is the reason we call real
-  		numbers  "scalars" when they are coefficients of vectors:  it is to remind us that they act geometrically by scaling the vector.
-  		
-  		\begin{definition}
-  			We say that a vector $w$ is a \textit{linear combination} of the vectors $v_1,v_2,v_3,...,v_k$ if there are scalars $a_1,a_2,...a_k$ 
-  			so that $w = a_1v_1+a_2v_2+...+a_kv_k$
-  		\end{definition}
-  		
-  		\begin{definition}
-  			The \textit{span} of a set of vectors $v_1,v_2, ..,v_k \in \R^n$ is the set of all linear combinations of the vectors.
-  			Symbolically, $\vspan(v_1,v_2,...,v_k) = \{ a_1v_1+a_2v_2+...+a_kv_k : a_1,a_2, ...,a_k \in \R^n\}$
-  		\end{definition}
-  		
-  		\begin{example}
-  			The span of $\verticalvector{1\\0\\0}$, $\verticalvector{0\\1\\0}$ is all vectors of the form $\verticalvector{x\\y\\0}$ for some $x,y \in \R$
-  		\end{example}
-  		
-  		\begin{example}
-  			$\verticalvector{8\\13}$ is in the span of $\verticalvector{2\\3}$ and $\verticalvector{4\\7}$ because
-  			 $2\verticalvector{2\\3} + \verticalvector{4\\7} = \verticalvector{8\\13}$ 
-  		\end{example}
-  		
-  	 
-  	 	\begin{question}
-  	 		Is $\verticalvector{3//4//2}$ in the span of $\verticalvector{1\\2\\0}$ and $\verticalvector{3\\-3\\0}$?
-  	 		\begin{solution}
-  	 		\begin{hint}
-  	 			The linear combinations of $\verticalvector{1\\2\\0}$ and $\verticalvector{3\\-3\\0}$ are all the vectors of the form
-  	 			$a\verticalvector{1\\2\\0} + b\verticalvector{3\\-3\\0}$ for scalars $a,b\in \R$.  Could $\verticalvector{3\\4\\2}$ be written in such a form?
-  	 		\end{hint}
-  	 		\begin{hint}
-  	 			No, because the last coordinate of all of these vectors is $0$.  In fact, graphically, the span of these two vectors is just the entire $xy$-plane, 
-  	 			and $\verticalvector{3\\4\\2}$ lives off of that plane.
-  	 		\end{hint}
-  	 			\begin{multiple-choice}
-  	 			\choice{yes}
-  	 			\choice{no}
-  	 			\end{multiple-choice}
-  	 		\end{solution}
-  	 	\end{question}
-  	 	
-  	 	Graphically, we should think of the span of $1$ vector as the line which contains the vector (unless the vector is the zero vector, in which case its span is just the zero vector).  
-  	 	The span of $2$ vectors which are not in the same line is the plane containing the two vectors.
-  	 	The span of $3$ vectors which are not in the same plane is the ``$3$D-space'' which contains those $3$ vectors.  	
-  	 	 
 \end{document}

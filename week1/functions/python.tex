@@ -1,68 +1,71 @@
 \documentclass{ximera}
 
+\title{Python}
+
 \begin{document}
 
-Programming Prompts:
+\begin{abstract}
+  Python provides a playground for multivariable functions.
+\end{abstract}
 
-#See if you can formalize the following functions in python
+We can use Python to experiment a bit with multivariable functions.
 
-#Model the function f(x)=x^2 as a python function
+\begin{question}
+  \begin{solution}
+    Model the function $f(x) = x^2$ as a python function.
 
+    \begin{hint}
+    \begin{warning}
+      Python does not use \verb|^| for exponentiation; it denotes this by \verb|**|
+    \end{warning}
+    \end{hint}
+
+    \begin{hint}
+      Try using \verb|return x**2|
+    \end{hint}
+    \begin{python}
 def f(x):
-	return #your code here
-	
-#Model the function g(x)=-1 if x<=0 , g(x)=1 if x>0 as a python function
+  return #your code here
 
+def validator():
+  return (f(4) == 16) and (f(-5) == 25)
+    \end{python}
+  \end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{solution}
+    Model the function \(g(x)=\begin{cases} -1 & \text{if $x \leq 0$} \\ 1 \text{if $x>0$}\end{cases}\) as a Python function.
+
+    \begin{hint}
+      Try using an \verb|if|
+    \end{hint}
+
+    \begin{python}
 def g(x):
-	#Your code here
-	
-#Model the function h(x,y)=xysin(1/y) if y=/=0, 0 if y=0
+  # your code here
+  return # the value of g(x)
 
+def validator():
+  return (g(0) == -1) and (g(-17) == -1) and (g(25) == 1)
+    \end{python}
+  \end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{solution}
+Model the function \(h(x,y) = \begin{cases} x/(1+y) & \text{if $y \neq -1$} \\ 0 & \text{if $y = -1$}\end{cases}\) as a Python function.
+
+    \begin{python}
 def h(x,y):
-	#Your code here
+  # your code here
+  return # the value of h(x,y)
+
+def validator():
+  return (h(6,2) == 2) and (h(17,-1) == 0) and (h(-24,5) == -4)
+    \end{python}
+  \end{solution}
+\end{question}
 	
-# Here is an example of a higher order function horizontalShift.  It takes a function f of one variable, and a horizontal shift H, and returns the function whose graph is the same as f, only shifted H units.
-
-def horizontalShift(f,H):
-	# first we define a new function shiftF which is the appropriate shift of f
-	def shiftedF(x):  
-		return f(x-H) 
-	# then we return that function
-	return shiftedF
-
-#Try  letting  k= horizontalShift(g,3) 	, and try evaluating k(3), k(4), k(-2).  Also try horizontalShift(f,2)(3).
-
-# Write a function forwardDifference which takes a function f:R --> R and returns another function forwardDifference(f):R -->R defined 
-# by forwardDifference(f)(x) = f(x+1)-f(x).
-
-def forwardDifference(f):
-	#Your code here
-	
-# Write a function approximateDerivative which takes a function f:R -->R  and a number h and returns another function approximateDerivative(f,h)(x) = [f(x+h)-f(x-h)]/(2h)
-
-def approximateDerivative(f,h):
-	#Your code here
-	
-#Try letting f(x) = x^2, and g = approximateDerivative(f,0.001).  Then try evaluating g(0),g(1),g(2),g(3),g(4).  Does this agree with what you know about differentiation?
-
-#Python supports lists
-
-	myList = [3,6,9,12]
-
-#Try print myList[2] to see how lists work
-
-#Model the function F(x,y,z)=(x+y,z^2x) as a function which takes the list [x,y,z] and returns the list [x+y,z*z*x]
-
-def F(inputList):
-	#your code here
-	
-#Model dot:R^2 x R^2 --> R as a function which takes two lists, X = [x_1,x_2] and Y=[y_1,y_2], and returns x_1y_1+ x_2y_2
-
-def dot(X,Y):
-	#your code here
-	
-
-
 \end{document}
 
 %%% Local Variables: 

@@ -15,7 +15,7 @@
   		
 \begin{definition}
   The \textit{span} of a set of vectors $v_1,v_2, ..,v_k \in \R^n$ is the set of all linear combinations of the vectors.
-  Symbolically, $\vspan(v_1,v_2,...,v_k) = \{ a_1v_1+a_2v_2+...+a_kv_k : a_1,a_2, ...,a_k \in \R^n\}$
+  Symbolically, $\text{span}(v_1,v_2,...,v_k) = \{ a_1v_1+a_2v_2+...+a_kv_k : a_1,a_2, ...,a_k \in \R^n\}$
 \end{definition}
 
 \begin{example}
@@ -28,7 +28,7 @@
 \end{example}
 
 \begin{question}
-  Is $\verticalvector{3//4//2}$ in the span of $\verticalvector{1\\2\\0}$ and $\verticalvector{3\\-3\\0}$?
+  Is $\verticalvector{3\\4\\2}$ in the span of $\verticalvector{1\\2\\0}$ and $\verticalvector{3\\-3\\0}$?
   \begin{solution}
     \begin{hint}
       The linear combinations of $\verticalvector{1\\2\\0}$ and $\verticalvector{3\\-3\\0}$ are all the vectors of the form
@@ -39,15 +39,21 @@
       and $\verticalvector{3\\4\\2}$ lives off of that plane.
     \end{hint}
     \begin{multiple-choice}
-      \choice{yes}
-      \choice{no}
+      \choice{Yes, it is in the span of those two vectors.}
+      \choice[correct]{No, it is not in the span of those two vectors.}
     \end{multiple-choice}
   \end{solution}
 \end{question}
 
-Graphically, we should think of the span of $1$ vector as the line which contains the vector (unless the vector is the zero vector, in which case its span is just the zero vector).  
-The span of $2$ vectors which are not in the same line is the plane containing the two vectors.
-The span of $3$ vectors which are not in the same plane is the ``$3$D-space'' which contains those $3$ vectors.  	
+Graphically, we should think of the span of one vector as the line
+which contains the vector (unless the vector is the zero vector, in
+which case its span is just the zero vector).
+  
+The span of two vectors which are not in the same line is the plane
+containing the two vectors.
+
+The span of three vectors which are not in the same plane is the
+``$3$D-space'' which contains those $3$ vectors.
   	 	 
 \end{document}
 

@@ -233,8 +233,8 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
       if (isWrongSize(m, 2, 2)) return false;
       
       var b = [['1','2'],['3','4']]
-      var ab = matrixProduct(m,b);
-      var ba = matrixProduct(b,m);
+      var ab = matrixProduct(unpackMatrix(m),b);
+      var ba = matrixProduct(b,unpackMatrix(m));
       if (isMatrixCorrect(ab,ba))
         return false;
 
@@ -274,22 +274,19 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
         return false;
       }
       
-      var m2 = matrixProduct(m,m);
+      var m2 = matrixProduct(unpackMatrix(m),unpackMatrix(m));
       
       var zeroMatrix = [];
       var i;
-      for( i=0; i<rows(m); i++ ) {
+      for( i=0; i<rows(unpackMatrix(m)); i++ ) {
         zeroMatrix[i] = [];
         var j;
-        for( j=0; j<columns(m); j++ ) {
+        for( j=0; j<columns(unpackMatrix(m)); j++ ) {
           zeroMatrix[i][j] = '0';
         }
       }
 
-      if (isMatrixCorrect(m2,zeroMatrix))
-        return false;
-
-      return true;
+      return isMatrixCorrect(m2,zeroMatrix);
     }
     \end{matrix-answer}
   \end{solution}
@@ -325,18 +322,14 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
   			}
   		var zeroMatrix = [['0'],['0']]
   		
-  		if (isMatrixCorrect(m,zeroMatrix)){
+  		if (isMatrixCorrect(unpackMatrix(m),zeroMatrix)){
   			feedback('You are not allowed to use the zero vector');
   			return false;
   			}
   		
   		var A = [['2',8],['3','12']];
   		
-  		if !(isMatrixCorrect(matrixProduct(A,m),zeroMatrix)){
-  			return false;
-  			}
-  		
-  		return true;
+  		return isMatrixCorrect(matrixProduct(A,unpackMatrix(m)),zeroMatrix);
   		}
   	\end{matrix-answer}
   \end{solution}

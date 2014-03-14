@@ -1,4 +1,21 @@
-\documentclass{ximera}
+\documentclass{article}
+\newcommand{\R}{R}
+\usepackage{amsmath}
+\newcommand{\verticalvector}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\answer}[1]{#1}
+\newenvironment{definition}{}{}
+\newenvironment{question}{}{}
+\newenvironment{hint}{}{}
+\newenvironment{warning}{}{}
+\newenvironment{solution}{}{}
+\newenvironment{free-response}{}{}
+\newenvironment{multiple-choice}{}{}
+\newcommand{\choice}{}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
 
 \begin{document}
 
@@ -24,7 +41,7 @@ dimensions.  Generalizing the results above, we define:
 
 \begin{question}
   \begin{solution}
-    The length of the vector $\verticalvector(6,2,3,1)=$ \answer{'sqrt(6^2+2^2+3^2+1^2)'}
+    The length of the vector $\verticalvector(6,2,3,1)=$ \answer{$sqrt(6^2+2^2+3^2+1^2)$}
   \end{solution}
 \end{question}
 
@@ -36,7 +53,7 @@ dimensions.  Generalizing the results above, we define:
     \begin{hint}
       We could also view this as the length of the vector $\verticalvector{3\\6}$ which ``points'' from $(2,3)$ to $(5,9)$.
     \end{hint}
-    The distance between the points $(2,3)$ and $(5,9)$ is \answer{'sqrt(3^2+6^2)'}
+    The distance between the points $(2,3)$ and $(5,9)$ is \answer{$sqrt(3^2+6^2)$}
   \end{solution}
 \end{question}
 
@@ -52,7 +69,7 @@ dimensions.  Generalizing the results above, we define:
     \begin{hint}
       The length of the displacement vector is $\sqrt{3^2+1^2+6^2+7^2}$
     \end{hint}
-    The distance between the points $(2,7,3,1)$ and $(5,6,9,8)$ is \answer{sqrt(3^2+1+6^2+7^2)}
+    The distance between the points $(2,7,3,1)$ and $(5,6,9,8)$ is \answer{$sqrt(3^2+1+6^2+7^2)$}
   \end{solution}
 \end{question}
 
@@ -82,11 +99,11 @@ dimensions.  Generalizing the results above, we define:
     \begin{hint}
       So we need $\sqrt{(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2} > 4$
     \end{hint}
-    \answer{'(sqrt((x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2)'} $>4$ 
+    \answer{$(sqrt((x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2)$} $>4$ 
   \end{solution}
 \end{question}
 
-Prove that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \mathbb{R}$. 
+Prove that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \R$. 
 
 \begin{warning}
   These two uses of $|\cdot|$ are distinct: $|a|$ means the absolute

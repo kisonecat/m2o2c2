@@ -37,15 +37,25 @@ In this class we will mostly study functions  from $\R^n$ to $\R^m$.
 Let $h:\R^2 \to \R^2$ be defined by $h(x,y) = (x,-y)$.
 \begin{solution}
 		\begin{hint}
-			$h(2,1)$
+			Consider $h(2,1)$.
 		\end{hint}
 		\begin{hint}
-			BADBAD PICTURE
-			$h$ takes any point $(x,y)$ to its reflection in the $x-$axis.
-		\end{hint}
+                  \begin{tikzpicture}
+                    \draw[color=gray,->] (-3,0) -- (3,0);
+                    \draw[color=gray,->] (0,-3) -- (0,3);
+                    \draw[->] (0,0) -- (2,1);
+                    \node[anchor=south] () at (2,1) {$(2,1)$};
+                    \node[anchor=north] () at (2,-1) {$h(2,1)$};
+                    \draw[->] (0,0) -- (2,-1);
+                  \end{tikzpicture}
+                  \begin{hint}
+                    $h$ takes any point $(x,y)$ to its reflection in the $x-$axis.
+                  \end{hint}
+
 		What is $h(2,1)$?  Format your answer as a vertical column of numbers.
+
+		Try to understand this function graphically.  How does it transform the plane?  The hint reveals the answer to this question.
 		
-		Try to understand this function graphically.  How does it transform the plane?  Click the hint twice for an answer to this question.
 		\begin{matrix-answer}
 		correctMatrix = [['2'],['-1']]
 		\end{matrix-answer}

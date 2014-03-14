@@ -5,6 +5,7 @@ description: This massively multivariable open online calculus course presents m
 
 welcome
 week1
+  week1/Rn
   week1/functions
     week1/functions/composition
     week1/functions/higher-order

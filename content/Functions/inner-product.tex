@@ -12,11 +12,19 @@ compute both quantities.
 \end{example}
 
 \begin{question}
-	What is $\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3 \\5\\7 \end{bmatrix}$?
+	\begin{solution}
+	\begin{hint}
+		$\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3\\5\\7 \end{bmatrix} = 2(3)+-1(5)+3(7) = 22$
+	\end{hint}
+	$\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3\\5\\7 \end{bmatrix} = $\answer{22}
+	\end{solution}
 \end{question}
 
 \begin{question}
-	What is $\begin{bmatrix} x_1 & x_2 & x_3 \end{bmatrix} \begin{bmatrix} y_1 \\y_2\\y_3 \end{bmatrix}$?
+	\begin{hint}
+		$\begin{bmatrix} x & y & z \end{bmatrix} \begin{bmatrix} a \\b\\c\end{bmatrix} = ax+by+cz$ 
+	\end{hint}
+	$\begin{bmatrix} x & y & z \end{bmatrix} \begin{bmatrix} a \\b\\c\end{bmatrix} =$ \answer{ax+by+cz}
 \end{question}
 
 There is a natural way to turn a vector into a covector, or a covector into a vector:  just turn the matrix $90^\circ$ one direction or the other!
@@ -32,13 +40,45 @@ There is a natural way to turn a vector into a covector, or a covector into a ve
 Observe that $(v^\top)^\top = v$ and $(\omega^\top)^\top = \omega$ for any vector $v$ and covector $\omega$.
 
 \begin{question}
-	If $v = \begin{bmatrix}  5 \\ 3 \\ 1\end{bmatrix}$ and $w = \begin{bmatrix}  2 \\ -2 \\ 7\end{bmatrix}$ what is $v^\top(w)$? What is $w \circ v^\top$?
+		Let $v = \begin{bmatrix}  5 \\ 3 \\ 1\end{bmatrix}$ and $w = \begin{bmatrix}  2 \\ -2 \\ 7\end{bmatrix}$ 
+	\begin{solution}
+	\begin{hint}
+		$v^\top(w) = \begin{bmatrix} 5 & 3 & 1\end{bmatrix} \verticalvector{2\\-2\\7} = 5(2)+3(-2)+1(7) = 11$
+	\end{hint}
+	   $v^\top(w)=$ \answer{11}?
+	\end{solution}
 \end{question}
+
+\begin{question}
+		Let $v = \begin{bmatrix}  5 \\ 3 \\ 1\end{bmatrix}$ and $w = \begin{bmatrix}  2 \\ -2 \\ 7\end{bmatrix}$ , as in the question above.
+	\begin{solution}
+	\begin{hint}
+		 \begin{align*}
+		 w(v^\top) &=  \verticalvector{2\\-2\\7}\begin{bmatrix} 5 & 3 & 1\end{bmatrix}\\
+		 	&=\begin{bmatrix}
+		 		10  & 6 & 2\\
+		 		-10 & -6& -2\\
+		 		35  & 21& 7
+		 	\end{bmatrix}
+		 \end{align*}
+	\end{hint}
+	   What is $wv^\top$? 
+	   	\begin{matrix-answer}
+	   		correctMatrix = [['10','-6','2'],['-10','-6','-2'],['35','21','7']]
+	   	\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+
 
 \begin{definition}
 	Given two vectors $v,w \in \R^n$, we define their \textit{standard inner product} $\langle v, w\rangle$ by $\langle v,w \rangle = v^\top(w) \in \R$.  We sometimes use the notation 
 	$v \cdot w$ for $\langle v , w \rangle$, and call the operation a textit{dot product}. 
 \end{definition}
+
+\begin{warning}
+	As the example before this definition shows, $v^\top(w) \neq w(v^\top)$:  one is a number, while the other is a huge matrix.
+\end{warning}
 
 
 \begin{question}
@@ -46,84 +86,197 @@ Observe that $(v^\top)^\top = v$ and $(\omega^\top)^\top = \omega$ for any vecto
 	$\begin{bmatrix} x_1 \\x_2\\ .\\.\\. \\ x_n\ \end{bmatrix} \cdot \begin{bmatrix} y_1 \\y_2\\ .\\.\\. \\ y_n\ \end{bmatrix}  = x_1y_1+x_2y_2+x_3y_3 + ...+x_ny_n$
 \end{question}
 
-\begin{question}
-	Prove the following facts about the dot product.  $u,v,w \in \R^n$ and $a \in \R$
-		\begin{itemize}
-			\item $v \cdot w = w \cdot v$ (The dot product is commutative)
+
+	Prove the following facts about the dot product.  $\vec{u},\vec{v},\vec{w} \in \R^n$ and $a \in \R$
+		\begin{en\vec{u}merate}
+			\item $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$ (The dot prod\vec{u}ct is comm\vec{u}tati\vec{v}e)
 			
-			\item $(u+v)\cdot w = u\cdot w + v\cdot w$ 	and $(av)\cdot w = a(v \cdot w)$ (The dot product is linear in the first argument)
+			\item $(\vec{u}+\vec{v})\cdot \vec{w} = \vec{u}\cdot \vec{w} + \vec{v}\cdot \vec{w}$ 	and $(a\vec{v})\cdot \vec{w} = a(\vec{v} \cdot \vec{w})$ (The dot product is linear in the first argument)
 			
-			\item $u \cdot (v+w) = u\cdot v+ u\cdot w$ and  $v \cdot (aw) = a(v \cdot  w)$ (The dot product is linear in the second argument)
+			\item $\vec{u} \cdot (\vec{v}+\vec{w}) = \vec{u}\cdot \vec{v}+ \vec{u}\cdot \vec{w}$ and  $\vec{v} \cdot (a\vec{w}) = a(\vec{v} \cdot  \vec{w})$ (The dot product is linear in the second argument)
 			
-			\item $v\cdot v \geq 0$ (The dot product is positive definite)
+			\item $\vec{v}\cdot \vec{v} \geq 0$ (The dot product is positive definite)
 			
-			\item if $v \cdot z = 0$ for all $z \in \R^n$, then $v =0$ (The dot product is nondegenerate)
-		\end{itemize}
-\end{question}
+			\item if $\vec{v} \cdot z = 0$ for all $z \in \R^n$, then $\vec{v} =\vec{0}$ (The dot product is nondegenerate)
+		\end{enumerate}
+	
+	\begin{free-response}
+			$1.$  $\vec{v} \cdot \vec{w} = v_1w_1+v_2w_2+...+v_nw_n = w_1v_1+w_2v_2+...+w_nv_n = w \cdot v$, so the dot product is commutative.
+			\\
+			\\
+			(skipping item $2$ for now)
+			
+			$3.$ \begin{align*}
+			\vec{u} \cdot (v+\vec{w}) &= \vec{u}^\top(v +\vec{w}) \text{ by definition}\\
+			&=\vec{u}^\top(v) + \vec{u}^\top(\vec{w}) \text{ since $\vec{u}^\top: \R^n \to \R$ is linear}\\
+			&=\vec{u} \cdot v+\vec{u}\cdot \vec{w} \text{ by definition}
+			\end{align*}
+			
+			and 
+			
+			\begin{align*}
+				\vec{u}\cdot(a\vec{w}) &=\vec{u}^\top(a\vec{w}) \text{ by definition}\\
+				&= a\vec{u}^\top(\vec{w}) \text{ since $\vec{u}^\top: \R^n \to \R$ is linear}\\
+				&=a\vec{u}\cdot \vec{w} \text{ by definition}
+			\end{align*}
+			\\
+			\\
+			$2.$ follows from $3$ and $1$
+			\\
+			\\
+			$4.$ $\vec{v} \cdot \vec{v} = v_1^2+v_2^2+v_3^2+...+v_n^2$, and the square of a real number is nonnegative, so the sum of these squares is also nonnegative.
+			\\
+			\\
+			$5.$ is perhaps the trickiest fact to prove.  Observe that if $\vec{v} \cdot \vec{z} =0$ for every $\vec{z} \in \R^n$, then this formula is true
+			in particular for $z=\vec{e}_j$.  But $\vec{v} \cdot \vec{e}_j = v_j$.  Thus, by dotting with all of the standard basis vectors, we see that every coordinate of $\vec{v}$ must
+			be $0$.  Thus $\vec{v}$ is the zero vector
+			
+	\end{free-response}
+	
+	The fact that the dot product is linear in two separate  vector variables means that it is an example of a ``bilinear form''.  We will make a careful study of bilinear forms
+	later in this course:  it will turn out that the second derivative of a multivariable function gives a bilinear form at each point.  
 
 So far, the inner product feels like it belongs to the realm of pure algebra.  In the next few exercises, we will start to see some hints of its geometric meaning.
 
 \begin{question}
-	Let $v  = \begin{bmatrix}  5  \\ 1\end{bmatrix}$.  What is $\langle v,v\rangle$?  
+	Let $v  = \begin{bmatrix}  5  \\ 1\end{bmatrix}$.   
 	
-	Using plane geometry, compute the distance from the point $(0,0)$ to the point $(5,1)$.  What is this distance?
-	
-	How are these two related?
+	\begin{solution}
+		\begin{hint}
+			$\langle \vec{v},\vec{v} \rangle = 5^2+1^2 = 26$
+		\end{hint}
+		$\langle \vec{v},\vec{v} \rangle = $ \answer{26}
+	\end{solution}
+
 \end{question}
 
 \begin{question}
-	$v  = \begin{bmatrix}  x  \\ y\end{bmatrix}$.  What is $\langle v,v\rangle$?  
+	$v  = \begin{bmatrix}  x  \\ y\end{bmatrix}$. 
 	
-	Using plane geometry, compute the distance from the point $(0,0)$ to the point $(x,y)$.  What is this distance?
+	\begin{solution}
+		\begin{hint}
+			$\langle \vec{v},\vec{v} \rangle = x^2+y^2$
+		\end{hint}
+		$\langle \vec{v},\vec{v} \rangle = $ \answer{'x^2+y^2'}
+		
+		
+	\end{solution}
 	
-	How are these two related?
+	Notice that the length of the line segment from $(0,0)$ to $(x,y)$ is $\sqrt{x^2+y^2}$ by the pythagorean theorem:
+		
+		BADBAD PICTURE
+	
 \end{question}
 
 You should have discovered that $v\cdot v$ is the square of the length of the vector $v$ when viewed as an arrow based at the origin.  So far, you have only shown this in the 
 $2$ dimensional case.  See if you can do it in three dimensions:
 
-\begin{problem}
-	Show that the length of the line segment from $(0,0,0)$ to $(x,y,z)$ is $\sqrt{v \cdot v}$, where $v  = \begin{bmatrix}  x  \\ y \\ z\end{bmatrix}$.
-\end{problem}
+Show that the length of the line segment from $(0,0,0)$ to $(x,y,z)$ is $\sqrt{\vec{v} \cdot \vec{v}}$, where $\vec{v}  = \begin{bmatrix}  x  \\ y \\ z\end{bmatrix}$.
 
-Until now, you have probably not seen a treatment of length in higher dimensions.  Generalizing the results of the previous two problems, we define
+Until now, you have probably not seen a treatment of length in higher dimensions.  Generalizing the results above, we define:
 
 \begin{definition}
-	The \textit{length} of a vector $v \in \R^n$ is defined by $|v| = \sqrt{v \cdot v}$.
+	The \textit{length} of a vector $\vec{v} \in \R^n$ is defined by $|v| = \sqrt{v \cdot v}$.
 \end{definition}
 
 \begin{question}
-	What is the length of the vector $\verticalvector(6,2,3,1)$?
+	\begin{solution}
+		The length of the vector $\verticalvector(6,2,3,1)=$ \answer{'sqrt(6^2+2^+3^2+1)'}
+	\end{solution}
 \end{question}
 
 \begin{question}
-	What is the distance between the points $(2,3)$ and $(5,9)$?
+	\begin{solution}
+		\begin{hint}
+			By the pythagorean theorem, we can see that  the distance is $\sqrt{(5-2)^2+(9-3)^2}$
+		\end{hint}
+		\begin{hint}
+			We could also view this as the length of the vector $\verticalvector{3\\6}$ which ``points'' from $(2,3)$ to $(5,9)$.
+		\end{hint}
+		The distance between the points $(2,3)$ and $(5,9)$ is \answer{'sqrt(3^2+6^2)'}
+	\end{solution}
+\end{question}
+
+\begin{definition}
+	The distance between two points $\mathbf{p}$ and $\mathbf{q}$ in $\R^n$ is defined to be the length of the ``displacement'' vector $\vec{p} -\vec{q}$.
+\end{definition}
+
+\begin{question}
+	\begin{solution}
+		\begin{hint}
+			The displacement vector between these points is $\verticalvector{5-2\\6-7\\9-3\\8-1} = \verticalvector{3\\1\\6\\7}$
+		\end{hint}
+		\begin{hint}
+			The length of the displacement vector is $\sqrt{3^2+1^2+6^2+7^2}$
+		\end{hint}
+		The distance between the points $(2,7,3,1)$ and $(5,6,9,8)$ is \answer{sqrt(3^2+1+6^2+7^2)}
+	\end{solution}
 \end{question}
 
 \begin{question}
-	What is the distance between the points $(2,7,3,1)$ and $(5,6,9,8)$?
-\end{question}
-
-\begin{question}
-	Write an equation for the sphere in $\R^4$ of radius $r$ using the coordinates $x,y,z,w$ on $\R^4$.
+	Write an equation for the sphere centered at $(0,0,0,0)$ in $\R^4$ of radius $r$ using the coordinates $x,y,z,w$ on $\R^4$.
+	\begin{solution}
+		\begin{hint}
+			For a point $\mathbf{p}=(x,y,z,w)$ to be on the sphere of radius $r$ centered at $(0,0,0,0)$, the distance from $\mathbf{p}$
+			to the origin must be $r$
+		\end{hint}
+		\begin{hint}
+			$r = \sqrt{x^2+y^2+z^2+w^2}$
+		\end{hint}
+		\begin{hint}
+			$x^2+y^2+z^2+w^2=r^2$
+		\end{hint}
+		\answer{x^2+y^2+z^2+w^2} $= r^2$
+	\end{solution}
 \end{question}
 
 \begin{question}
 	Write an inequality stating that the point $(x,y,z,w)$ is more than $4$ units away from the point $(2,3,1,9)$
+	\begin{solution}
+		\begin{hint}
+			The distance between the point $(x,y,z,w)$ and $(2,3,1,9)$ is $\sqrt{(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2}$.
+		\end{hint}
+		\begin{hint}
+			So we need $\sqrt{(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2} > 4$
+		\end{hint}
+		\answer{'(sqrt(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2)'} $>4$ 
+	\end{solution}
 \end{question}
 
-\begin{question}
-	Show that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \mathbb{R}$. (Note these two uses of $|\cdot|$ are distinct:  $|a|$ means the absolute value of $a$, and $|\vec{v}|$ is the 
+	Prove that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \mathbb{R}$. (Note these two uses of $|\cdot|$ are distinct:  $|a|$ means the absolute value of $a$, and $|\vec{v}|$ is the 
 	length of $\vec{v}$)
-\end{question}
+	
+	\begin{free-response}
+		\begin{align*}
+			|a\vec{v}| &= \sqrt{\langle a\vec{v},a\vec{v]\rangle} \text{ by definition}\\
+			&= \sqrt{a^2\langle \vec{v},\vec{v}\rangle} \text{ by the linearity of the inner product in each slot}\\
+			&= \sqrt{a^2} \sqrt{\langle \vec{v},\vec{v}\rangle}\\
+			&= |a||\vec{v}|
+		\end{align*}
+	\end{free-response}
+
 
 \begin{question}
-	Give a vector of length $1$ which points in the same direction as $\verticalvector(1,2)$.
-\end{question}
-
-\begin{question}
-	Given a nonzero vector $\vec{v} \in \R^n$, show that $\frac{1}{|\vec{v}|}\vec{v}$ is a unit vector.
-\end{question}
+	Give a vector of length $1$ which points in the same direction as $\vec{v} = \verticalvector(1,2)$ (i.e. is a positive multiple of $\vec{v}$). 
+	\begin{solution}
+		
+		\begin{hint}
+			Remember that you just argued that $|a\vec{v}| =|a|\vec{v}$ for any $a\in \R$.  What positive $a$ could you choose to make $|a||\vec{v}| = 1$?
+		\end{hint}
+		\begin{hint}
+			We need to take $a = \frac{1}{|\vec{v}|}$
+		\end{hint}
+		\begin{hint}
+			The length of $\vec{v}$ is $\sqrt{1^2+2^2} = \sqrt{5}$
+		\end{hint}
+		\begin{hint}
+			The vector $\verticalvector{\frac{1}{\sqrt{5}}\\\frac{2}{\sqrt{5}}}$ points in the same direction as $\vec{v}$, but has length $1$.
+		\end{hint}
+		\begin{matrix-answer}
+			correctMatrix = [['1/sqrt(5)'],['2/sqrt(5)']]
+		\end{matrix-answer}
+	\end{solution}
+\end{question}	
 
 Now that we understand the relationship between the inner product and length of vectors, we will attempt to establish a connection between the inner product and the 
 angle between two vectors.
@@ -135,9 +288,10 @@ Do you remember the law of cosines?  It states the following:
 	If a triangle has side lengths $a$,$b$, and $c$, then $c^2 = a^2+b^2 - 2ab\cos(\theta)$, where $\theta$ is the angle opposite the side with length $c$.
 \end{theorem}
 
-\begin{question}
 Prove the law of cosines.
-\end{question}
+\begin{free-response}
+	You can find a beautiful proof \href{http://mathproofs.blogspot.com/2006/06/law-of-cosines.html}{here}.
+\end{free-response}
 
 We can rephrase this in terms of vectors, since geometrically if $\vec{v}$ and $\vec{w}$ are vectors, the third side of the triangle is the vector $w-v$.
 
@@ -147,13 +301,22 @@ BADBAD PICTURE
 	For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v^2| - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
 \end{theorem}
 
-(For you sticklers, this is really being taken as the definition of the angle between two vectors in arbitrary dimension)
+(For you sticklers, this is really being taken as the \textit{definition} of the angle between two vectors in arbitrary dimension)
 
-\begin{question}
 	Rewrite the theorem above by using our definition of length in terms of the dot product.  Performing some algebra you should obtain a nice expression for $v\cdot w$
 	in terms of $|v|, |w|$, and $\cos(\theta)$.
- \end{question}
- 
+
+\begin{free-response}
+	\begin{align*}
+	|w-v|^2 &= |v|^2+|w|^2 - 2|v||w|\cos(\theta)\\
+	\langle w-v,w-v\rangle &= |v|^2+|w|^2- 2|v||w|\cos(\theta)\\
+	\langle w,w-v\rangle-\langle v,w-v\rangle &= |v|^2+|w|^2- 2|v||w|\cos(\theta) \text{ by the linearity of the inner product in the first slot}\\
+	\langle w,w\rangle - \langle{w,v} -\langle v,w \rangle + \langle v,v\rangle&= |v|^2+|w|^2- 2|v||w|\cos(\theta) \text{ by the linearity of the inner product in the second slot}\\
+	|w|^2 - 2\langle v,w\rangle + |v|^2 &= |v|^2+|w|^2- 2|v||w|\cos(\theta)\\
+	-\langle v,w\rangle &= |v||w|\cos(\theta)
+	\end{align*}
+\end{free-response} 
+
  You should have discovered the following theorem:
  
  \begin{theorem}
@@ -173,7 +336,7 @@ BADBAD PICTURE
  worlds:
  
  \begin{theorem}
- 	$v \cdot w \leq |v||w|$ for any two vectors $v,w \in \R^n$
+ 	$|v \cdot w| \leq |v||w|$ for any two vectors $v,w \in \R^n$
  \end{theorem} 
  
  \begin{proof}
@@ -197,7 +360,32 @@ BADBAD PICTURE
 	\langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \leq 1
 	\langle v,w\rangle \leq  |v||w|
 	\]
+	
  \end{proof}
+ 
+ We are not quite done with the proof, because we have not proven that $v \cdot w \geq -|v||w|$.  
+ Following the same basic outline, try to prove the other half of this inequality below.
+ \begin{free-response}
+ 	Start by noting that $\langle v+w,v+w\rangle \geq 0 $.  Expanding this out, we have:
+	\[
+		\langle v,v \rangle + 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+		2\langle v,w \rangle \geq -\langle v,v \rangle  + -\langle w,w\rangle
+	\]
+	
+	Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
+	
+	\[
+	2\langle \vec{v}, \vec{w} \rangle \geq -2
+	\langle \vec{v},\vec{w}\rangle \geq -1
+	\]
+	
+	Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
+	
+	\[
+	\langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \geq -1
+	\langle v,w\rangle \leq  -|v||w|
+	\]
+ \end{free-response}
    
 In the next question, we ask you to fill in the details of an alternative proof which, while a little harder than the one above, is at least as beautiful.
 
@@ -219,31 +407,138 @@ In the next question, we ask you to fill in the details of an alternative proof 
 	
 	This new inequality is strongest when the left hand side (LHS) is minimized.  As it stands the LHS is just a function of one real variable $\lamba$.
 	
-	What is the value of $\lambda$ which minimizes the LHS? 
-	\begin{answer} \sqrt{|w|/|v|}\end{answer}
+	\begin{solution}
+		\begin{hint}
+			We can minimize the left hand side using single variable calculus.
+		\end{hint}
+		\begin{hint}
+			Let $f(\lambda) = \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2$.
+			Then $f'(\lambda) = 2\lambda |v|^2 -2\frac{|w|^2}{\lambda^3}$
+			The minimum must occur where $f'$ vanishes
+		\end{hint}
+		\begin{hint}
+			\begin{align*}
+				f'(\lambda) &= 0\\
+				2\lambda |v|^2 -2\frac{|w|^2}{\lambda^3} &= 0\\
+				\lambda^4 |v|^2 &=|w|^2\\
+				\lambda = \sqrt{\frac{|w|}{|v|}}
+			\end{align*}
+		\end{hint}
+	The value of $\lambda$ which minimizes the left hand side is \answer{sqrt(|w|/|v|)}	
+	\end{solution}
 	
 	Conclude that the Cauchy-Schwarz theorem is true!
 	
-	Credit for this beautiful line of reasoning goes to Terry Tao at \url{https://terrytao.wordpress.com/2007/09/05/amplification-arbitrage-and-the-tensor-power-trick/}.
+	Credit for this beautiful line of reasoning goes to Terry Tao at 
+	\href{https://terrytao.wordpress.com/2007/09/05/amplification-arbitrage-and-the-tensor-power-trick/}{this blog post}.
 	
 \end{question}
 
 
  \begin{question}
- 	What is the angle between the vectors $BLAH$  and $BLAH$?
+ 	\begin{solution}
+ 	\begin{hint}
+ 		We know that $\vec{v}\cdot\vec{w} =  |\vec{v}||\vec{w}|\cos{\theta}$
+ 	\end{hint}
+ 	\begin{hint}	
+ 	 $\verticalvector{2\\3\\1} \cdot \verticalvector{1\\1\\1} = 2(1)+3(1)+1(1) = 6$
+ 	\end{hint}
+ 	\begin{hint}
+ 		$|\vec{v}| = \sqrt{\vec{v}\cdot\vec{v}} = \sqrt{14}$
+ 	\end{hint}
+ 	\begin{hint}
+ 		$|\vec{w}| = \sqrt{\vec{w}\cdot\vec{w}} = \sqrt{3}$
+ 	\end{hint}
+ 	\begin{hint}
+ 		Thus, $6 = \sqrt{14}\sqrt{3}\cos(\theta)$
+ 	\end{hint}
+ 	\begin{hint}
+ 		Therefore, $\theta = \arccos(\frac{6}{\sqrt{42}})$
+ 	\end{hint}
+ 	The angle between the vectors $\vec{v} = \verticalvector{2\\3\\1}$  and $\vec{w}=\verticalvector{1\\1\\1}$ is \answer{arccos(6/(sqrt(14)*sqrt(3)))}
+ 	\end{solution}
+ 	  This problem probably would have stumped you before you started this activity!
  \end{question}
 	 	
  	\begin{question}
- 		Find a vector which is perpendicular to $\verticalvector(2,3,1)$.  
+ 		Find a vector which is perpendicular to $\vec{w} = \verticalvector{2\\3\\1}$.  
+ 		\begin{solution}
+ 			\begin{hint}
+ 				For $\vec{v}$ to be perpendicular to $\verticalvector(2,3,1)$, we would need that the angle between $\vec{v}$ and $\vec{w}$ is $\frac{\pi}{2}$ (or $\frac{-\pi}{2}$).
+ 				In either case $\vec{v}\cdot\vec{w} = |\vec{v}||\vec{w}|\cos(\frac{\pm \pi}{2}) = 0$
+ 				So we need to find a vector for which $\vec{v}\cdot \vec{w}=0$
+ 			\end{hint}
+ 			\begin{hint}
+ 				Let $\vec{v} = \verticalvector{x\\y\\z}$.  Then 
+ 				\begin{align*}
+ 				\vec{v}\cdot\vec{w} &= 0\\
+ 				\verticalvector{x\\y\\z}\cdot\verticalvector{2\\3\\1} &= 0\\
+ 				2x+3y+z &= 0
+ 				\end{align*}
+ 			\end{hint}
+ 			\begin{hint}
+ 				There are a whole lot of choices for $x,y$, and $z$ that fit these criteria (In fact there is an entire \textit{plane} of vectors perpendicular to $\vec{w}$)
+ 			\end{hint}
+ 			\begin{hint}
+ 				$\verticalvector{0\\1\\-3}$ works for instance.
+ 			\end{hint}
+ 			\begin{matrix-answer}
+				BADBAD 	VALIDATOR		
+			\end{matrix-answer}
+ 		\end{solution}
  	\end{question}
  	
  	\begin{question}
- 		Find a vector which is perpendicular to both $\verticalvector(2,3,1)$ and $\verticalvector(5,9,2)$
+ 		Find a vector $\vec{u}$ which is perpendicular to both $\vec{v} = \verticalvector(2,3,1)$ and $\vec{w} = \verticalvector(5,9,2)$
+ 		\begin{solution}
+ 			\begin{hint}
+ 				We need both $\vec{u} \cdot \vec{v}=0 $ and $\vec{u}\cdot \vec{w}=0$
+ 			\end{hint}
+ 			\begin{hint}
+ 				Letting $\vec{u} = \verticalvector{x\\y\\z}$, we have the conditions
+ 				\[
+ 					\begin{cases}
+ 						2x+3y+z=0\\
+ 						5x+9y+2z=0
+ 					\end{cases}
+ 				\]
+ 			\end{hint}
+ 			\begin{hint}
+ 				\begin{align*}
+ 					\begin{cases}
+ 						4x+6y+2z=0\\
+ 						5x+9y+2z=0
+ 					\end{cases}
+ 					\\
+ 					\begin{cases}
+ 						x+3y = 0\\
+ 						5x+9y+2z=0
+ 					\end{cases}
+ 				\end{align*}
+ 			\end{hint}
+ 			\begin{hint}
+ 				Picking whatever you like for $x$, you should be able to find the other values now.  Try $x=3$.
+ 			\end{hint}
+ 			\begin{hint}
+ 				$\verticalvector{3\\-1\\3}$ works.
+ 			\end{hint}
+ 			\begin{matrix-answer}
+ 				BADBAD VALIDATOR
+ 			\end{matrix-answer}
+ 		\end{solution}
  	\begin{question}
 	
-\begin{question}
 	Prove the ``Triangle inequality'':  For any two vector $\vec{v},\vec{w} \in \R^n$, $|\vec{v}+\vec{w}|\leq |\vec{v}+\vec{w}|$.  Draw a picture.  Why is this called the triangle inequality?
-\end{question}
- 	
+	
+	\begin{free-response}
+		The inequality is equivalent to $|\vec{v}+\vec{w}|^2\leq |\vec{v}+\vec{w}|^2$, which is easier to handle because it does not involve square roots.
+		
+		\begin{align*}
+			|\vec{v}+\vec{w}|^2  &= \langle \vec{v}+\vec{w},\vec{v}+\vec{w}\rangle\\
+			&= |v|^2+2\langle v,w\rangle + |w|^2\\
+			&\leq |v|^2+2|v||w|+|w|^2 \text{ by the Cauchy-Schwarz inequality}\\
+			&= (|v|+|w|)^2
+		\end{align*}
+	\end{free-response} 	
 
 \end{document}

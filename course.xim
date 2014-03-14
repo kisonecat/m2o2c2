@@ -20,3 +20,9 @@ week1
     week1/linear-maps/matrices
     week1/linear-maps/composition 
     week1/linear-maps/python
+  week1/inner-product
+    week1/inner-product/covectors
+    week1/inner-product/dot-products
+    week1/inner-product/length
+    week1/inner-product/angle
+    week1/inner-product/cauchy-schwarz

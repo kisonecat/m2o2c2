@@ -1,0 +1,106 @@
+\documentclass{ximera}
+
+\begin{document}
+
+You should have discovered that $v\cdot v$ is the square of the length
+of the vector $v$ when viewed as an arrow based at the origin.  So
+far, you have only shown this in the $2$-dimensional case.  See if you
+can do it in three dimensions.
+
+Show that the length of the line segment from $(0,0,0)$ to $(x,y,z)$
+is $\sqrt{\vec{v} \cdot \vec{v}}$, where $\vec{v} = \begin{bmatrix} x
+  \\ y \\ z\end{bmatrix}$.
+
+\begin{free-response}
+  
+\end{free-response}
+
+Until now, you may not have seen a treatment of length in higher
+dimensions.  Generalizing the results above, we define:
+
+\begin{definition}
+  The \textit{length} of a vector $\vec{v} \in \R^n$ is defined by $|v| = \sqrt{v \cdot v}$.
+\end{definition}
+
+\begin{question}
+  \begin{solution}
+    The length of the vector $\verticalvector(6,2,3,1)=$ \answer{'sqrt(6^2+2^2+3^2+1^2)'}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      By the Pythagorean theorem, we can see that  the distance is $\sqrt{(5-2)^2+(9-3)^2}$
+    \end{hint}
+    \begin{hint}
+      We could also view this as the length of the vector $\verticalvector{3\\6}$ which ``points'' from $(2,3)$ to $(5,9)$.
+    \end{hint}
+    The distance between the points $(2,3)$ and $(5,9)$ is \answer{'sqrt(3^2+6^2)'}
+  \end{solution}
+\end{question}
+
+\begin{definition}
+  The distance between two points $\mathbf{p}$ and $\mathbf{q}$ in $\R^n$ is defined to be the length of the ``displacement'' vector $\vec{p} - \vec{q}$.
+\end{definition}
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      The displacement vector between these points is $\verticalvector{5-2\\6-7\\9-3\\8-1} = \verticalvector{3\\1\\6\\7}$
+    \end{hint}
+    \begin{hint}
+      The length of the displacement vector is $\sqrt{3^2+1^2+6^2+7^2}$
+    \end{hint}
+    The distance between the points $(2,7,3,1)$ and $(5,6,9,8)$ is \answer{sqrt(3^2+1+6^2+7^2)}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Write an equation for the sphere centered at $(0,0,0,0)$ in $\R^4$ of radius $r$ using the coordinates $x,y,z,w$ on $\R^4$.
+  \begin{solution}
+    \begin{hint}
+      For a point $\mathbf{p}=(x,y,z,w)$ to be on the sphere of radius $r$ centered at $(0,0,0,0)$, the distance from $\mathbf{p}$
+      to the origin must be $r$
+    \end{hint}
+    \begin{hint}
+      $r = \sqrt{x^2+y^2+z^2+w^2}$
+    \end{hint}
+    \begin{hint}
+      $x^2+y^2+z^2+w^2=r^2$
+    \end{hint}
+    \answer{$x^2+y^2+z^2+w^2$} $= r^2$
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Write an inequality stating that the point $(x,y,z,w)$ is more than $4$ units away from the point $(2,3,1,9)$
+  \begin{solution}
+    \begin{hint}
+      The distance between the point $(x,y,z,w)$ and $(2,3,1,9)$ is $\sqrt{(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2}$.
+    \end{hint}
+    \begin{hint}
+      So we need $\sqrt{(x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2} > 4$
+    \end{hint}
+    \answer{'(sqrt((x-2)^2+(y-3)^2+(z-1)^2+(w-9)^2)'} $>4$ 
+  \end{solution}
+\end{question}
+
+Prove that $|a\vec{v}| = |a| |\vec{v}|$ for every $a \in \mathbb{R}$. 
+
+\begin{warning}
+  These two uses of $|\cdot|$ are distinct: $|a|$ means the absolute
+  value of $a$, and $|\vec{v}|$ is the length of $\vec{v}$.
+\end{warning}
+
+\begin{free-response}
+  \begin{align*}
+    |a\vec{v}|
+    &= \sqrt{\langle a\vec{v},a\vec{v}\rangle} \text{ by definition}\\
+    &= \sqrt{a^2\langle \vec{v},\vec{v}\rangle} \text{ by the linearity of the inner product in each slot }\\
+    &= \sqrt{a^2} \sqrt{\langle \vec{v},\vec{v}\rangle}\\
+    &= |a| |\vec{v}|
+  \end{align*}
+\end{free-response}
+
+\end{document}

@@ -1,0 +1,92 @@
+\begin{ximera}
+
+\title{Covectors}
+
+\begin{document}
+
+\begin{abstract}
+  A covector eats vectors and provides numbers.
+\end{abstract}
+
+\begin{definition}
+  A \textit{covector} on $\R^n$ is a linear map from $\R^n \to R$.
+
+  As a matrix, it is a single row of length $n$.
+\end{definition}
+
+\begin{example}
+  $\begin{bmatrix} 2 & -1 & 3 \end{bmatrix}$ is the matrix of a
+  covector on $\R^3$.
+\end{example}
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      $\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3\\5\\7 \end{bmatrix} = 2(3)+-1(5)+3(7) = 22$
+    \end{hint}
+    $\begin{bmatrix} 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 3\\5\\7 \end{bmatrix} = $\answer{22}
+  \end{solution}
+
+  Now we can do this a bit more abstractly.
+
+  \begin{hint}
+    $\begin{bmatrix} x & y & z \end{bmatrix} \begin{bmatrix} a \\b\\c\end{bmatrix} = ax+by+cz$ 
+  \end{hint}
+  $\begin{bmatrix} x & y & z \end{bmatrix} \begin{bmatrix} a \\b\\c\end{bmatrix} =$ \answer{ax+by+cz}
+\end{question}
+
+There is a natural way to turn a vector into a covector, or a covector into a vector:  just turn the matrix $90^\circ$ one direction or the other!
+
+\begin{definition}
+  We define the transpose of a vector $v = \begin{bmatrix} x_1 \\x_2\\ \vdots \\ x_n\ \end{bmatrix}$ to be the covector $v^\top$ with matrix 
+  $\begin{bmatrix} x_1 &x_2& \cdots &x_n \end{bmatrix}$.
+	
+  Similarly we define the transpose of a covector $\omega: \begin{bmatrix} x_1 &x_2& \cdots &x_n\ \end{bmatrix}$ to be the vector $\omega^\top$ with matrix
+  $\begin{bmatrix} x_1 \\x_2\\ \vdots \\ x_n\ \end{bmatrix}$.  
+\end{definition}
+
+\begin{question}
+  Suppose $\vec{v} = \begin{bmatrix} 1 \\ 4 \\ 3 \end{bmatrix}$.  What is $(\vec{v}^\top)^\top$?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$\vec{v}^\top)^\top = \begin{bmatrix} 1 \\ 4 \\ 3 \end{bmatrix}$}
+      \choice{$\vec{v}^\top)^\top = \begin{bmatrix} 1 & 4 & 3 \end{bmatrix}$}
+    \end{multiple-choice}
+  \end{solution}
+
+  Indeed, $(\vec{v}^\top)^\top = \vec{v}$ and $(\omega^\top)^\top = \omega$ for any vector $\vec{v}$ and covector $\omega$.
+
+  Let $v = \begin{bmatrix}  5 \\ 3 \\ 1\end{bmatrix}$ and $w = \begin{bmatrix}  2 \\ -2 \\ 7\end{bmatrix}$ 
+  \begin{solution}
+    \begin{hint}
+      $v^\top(w) = \begin{bmatrix} 5 & 3 & 1\end{bmatrix} \verticalvector{2\\-2\\7} = 5(2)+3(-2)+1(7) = 11$
+    \end{hint}
+    $v^\top(w)=$ \answer{11}?
+  \end{solution}
+
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        w(v^\top) &=  \verticalvector{2\\-2\\7}\begin{bmatrix} 5 & 3 & 1\end{bmatrix}\\
+        &=\begin{bmatrix}
+          10  & 6 & 2\\
+          -10 & -6& -2\\
+          35  & 21& 7
+        \end{bmatrix}
+      \end{align*}
+    \end{hint}
+    What is $wv^\top$? 
+    \begin{matrix-answer}
+      correctMatrix = [['10','-6','2'],['-10','-6','-2'],['35','21','7']]
+    \end{matrix-answer}
+  \end{solution}
+\end{question}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,109 @@
+\documentclass{ximera}
+
+\title{Dot product}
+
+\begin{document}
+
+\begin{abstract}
+  The standard inner product is the dot product.
+\end{abstract}
+
+\begin{definition}
+  Given two vectors $\vec{v},\vec{w} \in \R^n$, we define their \textit{standard inner product} $\langle \vec{v}, \vec{w}\rangle$ by $\langle \vec{v},\vec{w} \rangle = \vec{v}^\top(\vec{w}) \in \R$.  We sometimes use the notation 
+  $\vec{v} \cdot \vec{w}$ for $\langle \vec{v} , \vec{w} \rangle$, and call the operation the \textit{dot product}. 
+\end{definition}
+
+\begin{warning}
+  Note that $\vec{v}^\top(\vec{w}) \neq \vec{w}(\vec{v}^\top)$: one is a number, while the other is an $n\times n$ matrix.
+\end{warning}
+
+\begin{question}
+  Make sure for yourself, by using the definition, that 
+  \[\begin{bmatrix} x_1 \\x_2\\ \vdots \\ x_n\ \end{bmatrix} \cdot \begin{bmatrix} y_1 \\y_2\\ \vdots \\ y_n\ \end{bmatrix}  = x_1y_1+x_2y_2+x_3y_3 + \cdots +x_ny_n.\]
+\end{question}
+
+Prove the following facts about the dot product.  $\vec{u},\vec{v},\vec{w} \in \R^n$ and $a \in \R$
+\begin{enumerate}
+\item $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$ (The dot product is commutati\vec{v}e)
+			
+\item $(\vec{u}+\vec{v})\cdot \vec{w} = \vec{u}\cdot \vec{w} + \vec{v}\cdot \vec{w}$ 	and $(a\vec{v})\cdot \vec{w} = a(\vec{v} \cdot \vec{w})$ (The dot product is linear in the first argument)
+			
+\item $\vec{u} \cdot (\vec{v}+\vec{w}) = \vec{u}\cdot \vec{v}+ \vec{u}\cdot \vec{w}$ and  $\vec{v} \cdot (a\vec{w}) = a(\vec{v} \cdot  \vec{w})$ (The dot product is linear in the second argument)
+			
+\item $\vec{v}\cdot \vec{v} \geq 0$ (We say that the dot product is ``positive definite'')
+			
+\item if $\vec{v} \cdot z = 0$ for all $z \in \R^n$, then $\vec{v} =\vec{0}$ (The dot product is nondegenerate)
+\end{enumerate}
+	
+\begin{free-response}
+  $1.$  $\vec{v} \cdot \vec{w} = v_1w_1+v_2w_2+...+v_nw_n = w_1v_1+w_2v_2+...+w_nv_n = w \cdot v$, so the dot product is commutative.
+  \\
+  \\
+  (skipping item $2$ for now)
+  
+  $3.$ \begin{align*}
+    \vec{u} \cdot (v+\vec{w}) &= \vec{u}^\top(v +\vec{w}) \text{ by definition}\\
+    &=\vec{u}^\top(v) + \vec{u}^\top(\vec{w}) \text{ since $\vec{u}^\top: \R^n \to \R$ is linear}\\
+    &=\vec{u} \cdot v+\vec{u}\cdot \vec{w} \text{ by definition}
+  \end{align*}
+  
+  and 
+  
+  \begin{align*}
+    \vec{u}\cdot(a\vec{w}) &=\vec{u}^\top(a\vec{w}) \text{ by definition}\\
+    &= a\vec{u}^\top(\vec{w}) \text{ since $\vec{u}^\top: \R^n \to \R$ is linear}\\
+    &=a\vec{u}\cdot \vec{w} \text{ by definition}
+  \end{align*}
+  \\
+  \\
+  $2.$ follows from $3$ and $1$
+  \\
+  \\
+  $4.$ $\vec{v} \cdot \vec{v} = v_1^2+v_2^2+v_3^2+...+v_n^2$, and the square of a real number is nonnegative, so the sum of these squares is also nonnegative.
+  \\
+  \\
+  $5.$ is perhaps the trickiest fact to prove.  Observe that if $\vec{v} \cdot \vec{z} =0$ for every $\vec{z} \in \R^n$, then this formula is true
+  in particular for $z=\vec{e}_j$.  But $\vec{v} \cdot \vec{e}_j = v_j$.  Thus, by dotting with all of the standard basis vectors, we see that every coordinate of $\vec{v}$ must
+  be $0$.  Thus $\vec{v}$ is the zero vector
+\end{free-response}
+	
+The fact that the dot product is linear in two separate vector
+variables means that it is an example of a ``bilinear form''.  We will
+make a careful study of bilinear forms later in this course: it will
+turn out that the second derivative of a multivariable function gives
+a bilinear form at each point.
+
+So far, the inner product feels like it belongs to the realm of pure
+algebra.  In the next few exercises, we will start to see some hints
+of its geometric meaning.
+
+\begin{question}
+  Let $v  = \begin{bmatrix}  5  \\ 1\end{bmatrix}$.   
+	
+  \begin{solution}
+    \begin{hint}
+      $\langle \vec{v},\vec{v} \rangle = 5^2+1^2 = 26$
+    \end{hint}
+    $\langle \vec{v},\vec{v} \rangle = $ \answer{26}
+  \end{solution}
+
+  Let's think about this a bit more abstractly.
+  Set $v  = \begin{bmatrix}  x  \\ y\end{bmatrix}$. 
+	
+  \begin{solution}
+    \begin{hint}
+      $\langle \vec{v},\vec{v} \rangle = x^2+y^2$
+    \end{hint}
+    $\langle \vec{v},\vec{v} \rangle = $ \answer{'x^2+y^2'}    
+    
+  \end{solution}
+  
+  Notice that the length of the line segment from $(0,0)$ to $(x,y)$ is $\sqrt{x^2+y^2}$ by the Pythagorean theorem.
+	
+\end{question}
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,98 @@
+\documentclass{ximera}
+
+\begin{document}
+
+\begin{question}
+  Give a vector of length $1$ which points in the same direction as $\vec{v} = \verticalvector(1,2)$ (i.e. is a positive multiple of $\vec{v}$). 
+  \begin{solution}
+    
+    \begin{hint}
+      Remember that you just argued that $|a\vec{v}| =|a|\vec{v}$ for any $a\in \R$.  What positive $a$ could you choose to make $|a||\vec{v}| = 1$?
+    \end{hint}
+    \begin{hint}
+      We need to take $a = \frac{1}{|\vec{v}|}$
+    \end{hint}
+    \begin{hint}
+      The length of $\vec{v}$ is $\sqrt{1^2+2^2} = \sqrt{5}$
+    \end{hint}
+    \begin{hint}
+      The vector $\verticalvector{\frac{1}{\sqrt{5}}\\\frac{2}{\sqrt{5}}}$ points in the same direction as $\vec{v}$, but has length $1$.
+    \end{hint}
+    \begin{matrix-answer}
+      correctMatrix = [['1/sqrt(5)'],['2/sqrt(5)']]
+    \end{matrix-answer}
+  \end{solution}
+\end{question}	
+
+Now that we understand the relationship between the inner product and
+length of vectors, we will attempt to establish a connection between
+the inner product and the angle between two vectors.
+
+Do you remember the law of cosines?  It states the following:
+
+\begin{theorem}
+%	BADBAD PICTURE
+  If a triangle has side lengths $a$,$b$, and $c$, then $c^2 = a^2+b^2 - 2ab\cos(\theta)$, where $\theta$ is the angle opposite the side with length $c$.
+\end{theorem}
+
+Prove the law of cosines.  You may want to read the lovely proof at \href{http://mathproofs.blogspot.com/2006/06/law-of-cosines.html}.
+\begin{free-response}
+  You can find a beautiful proof \href{http://mathproofs.blogspot.com/2006/06/law-of-cosines.html}{here}.
+\end{free-response}
+
+We can rephrase this in terms of vectors, since geometrically if $\vec{v}$ and $\vec{w}$ are vectors, the third side of the triangle is the vector $\vec{w}-\vec{v}$.
+
+%BADBAD PICTURE
+
+\begin{theorem}
+  For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v^2| - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
+\end{theorem}
+
+(For you sticklers, this is really being taken as the \textit{definition} of the angle between two vectors in arbitrary dimension.)
+
+Rewrite the theorem above by using our definition of length in terms of the dot product.  Performing some algebra you should obtain a nice expression for $v\cdot w$ in terms of $|v|, |w|$, and $\cos(\theta)$.
+
+\begin{free-response}
+  \begin{align*}
+    |w-v|^2 &= |v|^2+|w|^2 - 2|v||w|\cos(\theta)\\
+    \langle w-v,w-v\rangle &= |v|^2+|w|^2- 2|v||w|\cos(\theta)\\
+    \langle w,w-v\rangle-\langle v,w-v\rangle &= |v|^2+|w|^2- 2|v||w|\cos(\theta) \text{ by the linearity of the inner product in the first slot}\\
+    \langle w,w\rangle - \langle{w,v} -\langle v,w \rangle + \langle v,v\rangle&= |v|^2+|w|^2- 2|v||w|\cos(\theta) \text{ by the linearity of the inner product in the second slot}\\
+    |w|^2 - 2\langle v,w\rangle + |v|^2 &= |v|^2+|w|^2- 2|v||w|\cos(\theta)\\
+    -\langle v,w\rangle &= |v||w|\cos(\theta)
+  \end{align*}
+\end{free-response} 
+
+You should have discovered the following theorem:
+ 
+\begin{theorem}
+  For any two vectors $v,w \in \R^n$, $v \cdot w =
+  |v||w|\cos(\theta)$.  In words, the dot product of two vectors is
+  the product of the lengths of the two vectors, times the cosine of
+  the angle between them.
+\end{theorem}
+ 
+This gives an almost totally geometric picture of the dot product:
+Given two vectors $\vec{v}$ and $\vec{w}$, $|\vec{v}\cos(\theta)|$ can
+be viewed as the length of the projection of $\vec{v}$ onto the line
+containing $\vec{w}$.  So $|\vec{v}||\vec{w}|\cos(\theta)$ is the
+``length of the projection of $\vec{v}$ in the direction of $\vec{w}$
+times the length of $\vec{w}$''.
+ 
+% BADBAD PICTURE
+ 
+As mentioned above, this theorem is really being used to
+\textit{define} the angle between two vectors.  This is not quite
+rigorous: how do we even know that $\frac{v \cdot w}{|v||w|}$ is even
+between $-1$ and $1$, so that it could be the cosine of an angle?
+This is clear from the ``Euclidean Geometry'' perspective, but not as
+clear from the ``Cartesian Geometry'' perspective.  To make sure that
+everything is okay, we prove the ``Cauchy-Schwarz'' theorem which
+reconciles these two worlds.
+ 
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+

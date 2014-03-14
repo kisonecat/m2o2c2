@@ -1,0 +1,223 @@
+\documentclass{ximera}
+
+\title{Cauchy-Schwarz}
+
+\begin{document}
+
+\begin{abstract}
+  The Cauchy-Schwarz inequality relates the inner product and the norm of the two vectors.
+\end{abstract}
+
+This is the Cauchy-Schwarz inequality.
+
+\begin{theorem}
+  $|v \cdot w| \leq |v||w|$ for any two vectors $v,w \in \R^n$
+\end{theorem} 
+ 
+\begin{proof}
+  If $\vec{v}$ or $\vec{w}$ is the zero vector, the result is trivial.  So assume $\vec{v} \neq \vec{0}$ and $\vec{w} \neq \vec{0}$
+  Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
+  \[
+  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+  2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
+  \]
+  
+  Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
+  
+  \[
+  2\langle \vec{v}, \vec{w} \rangle \leq 2
+  \langle \vec{v},\vec{w}\rangle \leq 1
+  \]
+  
+  Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
+  
+  \[
+  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \leq 1
+  \langle v,w\rangle \leq  |v||w|
+  \]
+  
+\end{proof}
+
+We are not quite done with the proof, because we have not proven that $v \cdot w \geq -|v||w|$.  
+Following the same basic outline, try to prove the other half of this inequality below.
+\begin{free-response}
+  Start by noting that $\langle v+w,v+w\rangle \geq 0 $.  Expanding this out, we have:
+  \[
+  \langle v,v \rangle + 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+  2\langle v,w \rangle \geq -\langle v,v \rangle  + -\langle w,w\rangle
+  \]
+  
+  Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
+  
+  \[
+  2\langle \vec{v}, \vec{w} \rangle \geq -2
+  \langle \vec{v},\vec{w}\rangle \geq -1
+  \]
+  
+  Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
+  
+  \[
+  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \geq -1
+  \langle v,w\rangle \leq  -|v||w|
+  \]
+\end{free-response}
+
+In the next question, we ask you to fill in the details of an alternative proof which, while a little harder than the one above, is at least as beautiful.
+
+\begin{question}
+  Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
+  \[
+  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
+  2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
+  \]
+  
+  Now notice that the left hand side is unaffected by scaling $v$ by a scalar $\lambda$ and $w$ by $\frac{1}{\lambba}$, but the left hand side is!
+  This allows us to breath new life into the inequality:  we know that for every scalar $\lambda \in (0,\infty)$ 
+  
+  \[
+  \langle  v,w \rangle \leq \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2
+  \] 
+  
+  This is somewhat miraculous:  we have a stronger inequality than the one we started with ``for free".
+  
+  This new inequality is strongest when the left hand side (LHS) is minimized.  As it stands the LHS is just a function of one real variable $\lamba$.
+  
+  \begin{solution}
+    \begin{hint}
+      We can minimize the left hand side using single variable calculus.
+    \end{hint}
+    \begin{hint}
+      Let $f(\lambda) = \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2$.
+      Then $f'(\lambda) = 2\lambda |v|^2 -2\frac{|w|^2}{\lambda^3}$
+      The minimum must occur where $f'$ vanishes
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        f'(\lambda) &= 0\\
+        2\lambda |v|^2 -2\frac{|w|^2}{\lambda^3} &= 0\\
+        \lambda^4 |v|^2 &=|w|^2\\
+        \lambda = \sqrt{\frac{|w|}{|v|}}
+      \end{align*}
+    \end{hint}
+    The value of $\lambda$ which minimizes the left hand side is \answer{sqrt(|w|/|v|)}	
+  \end{solution}
+  
+  Conclude that the Cauchy-Schwarz theorem is true!
+  
+  Credit for this beautiful line of reasoning goes to Terry Tao at 
+  \href{https://terrytao.wordpress.com/2007/09/05/amplification-arbitrage-and-the-tensor-power-trick/}{this blog post}.
+  
+\end{question}
+
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      We know that $\vec{v}\cdot\vec{w} =  |\vec{v}||\vec{w}|\cos{\theta}$
+    \end{hint}
+    \begin{hint}	
+      $\verticalvector{2\\3\\1} \cdot \verticalvector{1\\1\\1} = 2(1)+3(1)+1(1) = 6$
+    \end{hint}
+    \begin{hint}
+      $|\vec{v}| = \sqrt{\vec{v}\cdot\vec{v}} = \sqrt{14}$
+    \end{hint}
+    \begin{hint}
+      $|\vec{w}| = \sqrt{\vec{w}\cdot\vec{w}} = \sqrt{3}$
+    \end{hint}
+    \begin{hint}
+      Thus, $6 = \sqrt{14}\sqrt{3}\cos(\theta)$
+    \end{hint}
+    \begin{hint}
+      Therefore, $\theta = \arccos(\frac{6}{\sqrt{42}})$
+    \end{hint}
+    The angle between the vectors $\vec{v} = \verticalvector{2\\3\\1}$  and $\vec{w}=\verticalvector{1\\1\\1}$ is \answer{arccos(6/(sqrt(14)*sqrt(3)))}
+  \end{solution}
+  This problem probably would have stumped you before you started this activity!
+\end{question}
+
+\begin{question}
+  Find a vector which is perpendicular to $\vec{w} = \verticalvector{2\\3\\1}$.  
+  \begin{solution}
+    \begin{hint}
+      For $\vec{v}$ to be perpendicular to $\verticalvector(2,3,1)$, we would need that the angle between $\vec{v}$ and $\vec{w}$ is $\frac{\pi}{2}$ (or $\frac{-\pi}{2}$).
+      In either case $\vec{v}\cdot\vec{w} = |\vec{v}||\vec{w}|\cos(\frac{\pm \pi}{2}) = 0$
+      So we need to find a vector for which $\vec{v}\cdot \vec{w}=0$
+    \end{hint}
+    \begin{hint}
+      Let $\vec{v} = \verticalvector{x\\y\\z}$.  Then 
+      \begin{align*}
+        \vec{v}\cdot\vec{w} &= 0\\
+        \verticalvector{x\\y\\z}\cdot\verticalvector{2\\3\\1} &= 0\\
+        2x+3y+z &= 0
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      There are a whole lot of choices for $x,y$, and $z$ that fit these criteria (In fact there is an entire \textit{plane} of vectors perpendicular to $\vec{w}$)
+    \end{hint}
+    \begin{hint}
+      $\verticalvector{0\\1\\-3}$ works for instance.
+    \end{hint}
+    \begin{matrix-answer}
+      BADBAD 	VALIDATOR		
+    \end{matrix-answer}
+  \end{solution}
+\end{question}
+
+\begin{question}
+  Find a vector $\vec{u}$ which is perpendicular to both $\vec{v} = \verticalvector(2,3,1)$ and $\vec{w} = \verticalvector(5,9,2)$
+  \begin{solution}
+    \begin{hint}
+      We need both $\vec{u} \cdot \vec{v}=0 $ and $\vec{u}\cdot \vec{w}=0$
+    \end{hint}
+    \begin{hint}
+      Letting $\vec{u} = \verticalvector{x\\y\\z}$, we have the conditions
+      \[
+      \begin{cases}
+        2x+3y+z=0\\
+        5x+9y+2z=0
+      \end{cases}
+      \]
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \begin{cases}
+          4x+6y+2z=0\\
+          5x+9y+2z=0
+        \end{cases}
+        \\
+        \begin{cases}
+          x+3y = 0\\
+          5x+9y+2z=0
+        \end{cases}
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      Picking whatever you like for $x$, you should be able to find the other values now.  Try $x=3$.
+    \end{hint}
+    \begin{hint}
+      $\verticalvector{3\\-1\\3}$ works.
+    \end{hint}
+    \begin{matrix-answer}
+      BADBAD VALIDATOR
+    \end{matrix-answer}
+  \end{solution}
+\end{question}
+    
+Prove the ``Triangle inequality'':  For any two vector $\vec{v},\vec{w} \in \R^n$, $|\vec{v}+\vec{w}|\leq |\vec{v}+\vec{w}|$.  Draw a picture.  Why is this called the triangle inequality?
+
+\begin{free-response}
+  The inequality is equivalent to $|\vec{v}+\vec{w}|^2\leq |\vec{v}+\vec{w}|^2$, which is easier to handle because it does not involve square roots.
+  
+  \begin{align*}
+    |\vec{v}+\vec{w}|^2  &= \langle \vec{v}+\vec{w},\vec{v}+\vec{w}\rangle\\
+    &= |v|^2+2\langle v,w\rangle + |w|^2\\
+    &\leq |v|^2+2|v||w|+|w|^2 \text{ by the Cauchy-Schwarz inequality}\\
+    &= (|v|+|w|)^2
+  \end{align*}
+\end{free-response} 	
+    
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

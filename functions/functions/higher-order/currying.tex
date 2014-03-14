@@ -1,0 +1,70 @@
+\documentclass{ximera}
+
+\title{Currying}
+
+\begin{document}
+
+\begin{abstract}
+  Higher-order functions provide a different perspective on functions that take many inputs.
+\end{abstract}
+
+\begin{definition}
+  Let $A$ and $B$ be two sets.  The \textit{product} $A\times B$ of
+  the two sets is the set of all ordered pairs $A \times B = \{ (a,b):
+  a \in A and b \in B\}$.
+\end{definition}
+
+\begin{example}
+  If $A = \{ 1,2,\text{Wolf}\}$ and $B = \{4,5\}$, then $A \times B =
+  \{(1,4),(1,5),(2,4),(2,5),(\text{Wolf},4),(\text{Wolf},5)\}$
+\end{example}
+
+\begin{example}
+  We write $\R^2$ for pairs of real numbers, but we could have written
+  $\R \times \R$ instead.
+\end{example}
+
+\begin{question}
+  Let $\text{Func}(\R,\R)$ be the set of all functions from $R$ to
+  $R$.  Define $\text{Eval}: \R \times \text{Func}(\R,\R) \to \R$ by
+  $\text{Eval}(x,f) = f(x)$.
+\begin{solution}
+\begin{hint}
+	$\text{Eval}(-3,g) = g(-3)=|-3|=3$
+\end{hint}
+If $g(x) = |x|$, then $\text{Eval}(-3,g)=$ \answer{3}?
+\end{solution}
+\end{question}
+
+\begin{question}
+  Let $\text{Func}(A,B)$ be the set of all functions from $A$ to $B$ for any two sets $A$ and $B$.  
+  
+  Let $\text{Curry}:\text{Func}(\R^2,\R) \to  \text{Func}(\R,\text{Func}(\R,\R))$ be defined by $\text{Curry}(f)(x)(y) = f(x,y)$.
+
+  Let $h:\R^2 \times \R$ be defined by $h(x,y) = x^2 +xy$.  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        G(3) &= \text{Curry}(h)(2)(3)\\
+        &= h(2,3)\\
+        &= 2^2+2(3)\\
+        &=10
+      \end{align*}
+    \end{hint}
+    Let $G = \text{Curry}(h)(2)$.  Then $G(3) =$ \answer{10}
+  \end{solution}
+  
+  This wacky way of thinking is helpful when thinking about the
+  \href{http://en.wikipedia.org/wiki/Lambda_calculus}{$\lambda$-calculus}.
+  It also helps a lot if you ever want to learn to program in
+  Haskell---which is one of the languages that Ximera was written in.
+  
+\end{question}
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

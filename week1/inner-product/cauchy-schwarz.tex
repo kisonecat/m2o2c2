@@ -211,7 +211,7 @@ In the next question, we ask you to fill in the details of an alternative proof 
 
       var result = matrixProduct([['2','3','1']],unpackMatrix(m));
 
-      if (! isMatrixCorrect(result,[['0']]))
+      if (! isMatrixCorrect(result,[['0']])) {
         feedback('This is not perpendicuar to [[2],[3],[1]]');
         return false;
       }

@@ -71,14 +71,14 @@ In the next question, we ask you to fill in the details of an alternative proof 
   2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
   \]
   
-  Now notice that the left hand side is unaffected by scaling $v$ by a scalar $\lambda$ and $w$ by $\frac{1}{\lambda}$, but the left hand side is!
+  Now notice that the left hand side is unaffected by scaling $v$ by a scalar $\lambda$ and $w$ by $\frac{1}{\lambda}$, but the right hand side is!
   This allows us to breath new life into the inequality:  we know that for every scalar $\lambda \in (0,\infty)$ 
   
   \[
   \langle  v,w \rangle \leq \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2
   \] 
   
-  This is somewhat miraculous:  we have a stronger inequality than the one we started with ``for free".
+  This is somewhat miraculous:  we have a stronger inequality than the one we started with ``for free.''
   
   This new inequality is strongest when the left hand side (LHS) is minimized.  As it stands the LHS is just a function of one real variable $\lambda$.
   
@@ -99,7 +99,10 @@ In the next question, we ask you to fill in the details of an alternative proof 
         \lambda = \sqrt{\frac{|w|}{|v|}}
       \end{align*}
     \end{hint}
-    The value of $\lambda$ which minimizes the left hand side is \answer{sqrt(|w|/|v|)}	
+    \begin{hint}
+      You can type $|w|$ by writing \verb|abs(w)|.
+    \end{hint}
+    The value of $\lambda$ which minimizes the left hand side is \answer{sqrt(abs(w)/abs(v))}	
   \end{solution}
   
   Conclude that the Cauchy-Schwarz theorem is true!
@@ -108,7 +111,6 @@ In the next question, we ask you to fill in the details of an alternative proof 
   \href{https://terrytao.wordpress.com/2007/09/05/amplification-arbitrage-and-the-tensor-power-trick/}{this blog post}.
   
 \end{question}
-
 
 \begin{question}
   \begin{solution}
@@ -158,7 +160,16 @@ In the next question, we ask you to fill in the details of an alternative proof 
       $\verticalvector{0\\1\\-3}$ works for instance.
     \end{hint}
     \begin{matrix-answer}
-      BADBAD 	VALIDATOR		
+    function validator(m) {
+      if (isWrongSize(m, 3, 1)) return false;
+
+      var result = matrixProduct([['2','3','1']],unpackMatrix(m));
+
+      if (result[0][0] == 0)
+        return true;
+
+      return false;
+    }
     \end{matrix-answer}
   \end{solution}
 \end{question}
@@ -198,7 +209,25 @@ In the next question, we ask you to fill in the details of an alternative proof 
       $\verticalvector{3\\-1\\3}$ works.
     \end{hint}
     \begin{matrix-answer}
-      BADBAD VALIDATOR
+    function validator(m) {
+      if (isWrongSize(m, 3, 1)) return false;
+
+      var result = matrixProduct([['2','3','1']],unpackMatrix(m));
+
+      if (result[0][0] != 0) {
+        feedback('This is not perpendicuar to [[2],[3],[1]]');
+        return false;
+      }
+
+      var result = matrixProduct([['5','9','2']],unpackMatrix(m));
+
+      if (result[0][0] != 0) {
+        feedback('This is not perpendicuar to [[5],[9],[2]]');
+        return false;
+      }
+
+      return true;
+    }
     \end{matrix-answer}
   \end{solution}
 \end{question}

@@ -218,12 +218,11 @@ In the next question, we ask you to fill in the details of an alternative proof 
 
       var result = matrixProduct([['5','9','2']],unpackMatrix(m));
 
-      if (! isMatrixCorrect(result,[['0']]))
-        feedback('This is not perpendicuar to [[5],[9],[2]]');
-        return false;
-      }
-
-      return true;
+      if (isMatrixCorrect(result,[['0']]))
+        return true;
+      
+      feedback('This is not perpendicular to [[5],[9],[2]]');
+      return false;
     }
     \end{matrix-answer}
   \end{solution}

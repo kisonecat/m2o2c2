@@ -245,7 +245,7 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
 \end{question}
 	
 \begin{question}
-  Find $A \neq 0$ with $AA = 0$.  (Note:  such a matrix is called ``nilpotent'')
+  \begin{solution}
 	\begin{hint}
 		Try some simple matrices.  Maybe limit yourself to $2\times2$ matrices?
 	\end{hint}
@@ -259,14 +259,15 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
 			\begin{hint}
 				The matrix of $L$ is $\begin{bmatrix} 0&1\\0&0 \end{bmatrix}$
 			\end{hint}
-			What is the matrix of this linear map?
+			What is the matrix of the example linear map $L$?
 			\begin{matrix-answer}[name=A]
 				correctMatrix = [['0','1'],['0','0']]
 			\end{matrix-answer}
 		\end{question}
 	\end{hint}
 	
-  \begin{solution}
+    Find $A \neq 0$ with $AA = 0$.  (Note:  such a matrix is called ``nilpotent'')
+
     \begin{matrix-answer}[name=A]
     function validator(m) {
       if (rows(m) != columns(m)) {
@@ -312,8 +313,7 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
   	So $\verticalvector{-4\\1}$ works, for example.
   \end{hint}
   
-  	An example of a nilpotent matrix is
-  	
+
   	\begin{matrix-answer}[name=v]
   		function validator(m){
   		if ((rows(m) != 2 )||(columns(m) != 1)){

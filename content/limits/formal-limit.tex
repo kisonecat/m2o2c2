@@ -1,6 +1,13 @@
-\section{The $\epsilon -\delta$ definition of a limit}
+\documentclass{ximera}
+\title{ The formal definition of the limit}
 
-This optional section explores limits a formal and rigorous point of view.   
+\begin{document}
+
+\begin{abstract}
+	Limits are defined by formalizing the notion of closeness.
+\end{abstract}
+
+This \texbf{optional} section explores limits from a formal and rigorous point of view.   
 The level of mathematical maturity required to get through this section is much higher than others. 
 If you get through it and understand everything, you can consider yourself "hardcore".
 
@@ -10,21 +17,63 @@ If you get through it and understand everything, you can consider yourself "hard
 	$\overline{U} = \{ \mathbf{p} \in \R^n : \forall r>0 \exists \mathbf{x} \in U \textit{ with } |x-p|<r\}$.
 \end{definition}
 
-\begin{question}
 Prove that $U \subset \overline{U}$ for any subset $U$ of $\R^n$.
-\end{question}
+\begin{free-response}
+	
+	Let $\mathbf{p} \in U$.  Then for every $r >0$, $\mathbf{p}$ is an element of $U$ whose distance to $\mathbf{p}$ is less than $r$.  In other words,
+	since every solid ball centered at $\mathbf{p}$ must contain $\mathbf{p}$, and $\mathbf{p}$ is in $U$, then $\mathbf{p}$ must be in the closure of $U$. 
+	So $\mathbf{p} \in \overline{U}$.
+	
+\end{free-response}
 
-\begin{question}
-Prove that the closure of the open unit ball is the closed unit ball.  That is show that if $U = \{\mathbf{x}:|x|<1\}$, then the closure of $U$ is $\{\mathbf{x}:|x|\leq 1\}$
-\end{question}
+
+Prove that the closure of the open unit ball is the closed unit ball.  That is, show that if $U = \{\mathbf{x}:|x|<1\}$, then $\overline{U}  = \{\mathbf{x}:|x|\leq 1\}$
+
+\begin{free-response}
+	 Let $B = \{\mathbf{x}:|x|\leq 1\}$.  We need to see that $\overline{U} = B$.
+	 
+	 It is easy to see that $B \subset \overline{U}$, since for each point $\mathbf{p} \in B$, either $\mathbf{p} \in U$ (in which case it is in the closure), 
+	 or $|\mathbf{p}| = 1$.  In this case, for every $r > 0$, the point $\mathbf{q} = \mathbf{p} - \frac{1}{2r}\mathbf{p}$ is in $U$ and satisfies 
+	  $|\mathbf{p} - \mathbf{q}|<r$.
+	  
+	  On the other hand, if $|\mathbf{p}|>1$, then a solid ball of radius $\frac{|\mathbf{p}|-1}{2}$ centered at $\mathbf{p}$ will not intersect $U$.  So we are done.
+\end{free-response}
 
 \begin{definition}
 	Let $f:U \to  V$  with $U \subset \R^n$, $V \subset \R^m$ and $\mathbf{p} \in \overline{U}$.  We say that $\lim_{\mathbf{x} \to \mathbf{p}}f(x) = \mathbf{L}$ if for every $\epsilon >0$ we can find a 
 	$\delta>0$ so that if $0<|\mathbf{x}-\mathbf{p}|<\delta$ and $\mathbf{x} \in U$, then $|\mathbf{p}-\mathbf{x}|<\epsilon$.
 \end{definition}
 
-BADBAD: Prove sum, product, composition are continuous.  Division away from zeros of denominator, etc
+\begin{definition}
+	A function Let $f:U \to  V$  with $U \subset \R^n$, $V \subset \R^m$ is continuous at $\mathbf{p} \in U$ if $\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = f(\mathbf{p})$. 
+\end{definition}
 
-\begin{question}
-Give an epsilon delta proof that lim BLAH =BLAH.
-\end{question}
+Prove, using the $\epsilon-\delta$ definition of the limit, that $f:\R^2 \to \R$ defined by $f(x,y) = xy$ is continuous everywhere
+
+\begin{free-response}
+	Let $\mathbf{p} = (a,b)$.   Let $\epsilon>0$ be given.  Without loss of generality, assume $a,b \geq 0$.
+	
+	We work "backwards":
+	
+	\begin{align*}
+		&|xy-ab|<\epsilon\\
+		&\impliedby |[(x-a)+a][(y-b)+b]-ab| <\epsilon
+		&\impliedby |(x-a)(y-b)+a(y-b) +b(x-a)| <\epsilon \\
+		&\impliedby |x-a||y-b|+a|y-b|+a|x-a|< \epsilon \text{ by the triangle inequality}\\
+		&\impliedby \begin{cases}
+			|x-a||y-b| < \frac{\epsilon}{3}\\
+			a|y-b| < \frac{\epsilon}{3}\\
+			b|x-a| < \frac{\epsilon}{3}
+			\end{cases}
+	\end{align*}
+	
+	Now it is easy to arrange that $a|y-a|$  and $b|x-a|$ are less than $\frac{\epsilon}{3}$.  If $a=0$, or $b=0$, 
+	you do not have to do anything to get that condition satisfied, but otherwise $|x-a| \leq \frac{\epsilon}{3b}$ is implied by $|(x,y) - (a,b)| \leq \frac{\epsilon}{3b\sqrt{2}}$
+	and  $|y-a| \leq \frac{\epsilon}{3a}$ is implied by $|(x,y) - (a,b)| \leq \frac{\epsilon}{3a\sqrt{2}}$.
+	
+	$|x-a||y-b| < \frac{\epsilon}{3}$ is implied by $|(x,y)-(a,b)| \leq \frac{\sqrt{\epsilon}}{\sqrt{3}}$.  
+	So if we let $\delta = min(\frac{\epsilon}{3b\sqrt{2}}, \frac{\epsilon}{3a\sqrt{2}}, \frac{\sqrt{\epsilon}}{\sqrt{3}})$ 
+	we are done.
+\end{free-response}
+
+\end{document}

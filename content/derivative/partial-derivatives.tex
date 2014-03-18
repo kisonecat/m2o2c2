@@ -1,0 +1,191 @@
+\documentclass{ximera}
+\title{Partial Derivatives}
+
+\begin{document}
+	\begin{abstract}
+		The entries in the Jacobian matrix are partial derivatives
+	\end{abstract}
+	
+	We will now develop some notation and terminology to better handle expressions like $\frac{d}{dy} f_1(1,y) \big|_{y=2}$.
+
+\begin{definition}
+	Let $\mathbf{a} \in \R^n$, and $1\leq i \leq n$ be a natural number.  We introduce the notation
+	
+	$L_{i,\mathbf{a}}$ for the function from $\R \to \R^n$ defined by $t \mapto (a_1,a_2,...a_{i-1},t,a_{i+1},...,a_n)$.  In other words, $L_{i,\mathbf{a}}$ parameterizes the
+	affine line in $\R^n$ whose coordinates agree with $a$ except in the $i^{th}$ slot, which is allowed to vary.
+\end{definition}
+
+\begin{example}
+	If $\mathbf{a} = (2,4,7) , L_{2,\mathbf{a}}(t) = (2,t,7)$
+\end{example}
+
+\begin{question}
+	Let $\mathbf{a} = (5,4,2,9)$ 
+	\begin{solution}
+		\begin{hint}
+			By definition, $L_{3,\mathbf{a}}(t) = (5,4,t,9)$
+		\end{hint}
+		\begin{hint}
+			$L_{3,\mathbf{a}}(21) = (5,4,21,9)$
+		\end{hint}
+		\begin{hint}
+			Input this as $\verticalvector{5\\4\\21\\9}$
+		\end{hint}
+	 $L_{3,\mathbf{a}}(21) =$
+	 \begin{bmatrix}
+	 	correctMatrix = [['5'],['4'],['21'],['9']]
+	 \end{bmatrix}
+	 \end{solution}
+\end{question}
+
+\begin{question}
+	Let $f:\R^3 \to \R$ is defined by $f(x,y,z) =  x^2y+z$, and $\mathbf{a} = (2,-3,-4)$ 
+	\begin{solution}
+	\begin{hint}
+		$f \comp L_{2,\mathbf{a}}  = f\left( 2,t,-4\right)$
+	\end{hint}
+	\begin{hint}
+		$= 2^2t-4$
+	\end{hint}
+	Then as a function of $t$ , $f \comp L_{2,\mathbf{a}} = $ \answer{$4t-4$} 
+	\end{solution}
+\end{question}
+
+\begin{definition}
+	Consider $f:\R^n \to \R$.   For each $i = 1,2,3, ..., n$,  and each point $\mathbf(p) = (p_1,p_2,.,.,.,p_n)$ we obtain a function $f \comp L_{i,\mathbf{p}} : \R \to \R$.
+	 We then define the \textit{partial derivative} of $f$ with respect to $x_i$ at the point $\mathbf{p} \in \R^n$ by
+	
+	$ \frac{partial f}{\partial x_i}\big|_{\mathbf{p}}:=  \frac{d}{dt} \left( (f \comp L_{i,\mathbf{p}})(t) \right)\big|_{t = p_i} = (f \comp L_{i,\mathbf{p}})'(p_i)$.
+	
+	We also use the notation  $f_{x_i}(\mathbf{p})$.
+	
+	In other words, $f_{x_i}(\mathbf{p})$ is the instantaneous rate of change in $f$ when leaving all variables fixed except for $x_i$.
+
+	We could also write  $\frac{partial f}{\partial x_i}\big|_{\mathbf{p}} = \lim_{h \to 0} \frac{f(p_1,p_2,...,_p_{i-1},p_i+h,p_{i+1},...,p_n) - f(p_1,p_2,...,p_n)}{h}$
+
+\end{definition}
+	
+	\begin{example}
+		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
+		because this is really the only type of higher dimensional function we can effectively graph.
+		
+		The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		plane $x_2 = b$, as pictured below:
+		
+		BADBAD PICTURE
+		
+		Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		plane $x_1=a$:
+		
+		BADBAD PICTURE
+		
+	\end{example}
+	
+	Computing partial derivatives is no harder than computing derivatives of single variable functions.  You take a 
+	 partial derivative of a function with respect to $x_i$ just by treating all other variables as constants, and taking the derivative with respect to $x_i$.
+	
+	\begin{question}
+		
+	Let $f:\R^2 \to \R$ be defined by $f(x,y) = x\sin(y)$.  
+	\begin{solution}
+		\begin{hint}
+			We are trying to compute $\frac{\partial}{\partial x} \left(x \sin(y)\right)\big|_{(a,b)}$
+		\end{hint}
+		\begin{hint}
+			We just differentiate as if $y$ were a constant, so 
+			 $\frac{\partial}{\partial x} \left(x \sin(y)\right)\big|_{(a,b)} = \sin(y)\big|_{(a,b)}$
+		\end{hint}
+		\begin{hint}
+			$f_x(a,b) = \sin(b)$
+		\end{hint}
+		$f_x(a,b) = $ \answer{$sin(b)$}
+	\end{solution}
+	
+	\begin{solution}
+	\begin{hint}
+			We are trying to compute $\frac{\partial}{\partial y} \left(x \sin(y)\right)\big|_{(a,b)}$
+		\end{hint}
+		\begin{hint}
+			We just differentiate as if $x$ were a constant, so 
+			 $\frac{\partial}{\partial y} \left(x \sin(y)\right)\big|_{(a,b)} = x\cos(y)\big|_{(a,b)}$
+		\end{hint}
+		\begin{hint}
+			$f_x(a,b) = a\cos(b)$
+		\end{hint}
+		$f_y(a,b) = $ \answer{$a(cos(b))$}
+	\end{solution}
+	
+	\end{question}
+	
+	We have already proven the following theorem in the special case $n=m=2$ in the previous activity.  Proving it in the general case requires no new ideas: 
+	 only better notational bookkeeping.
+	
+	\begin{theorem}
+		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
+		$f(\mathbf{p}) = \verticalvector(f_1(\mathbf{p}),f_2(\mathbf{p}),f_3(\mathbf{p}),.,.,., f_m(\mathbf{p}))$.  If $f$ is differentiable at $\mathbf{p}$,
+		 then its Jacobian matrix at $\mathbf{p}$ is 
+		  \[
+		  \begin{bmatrix}
+		  \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_1} \\
+		  \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \\
+		  \frac{\partial f_1}{\partial x_3} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_3} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_3} \\
+		    .&.&...&.\\
+		    .&.&...&.\\
+		    .&.&...&.\\
+		 \frac{\partial f_1}{\partial x_n} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_n} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_n} \\
+		  \end{bmatrix}
+		  \]
+		  
+		  More compactly, we might write
+		  
+		  \[
+		  	\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)
+		  \]
+		  
+
+	\end{theorem}
+	
+	Try to prove this theorem.  Using the more compact notation will be helpful.  Follow along the proof we developed together in the last section!
+	\begin{free-response}
+		By the definition of the derivative,  we have 
+		\begin{align*}
+		 \lim_{h \to 0} \frac{\left| f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p}) - M(h\vec{e_i}) \right|}{\left| h\vec{e_i}\right|} &= 0\\
+		 \lim_{h \to 0} \frac{\left| f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p}) - hM(\vec{e_i}) \right|}{|h|} &= 0\\
+		 \lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p}) - hM(\vec{e_i})}{h} \right|&= 0\\
+		  \lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h} - M(\vec{e_i}) \right|&= 0
+		 \end{align*}
+		 
+		 So $\lim_{h \to 0}  \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h}  = M (\vec{e}_i)$.  But for this to be true, the $j^{th}$ row of each side must be equal, so 
+		 
+		\[\lim_{h \to 0}  \frac{f_j(\mathbf{p}+h\vec{e_i}) - f_j(\mathbf{p})}{h}  = M _{ji}\]
+		
+		But the quantity on the left hand side is $\frac{\partial f_j}{\parial x_i}\big|_{\mathbf{p}}$
+	\end{free-response}
+	\begin{question}
+		Let $f:\R^3 \to \R^2$ be defined by $f(x,y,z) = (x^2+y+z^3,xy+yz^2)$.  
+		\begin{solution}
+		\begin{hint}
+				The Jacobian Matrix is \(\begin{bmatrix} \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial z} \\
+																				\frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\end{bmatrix}\)
+		\end{hint}
+		\begin{hint}
+			As an example, $\frac{\partial f_2}{\partial z}\end{bmatrix} = \frac{\partial}{\partial z} xy+yz^2 = 2yz$.  Remember that we 
+			just differentiate with respect to $z$, treating $x$ and $y$ as constants. 
+		\end{hint}
+		\begin{hint}
+			\begin{align*}
+				\frac{\partial f_1}{\partial x} &=  2x\\ 
+				\frac{\partial f_1}{\partial y} &= 1\\ 
+				\frac{\partial f_1}{\partial z} &= 3z^2\\ 
+				\frac{\partial f_2}{\partial x} &= y\\ 
+				\frac{\partial f_2}{\partial y} &= x+z^2\\ 
+				\frac{\partial f_2}{\partial z} &= 2yz
+			\end{align*}
+		\end{hint}
+		What is the Jacobian Matrix of $f$?  This should be a matrix valued function of $x,y,z$.
+		\begin{matrix-answer}[name=M]
+			correctMatrix = [['2x','1','3z^2'],['y','x+z^2','2yz']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+\end{document}

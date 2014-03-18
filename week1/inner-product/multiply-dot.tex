@@ -1,0 +1,111 @@
+\documentclass{ximera}
+\title{Multiplying matrices using dot products}
+\begin{document}
+
+\begin{abstract}
+	There is a quick way to multiply matrices using dot products
+\end{abstract}
+
+\begin{question}
+	Let $M =  \begin{bmatrix}2&3\\4&5\\1&2\end{bmatrix}$, and $\vec{e}_2 = \verticalvector{0\\1\\0}$.
+	\begin{solution}
+	\begin{hint}
+		\begin{align*}
+			\vec{e}_2^\top M &= \begin{bmatrix} 0\\1\\0\end{bmatrix} \begin{bmatrix}2&3\\4&5\\1&2\end{bmatrix}\\
+			&= \begin{bmatrix} 4&5\end{bmatrix}
+		\end{align*}
+	\end{hint}
+		$\vec{e}_2^\top M$=
+		\begin{matrix-answer}[name=w]
+			correctMatrix = [['4','5']]
+		\end{matrix-answer}
+	\end{solution}
+	
+	Did you notice how multiplying by $\vec{e}_2^\top$ on the right selected the $2^{nd}$ row of $M$?
+\end{question}
+
+Prove that if $M$ is an $m \times n$ matrix and $e_j \in \R^m$ is the $j^{th}$ standard basis vector of $\R^m$, then
+$\vec{e_j}^\top M $ is the $j^{th}$ row of $M$.
+\begin{free-response}
+We know that $\vec{w} = \vec{e_j}^\top M$ is a covector (row) just by looking at dimensions.  What is the $i^{th}$ entry of this row?
+Well, we can only figure that out by applying the map to the basis vectors.  $\vec{e_j}^\top M\vec{e_i}$ is the dot product of $\vec{e_j}$ with the
+$i^{th}$ column of $M$.  But that just selects the $j^{th}$ element of that column.  So the $i^{th}$ element of $\vec{w}$ is the $j^th$ element of the $i^{th}$ column
+of $M$.  This just says that $\vec{w}$ is the $j^th$ column of $M$. (Whew.)
+\end{free-response}
+
+Now we can use this observation to great effect.  If $M$ is an $m \times n$ matrix,  $\vec{e}_j$ is the standard basis of $\R^m$ and $\vec{b}_k$ is the
+standard basis of $\R^n$, then we can select $M_{j,k}$ by performing the operation $\vec{e}_j^\top M \vec{b}_k$.  
+This is so important we will label it as a theorem:
+
+\begin{theorem}
+	If $M$ is an $m \times n$ matrix,  $\vec{e}_j$ is the standard basis of $\R^m$ and $\vec{b}_k$ is the
+standard basis of $\R^n$, then $M_{j,k}=\vec{e}_j^\top M \vec{b}_k$.  
+\end{theorem}
+
+\begin{proof}
+	The proof is simply that $M\vec{b}_k$ is by definition the $k^{th}$ column of the matrix, and by our observation above $\vec{e}_j^\top M \vec{b}_k$
+	must be the $j^{th}$ row of that column vector, which consists of the single number $M_{i,j}$
+\end{proof}
+
+\begin{question}
+	Let $M = \begin{bmatrix} 4&1&-2\\3&1&0\end{bmatrix}$.  
+	\begin{solution}
+		\begin{hint}
+			By the above theorem, it will be the entry in the $2^{nd}$ row and the $1^{st}$ column of $M$
+		\end{hint}
+		\begin{hint}
+			$\begin{bmatrix} 0&1\end{bmatrix} M \verticalvector{1\\0\\0}=3$
+		\end{hint}
+	$\begin{bmatrix} 0&1\end{bmatrix} M \verticalvector{1\\0\\0}=$\answer{3}
+	\end{solution}
+\end{question}
+
+The philosophical import of this theorem is that we can probe the inner structure of any matrix with simple row and column vectors to find out every
+component of the matrix.  What happens when we apply this insight to a product of matrices?
+
+\begin{question}
+	Let $A = \begin{bmatrix} -1 &1\\2&2\\3&0 \end{bmatrix}$ and $B = \begin{bmatrix}\end{bmatrix}$.  Let $C = AB$.
+	\begin{solution}
+		\begin{hint}
+			By the theorem above, $C_{2,3} = \begin{bmatrix} 0&1&0\end{bmatrix} C \verticalvector{0\\0\\1\\0}$
+		\end{hint}
+		\begin{hint}
+			So $C_{2,3} = \begin{bmatrix} 0&1&0\end{bmatrix} AB \verticalvector{0\\0\\1\\0}$
+		\end{hint}
+		\begin{hint}
+			But $\begin{bmatrix} 0&1&0\end{bmatrix} A$ is the $2^{nd}$ row of $A$, and $B \verticalvector{0\\0\\1\\0}$ is the $3^{rd}$ column of
+			$B$
+		\end{hint}
+		\begin{hint}
+			So $\begin{bmatrix} 0&1&0\end{bmatrix} A = \begin{bmatrix} 2&2\end{bmatrix}$ and $B \verticalvector{0\\0\\1\\0} = \verticalvector{1\\9}$
+		\end{hint}
+		\begin{hint}
+			Thus $C_{2,3} = \begin{bmatrix} 2&2\end{bmatrix} \verticalvector{1\\9} = 2(1)+2(9)=20$ 
+		\end{hint}
+		Without computing the whole matrix $C$, can you find
+	
+		$C_{2,3} = $ \answer{20}
+		
+	\end{solution}
+	
+	Wow!  So it looks like we can find the entries of a product of two matrices just by looking at the dot product of rows of the first matrix with columns of
+	the second matrix!
+\end{question}
+
+\begin{theorem}
+	Let $A$ and $B$ be composable matrices.  Let $C=AB$.  Then $C_{i,j}$ is the product of the $i^{th}$ row of $A$ with the $j^{th}$ column of $B$
+\end{theorem}
+
+Prove this theorem
+\begin{free-response}
+	We can prove this by combining the other two theorems in this section.  $C_{i,j} = \vec{e_i}^\top C \vec{e}_j$ by the second theorem.  But $C = AB$, so we have 
+	$C_{i,j} = \vec{e_i}^\topAB\vec{e}_j$.  By the first theorem $\vec{e_i}^\topA$ is the $i^{th}$ row of $A$, and by our definition of matrix multiplication, 
+	$B\vec{e}_j$ is the $j^{th}$ column of $B$. So $C_{i,j}$ is the product of the $i^{th}$ row of $A$ with the $k^{th}$ column of $B$.
+\end{free-response}
+
+Now try multiplying some matrices of your choosing using this method.  This is likely the definition of matrix multiplication you learned in high school (or the same thing
+defined by some messy formula with a $\sum$).  Do you prefer this method?  Or do you prefer whatever method you came up with on your own earlier?  
+Maybe they are the same!
+  
+	
+\end{document}

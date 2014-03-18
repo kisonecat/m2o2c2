@@ -1,4 +1,9 @@
+\documentclass{ximera}
+\title{Limits}
 \begin{document}
+\begin{abstract}
+	Limits are the difference between analysis and algebra
+\end{abstract}
 \section{Limits}
 	Limits are the backbone of calculus.  Multivariable calculus is no different.  In this section we will deal with limits on an \textit{intuitive} level.  
 	We will save the rigorous $\epsilon-\delta$ analysis for the next section.
@@ -6,24 +11,24 @@
 	Let $f: \R^n \to \R^m$ and let $\mathbf{p} \in \R^n$.  We say that $\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{L}$ for some $\mathbf{L} \in \R^m$ 
 	if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\mathbf{x})$ ``get arbitrarily close to $\mathbf{L}$''.  
 	
-	\begin{problem}
+	\begin{question}
 		In this problem $f:\R^2 \to \R^3$ is a function.  You are allowed to plug in whatever input you like except for $(2,3)$.   By playing with inputs close to $(2,3)$, can
 		you determine
 		$\lim_{\mathbf{x} \to (2,3)} f(mathbf{x})$?
-	\end{problem}
+	\end{question}
 	
-	\begin{problem}
-		In this problem $f: \R \to \R^2$ is a function.  You have access to a graphical tool visualizing this function.  By sliding the point along the number line, you can 
-		see where $f$ carries that point in the plane.
-		
-		What is $\lim_{t \to 2} f(t)$?
-	\end{problem}
+	%\begin{problem}
+	%	In this problem $f: \R \to \R^2$ is a function.  You have access to a graphical tool visualizing this function.  By sliding the point along the number line, you can 
+	%	see where $f$ carries that point in the plane.
+	%	
+	%	What is $\lim_{t \to 2} f(t)$?
+	%\end{problem}
 	
-	\begin{problem}
-		In this problem $f:\R^2 \to R$ is a function.  You have access to a $3D$ graph of this function.  
-		
-		What is $\lim_{\mathbf{x} \to (0,0)} f(\mathbf{x})$?
-	\end{problem}
+	%\begin{problem}
+	%	In this problem $f:\R^2 \to R$ is a function.  You have access to a $3D$ graph of this function.  
+	%	
+	%	What is $\lim_{\mathbf{x} \to (0,0)} f(\mathbf{x})$?
+	%\end{problem}
 	
 	\begin{definition}
 		A function $f: \R^n \to \R^m$ is said to be \textit{continuous} at a point $\mathbf{p} \in \R^n$ if $lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{p}$
@@ -36,7 +41,7 @@
 	rational functions, are all continuous, so if you can write down a function as a ``single formula'' it is probably continuous. 
 	The problematic points are basically just zeros of denominators, like our example above.  Piecewise defined functions can also be problematic:
 	
-	\begin{question}
+
 		Argue intuitively that the function $f:\R^2 \to \R$ defined by 
 			$f(x,y) = \begin{cases}
 			0 if x<y\\
@@ -44,25 +49,173 @@
 			\end{cases}$
 			
 			is continuous at every point off the line $y=x$, and is discontinuous at every point on the line $y=x$
-	\end{question}
+\begin{free-response}
+	For any point $\mathbf{p}$ which is not on the line $y=x$, there is a little neighborhood of $\mathbf{p}$ where $f$ is the constant function $0$,
+	 which is known to be  continuous.  So $f$ is continuous at $\mathbf{p}$.  For any point $\mathbf{p}$ on the line $y=x$, we get a different limit if we approach 
+	 $\mathbf{p}$ along the line $y=x$ (we get $1$), versus approaching through points not on the line $y=x$ (we get $0$).
+\end{free-response}
 	
 	\begin{question}
-		$\lim_{(x,y) \to (1,1) BLAHcontinuous} = $?
+		\begin{solution}
+		\begin{hint}
+			Since $x\cos(\pi (x+y)) + \sin(\frac{\pi y}{4})$ is continuous, we can just evaluate the function at $(1,2)$.
+		\end{hint}
+		\begin{hint}
+			So $\lim_{(x,y) \to (1,2)} x\cos(\pi (x+y)) + \sin(\frac{\pi y}{4}) = 1 \cdot \cos(\pi(1+2))+\sin(\frac{\pi 2}{4}) = -1+1=0$
+		\end{hint}
+		$\lim_{(x,y) \to (1,2)} x\cos(\pi (x+y)) + \sin(\frac{\pi y}{4}) =$ \answer{$0$}
+		\end{solution}
 	\end{question}
 	
-	If we are confronted with a limit like $\lim_{(x,y) \to (0,0) \frac{xy}{x+y}}$, this is actually a little bit interesting.  The function is not continuous at $0$, because it is
-	not even defined at $0$.  What is more, the numerator and denominator are both approaching $0$.  There are essentially two ways to work with this: 
+	If we are confronted with a limit like $\lim_{(x,y) \to (0,0) \frac{x^2+xy}{x+y}}$, this is actually a little bit interesting.  The function is not continuous at $0$, because it is
+	not even defined at $0$.  What is more, the numerator and denominator are both approaching $0$, which each "pull" the limit in opposite directions. 
+	(Dividing by smaller and smaller numbers would tend to make the value larger and larger, while multiplying by smaller and smaller numbers has the opposite effect)
+	  There are essentially two ways to work with this: 
 	1. Show that it does not have a limit by finding two different ways of approaching $(0,0)$ which give different limiting values
-	2. Show that it does have a limit by rewriting the expression algebraically as a continuous function, and just plug in to get the limit.
-	3.  Rewrite it algebraically so that it ``obviously" has a certain limit.
+	2. Show that it does have a limit by rewriting the expression algebraically as a continuous function, and just plug in to get the value of the limit.
 	
 	\begin{question}
-		Before moving on, do you think $\lim_{(x,y) \to (0,0) \frac{xy}{x+y}}$ exists?  If so, what is the value of the limit?  If not, why do you think it doesn't have a limit?
+		Consider $\lim_{(x,y) \to (0,0) \frac{x^2+xy}{x+y}}$.
+		\begin{solution}
+			\begin{hint}
+				This limit does exist, because it can be rewritten as a continuous function.
+			\end{hint}
+			Do you think the limit exists?
+				\begin{multiple-choice}
+					\choice[correct]{Yes}
+					\choice{No}
+				\end{multiple-choice}
+		\end{solution}
+		
+		\begin{solution}
+			\begin{hint}
+				$\lim_{(x,y) \to (0,0) \frac{x^2+xy}{x+y}} = \lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)}$
+			\end{hint}
+			\begin{hint}
+				$\lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)} = \lim_{(x,y) \to (0,0)} x = 0$
+			\end{hint}
+			$\lim_{(x,y) \to (0,0) \frac{x^2+xy}{x+y}} = $\answer{$0$}
+		\end{solution}		
+		
 	\end{question}
 	
 	\begin{question}
-		Does $\lim_{(x,y) \to (0,0)} \frac{x^2+xy}{x+y}$ exist?  If so, what  is its value?
+		Consider $\lim_{(x,y) \to (0,0) \frac{x^2-9}{xy-3y}}$.
+		\begin{solution}
+			\begin{hint}
+				This limit does exist, because it can be rewritten as a continuous function.
+			\end{hint}
+			Do you think the limit exists?
+				\begin{multiple-choice}
+					\choice[correct]{Yes}
+					\choice{No}
+				\end{multiple-choice}
+		\end{solution}
+		
+		\begin{solution}
+			\begin{hint}
+				$\lim_{(x,y) \to (3,3) \frac{x^2-9}{x+y}} = \lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)}$
+			\end{hint}
+			\begin{hint}
+				$\lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)} = \lim_{(x,y) \to (3,3)} \frac{x+y}{y} = \frac{3+3}{3} = 2$
+			\end{hint}
+			$\lim_{(x,y) \to (0,0) \frac{x^2+xy}{x+y}} = $\answer{$0$}
+		\end{solution}		
+		
 	\end{question}
+	
+	\begin{question}
+		Let $f:\R^2 \to \R^2$ be defined by $f(x,y) = (\frac{x^2y-2y}{x-2},xy)$
+		\begin{solution}
+			\begin{hint}
+				We can consider the limit component by component
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					\lim_{(x,y) \ to (2,2)} \frac{x^2y-2y}{x-2} &= \lim_{(x,y) \ to (2,2)} \frac{(x-2)(x+2)y}{x-2}\\
+						&= \lim_{(x,y) \ to (2,2)} y(x+2)\\
+						&= 2(2+2)\\
+						&= 8
+				\end{align*}
+			\end{hint}
+			\begin{hint}
+				$\lim_{(x,y) \ to (2,2)} xy = 2(2) =4$, since $xy$ is continuous.
+			\end{hint}
+			\begin{hint}
+				Format your answer as $\verticalvector{8//4}$
+			\end{hint}
+			Writing your answer as a vertical vector, what is $\lim_{(x,y) \to (2,2)} f(x,y)$?
+			\begin{matrix-answer}[name  = v]
+			 	correctMatrix  = [['8'],['4']]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}
+		Consider $\lim_{(x,y) \to (0,0)} \frac{x}{y}$
+		\begin{solution}
+			\begin{hint}
+				Think about approaching $(0,0)$ along the line $x=0$ first, and then along the line $x=y$
+			\end{hint}
+			\begin{hint}
+				If we look at $\lim_{(0,y) \to (0,0)} \frac{0}{y}$, this is just the limit of the constant $0$ function.  So the function approaches the limit $0$ along
+				the line $x=0$
+			\end{hint}
+			\begin{hint}
+				If we look at $\lim_{(t,t) \to (0,0)} \frac{t}{t}$, this is just the limit of the constant $1$ function.  So the function approaches the limit $1$ along the 
+				line $y=x$
+			\end{hint}
+			\begin{hint}
+				So the limit does not exist.
+			\end{hint}
+			Do you think the limit exists?
+				\begin{multiple-choice}
+					\choice{Yes}
+					\choice[correct]{No}
+				\end{multiple-choice}
+		\end{solution}
+	\end{question}
+	
+	The last example showcased how you could show that a limit does not exist by finding two different paths along which you approach different limiting values.  
+	
+	Let's try another example of that form
+	
+	\begin{question}
+		
+	\begin{solution}
+	\begin{hint}
+		On the line $y=kx$, we have $f(x,y) = f(x,kx) = \frac{x+kx+x^2}{x-kx}  = \frac{1+k+x^2}{1-k }$.
+	\end{hint}
+	\begin{hint}
+		So we have  $\lim_{x \to 0} \frac{1+k+x^2}{1-k} = \frac{1+k}{1-k}$ 
+	\end{hint}
+		The limit of $f: \mathbb{R^2} \to \R$ defined by $f(x,y) = \frac{x+y+x^2}{x-y}$ as $(x,y) \to (0,0)$ along the line $y=kx$ is \answer{$(1+k)(1-k)$}
+	\end{solution}		
+	\end{question}
+	
+	The last two questions may have given you the idea that if a limit does not exist, it must be because you get a different value by approaching along two different lines.  
+	This is not always the case.  Consider the function
+	\[f(x,y) = \begin{cases}
+			1 if y = x^2\\
+			0 if y \neq x^2
+		 \end{cases}\]
+		 
+	Through any line containing the origin, $f$ approaches $0$ as points get closer and closer to $(0,0)$, but as points approach $(0,0)$ along the parabola 
+	$y=x^2$, $f$ approaches $1$.  So the limit $\lim_{(x,y) \to (0,0)} f(x,y)$ does not exist, even though the limit along each line does.
+	
+	Here is a more "natural" example of such a phenomenon (defined by a single formula, not a piecewise defined function):
+	
+	\[
+		f(x,y) = \frac{x^2y}{x^4+y^2}
+	\]
+	
+	Along each line $y = kx$, we have $f(x,y) = \frac{kx^3}{x^4+k^2x^2}$, so $\lim_{x \to 0} \frac{kx^3}{x^4+k^2x^2} = \frac{k}{x+k^2x^{-1}} = 0$.  
+	On the other hand, along the parabola $y=x^2$, we have $f(x,y) = \frac{x^4}{2x^4} = \frac{1}{2}$m where the limit is $\frac{1}{2}$.  So even though the limit
+	along all lines through the origin is $(0,0)$, we will have that the limit 
+	
+	
+	
+	
 	
 	
 \end{document}

@@ -1,0 +1,34 @@
+\documentclass{ximera}
+\title{Python}
+\begin{document}
+
+\begin{abstract}
+	Code the derivative	
+\end{abstract}
+
+\begin{exercise}
+	Store a matrix as an array of arrays: $\begin{bmatrix} a&b\\c&d \e&f\ \end{bmatrix}$  should be stored as [[a,b],[c,d],[e,f]].
+	A function $f:\R^n \to \R^m$ should be stored as a python function.  For example, $f(x,y,z) = (xy,z)$ should be stored as
+	
+		def f(v):
+			return [[v[0]*v[1]],[v[2]]]
+	
+	We provide you with a function mult(A,B) which will take two matrices A and B, and return the matrix of $AB$, 
+	a function add(A,B) which will take two matices and return their sum (A+B),
+	and a function scale(c,A) which takes a number $c$ and a matrix $A$ and returns the matrix $cA$.
+	
+	
+	Given all of this preamble, write a function Derivative which takes a function  $f: \R^n \to \R^m$ and returns a 
+	function $Df: \R^n \to Lin(\R^n,\R^m)$ which takes a point $\mathbf{p} \in \R^n$ and returns the linear map
+	$Df(p):\R^n \to \R^m$ .
+	
+	\begin{solution}
+	
+	\end{solution}
+\end{exercise}
+
+\begin{exercise}
+	Get them to integrate a vector valued one form.
+\end{exercise}
+
+\end{document}

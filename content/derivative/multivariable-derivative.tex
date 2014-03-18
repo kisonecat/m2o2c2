@@ -1,161 +1,165 @@
+\documentclass{ximera}
+\title{ The Multivariable Derivative, intuitively}
+
 \begin{document}
-\section{The Multivariable Derivative}
+\begin{abstract}
+	The derivative is the linear map which best approximates changes in a function near a point.
+\end{abstract}
 
 The single variable derivative allows us to find the best linear approximation to a function at a point.  In several variables we will \textit{define} 
-the derivative to be a linear approximation which approximates the change in the values of a function.
+the derivative to be a linear approximation which approximates the change in the values of a function.   
+In this section we will explore what the multivariable derivative is from an intuitive point of view, without making anything too formal.
 
-\begin{example}
-	Consider the function $f:\R^3 \to \R^2$ defined by $f(\verticalvector(x,y,z)) = \verticalvector(x^2y+1,x+y+2)$.  The derivative of $f$ at the point $(1,2,3)$ is the 
-	linear map $D(f)\big|_{(1,2,3)}$ whose matrix is given by $\begin{bmatrix} BLAH \end{bmatrix}$.  We can use the derivative to approximate the value of $f$ at nearby points.
-	
-	For example, $f(\verticalvector(1.01,2.03,3.1)) \approx f(\verticalvector(1,2,3))+ D(f)\big|_{(1,2,3)}(\verticalvector(0.01,0.03,0.1))$.
-	
-	Let's see whether this approximation looks any good:
-	
-	$f(\verticalvector(1.01,2.03,3.1))  = BLAH$
-	$ f(\verticalvector(1,2,3))+ D(f)\big|_{(1,2,3)}(\verticalvector(0.01,0.03,0.1)) = BLAH$
-	
-	These really do look quite close.
-\end{example}
-
-Let's deal with this concept on the intuitive level a bit before we jump into a rigorous definition:
-
-\begin{question}
-	Given point and derivative approximate function value at new point.
-\end{question}
-
-\begin{question}
-	Given function and values at $a+he_i$, approximate the derivative map.
-\end{question}
-
-Mimicking our development of the single variable derivative, we define:
+We give the following wishy washy ``definition'':
 
 \begin{definition}
-	Let $f :\R^n \to \R^m$ be a function, and let $\mathbf{a} \in \R^n$.  
-	 $f$ is said to be differentiable at $\mathbf{a}$ if there is a linear map $M:\R^n \to \R^m$ such that 
-		
-		\[ f(\mathbf{a}+\vec{h}) = f(\mathbf{a}) + M(\vec{h})+ Error_{\mathbf{a}}(\vec{h})\]
-		
-		\[ \lim_{\vec{h} \to 0} \frac{\left|Error_a(\vec{h})|}{\left|\vec{h}\right|} = 0 \].
-		
-		If $f$ is differentiable at $\mathbf{a}$, there is only one such linear map $M$, which we call the (total) derivative of $f$ at $\mathbf{a}$.  
-		
-		Verbally,  $M$ is the linear function which makes the error between the function value $f(\mathbf{a}+\vec{h})$ and the affine approximation 
-		$f(\mathbf{a})+M(\vec{h})$ go to zero "faster than $\vec{h}$" does.
+	Let $f:\R^n \to \R^m$ be a function.  Then the derivative of $f$ at a point $\mathbf{p} \in \R^n$ is the linear map $D(f)\big|_{\mathbf{p}}:\R^n \to \R^m$ 
+	which allows the following approximation property:
+	
+	\[
+		f(\mathbf{p} + \vec{h}) \approx f(x) + D(f)\big|_{\mathbf{p}}(\vec{h})
+	\]
+	
+	We will make the sense in which this approximation holds precise in the next section.
 \end{definition}
 
-This definition is great, but it doesn't tell us how to actually compute the derivative of a differentiable function!  Lets dig a little deeper:
-
-\begin{example}
-	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f(\verticalvector(x,y)) = \verticalvector(f_1(x),f_2(x))$. 
-	 Assuming $f$ is differentiable at the point $(1,2)$, lets try to compute the derivative there. 
-	 Let $M$ be the derivative of $f$ at $(1,2)$.  Then 
-	 \[\lim_{h \to 0} \frac{\left|f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - M(\verticalvector(h,0)))\right|}{\left|h\right|} = 0\]
-	 \[ \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - hM(\verticalvector(1,0)))}{h} \right| = 0\]
-	 \[ \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h} -M(\verticalvector(1,0))\right| = 0\]
-	 \[ M(\verticalvector(1,0)) = \lim_{ h \to 0 } \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h}\]
-	 \[ M(\verticalvector(1,0)) = \lim_{ h \to 0 } \verticalvector(\frac{f_1(\verticalvector(1+h,2)) - f_1(\verticalvector(1,2)}{h}, \frac{f_2(\verticalvector(1+h,2)) - f_2(\verticalvector(1,2)}{h})\]
-	 
-	 But each of the remaining quantities are derivatives of \textit{one} variable functions!  In particular, we have that
-	 
-	 $M(\verticalvector(1,0)) = \verticalvector(\frac{d}{dx}(f_1(x,2))\big|_{x=1},)frac{d}{dx}(f_2(x,2))\big|_{x=1}$.  
-	 We call these kinds of quantities \textit{partial derivatives}  because they are part of the derivative.
-\end{example}
+Note:  we also call the matrix of the derivative the \textbf{Jacobian Matrix} in honor of the mathematician 
+\href{http://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi}{Carl Gustav Jacob Jacobi}.
 
 \begin{question}
-	Without copying the work in the example above (if you can) try to find $M(0,1)$.
-	Use the results of this question and the previous example to find the derivative of the function $f(\verticalvector(x,y)) = \verticalvector(x^2+y^2,xy)$.
-	What is the matrix of the derivative of $f$ at $(1,2)$?
+	Let $f:\R^2 \to \R^3$ be a function, and suppose $f(2,3) = (4,8,9)$.  Suppose that the matrix of $D(f)\big|_{(2,3)}$ is 
+	$\begin{bmatrix} -1 & 3\\ 4& 5 \\ 2 & -3 \end{bmatrix}$.  
+	
+	\begin{solution}
+		\begin{hint}
+			By the defining property of derivatives,
+			
+			$f(2.01,3.04) \approx f(2,3) + D(f)\big|_{(2,3)}\left(\verticalvector{0.01\\0.04}\right)$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\begin{bmatrix} -1 & 3\\ 4& 5 \\ 2 & -3 \end{bmatrix}\verticalvector{0.01\\0.04}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\verticalvector{0.01(-1)+0.04(3)\\0.01(4)+0.04(5)\\0.01(2)+0.04(-3)}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\verticalvector{0.11\\0.24\\-0.1}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4.11\\8.24\\8.9}$
+		\end{hint}
+		Approximate $f(2.01,3.04)$, giving your answer as a column matrix.
+		\begin{matrix-answer}[name = v]
+			correctMatrix = [['4.11'],['8.24'],['8.9']]
+		\end{matrix-answer}
+	\end{solution}
 \end{question}
 
-\begin{definition}
-	Let $\mathbf{a} \in \R^n$, and $1\leq i \leq n$ be a natural number.  We introduce the notation
-	
-	$L_{i,\mathbf{a}}$ for the function from $\R \to \R^n$ defined by $t \mapto (a_1,a_2,...a_{i-1},t,a_{i+1},...,a_n)$.  In other words, $L_{i,\mathbf{a}}$ parameterizes the
-	affine line in $\R^n$ whose coordinates agree with $a$ except in the $i^{th}$ slot, which is allowed to vary.
-\end{definition}
+\begin{question} 
+Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1,2.002) = 3.002$.  
 
-\begin{example}
-	If $\mathbf{a} = (2,4,7) , L_{2,\mathbf{a}}(t) = (2,t,7)$
-\end{example}
+\begin{solution}
+	\begin{hint}	
+		Since $f:\R^2 \to \R$, $D(f)\big|_{(1,2)}: \R^2 \to \R$, so the matrix of the derivative is a row of length $2$.
+	\end{hint}
+	\begin{hint}
+		To find the matrix, we need to see how $ D(f)\big|_{(1,2)}$ acts on $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$
+	\end{hint}
+	\begin{hint}
+		$f(1.01,2) \approx f(1,2) + D(f)\big|_{(1,2)}\left( 0.01\\0 \right)$ by the fundamental property of the derivative
+	\end{hint}
+	\begin{hint}
+		\begin{align*}
+		3.04 &\approx 3+ D(f)\big|_{(1,2)}\left( 0.01\\0 \right)\\
+		0.04 &\approx 0.01D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{ by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 4
+		\end{align*}
+	\end{hint}
+	\begin{hint}
+		\begin{align*}
+		f(1,2.002) &\approx f(1,2) + D(f)\big|_{(1,2)}\left( 0\\0.002 \right)
+		3.002 &\approx 3+ D(f)\big|_{(1,2)}\left( 0\\0.002 \right)\\
+		0.002 &\approx 0.002D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 1
+		\end{align*}
+	\end{hint}
+	\begin{hint}
+		Thus the matrix of $D(f)\big|_{(1,2)}$ is $\begin{bmatrix} 4 & 1\end{bmatrix}$
+	\end{hint}
+	
+	What is Jacobian matrix of $f$ at $(1,2)$?
+	\begin{matrix-answer}[name = M]
+		correctMatrix = [['4', '1']]
+	\end{matrix-answer}
+\end{solution}
 
-\begin{problem}
-	If $\mathbf{a} = (5,4,2,9)$, what is $L_{3,\mathbf{a}}(21)$?
-\end{problem}
+\begin{solution} 
+	\begin{hint}
+		$f(0.9,2.03) \approx f(1,2) +D(f)\big|_{(1,2)}\left(\verticalvector{-0.1\\0.03}\right)$
+	\end{hint}
+	\begin{hint}
+		$ = 3 + \begin{bmatrix} 4 & 1\end{bmatrix}\verticalvector{-0.1\\0.03}$
+	\end{hint}
+	\begin{hint}
+		$ = 3+4(-0.1)+1(0.03)$
+		
+		$= 2.63$
+	\end{hint}
+	Using your approximation of the  Jacobian matrix, $f(0.9,2.03) \approx $ \answer{$2.63$}
+\end{solution}
+This problem shows that if a function has a derivative, then only knowing how it changes in the coordinate directions lets you determine how it changes in \textbf{any} 
+direction.  This is so important it is worth driving it home:  we only started with information about how $f(1.01,2)$ and $f(1,2.002)$ compared to $f(1,2)$, but because
+this function had a derivative, we could obtain the approximate value of the function at \textbf{any} near by point by exploiting linearity.  That is powerful.
+\end{question}
 
-\begin{problem}
-	If $f:\R^3 \to \R$ is defined by $f(x,y,z) =  x^2y+z$, and $\mathbf{a} = (2,-3,-4)$ what is a formula for the function $f\comp L_{2,\mathbf{a}}$ as a function of $t$?
-\end{problem}
 
-\begin{definition}
-	Consider $f:\R^n \to \R$.   For each $i = 1,2,3, ..., n$,  and each point $\mathbf(p) = (p_1,p_2,.,.,.,p_n)$ we obtain a function $f \comp L_{i,\mathbf{p}} : \R \to \R$.
-	 We then define the \textit{partial derivative} of $f$ with respect to $x_i$ at the point $\mathbf{p} \in \R^n$ by
-	
-	$ \frac{partial f}{\partial x_i}\\left( \mathbf{p} \right):=  (f \comp L_{i,\mathbf{p}})'(p_i)$.
-	
-	In other words, $f_{x_i}(\mathbf{p})$ is the instantaneous rate of change in $f$ when leaving all variables fixed except for $x_i$.
-\end{definition}
+Prepare yourself:  The following two paragraphs are going to be very difficult to digest.
 
-	\begin{question}
-		Prove that $f_{x_i}(\mathbf{a}) = \lim_{h \to 0} \frac{f(a_1,a_2,...,a_{i-1},a_i+h,a_{i+1},...,a_n) - f(a_1,a_2,...,a_n)}{h}$
-	\end{question}
+So far we have only talked about the derivative of a function at a point.  The derivative of a function is actually a function which assigns a linear map
+to each point in the domain of the original function.   So the derivative is a function which takes (functions from $\R^n \to \R^m$ ) and 
+returns  a function which takes ( points in $\R^n$) and  returns ( linear maps from $\R^n \to \R^m$).    This level of abstraction is why we 
+wanted you to get comfortable with ``higher order functions'' earlier.  This is really not as crazy as it seems!
+
+As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y+x)$, then it will turn out that at any point $(a,b)$,
+ the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^3$ given by the matrix 
+ $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$ (we do not know why yet, but this is true).  So $Df$ is really a 
+ function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$. 
+  So what about just plain old $D$?  $D$ takes a function ($f$) and returns the function $Df$ which takes a point $(a,b)$ and returns the linear map
+  whose matrix is $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$.  Letting $L(A,B)$ stand for all the linear functions from 
+  $A\to B$ and $Func(A,B)$ be the set of all functions from $A \to B$, we could write $D: Func(\R^n,\R^m) \to Func(\R^n,L(\R^n,\R^m))$.
+  
+  Please do not give up on the course after the last two paragraphs!  Everything is going to be okay.  Hopefully you will be able to slowly digest these statements 
+  throughout the course.  Not understanding them now will not hold you back.
+
+\begin{question} 
+	Let $f$ be a function which satisfies $Df\big|_{(x,y,z)} = \begin{bmatrix} 3x^2y^2 & 2x^3y\\ 2x&2y\\ye^{xy} & xe^{xy}\end{bmatrix}$.
 	
-	
-	\begin{example}
-		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
-		because this is really the only type of higher dimensional function we can effectively graph.
-		
-		The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_2 = b$, as pictured below:
-		
-		BADBAD PICTURE
-		
-		Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_1=a$:
-		
-		BADBAD PICTURE
-		
-	\end{example}
-	
-	Computing partial derivatives is no harder than computing derivatives of single variable functions.  You take a 
-	 partial derivative of a function with respect to $x_i$ just by treating all other variables as constants, and taking the derivative with respect to $x_i$.
-	
-	\begin{question}
-	Let $f:\R^2 \to \R$ be defined by $f(x,y) = x\sin(y)$.  What is $f_x(a,b)$?  What is $f_y(a,b)$?
-	\end{question}
-	
-	We have already proven the following theorem in the special case $n=m=2$.  Proving it in the general case requires no new ideas: 
-	 only better notational bookkeeping.
-	
-	\begin{theorem}
-		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
-		$f(\mathbf{a}) = \verticalvector(f_1(\mathbf{a}),f_2(\mathbf{a}),f_3(\mathbf{a}),.,.,., f_m(\mathbf{a}))$.  If $f$ is differentiable at $\mathbf{a}$,
-		 then its derivative has the matrix 
-		  \[
-		  \begin{bmatrix}
-		  \frac{\partial f_1}{\partial x_1} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_1} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_1} \\
-		  \frac{\partial f_1}{\partial x_2} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_2} \\
-		  \frac{\partial f_1}{\partial x_3} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_3} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_3} \\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		 \frac{\partial f_1}{\partial x_n} \left(\mathbf{a}\right) & \frac{\partial f_2}{\partial x_n} \left(\mathbf{a}\right) & ...\left(\mathbf{a}\right) & \frac{\partial f_m}{\partial x_n} \\
-		  \end{bmatrix}
-		  \]
-		  
-		  More compactly, we might write
-		  
-		  \[
-		  	\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)
-		  \]
-		  
-		  This matrix is also called the \textit{jacobian} matrix of $f$, in honor of the mathematician Carl Gustav Jacob Jacobi.
-	\end{theorem}
-	
-	\begin{question}
-		Let $f:\R^3 \to \R^2$ be defined by $f(x,y,z) = (x^2+y+z^3,xy+yz^2)$.  What is the jacobian of $f$?
-		
-		Use the jacobian to approximate $f(2.01,1.9,0.1)$
-	\end{question}
+		\begin{solution}
+			\begin{hint}
+				\(D(f)\big|_{(1,2)} = \begin{bmatrix} 3(1)^2(2)^2 & 2(1)^3(2)\\ 2(1) & 2(2) \\ 2e^{(1)(2)} & 1e^{(1)(2)}\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				\( f\left((1,2)+ \verticalvector{0.01\\-0.02}\right)\approx f(1,2) + 
+				\begin{bmatrix} 12 & 4\\2 & 4 \\ 2e^{2} & e^{2}\end{bmatrix} \verticalvector{0.01\\-0.02}\)
+			\end{hint}
+			\begin{hint}
+				\( f(1.01,1.99) \approx (2,3,1)+ \verticalvector{12(0.01)+4(-0.04)\\ 2(0.01)+4(-0.02)\\2e^2(0.01)+e^2(-0.02)}\)
+			\end{hint}
+			\begin{hint}
+				\( f(1.01,1.99) \approx (2.08,2.94,1)\)
+			\end{hint}
+			\begin{hint}
+				Format this as $\verticalvector{2.08\\2.94\\1}$
+			\end{hint}
+			Given that \(f(1,2) = (2,3,1)\).  Approximate \(f(1.01,1.98)\).  
+			\begin{matrix-answer}
+				correctMatrix = [['2.08'],['2.94'],['1']]
+			\end{matrix-answer}
+		\end{solution}
+\end{question}
+
+
+
+
 	
 \end{document}

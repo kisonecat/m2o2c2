@@ -28,7 +28,7 @@ Practically the most important things you can do with functions is to compose th
   = (7,8)$.  Let $g$ be defined by the rule $g((x,y)) = x+y$.
   \begin{solution}
     \begin{hint}
-      First, $(g \circ f)(\text{cat}) = g\left(f(\text{cat}\right)$.
+      First, $(g \circ f)(\text{cat}) = g\left(f(\text{cat})\right)$.
     \end{hint}
     \begin{hint}
       Then note that $f\left(\text{cat}\right) = (2,3)$.
@@ -41,19 +41,19 @@ Practically the most important things you can do with functions is to compose th
 \end{question}
 
 \begin{question}
-  Let $h: \R^2 \to \R^3$ be defined by $h(x,y) = (x^2,xy,z+y)$, and let $\omega: \R^3 \to \R^2$ be defined by $\omega(x,y,z) = (xyz,z)$.
+  Let $h: \R^2 \to \R^3$ be defined by $h(x,y) = (x^2,xy,y)$, and let $\omega: \R^3 \to \R^2$ be defined by $\omega(x,y,z) = (xyz,z)$.
   \begin{solution}
     \begin{hint}
       \begin{align*}
         (\omega\circ h)(x,y) &= \omega\left[h(x,y)\right]\\
-        &= \omega(x^2,xy,z+y)\\
-        &= ((x^2)(xy)(z+y), z+y)\\
-       
+        &= \omega(x^2,xy,y)\\
+        &= ((x^2)(xy)(y), y)\\
+        &=(x^3y^2,y)
       \end{align*}
     \end{hint}
     What is $(\omega\circ h)(x,y)$?  Format your answer as a vertical column of formulas.
     \begin{matrix-answer}
-      correctMatrix = [['x^3 y z+x^3 y^2'],['z+y']]
+      correctMatrix = [['x^3 y^2'],['y']]
     \end{matrix-answer}
   \end{solution}
 \end{question}

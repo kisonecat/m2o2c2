@@ -102,14 +102,14 @@ We begin by defining linear maps.
 		 
         	 Now we check that $f$ really does respect vector addition:
 		 
-        	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Thn
+        	 Let $\verticalvector{x_1\\y_1}$ and $\verticalvector{x_2\\y_2}$ be arbitrary vectors in $\R^2$.  Then
 		 
         	 \begin{align*}
         	 f\left(\verticalvector{x_1\\y_1}+\verticalvector{x_2\\y_2}\right)&= f\left(\verticalvector{x_1+x_2\\y_1+y_2}\right)\\
         	 &= \left(x_1+x_2\right)+2\left(y_1+y_2\right)\\
         	 &= x_1+x_2+2y_1+2y_2\\
         	 &=\left(x_1+2y_1\right)+\left(x_2+2y_2\right)\\
-        	 &=f\left(\verticalvector{x_1\\y_1}\right)+f\left(\verticalvector{x_2,y_2}\right)
+        	 &=f\left(\verticalvector{x_1\\y_1}\right)+f\left(\verticalvector{x_2\\y_2}\right)
         	 \end{align*}
 		 
         	 This proves that $f$ is linear!
@@ -465,7 +465,7 @@ We begin by defining linear maps.
   	\end{hint}
   	\begin{hint}
   		\begin{align*}
-  			L\left(\verticalvector{4\\-1\\2}\right) &= xL\left(\verticalvector{1\\0\\0}\right)+yL\left(\verticalvector{0\\1\\0}\right)+zL\left(\verticalvector{0\\0\\1}\right)\\
+  			L\left(\verticalvector{x\\y\\z}\right) &= xL\left(\verticalvector{1\\0\\0}\right)+yL\left(\verticalvector{0\\1\\0}\right)+zL\left(\verticalvector{0\\0\\1}\right)\\
   			&= x\verticalvector{3\\4}+y\verticalvector{-2\\0}+z\verticalvector{1\\-1}\\
   			&= \verticalvector{3x\\4x}+\verticalvector{-2y\\0}+\verticalvector{z\\-z}\\
   			&= \verticalvector{3x-2y+z\\4x-z}
@@ -489,7 +489,7 @@ We begin by defining linear maps.
   any $\vec{v} \in \R^n$.
   \begin{free-response}
     I want to determine what $L$ does to any vector $\vec{v} = \verticalvector{x_1\\x_2\\x_3\\.\\.\\.\\x_n} \in \R^n$.  
-    I can rewrite $\vec{v}$ as $x_1\vec{e_1}+x_2\vec{e_2}+x_3\vec{e_3}+...+\x_n\vec{e_n}$.  By the linearity of $L$,
+    I can rewrite $\vec{v}$ as $x_1\vec{e_1}+x_2\vec{e_2}+x_3\vec{e_3}+...+x_n\vec{e_n}$.  By the linearity of $L$,
     $L(\vec{v}) = x_1L(\vec{e_1})+x_2L(\vec{e_2})+x_3L(\vec{e_3})+...+x_nL(\vec{e_n})$.  Since I already know the value of 
     $L(\vec{e_i})$ for all $i=1,2,3,...,n$, this allows me to compute $L(\vec{v})$.  So $L$ is completely determined once I know what it does to each of the
     standard basis vectors. 

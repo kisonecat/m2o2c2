@@ -1,9 +1,17 @@
 \documentclass{ximera}
 
+\title{Angles}
+
 \begin{document}
 
+\begin{abstract}
+  Dot products can be used to compute angles.
+\end{abstract}
+
+\maketitle
+
 \begin{question}
-  Give a vector of length $1$ which points in the same direction as $\vec{v} = \verticalvector(1,2)$ (i.e. is a positive multiple of $\vec{v}$). 
+  Give a vector of length $1$ which points in the same direction as $\vec{v} = \verticalvector{1\\2}$ (i.e. is a positive multiple of $\vec{v}$). 
   \begin{solution}
     
     \begin{hint}
@@ -32,7 +40,7 @@ Do you remember the law of cosines?  It states the following:
 
 \begin{theorem}
 %	BADBAD PICTURE
-  If a triangle has side lengths $a$,$b$, and $c$, then $c^2 = a^2+b^2 - 2ab\cos(\theta)$, where $\theta$ is the angle opposite the side with length $c$.
+  If a triangle has side lengths $a$, $b$, and $c$, then $c^2 = a^2+b^2 - 2ab\cos(\theta)$, where $\theta$ is the angle opposite the side with length $c$.
 \end{theorem}
 
 Prove the law of cosines.  You may want to read the lovely proof at \href{http://mathproofs.blogspot.com/2006/06/law-of-cosines.html}{mathproofs}.
@@ -45,7 +53,7 @@ We can rephrase this in terms of vectors, since geometrically if $\vec{v}$ and $
 %BADBAD PICTURE
 
 \begin{theorem}
-  For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v^2| - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
+  For any two vectors $v,w \in \R^n$, $|w-v|^2 = |w|^2 +|v|^2 - 2|v| |w| \cos(\theta) $, where $\theta$ is the angle between $v$ and $w$.
 \end{theorem}
 
 (For you sticklers, this is really being taken as the \textit{definition} of the angle between two vectors in arbitrary dimension.)

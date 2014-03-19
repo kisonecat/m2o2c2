@@ -221,5 +221,81 @@
 	
 	In the following two $\textbf{optional}$ exercises you will find out why.
 	
-	Find a function $f:\R^2\ro \R$ 
+	Find a function $f:\R^2\to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
+	$M$ is not a linear map!
+	
+	\begin{hint}
+		Try showing that the function 
+		
+		\[f(x,y) = \begin{cases} 
+			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
+			0 \text{ if $(x,y) = (0,0)$}
+			\end{cases}\] 
+			
+			has the desired properties.
+	\end{hint}
+	\begin{free-response}
+		Let 
+		
+		\[f(x,y) = \begin{cases} 
+			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
+			0 \text{ if $(x,y) = (0,0)$}
+			\end{cases}\] 
+			
+		Then for any vector $\vec{v} = \verticalvector{a\\b}$, we have 
+		
+		\begin{align*}
+			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
+							&=\lim_{h \to 0}\frac{h^3a^3}{h(h^2a^2+h^2b^2)}\\
+							&=\lim_{h \to 0}\frac{a^3}{a^2+b^2}\\
+							&=\frac{a^3}{a^2+b^2}
+		\end{align*}
+		
+		So $M(\verticalvector{a\\b}) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
+			
+	\end{free-response}
+	
+	So this formula cannot serve as a good definition of the derivative, because it does not have to produce linear functions.  What if we require that the function is linear as well?
+	Even then, it is no good:
+	
+	Find a function $f:\R^2 \to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$ and 
+	the function $M$ defined this way is linear, but never the less, $f$ is \textbf{not} differentiable at $(0,0)$.
+	
+	\begin{hint}
+		Try the function \[f(x,y) = \begin{cases}
+			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 \text{else}
+		\end{cases}\]
+	\end{hint}
+	
+	\begin{free-response}
+	Let 
+	\[f(x,y) = \begin{cases}
+			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 \text{else}
+		\end{cases}\]
+		
+	Let $\vec{v} = \verticalvector{a\\b}$.  Then 
+	
+	\begin{align*}
+			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
+		\end{align*}
+		
+		Now, the intersection of the line $t \mapsto (ta,tb)$ with the parabola $y=x^2$ happens when $tb = t^2a^2$, i.e. when $t = \pm \frac{\sqrt{b}}{|a|}$.  So as long as
+		we choose $h$ smaller than that, we know that $(ha,hb)$ is not on the parabola $y=x^2$.  Hence $f(ha,hb) = 0$ for small enough $h$.
+		
+		Thus $M(\vec{v}) = 0$ for all $\vec{v}\in \R^2$.
+		
+		This definitely \textbf{is} a linear function, but $f$ is not differentiable at $(0,0)$ using our definition, since
+		
+		\[\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
+		
+		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \lim_{t \to 0} \frac{1}{|t|}$, which
+		diverges to $\infty$. 
+		
+	\end{free-response}
+	
+	These last two exercises show why our definition of the derivative is phrased the way it is. 
 \end{document}

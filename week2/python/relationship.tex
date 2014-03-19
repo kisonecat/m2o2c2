@@ -10,7 +10,9 @@ In the previous activities, we wrote some code to compute
 $Df(\mathbf{p})$ and the Jacobian matrix of $f$ at the point
 $\mathbf{p}$.  In this activity, we observe that these are related.
 
+\begin{exercise}
 Try running the code below.
+\begin{solution}
     \begin{python}
 epsilon = 0.0001
 n = 3 # the dimension of the domain
@@ -42,7 +44,7 @@ def D(ff):
   return Df
 #
 def dot_product(v,w):
-  return [x[0] * x[1] for x in zip(v,w)]
+  return sum([x[0] * x[1] for x in zip(v,w)])
 def apply_matrix(m,v):
   return [dot_product(row,v) for row in m]
 #
@@ -51,10 +53,34 @@ p = [1,2,0]
 v = [2,2,1]
 print apply_matrix(jacobian(f,p),v)
 print D(f)(p)(v)
-    \end{python}
-    In this case, we set $f(x,y,z) = (x + xy, yz^2)$, and we computed
-    $Df(\mathbf{p})(\vec{v})$ in two different ways.  The two different methods were close---but not exactly the same.
 
-Why are the not exactly the same?
+def validator():
+  # I just want them to try running this
+  return True
+    \end{python}
+\end{solution}
+
+In this case, we set $f(x,y,z) = (x + xy, yz^2)$, and we computed
+$Df(\mathbf{p})(\vec{v})$ in two different ways.  The two different methods were close---but not exactly the same.
+
+Why are they not exactly the same?
+\begin{free-response}
+  The \texttt{D} function is computing $Df(\mathbf{p})$ by comparing
+  $f(\mathbf{p} + \epsilon \vec{v})$ to $f(\mathbf{p})$.
+
+  In contrast, the \texttt{jacobian} function computes
+  $Df(\mathbf{p})$ by computing partial derivatives, so we are not
+  actually computing $f(\mathbf{p} + \epsilon \vec{v})$ in that case,
+  but rather, $f(\mathbf{p} + \epsilon \vec{e}_i)$ for various $i$'s.
+
+  That the way $f$ changes when wiggling each component separately has
+  anything to do with what happens to $f$ when we wiggle the inputs
+  together boils down to the assumption that $f$ be differentiable.
+  This relationship is true infinitesimally, but here we're working
+  with $\epsilon = 0.0001$, so it is not surprising that it is not
+  true on the nose.
+\end{free-response}
+
+\end{exercise}
 
 \end{document}

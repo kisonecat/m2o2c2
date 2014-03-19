@@ -17,24 +17,24 @@ This is the Cauchy-Schwarz inequality.
 \begin{proof}
   If $\vec{v}$ or $\vec{w}$ is the zero vector, the result is trivial.  So assume $\vec{v} \neq \vec{0}$ and $\vec{w} \neq \vec{0}$
   Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
-  \[
-  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0 \,\,
-  2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
-  \]
+  \begin{align*}
+  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle &\geq 0 \\
+  2\langle v,w \rangle &\leq \langle v,v \rangle  + \langle w,w\rangle
+  \end{align*}
   
   Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
   
-  \[
-  2\langle \vec{v}, \vec{w} \rangle \leq 2 \,\,
-  \langle \vec{v},\vec{w}\rangle \leq 1
-  \]
+  \begin{align*}
+  2\langle \vec{v}, \vec{w} \rangle &\leq 2 \\
+  \langle \vec{v},\vec{w}\rangle &\leq 1
+  \end{align*}
   
   Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
   
-  \[
-  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \leq 1\,\,
-  \langle v,w\rangle \leq  |v||w|
-  \]
+  \begin{align*}
+  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle &\leq 1\\
+  \langle v,w\rangle &\leq  |v||w|
+  \end{align*}
   
 \end{proof}
 
@@ -42,34 +42,34 @@ We are not quite done with the proof, because we have not proven that $v \cdot w
 Following the same basic outline, try to prove the other half of this inequality below.
 \begin{free-response}
   Start by noting that $\langle v+w,v+w\rangle \geq 0 $.  Expanding this out, we have:
-  \[
-  \langle v,v \rangle + 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0
-  2\langle v,w \rangle \geq -\langle v,v \rangle  + -\langle w,w\rangle
-  \]
+  \begin{align*}
+  \langle v,v \rangle + 2 \langle v,w \rangle +\langle  w,w\rangle &\geq 0\\
+  2\langle v,w \rangle &\geq -\langle v,v \rangle  + -\langle w,w\rangle
+  \end{align*}
   
   Now, if $\vec{v}$ and $\vec{w}$ are unit vectors, this says that
   
-  \[
-  2\langle \vec{v}, \vec{w} \rangle \geq -2
-  \langle \vec{v},\vec{w}\rangle \geq -1
-  \]
+  \begin{align*}
+  2\langle \vec{v}, \vec{w} \rangle &\geq -2\\
+  \langle \vec{v},\vec{w}\rangle &\geq -1
+  \end{align*}
   
   Now to prove the result for any pair of nonzero vectors, simply scale them to make them unit vectors:
   
-  \[
-  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle \geq -1
-  \langle v,w\rangle \leq  -|v||w|
-  \]
+  \begin{align*}
+  \langle \frac{1}{|\vec{v}|}\vec{v},\frac{1}{|\vec{w}|}\vec{w}\rangle &\geq -1\\
+  \langle v,w\rangle &\leq  -|v||w|
+  \end{align*}
 \end{free-response}
 
 In the next question, we ask you to fill in the details of an alternative proof which, while a little harder than the one above, is at least as beautiful.
 
 \begin{question}
   Start by noting that $\langle v-w,v-w\rangle \geq 0 $.  Expanding this out, we have:
-  \[
-  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle \geq 0 \,\,
-  2\langle v,w \rangle \leq \langle v,v \rangle  + \langle w,w\rangle
-  \]
+  \begin{align*}
+  \langle v,v \rangle - 2 \langle v,w \rangle +\langle  w,w\rangle &\geq 0 \\
+  2\langle v,w \rangle &\leq \langle v,v \rangle  + \langle w,w\rangle
+  \end{align*}
   
   Now notice that the left hand side is unaffected by scaling $v$ by a scalar $\lambda$ and $w$ by $\frac{1}{\lambda}$, but the right hand side is!
   This allows us to breathe new life into the inequality:  we know that for every scalar $\lambda \in (0,\infty)$ 
@@ -88,7 +88,11 @@ In the next question, we ask you to fill in the details of an alternative proof 
     \end{hint}
     \begin{hint}
       Let $f(\lambda) = \lambda^2 |v|^2 + \frac{1}{\lambda^2} |w|^2$.
+     \\
+     \\
       Then $f'(\lambda) = 2\lambda |v|^2 -2\frac{|w|^2}{\lambda^3}$
+      \\
+      \\
       The minimum must occur where $f'$ vanishes
     \end{hint}
     \begin{hint}
@@ -232,7 +236,7 @@ Prove the ``Triangle inequality'':  For any two vectors $\vec{v},\vec{w} \in \R^
 
 
 \begin{free-response}
-  The inequality is equivalent to $|\vec{v}+\vec{w}|^2\leq |\vec{v}+\vec{w}|^2$, which is easier to handle because it does not involve square roots.
+  The inequality is equivalent to $|\vec{v}+\vec{w}|^2\leq \left||\vec{v}|+|\vec{w}|\right|^2$, which is easier to handle because it does not involve square roots.
   
   \begin{align*}
     |\vec{v}+\vec{w}|^2  &= \langle \vec{v}+\vec{w},\vec{v}+\vec{w}\rangle\\

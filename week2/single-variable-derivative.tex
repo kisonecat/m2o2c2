@@ -80,8 +80,21 @@ The derivative is the slope of the best linear approximation.
 	Confirm that for $f(x)=x^2$, $f'(2)=4$ using our definition of the derivative.
 	
 	\begin{free-response}
-	 	$f(2+\Delta x) = (2+\Delta x)^2 = 2^2+2(2)\Delta x + (\Delta x)^2$.  $\lim_{\Delta x \to 0} \frac{(\Delta x)^2}{\Delta x} = \lim_{\Delta x \to 0} \Delta x = 0$, so 
-	 	$f'(2) = 2(2) =4$.
+	 	\[
+	 	f(2+\Delta x) = (2+\Delta x)^2 = 2^2+2(2)\Delta x + (\Delta x)^2
+	 	\]
+	 	So we have $f(2_\Delta x) = f(2)+4\Delta x + Error(\Delta(x))$, where $Error(\Delta x) = (\Delta x)^2$
+	 	 
+	 	\begin{align*}
+	 	\lim_{\Delta x \to 0} \frac{Error(\Delta x)}{\Delta x}
+	 	 \lim_{\Delta x \to 0} \frac{(\Delta x)^2}{\Delta x} 
+	 	 = \lim_{\Delta x \to 0} \left(\Delta x  \right)
+	 	 = 0
+	 	 \end{align*}
+	 	 
+	 	 Thus, 
+	 	 
+	 	$f'(2) = 2(2) =4$, according to our new definition!
 	\end{free-response}
 
 		Show the equivalence of our definition of the derivative with the ``usual'' definition.  That is, show that the number $m$ in our definition satisfies

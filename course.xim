@@ -32,3 +32,9 @@ week2
   week2/multivariable-derivative
     week2/multivariable-derivative/intuition
     week2/multivariable-derivative/rigorously
+  week2/partial-derivatives
+  week2/gradient
+  week2/one-forms
+    week2/one-forms/integration-python
+  week2/python
+  week2/chain-rule

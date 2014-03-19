@@ -1,9 +1,9 @@
 \documentclass{ximera}
-\title{Python}
+\title{Derivative}
 \begin{document}
 
 \begin{abstract}
-  Code the derivative.	
+  Code the total derivative.
 \end{abstract}
 
 \begin{exercise}
@@ -22,10 +22,11 @@
   derivative.
 
 \begin{solution}
+  \begin{hint}
+    To approximate this, use \texttt{(f(x+epsilon) - f(x))/epsilon}.
+  \end{hint}
 \begin{python}
 epsilon = 0.0001
-
-
 def derivative(f):
   def df(x): return (f(blah blah) - f(blah blah)) / blah blah
   return df
@@ -42,53 +43,78 @@ def validator():
 \end{python}
 \end{solution}
 
-  Great work!  Now let's do this in a multivariable setting!
-
-  Store a matrix as an array of arrays: $\begin{bmatrix} a&b\\c&d\\e&f\ \end{bmatrix}$ should be stored as
-  \texttt{[[a,b],[c,d],[e,f]]|}.
+  Great work!  Now let's do this in a multivariable setting.
 
   A function $f:\R^n \to \R^m$ should be stored as a Python function
   which takes a list with $n$ entries and returns a list with $m$
-  entries.  For example, $f(x,y,z) = (xy,x+z)$ could be stored as
-  \begin{verbatim}
+  entries.  
+  \begin{solution}
+    Implement $f(x,y,z) = (xy,x+z)$ as a Python function.
+    \begin{hint}
+You can get away with
+\begin{verbatim}
 def f(v):
   return [v[0]*v[1],v[0] + v[2]]
 \end{verbatim}
-	
-  We provide you with a function \texttt{add\_vector} which takes two
+    \end{hint}
+    \begin{python}
+def f(v):
+  x = v[0]
+  y = v[1]
+  z = v[2]
+  return # such and such
+
+def validator():
+  if f([3,2,7])[0] != 6:
+    return False
+  if f([3,2,7])[1] != 10:
+    return False
+  return True
+    \end{python}
+  \end{solution}
+
+  Now we provide you with a function \texttt{add\_vector} which takes two
   vectors $\vec{v}$ and $\vec{w}$ and returns $\vec{v}+\vec{w}$, and a
   function \texttt{scale\_vector} which takes a scalar $c$ and a
   vector $\vec{v}$ and returns the vector $c\vec{v}$.  Finally,
   \texttt{vector\_length(v)} computes the length of the vector
   $\vec{v}$.
 
-Given all of this preamble, write a function \texttt{D} which takes a
-Python function $f: \R^n \to \R^m$ and returns the function $Df: \R^n
-\to Lin(\R^n,\R^m)$ which takes a point $\mathbf{p} \in \R^n$ and
-returns (an approximation to) the linear map $Df(p):\R^n \to \R^m$.
+  Given all of this preamble, write a function \texttt{D} which takes
+  a Python function $f: \R^n \to \R^m$ and returns the function $Df:
+  \R^n \to Lin(\R^n,\R^m)$ which takes a point $\mathbf{p} \in \R^n$
+  and returns (an approximation to) the linear map $Df(p):\R^n \to
+  \R^m$.
 	
 \begin{solution}
+  \begin{hint}
+\begin{verbatim}
+def D(ff):
+  def Df(p):
+    f = ff # band-aid over a Python interpreter bug
+    def L(v):
+      return scale_vector( 1/(epsilon),
+                           add_vector( f(add_vector(p, scale_vector(epsilon, v))),
+                                       scale_vector(-1, f(p)) ) )
+    return L
+  return Df
+\end{verbatim}
+  \end{hint}
 \begin{python}
 epsilon = 0.0001
 n = 3
 m = 2
-
-
 def add_vector(v,w):
-  return map(lambda s: sum(s), zip(v,w))
-
-
+  return [sum(v) for v in zip(v,w)]
 def scale_vector(c,v):
-  return map(lambda x: c*x, v)
-
-
+  return [c*x for x in v]
 def vector_length(v):
-  return sum(map(lambda x: x**2, v))**0.5
-
-
+  return sum([x**2 for x in v])**0.5
 def D(f):
   def Df(p):
+    f = f # band-aid over a Python interpreter bug
     def L(v):
+      # Try "f(p + blah blah) - f(p)" and so on...
       return L(v) where L = Df(p)
     return L
   return Df
@@ -106,6 +132,8 @@ def validator():
   return True
 \end{python}
 \end{solution}
+
+Note that \texttt{Df(p)} is a linear map, so we can represent that linear map as a matrix.  We do so in the next activity.
 \end{exercise}
 
 \end{document}

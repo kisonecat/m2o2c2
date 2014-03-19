@@ -21,12 +21,15 @@
   takes a function \texttt{f} and returns an approximation to its
   derivative.
 
+\begin{solution}
 \begin{python}
 epsilon = 0.0001
+
 
 def derivative(f):
   def df(x): return (f(blah blah) + f(blah blah)) / blah blah
   return df
+
 
 def validator():
   df = derivative(lambda x: 1+x**2+x**3)
@@ -37,41 +40,51 @@ def validator():
     return False
   return True
 \end{python}
+\end{solution}
 
   Great work!  Now let's do this in a multivariable setting!
 
-  Store a matrix as an array of arrays: $\begin{bmatrix} a&b\\c&d
-    \e&f\ \end{bmatrix}$ should be stored as
+  Store a matrix as an array of arrays: $\begin{bmatrix} a&b\\c&d\\e&f\ \end{bmatrix}$ should be stored as
   \texttt{[[a,b],[c,d],[e,f]]|}.
 
   A function $f:\R^n \to \R^m$ should be stored as a Python function
   which takes a list with $n$ entries and returns a list with $m$
   entries.  For example, $f(x,y,z) = (xy,x+z)$ could be as
-  \begin{pre}
+\begin{verbatim}
 def f(v):
   return [v[0]*v[1],v[0] + v[2]]
-\end{pre}
+\end{verbatim}
 	
-We provide you with a function \textt{add_vector} which takes two
-vectors $\vec{v}$ and $\vec{w}$ and returns $\vec{v}+\vec{w}$, and a
-function \texttt{scale_vector} which takes a scalar $c$ and a vector
-$\vec{v}$ and returns the vector $c\vec{v}$.
+  We provide you with a function \texttt{add\_vector} which takes two
+  vectors $\vec{v}$ and $\vec{w}$ and returns $\vec{v}+\vec{w}$, and a
+  function \texttt{scale\_vector} which takes a scalar $c$ and a
+  vector $\vec{v}$ and returns the vector $c\vec{v}$.  Finally,
+  \texttt{vector\_length(v)} computes the length of the vector
+  $\vec{v}$.
 
 Given all of this preamble, write a function \texttt{D} which takes a
 Python function $f: \R^n \to \R^m$ and returns the function $Df: \R^n
 \to Lin(\R^n,\R^m)$ which takes a point $\mathbf{p} \in \R^n$ and
 returns (an approximation to) the linear map $Df(p):\R^n \to \R^m$.
 	
+\begin{solution}
 \begin{python}
 epsilon = 0.0001
 n = 3
 m = 2
 
+
 def add_vector(v,w):
   return map(lambda s: sum(s), zip(v,w))
 
+
 def scale_vector(c,v):
   return map(lambda x: c*x, v)
+
+
+def vector_length(v):
+  return sum(map(lambda x: x**2, v))**0.5
+
 
 def D(f):
   def Df(p):
@@ -80,12 +93,19 @@ def D(f):
     return L
   return Df
 
+
 def validator():
-  # BADBAD missing validator
+  # f(x,y,z) = (3*x^2 + 2*x*y*z, x*y^3*z^2)
+  Df = D(lambda v: [3*v[0]*v[0] + 2*v[0]*v[1]*v[2], v[0]*(v[1]**3)*(v[2]**2)])
+  Dfp = Df([2,3,4])
+  Dfpv = Dfp([3,2,1])
+  if abs(Dfpv[0] - 152) > 1.0:
+    return False
+  if abs(Dfpv[1] - 3456) > 10.0:
+    return False
   return True
 \end{python}
+\end{solution}
 \end{exercise}
-
-
 
 \end{document}

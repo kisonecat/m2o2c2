@@ -8,118 +8,118 @@
 The derivative is the slope of the best linear approximation.
 \end{abstract}
 	
-	Our goal is to define the derivative of a multivariable function, but first we will recast the derivative of a single variable function in a
-	manner which is ripe for generalization.
+Our goal is to define the derivative of a multivariable function, but first we will recast the derivative of a single variable function in a
+manner which is ripe for generalization.
 	
-	The derivative of a function $f:\R \to \R$ at a point $x = a$ is the "instantaneous rate of change" of $f(x)$ with respect to $x$.
-	In other words, 
+The derivative of a function $f:\R \to \R$ at a point $x = a$ is the ``instantaneous rate of change'' of $f(x)$ with respect to $x$.
+In other words, 
 	
-	$f(a + \Delta x) \approx f(x) +f'(a)\Delta x$.
+$f(a + \Delta x) \approx f(x) +f'(a)\Delta x$.
 	
-	This is really the essential thing to understand about the derivative.
+This is really the essential thing to understand about the derivative.
 	
-	\begin{question}
-		Let $f$ be a function with $f(3)  = 2$, and $f'(3) = 5$.
-		\begin{solution}
-			\begin{hint}
-				$f(3.01) \approx f(3)+f'(3)(0.01)$
-			\end{hint}
-			\begin{hint}
-				$\approx 2+5(0.01)$
-			\end{hint}
-			\begin{hint}
-				$\approx 2.05$
-			\end{hint}
-			Then $f(3.01) \approx $ \answer{2.05}
-		\end{solution}
-	\end{question}
+\begin{question}
+  Let $f$ be a function with $f(3)  = 2$, and $f'(3) = 5$.
+  \begin{solution}
+    \begin{hint}
+      $f(3.01) \approx f(3)+f'(3)(0.01)$
+    \end{hint}
+    \begin{hint}
+      $\approx 2+5(0.01)$
+    \end{hint}
+    \begin{hint}
+      $\approx 2.05$
+    \end{hint}
+    Then $f(3.01) \approx $ \answer{2.05}
+  \end{solution}
+\end{question}
 	
-	\begin{question}
-		Let $f$ be a function with $f(4)=2$ and $f(4.2) = 2.6$.  
-		
-		\begin{solution}
-			\begin{hint}
-				$f(4.2) \approx f(4)+f'(4)(0.2)$
-			\end{hint}
-			\begin{hint}
-				$2.6 \approx 2+f'(4)(0.2)$
-			\end{hint}
-			\begin{hint}
-				$f'(4) \approx \frac{2.6 - 2}{0.2}$
-			\end{hint}
-			\begin{hint}
-				$f'(4) \approx 3$
-			\end{hint}
-			Then $f'(4) \approx$ \answer{3}
-		\end{solution}
-	\end{question}
-	
-	We have not made precise what we mean the approximate sign.  After all, if $\Delta x$ is small enough and $f$ is continuous, 
-	$f(a+\Delta x)$ will be close to $f(x)$, but we do not want to say that the derivative is always $0$!  We will make the  $\approx$ sign precise by asking that the difference 
-	between the actual value and the estimated value go to $0$ faster than $\Delta x$ does:
-	
-	\begin{definition}
-		Let $f: \R \to \R$ be a function, and let $a \in \R$.  $f$ is said to be differentiable at $x=a$ if there is a number $m$ such that 
-		
-		\[ f(a+\Delta x) = f(a) + m\Delta x + Error_a(\Delta x)\]
-		
-		with
-		
-		\[ \lim_{\Delta x \to 0} \frac{\left|Error_a(\Delta x)|}{\left|\Delta x\right|} = 0 \].
-		
-		If $f$ is differentiable at $a$, there is only one such number $m$, which we call the derivative of $f$ at $a$.  
-		
-		Verbally,  $m$ is the number which makes the error between the function value $f(a+\Delta x)$ and the linear approximation $f(a)+m\Delta x$ go to zero 
-		"faster than $\Delta x$" does.
-	\end{definition}
-	
-	This definition looks more complicated than the usual definition (and it is!), but it has the advantage that it will 
-	generalize directly to the derivative of a multivariable function.
+\begin{question}
+  Let $f$ be a function with $f(4)=2$ and $f(4.2) = 2.6$.  
+  
+  \begin{solution}
+    \begin{hint}
+      $f(4.2) \approx f(4)+f'(4)(0.2)$
+    \end{hint}
+    \begin{hint}
+      $2.6 \approx 2+f'(4)(0.2)$
+    \end{hint}
+    \begin{hint}
+      $f'(4) \approx \frac{2.6 - 2}{0.2}$
+    \end{hint}
+    \begin{hint}
+      $f'(4) \approx 3$
+    \end{hint}
+    Then $f'(4) \approx$ \answer{3}
+  \end{solution}
+\end{question}
+
+We have not made precise what we mean the approximate sign.  After all, if $\Delta x$ is small enough and $f$ is continuous, 
+$f(a+\Delta x)$ will be close to $f(x)$, but we do not want to say that the derivative is always zero.  We will make the  $\approx$ sign precise by asking that the difference 
+between the actual value and the estimated value goes to zero faster than $\Delta x$ goes to zero.
+
+\begin{definition}
+  Let $f: \R \to \R$ be a function, and let $a \in \R$.  $f$ is said to be differentiable at $x=a$ if there is a number $m$ such that 
+  
+  \[ f(a+\Delta x) = f(a) + m\Delta x + \text{Error}_a(\Delta x)\]
+  
+  with
+  
+  \[ \lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \].
+  
+  If $f$ is differentiable at $a$, there is only one such number $m$, which we call the derivative of $f$ at $a$.  
+  
+  Verbally,  $m$ is the number which makes the error between the function value $f(a+\Delta x)$ and the linear approximation $f(a)+m\Delta x$ go to zero 
+  ``faster than $\Delta x$'' does.
+\end{definition}
+
+This definition looks more complicated than the usual definition (and it is!), but it has the advantage that it will 
+generalize directly to the derivative of a multivariable function.
 	
 
-	Confirm that for $f(x)=x^2$, $f'(2)=4$ using our definition of the derivative.
+Confirm that for $f(x)=x^2$, $f'(2)=4$ using our definition of the derivative.
 	
-	\begin{free-response}
-	 	\[
-	 	f(2+\Delta x) = (2+\Delta x)^2 = 2^2+2(2)\Delta x + (\Delta x)^2
-	 	\]
-	 	So we have $f(2_\Delta x) = f(2)+4\Delta x + Error(\Delta(x))$, where $Error(\Delta x) = (\Delta x)^2$
-	 	 
-	 	\begin{align*}
-	 	\lim_{\Delta x \to 0} \frac{Error(\Delta x)}{\Delta x}
-	 	 \lim_{\Delta x \to 0} \frac{(\Delta x)^2}{\Delta x} 
-	 	 = \lim_{\Delta x \to 0} \left(\Delta x  \right)
-	 	 = 0
-	 	 \end{align*}
-	 	 
-	 	 Thus, 
-	 	 
-	 	$f'(2) = 2(2) =4$, according to our new definition!
-	\end{free-response}
+\begin{free-response}
+  \[
+  f(2+\Delta x) = (2+\Delta x)^2 = 2^2+2(2)\Delta x + (\Delta x)^2
+  \]
+  So we have $f(2_\Delta x) = f(2)+4\Delta x + \text{Error}(\Delta(x))$, where $\text{Error}(\Delta x) = (\Delta x)^2$
+  
+  \begin{align*}
+    \lim_{\Delta x \to 0} \frac{\text{Error}(\Delta x)}{\Delta x}
+    \lim_{\Delta x \to 0} \frac{(\Delta x)^2}{\Delta x} 
+    = \lim_{\Delta x \to 0} \left(\Delta x  \right)
+    = 0
+  \end{align*}
+  
+  Thus, 
+  
+  $f'(2) = 2(2) =4$, according to our new definition!
+\end{free-response}
 
-		Show the equivalence of our definition of the derivative with the ``usual'' definition.  That is, show that the number $m$ in our definition satisfies
-		$m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$.  This also shows the uniqueness of $m$.
+Show the equivalence of our definition of the derivative with the ``usual'' definition.  That is, show that the number $m$ in our definition satisfies
+$m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$.  This also shows the uniqueness of $m$.
 
-	\begin{free-response}
-		Let $f$ be differentiable (in the sense above) at $x=a$, with derivative $m$.  Then 
-		
-		\[ \lim_{\Delta x \to 0} \frac{\left|Error_a(\Delta x)|}{\left|\Delta x\right|} = 0 \]
-		
-		where $Error_a(\Delta x)$ is defined by $f(a+\Delta x) = f(a) + m\Delta x + Error_a(\Delta x)$, i.e. $Error_a(\Delta x) = f(a+\Delta x) - f(a) -m\Delta x$.
-		
-		So 
-		
-		\begin{align*}
-			\lim_{\Delta x \to 0} \frac{\left|f(a+\Delta x) - f(a) -m\Delta x|}{\left|\Delta x\right|} &= 0\\
-			\lim_{\Delta x \to 0} \frac{\left| \frac{f(x+\Delta x) -f(x)}{\Delta x} - m\right|} &= 0\\
-		\end{align*}
-		
-		But this implies that
-		
-		\[m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}\]
-		
-		So our definition of the derivative agrees with the  ``usual'' definition
+\begin{free-response}
+  Let $f$ be differentiable (in the sense above) at $x=a$, with derivative $m$.  Then 
+  
+  \[ \lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \]
+  
+  where $\text{Error}_a(\Delta x)$ is defined by $f(a+\Delta x) = f(a) + m\Delta x + \text{Error}_a(\Delta x)$, i.e. $\text{Error}_a(\Delta x) = f(a+\Delta x) - f(a) -m\Delta x$.
+  
+  So 
+  
+  \begin{align*}
+    \lim_{\Delta x \to 0} \frac{\left|f(a+\Delta x) - f(a) -m\Delta x\right|}{\left|\Delta x\right|} &= 0\\
+    \lim_{\Delta x \to 0} \frac{\left| \frac{f(x+\Delta x) -f(x)}{\Delta x} - m\right|} &= 0\\
+  \end{align*}
+  
+  But this implies that
+  
+  \[m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}\]
+  
+  So our definition of the derivative agrees with the  ``usual'' definition
+  
+\end{free-response}
 
-		\end{free-response}
-	
-	\end{document}
+\end{document}

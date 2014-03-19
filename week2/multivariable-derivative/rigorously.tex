@@ -1,0 +1,97 @@
+\documentclass{ximera}
+\title{The multivariable derivative, rigorously}
+
+\begin{document}
+	\begin{abstract}
+		The derivative approximates the changes in a function to first order accuracy
+	\end{abstract}
+	
+	We are now ready to define the derivative rigorously.  Mimicking our development of the single variable derivative, we define:
+
+\begin{definition}
+	Let $f :\R^n \to \R^m$ be a function, and let $\mathbf{p} \in \R^n$.  
+	 $f$ is said to be differentiable at $\mathbf{p}$ if there is a linear map $M:\R^n \to \R^m$ such that 
+		
+		\[ f(\mathbf{p}+\vec{h}) = f(\mathbf{p}) + M(\vec{h})+ Error_{\mathbf{p}}(\vec{h})\]
+		
+		with
+		
+		\[ \lim_{\vec{h} \to 0} \frac{\left|Error_a(\vec{h})|}{\left|\vec{h}\right|} = 0 \].
+		
+		If $f$ is differentiable at $\mathbf{p}$, there is only one such linear map $M$, which we call the (total) derivative of $f$ at $\mathbf{p}$.  
+		
+		Verbally,  $M$ is the linear function which makes the error between the function value $f(\mathbf{p}+\vec{h})$ and the affine approximation 
+		$f(\mathbf{a})+M(\vec{h})$ go to zero "faster than $\vec{h}$" does.
+\end{definition}
+
+This definition is great, but it doesn't tell us how to actually compute the derivative of a differentiable function!  Lets dig a little deeper:
+
+\begin{example}
+	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f(\verticalvector(x,y)) = \verticalvector(f_1(x),f_2(x))$. 
+	 Assuming $f$ is differentiable at the point $(1,2)$, lets try to compute the derivative there. 
+	 Let $M$ be the derivative of $f$ at $(1,2)$.  Then 
+	 \begin{align*}\lim_{h \to 0} \frac{\left|f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - M(\verticalvector(h,0)))\right|}{\left|h\right|} &= 0\\
+	  \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2) - hM(\verticalvector(1,0)))}{h} \right| &= 0\\
+	  \lim_{h \to 0}\left| \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h} -M(\verticalvector(1,0))\right| &= 0\\
+	  M(\verticalvector(1,0)) &= \lim_{ h \to 0 } \frac{f(\verticalvector(1+h,2)) - f(\verticalvector(1,2)}{h}\\
+	  M(\verticalvector(1,0)) &= \lim_{ h \to 0 } \verticalvector(\frac{f_1(\verticalvector(1+h,2)) - f_1(\verticalvector(1,2)}{h}, \frac{f_2(\verticalvector(1+h,2)) - f_2(\verticalvector(1,2)}{h})
+	 \end{align*}
+	 
+	 But each of the remaining quantities are derivatives of \textbf{one} variable functions!  In particular, we have that
+	 
+	 $M(\verticalvector(1,0)) = \verticalvector(\frac{d}{dx}(f_1(x,2))\big|_{x=1},)frac{d}{dx}(f_2(x,2))\big|_{x=1}$.  
+	 We call these kinds of quantities \textbf{partial derivatives}  because they are part of the derivative.
+\end{example}
+
+
+	Without copying the work in the example above (if you can) try to find $M(0,1)$.
+	
+\begin{free-response}
+
+ \begin{align*}
+ 		\lim_{h \to 0} \frac{\left|f(\verticalvector(1,2+h)) - f(\verticalvector(1,2) - M(\verticalvector(0,h)))\right|}{\left|h\right|} &= 0\\
+	  \lim_{h \to 0}\left| \frac{f(\verticalvector(1,2+h)) - f(\verticalvector(1,2) - hM(\verticalvector(0,1)))}{h} \right| &= 0\\
+	  \lim_{h \to 0}\left| \frac{f(\verticalvector(1,2+h)) - f(\verticalvector(1,2)}{h} -M(\verticalvector(0,1))\right| &= 0\\
+	  M(\verticalvector({0\\1}) &= \lim_{ h \to 0 } \frac{f(\verticalvector(1,2+h)) - f(\verticalvector(1,2)}{h}\\
+	  M(\verticalvector{0\\1}) &= \lim_{ h \to 0 } \verticalvector(\frac{f_1(\verticalvector(1,2+h)) - f_1(\verticalvector(1,2)}{h}, \frac{f_2(\verticalvector(1,2+h)) - f_2(\verticalvector(1,2)}{h})\\
+	  M(\verticalvector{0\\1}) &= \verticalvector{\frac{d}{dy} \left( f_1(1,y)\right)\big|_{y=2}\\\frac{d}{dy} \left( f_2(1,y)\right)\big|_{y=2}}
+	 \end{align*}
+\end{free-response}
+
+This question and the previous example show that the matrix of the derivative of $f$ at $(1,2)$ is 
+\(\begin{bmatrix} \frac{d}{dx}(f_1(x,2))\big|_{x=1} & \frac{d}{dy}(f_1(1,y))\big|_{y=2}
+\\ \frac{d}{dx}(f_2(x,2))\big|_{x=1} & \frac{d}{dy}(f_2(1,y))\big|_{y=1}\end{}bmatrix\)
+
+\begin{question}
+	Use the results of this question and the previous example  to find the matrix of the derivative of  $f(\verticalvector(x,y)) = \verticalvector(x^2+y^2,xy)$
+	at the point \((1,2)\).
+	\begin{solution}
+		\begin{hint}
+			In this case  $f_1(x,y) = x^2+y^2$ and $f_2(x,y) = xy$
+		\end{hint}
+		\begin{hint}
+			By the result of the last two exercises, the matrix of the derivative is \(\begin{bmatrix} \frac{d}{dx}(f_1(x,2))\big|_{x=1} & \frac{d}{dy}(f_1(1,y))\big|_{y=2}
+			\\ \frac{d}{dx}(f_2(x,2))\big|_{x=1} & \frac{d}{dx}(f_2(1,y))\big|_{y=2}\end{bmatrix}\)
+		\end{hint}
+		\begin{hint}
+			$f_1(x,2) = x^2+2^2$,  $f_1(1,y) = 1^2+y^2$,  $f_2(x,2) = 2x$, and $f_2(1,y) = y$
+		\end{hint}
+		\begin{hint}
+			\begin{align*}	
+			\frac{d}{dx}(f_1(x,2))\big|_{x=1} &= \frac{d}{dx} \left( x^2+2^2\right)\big|_{x=1} = 2x\big|_{x=1}=2\\
+			\frac{d}{dx}(f_2(x,2))\big|_{x=1} &= \frac{d}{dx} \left( 2x\right)\big|_{x=1} = 2\big|_{x=1}=2\\
+			\frac{d}{dy}(f_1(1,y))\big|_{y=2} &= \frac{d}{dy} \left( 1^2+y^2\right)\big|_{y=2} = 2y\big|_{y=2}=4\\
+			\frac{d}{dy}(f_2(1,y))\big|_{y=2} &= \frac{d}{dy} \left(y\right)\big|_{y=2} = 1\big|_{x=1}=1\\
+			\end{align*}
+		\end{hint}
+		\begin{hint}
+			Thus the matrix of the derivative is \(\begin{bmatrix} 2&4\\2&1 \end{bmatrix}\)
+		\end{hint}
+		\begin{matrix-answer}
+			correctMatrix = [['2','4'],['2','1']]
+		\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+\end{document}
+

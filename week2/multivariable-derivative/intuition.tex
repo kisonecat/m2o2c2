@@ -73,17 +73,17 @@ Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1
 	\end{hint}
 	\begin{hint}
 		\begin{align*}
-		3.04 &\approx 3+ D(f)\big|_{(1,2)}\left( 0.01\\0 \right)\\
-		0.04 &\approx 0.01D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{ by the linearity of the derivative}\\
-		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 4
+		3.04 &\approx 3+ D(f)\big|_{(1,2)}\left( \begin{bmatrix}0.01\\0\end{bmatrix} \right)\\
+		0.04 &\approx 0.01D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0 \right) \text{ by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0 \right) &\approx 4
 		\end{align*}
 	\end{hint}
 	\begin{hint}
 		\begin{align*}
-		f(1,2.002) &\approx f(1,2) + D(f)\big|_{(1,2)}\left( 0\\0.002 \right)
-		3.002 &\approx 3+ D(f)\big|_{(1,2)}\left( 0\\0.002 \right)\\
-		0.002 &\approx 0.002D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{by the linearity of the derivative}\\
-		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 1
+		f(1,2.002) &\approx f(1,2) + D(f)\big|_{(1,2)}\left( \begin{bmatrix}0\\0.002\end{bmatrix} \right)
+		3.002 &\approx 3+ D(f)\big|_{(1,2)}\left( \begin{bmatrix}0\\0.002\end{bmatrix} \right)\\
+		0.002 &\approx 0.002D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0\end{bmatrix} \right) \text{by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0\end{bmatrix} \right) &\approx 1
 		\end{align*}
 	\end{hint}
 	\begin{hint}
@@ -112,7 +112,7 @@ Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1
 \end{solution}
 This problem shows that if a function has a derivative, then only knowing how it changes in the coordinate directions lets you determine how it changes in \textbf{any} 
 direction.  This is so important it is worth driving it home:  we only started with information about how $f(1.01,2)$ and $f(1,2.002)$ compared to $f(1,2)$, but because
-this function had a derivative, we could obtain the approximate value of the function at \textbf{any} near by point by exploiting linearity.  That is powerful.
+this function had a derivative, we could obtain the approximate value of the function at \textbf{any} near by point by exploiting linearity.  \textit{That is powerful.}
 \end{question}
 
 \textbf{Prepare yourself:}  the following two paragraphs are going to be very difficult to digest.
@@ -120,7 +120,7 @@ this function had a derivative, we could obtain the approximate value of the fun
 So far we have only talked about the derivative of a function at a point.  The derivative of a function is actually a function which assigns a linear map
 to each point in the domain of the original function.   So the derivative is a function which takes (functions from $\R^n \to \R^m$ ) and 
 returns  a function which takes ( points in $\R^n$) and  returns ( linear maps from $\R^n \to \R^m$).    This level of abstraction is why we 
-wanted you to get comfortable with ``higher order functions'' earlier.  This is really not as crazy as it seems!
+wanted you to get comfortable with ``higher-order functions'' earlier.  We are not as crazy as we seem.
 
 As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y+x)$, then it will turn out that at any point $(a,b)$,
  the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^3$ given by the matrix 
@@ -128,7 +128,7 @@ As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y
  function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$. 
   So what about just plain old $D$?  $D$ takes a function ($f$) and returns the function $Df$ which takes a point $(a,b)$ and returns the linear map
   whose matrix is $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$.  Letting $L(A,B)$ stand for all the linear functions from 
-  $A\to B$ and $Func(A,B)$ be the set of all functions from $A \to B$, we could write $D: Func(\R^n,\R^m) \to Func(\R^n,L(\R^n,\R^m))$.
+  $A\to B$ and $\text{Func}(A,B)$ be the set of all functions from $A \to B$, we could write $D: \text{Func}(\R^n,\R^m) \to \text{Func}(\R^n,L(\R^n,\R^m))$.
   
   Please do not give up on the course after the last two paragraphs!  Everything is going to be okay.  Hopefully you will be able to slowly digest these statements 
   throughout the course.  Not understanding them now will not hold you back.

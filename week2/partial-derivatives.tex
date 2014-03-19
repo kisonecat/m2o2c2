@@ -106,17 +106,14 @@
 		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
 		$f(\mathbf{p}) = \verticalvector(f_1(\mathbf{p}),f_2(\mathbf{p}),f_3(\mathbf{p}),.,.,., f_m(\mathbf{p}))$.  If $f$ is differentiable at $\mathbf{p}$,
 		 then its Jacobian matrix at $\mathbf{p}$ is 
-		  \[
-		  \begin{bmatrix}
-		  \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_1} \\
-		  \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \\
-		  \frac{\partial f_1}{\partial x_3} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_3} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_3} \\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		 \frac{\partial f_1}{\partial x_n} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_n} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_n} \\
-		  \end{bmatrix}
-		  \]
+                 \[
+                 \begin{bmatrix}
+                   \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_1}{\partial x_n}\left(\mathbf{p}\right) \\
+                   \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_2}{\partial x_n}\left(\mathbf{p}\right) \\
+                   \vdots                                                    & \vdots                                                    & \ddots & \vdots \\
+                   \frac{\partial f_m}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_m}{\partial x_n}\left(\mathbf{p}\right) 
+                 \end{bmatrix}
+                 \]
 		  
 		  More compactly, we might write
 		  

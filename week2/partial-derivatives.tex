@@ -6,64 +6,46 @@
 		The entries in the Jacobian matrix are partial derivatives
 	\end{abstract}
 	
-	We will now develop some notation and terminology to better handle expressions like $\frac{d}{dy} f_1(1,y) \big|_{y=2}$.
-
-\begin{definition}
-	Let $\mathbf{a} \in \R^n$, and $1\leq i \leq n$ be a natural number.  We introduce the notation
+	There is a familiar looking formula for the derivative of a differentiable function:
 	
-	$L_{i,\mathbf{a}}$ for the function from $\R \to \R^n$ defined by $t \mapto (a_1,a_2,...a_{i-1},t,a_{i+1},...,a_n)$.  In other words, $L_{i,\mathbf{a}}$ parameterizes the
-	affine line in $\R^n$ whose coordinates agree with $a$ except in the $i^{th}$ slot, which is allowed to vary.
-\end{definition}
-
-\begin{example}
-	If $\mathbf{a} = (2,4,7) , L_{2,\mathbf{a}}(t) = (2,t,7)$
-\end{example}
-
-\begin{question}
-	Let $\mathbf{a} = (5,4,2,9)$ 
-	\begin{solution}
-		\begin{hint}
-			By definition, $L_{3,\mathbf{a}}(t) = (5,4,t,9)$
-		\end{hint}
-		\begin{hint}
-			$L_{3,\mathbf{a}}(21) = (5,4,21,9)$
-		\end{hint}
-		\begin{hint}
-			Input this as $\verticalvector{5\\4\\21\\9}$
-		\end{hint}
-	 $L_{3,\mathbf{a}}(21) =$
-	 \begin{bmatrix}
-	 	correctMatrix = [['5'],['4'],['21'],['9']]
-	 \end{bmatrix}
-	 \end{solution}
-\end{question}
-
-\begin{question}
-	Let $f:\R^3 \to \R$ is defined by $f(x,y,z) =  x^2y+z$, and $\mathbf{a} = (2,-3,-4)$ 
-	\begin{solution}
-	\begin{hint}
-		$f \comp L_{2,\mathbf{a}}  = f\left( 2,t,-4\right)$
-	\end{hint}
-	\begin{hint}
-		$= 2^2t-4$
-	\end{hint}
-	Then as a function of $t$ , $f \comp L_{2,\mathbf{a}} = $ \answer{$4t-4$} 
-	\end{solution}
-\end{question}
-
-\begin{definition}
-	Consider $f:\R^n \to \R$.   For each $i = 1,2,3, ..., n$,  and each point $\mathbf(p) = (p_1,p_2,.,.,.,p_n)$ we obtain a function $f \comp L_{i,\mathbf{p}} : \R \to \R$.
-	 We then define the \textit{partial derivative} of $f$ with respect to $x_i$ at the point $\mathbf{p} \in \R^n$ by
+	\begin{theorem}
+		Let $f:\R^n \to \R^m$ be a differentiable function.  Then
+		\[
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+		\]
+	\end{theorem}
 	
-	$ \frac{partial f}{\partial x_i}\big|_{\mathbf{p}}:=  \frac{d}{dt} \left( (f \comp L_{i,\mathbf{p}})(t) \right)\big|_{t = p_i} = (f \comp L_{i,\mathbf{p}})'(p_i)$.
+	Prove this theorem
 	
-	We also use the notation  $f_{x_i}(\mathbf{p})$.
+	\begin{free-response}
+		By the definition of the derivative, we have that
+		
+		\begin{align*}
+			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(\vec{h\vec{v}})\right|}{|h\vec{v}|} &= 0\\
+			\frac{1}{|\vec{v}|}\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - hDf(\mathbf{p})(\vec{v})}{h} \right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}){h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+		\end{align*}
+		
+		We conclude that
+		\[
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+		\]
+	\end{free-response}
 	
-	In other words, $f_{x_i}(\mathbf{p})$ is the instantaneous rate of change in $f$ when leaving all variables fixed except for $x_i$.
+	\begin{question}
+		Use this definition to compute Df(v) for some v.
+	\end{question}
 
-	We could also write  $\frac{partial f}{\partial x_i}\big|_{\mathbf{p}} = \lim_{h \to 0} \frac{f(p_1,p_2,...,_p_{i-1},p_i+h,p_{i+1},...,p_n) - f(p_1,p_2,...,p_n)}{h}$
-
-\end{definition}
+	Since the unit directions are especially important we define:
+	
+	\begin{definition}
+		Let $f: \R^n \to \R$ be a (not necessarily differentiable) function.  We define its partial derivative with respect to $x_i$ by
+		\[
+			\frac{\partial f}{\partial x_i} (\mathbf{p}) = f_{x_i}(\mathbf{p}) := \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{e}_i)-f(\mathbf{p})}{h}
+		\]
+		
+		In other words, $\frac{\partial f}{\partial x_i} (\mathbf{p})$ is the instantaneous rate of change in $f$ by moving only in the $\vec{e}_i$ direction.
+	\end{definition}	
 	
 	\begin{example}
 		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
@@ -124,17 +106,14 @@
 		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
 		$f(\mathbf{p}) = \verticalvector(f_1(\mathbf{p}),f_2(\mathbf{p}),f_3(\mathbf{p}),.,.,., f_m(\mathbf{p}))$.  If $f$ is differentiable at $\mathbf{p}$,
 		 then its Jacobian matrix at $\mathbf{p}$ is 
-		  \[
-		  \begin{bmatrix}
-		  \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_1} \\
-		  \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \\
-		  \frac{\partial f_1}{\partial x_3} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_3} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_3} \\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		    .&.&...&.\\
-		 \frac{\partial f_1}{\partial x_n} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_n} \left(\mathbf{p}\right) & ...\left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_n} \\
-		  \end{bmatrix}
-		  \]
+                 \[
+                 \begin{bmatrix}
+                   \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_1}{\partial x_n}\left(\mathbf{p}\right) \\
+                   \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_2}{\partial x_n}\left(\mathbf{p}\right) \\
+                   \vdots                                                    & \vdots                                                    & \ddots & \vdots \\
+                   \frac{\partial f_m}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_m}{\partial x_n}\left(\mathbf{p}\right) 
+                 \end{bmatrix}
+                 \]
 		  
 		  More compactly, we might write
 		  
@@ -161,6 +140,7 @@
 		
 		But the quantity on the left hand side is $\frac{\partial f_j}{\parial x_i}\big|_{\mathbf{p}}$
 	\end{free-response}
+	
 	\begin{question}
 		Let $f:\R^3 \to \R^2$ be defined by $f(x,y,z) = (x^2+y+z^3,xy+yz^2)$.  
 		\begin{solution}
@@ -188,4 +168,88 @@
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}
+		
+   The formula for the derivative $Df(\mathbf{p})(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}$ looks a lot more familiar
+   than our definition. You might be asking why we didn't take this formula as our definition of the derivative.  After all, we usually take
+	this as our definition in single variable calculus.
+	
+	In the following two $\textbf{optional}$ exercises you will find out why.
+	\\
+	\\
+	Find a function $f:\R^2\to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
+	$M$ is not a linear map!
+	
+	\begin{hint}
+		Try showing that the function 
+		
+		\[f(x,y) = \begin{cases} 
+			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
+			0 \text{ if $(x,y) = (0,0)$}
+			\end{cases}\] 
+			
+			has the desired properties.
+	\end{hint}
+	\begin{free-response}
+		Let 
+		
+		\[f(x,y) = \begin{cases} 
+			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
+			0 \text{ if $(x,y) = (0,0)$}
+			\end{cases}\] 
+			
+		Then for any vector $\vec{v} = \verticalvector{a\\b}$, we have 
+		
+		\begin{align*}
+			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
+							&=\lim_{h \to 0}\frac{h^3a^3}{h(h^2a^2+h^2b^2)}\\
+							&=\lim_{h \to 0}\frac{a^3}{a^2+b^2}\\
+							&=\frac{a^3}{a^2+b^2}
+		\end{align*}
+		
+		So $M(\verticalvector{a\\b}) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
+			
+	\end{free-response}
+	
+	So this formula cannot serve as a good definition of the derivative, because it does not have to produce linear functions.  What if we require that the function is linear as well?
+	Even then, it is no good:
+	\\
+	\\
+	Find a function $f:\R^2 \to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$ and 
+	the function $M$ defined this way is linear, but never the less, $f$ is \textbf{not} differentiable at $(0,0)$.
+	
+	\begin{hint}
+		Try the function \[f(x,y) = \begin{cases}
+			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 \text{else}
+		\end{cases}\]
+	\end{hint}
+	
+	\begin{free-response}
+	Let 
+	\[f(x,y) = \begin{cases}
+			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 \text{else}
+		\end{cases}\]
+		
+	Let $\vec{v} = \verticalvector{a\\b}$.  Then 
+	
+	\begin{align*}
+			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
+		\end{align*}
+		
+		Now, the intersection of the line $t \mapsto (ta,tb)$ with the parabola $y=x^2$ happens when $tb = t^2a^2$, i.e. when $t = \pm \frac{\sqrt{b}}{|a|}$.  So as long as
+		we choose $h$ smaller than that, we know that $(ha,hb)$ is not on the parabola $y=x^2$.  Hence $f(ha,hb) = 0$ for small enough $h$.
+		
+		Thus $M(\vec{v}) = 0$ for all $\vec{v}\in \R^2$.
+		
+		This definitely \textbf{is} a linear function, but $f$ is not differentiable at $(0,0)$ using our definition, since
+		
+		\[\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
+		
+		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \lim_{t \to 0} \frac{1}{|t|}$, which
+		diverges to $\infty$. 
+		
+	\end{free-response}
 \end{document}

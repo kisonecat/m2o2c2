@@ -1,34 +1,39 @@
 \documentclass{ximera}
+
 \title{Python}
+
 \begin{document}
 
 \begin{abstract}
-	Code the derivative	
+  We approximate derivatives in Python.
 \end{abstract}
 
-\begin{exercise}
-	Store a matrix as an array of arrays: $\begin{bmatrix} a&b\\c&d \e&f\ \end{bmatrix}$  should be stored as [[a,b],[c,d],[e,f]].
-	A function $f:\R^n \to \R^m$ should be stored as a python function.  For example, $f(x,y,z) = (xy,z)$ should be stored as
-	
-		def f(v):
-			return [[v[0]*v[1]],[v[2]]]
-	
-	We provide you with a function mult(A,B) which will take two matrices A and B, and return the matrix of $AB$, 
-	a function add(A,B) which will take two matices and return their sum (A+B),
-	and a function scale(c,A) which takes a number $c$ and a matrix $A$ and returns the matrix $cA$.
-	
-	
-	Given all of this preamble, write a function Derivative which takes a function  $f: \R^n \to \R^m$ and returns a 
-	function $Df: \R^n \to Lin(\R^n,\R^m)$ which takes a point $\mathbf{p} \in \R^n$ and returns the linear map
-	$Df(p):\R^n \to \R^m$ .
-	
-	\begin{solution}
-	
-	\end{solution}
-\end{exercise}
+There are two different perspectives on the derivative available to us.
 
-\begin{exercise}
-	Get them to integrate a vector valued one form.
-\end{exercise}
+Suppose $f : \R^n \to \R^m$ is a differentiable function, and we have
+a point $\mathbf{p} \in \R^n$.
+
+The first perspective on the derivative is the \textbf{total
+  derivative}, which is \textit{linear map} $Df(p)$ which sends the
+vector $\vec{v}$ to $Df(p)(\vec{v})$, recording how much an
+infinitesimal change in the $\vec{v}$ direction in $\R^n$ will affect
+the output of $f$ in $\R^m$.
+
+The second perspective on the derivative is the \textbf{Jacobian
+  matrix}, which is the \textit{matrix of partials} given by
+\[
+\begin{bmatrix}
+  \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_1}{\partial x_n}\left(\mathbf{p}\right) \\
+  \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_2}{\partial x_n}\left(\mathbf{p}\right) \\
+  \vdots                                                    & \vdots                                                    & \ddots & \vdots \\
+  \frac{\partial f_m}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_m}{\partial x_n}\left(\mathbf{p}\right) 
+\end{bmatrix}
+\]
+The key fact is that this matrix represents the linear map $Df(\mathbf{p})$.  And we can try this out with a bit of Python.
 
 \end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

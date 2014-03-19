@@ -12,47 +12,175 @@ The chain rule of single variable calculus tells you how the derivative of a com
 The chain rule of multivariable calculus will work analogously.
 
 \begin{question}
-	Let $f:\R^2 \to R^3$ and $g:\R^3 \to \R^1$.  Given the table of values of $f$, $g$, $Df$ and $Dg$, approximate $g(f(1.01,2.03))$ as well as you can.
+	Let $f:\R^2 \to \R^3$ and $g:\R^3 \to \R$.  The only things you know about $f$ are that $f(2,3) = (3,0,0)$ and $Df(2,3)$ 
+	has matrix \(\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix}\).  The only thing you know about $g$ is that $g(3,0,0) = 4$ and $Dg(3,0,0)$ has matrix
+	\(\begin{bmatrix} 4&5&6 \end{bmatrix}\).  
+	\begin{solution}
+		\begin{hint}
+			$g(f(2+a,3+b)) \approx g\left(f(2,3)+Df(2,3)\left(\verticalvector{a\\b}\right)\right)$ using the linear approximation to $f$ at $(2,3)$ 
+		\end{hint}
+		\begin{hint}
+			\begin{align*}
+				g\left(f(2,3)+Df(2,3)\left(\verticalvector{a\\b}\right)\right) & = g((3,0,0)+\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix} \verticalvector{a\\b})\\
+				&= g\left( (3,0,0)+ \verticalvector{4a-b\\2a+3b\\b}\right)\\
+				&\approx g(3,0,0)+Dg(3,0,0)\verticalvector{4a-b\\2a+3b\\b}\right)\left(\right) \text{ using the linear approximation to $g$ at $(3,0,0)$}\\
+				&\approx 4+\begin{bmatrix} 4&5&6 \end{bmatrix}\verticalvector{4a-b\\2a+3b\\b}\\
+				&=4+(16a-4b)+(10a+15b)+(6b)\\
+				&=4+26a+17b
+			\end{align*}
+		\end{hint}
+		Assuming $a,b \in \R^2$ are small,  $(g \circ f)(2+a,3+b) \approx$ \answer{$4+26a+17b$} 
+	\end{solution}
 	
-	BADBAD: 
-	Have various values for $f$, including $f(1,2)$
-	Have various values for $g$, including $g(f(1,2))$
-	Have various values for $Df$, including $Df(1,2)$
-	Have various values for $Dg$, including $Dg(f(1,2))$
-	\begin{answer}
-		$g(f(1.01,2.03)) \approx g(f(1,2)+ Df(1,2)(\verticalvector{0.01,0.03}))
-								 \approx g(f(1,2))+ Dg(f(1,2))(Df(1,2)(\verticalvector{0.01,0.03}))$
-	\end{answer}
+	\begin{solution}
+		So the matrix of $D(g \circ f)(2,3)$ is 
+		\begin{matrix-answer}[name =J]
+			correctMatrix  = [['26','17']]
+		\end{matrix-answer}
+	\end{solution}
+	
+	\begin{hint}
+		$Dg\big|_{f(2,3)} \circ Df\big|_{(2,3)}$ has matrix 
+		\begin{align*}
+		\begin{bmatrix} 4&5&6 \end{bmatrix}\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix}  &= \begin{bmatrix} 4(4)+5(2)+6(0) & 4(-1)+5(3)+6(1)\end{bmatrix}\\
+		&= \begin{bmatrix} 26& 17\end{bmatrix}
+		\end{align*}
+	\end{hint}
+	Notice that $D(g \circ f)(2,3)$ is the same as $Dg\big|_{f(2,3)} \circ Df\big|_{(2,3)}$!  You should really check this to make sure.  
+	Look at the hint to see how to do the composition if you need help.
+	
 \end{question}
 
-\begin{question}
-	Same as previous question, but do not have function values for $g$.  Question is :  what is $D(g \comp f)(1,2)$?
-\end{question}
+The heuristic approximations in the last question lead us to expect the following theorem:
 
 \begin{theorem}
 	Let $f:\R^n \to \R^m$ and $g: \R^m \to \R^k$ be differentiable functions, and $\mathbf{p} \in \R^n$.  Then 
 	\[
-		D(g \comp f)(\mathbf{p}) = Dg(\mathbf{f(p)}) \comp Df(\mathbf{p})
+		D(g \circ f)(\mathbf{p}) = Dg(\mathbf{f(p)}) \circ Df(\mathbf{p})
 	\]
 	
 	In other words, the derivative of a composition of functions is the composition of the derivatives of the functions.
 \end{theorem}
 
-\begin{question}
-	Let us rederive the product rule of single variable calculus using the chain rule of multivariable calculus.
-	Let $f,g:\R \to \R$ be differentiable functions.  Let $Multiply:\R^2 \to \R$ be defined by $Multiply(x,y) = xy$.  
-	Define $Both:\R \to \R^2$  by $Both(x) = (f(x),g(x))$. 
-	Write a formula for $Multiply(Both(x))$.
-	What is the jacobian of $D(Multiply)(a,b)$?
-	What is the jacobian of $D(Both)(t)$?
-	What is the jacobian of $D(Multiply(Both))(t)$? (Use the chain rule!)
-	Do you see that this reproves the product rule?
-\end{question}
+The trickiest part of the above theorem is remembering that you need to apply $Dg$ at the point $f(\mathbf{p})$.
+
+The proof of this theorem is a little bit beyond what we want to require you to think about in this course, but the essential idea of the proof is just that
+
+\[
+	(g \circ f)(\mathbf{p} +\vec{h}) \approx g(f(\mathbf{p}) + Df(\mathbf{p})(\vec{v})) \approx g(f(p)) + Dg(\mathbf{f(p)})(Df(\mathbf{p})(\vec{h}))
+\]
+
+You \textbf{should} understand this essential idea, even if you do not understand the full proof.  We cover the full proof in an \textbf{optional section} after this one.
 
 \begin{question}
-	Problems where they compute $Df$, $Dg$,  $D(g \comp f)$ via chain rule, $g \comp f$ and then $D(g \comp f)$ again directly.
+	Let $f:\R^2 \to \R^2$ be defined by $f(r,t) = (r\cos(t),r\sin(t))$.  Let $g:\R^2 \to \R$ be defined by $g(x,y) = x^2+y^2$. 
+	
+	Don't let the choice of variable names scare you.
+	
+	\begin{solution}
+		\begin{hint}
+			\[\begin{bmatrix}  
+			\frac{\partial}{ \partial r} r\cos(t)& \frac{\partial}{ \partial t}  r\cos(t)
+			\\  
+			\frac{\partial}{ \partial r} r\sin(t)& \frac{\partial}{ \partial t} r\sin(t)
+			\end{bmatrix}\]
+		\end{hint}
+		\begin{hint}
+			\[\begin{bmatrix}  
+			\cos(t) & -r\sin(t)
+			\\  
+			\sin(t) & r\cos(t)
+			\end{bmatrix}\]
+		\end{hint}
+		What is the Jacobian of $f$ at $(r,\theta)$?
+		\begin{matrix-answer}[name =J]
+			correctMatrix = [['cos(t)', '-r(sin(t))'],['sin(t)','r(cos(t))']]
+		\end{matrix-answer}
+	\end{solution}
+	
+	\begin{solution}
+		\begin{hint}
+			 \[ \begin{bmatrix} \frac{\partial}{\partial x} (x^2+y^2)& \frac{\partial}{\partial y} (x^2+y^2) \end{bmatrix}\]
+		\end{hint}
+		\begin{hint}
+			 \[ \begin{bmatrix} 2x & 2y \end{bmatrix}\]
+		\end{hint}
+		What is the Jacobian of $g$ at $(x,y)$?
+		\begin{matrix-answer}
+			correctMatrix = [['2x','2y']]
+		\end{matrix-answer}
+	\end{solution}
+	
+	\begin{solution}
+		\begin{hint}
+			Just plug $(r\cos(\theta),r\sin(\theta))$ into the formula for the Jacobian of $g$ you obtained above.
+		\end{hint}
+		\begin{hint}
+			The answer is \[\begin{bmatrix} 2r\cos(t) &2r\sin(t)\end{bmatrix}\]
+		\end{hint}
+		What is the matrix of $Dg(\mathbf{r,t})$?
+		\begin{matrix-derivative}
+			correctMatrix = [['2r(cos(t))','2r(sin(t))']]
+		\end{matrix-derivative}
+	\end{solution}
+	
+	\begin{solution}
+		What is the matrix of $Dg(\mathbf{(r,t)}) \circ Df(r,t)$?
+			\begin{matrix-answer}
+				correctMatrix = [['2r','0']]
+			\end{matrix-answer}
+	\end{solution}
+	
+	\begin{solution}
+		\begin{hint}
+			\begin{align*}
+				(g \circ f)(r,t) &= g(r\cos(t),r\sin(t))\\
+				 &=(r\cos(t))^2+(r\sin(t))^2\\
+				 &=r^2(\cos^2(t)+\sin^2(t))\\
+				 &=r^2
+			\end{align*}
+		\end{hint}
+		Compute the composite directly: $(g \circ f)(r,t) =$\answer{$r^2$}
+	\end{solution}
+	
+	\begin{solution}
+		Compute $D(g \circ f)(r,t)$ directly from the formula for $(g \circ f)$.
+		\begin{matrix-answer}
+			correctMatrix = [['2r','0']]
+		\end{matrix-answer}
+	\end{solution}
+	
+	This example has demonstrated the chain rule in action!  Computing the derivative of the composite was the same as composing the derivatives.
 \end{question}
 
+The product rule from single variable calculus can be proved by invoking the chain rule for multivariable functions.  I will supply a basic outline of the proof below:
+can you complete this outline to give a full proof?
+\\
+\\
+Let $f,g:\R \to \R$ be two differentiable functions. Let $p:\R \to \R$ be defined by $p(t) = f(t)g(t)$. Let $Both:\R \to \R^2$ be defined by $\text{Both}(t) = (f(t),g(t))$.  
+Finally let $\text{Multiply}:\R^2 \to \R$ be defined by $\text{Multiply}(x,y) = xy$.  Then we can differentiate $Multiply(Both(t)) = p(t)$ using the multivariable chain rule.
+This should result in the product rule.
+
+\begin{free-response}
+	$D\left(Both\right)$ has the matrix $\verticalvector{f'(t) \\ g'(t)}$ at the point $t \in \R$.
+	\\
+	\\
+	$D\left( Multiply \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
+	\\
+	\\
+	So $p'(t) =  D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}$ by the multivariable chain rule.
+	\\
+	\\
+	So
+	\begin{align*}
+		p'(t) &= D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}\\
+			&= D\left( Multiply \right)\big|_{(f(t),g(t))}}\circ D\left(Both\right)\big|_{t}\\
+			&= \begin{bmatrix} g(t) & f(t)\end{bmatrix} \verticalvector{f'(t)\\g'(t)}\\
+			&= g(t)f'(t)+f(t)g'(t)
+	\end{align*}
+	
+	This is the product rule from single variable differential calculus.
+\end{free-response}
 
 
 \end{document}

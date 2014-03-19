@@ -1,0 +1,65 @@
+\documentclass{ximera}
+\title{Review of week 2}
+
+\begin{document}
+	\begin{abstract}
+		Test yo skillz on these sweet practice problems
+	\end{abstract}
+	
+	This section just contains practice problems on the material we have learned this week.  These problems do not have detailed hints:  clicking on the hint will
+	immediately reveal the answer.  Use them to test your knowledge.  If you are confused about how to do any of these problems, ask your peers in one of the forums.
+	\\
+	\\
+	\textbf{Computing the Jacobian}
+	\\
+	\\
+	\begin{question}	
+		Compute the Jacobian of $f:\R^2 \to \R^3$ defined by $f(x,y) = (\sin(xy),x^2y^3, x^3)$.
+		\begin{solution}
+		\begin{hint}
+			\(J = \begin{bmatrix} y\cos(xy) & x\cos(xy) \\ 2xy^4 & 3x^2y^2 \\ 3x^2 & 0 \end{bmatrix}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['y(cos(xy))','x(cos(xy))'],['2xy^4','3x^2y^2'],['3x^2','0']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}	
+		Compute the Jacobian of $f:\R^4 - \{y=0\} \to \R^1$ defined by $f(x,y,z,t) = x^2yz^3t^4+\frac{x}{y}$.
+		\begin{solution}
+		\begin{hint}
+			\(J = \begin{bmatrix} 2xyz^3t^4 +\frac{1}{y} & x^2z^3t^4 - \frac{x}{y^2} & 3x^2yz^2t^4 & 4x^2yz^3t^3\end{bmatrix}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['2xyz^3t^4 +1/y','x^2z^3t^4 - xy^(-2)', '3x^2yz^2t^4', '4x^2yz^3t^3']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}	
+		Compute the Jacobian of $f:\R^2 - \{(0,0)\} \to \R^2$ defined by $f(x,y) = (\frac{x}{x^2+y^2},\frac{y}{x^2+y^2})$.  Note that this is the function which
+		takes a point and projects it onto the unit circle. 
+		\begin{solution}
+		\begin{hint}
+			\(J = \begin{bmatrix} y\cos(xy) & x\cos(xy) \\ 2xy^4 & 3x^2y^2 \\ 3x^2 & 0 \end{bmatrix}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['y(cos(xy))','x(cos(xy))'],['2xy^4','3x^2y^2'],['3x^2','0']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	compute the Jacobian matrix x5
+	
+	compute gradient vector x3
+	
+	apply derivative to approximate x5
+	
+	tangent line or plane to implicitly defined surface x5
+	
+	increasing or decreasing in direction x3
+	
+	find stationary points x2
+	
+\end{document}

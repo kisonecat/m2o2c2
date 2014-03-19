@@ -1,0 +1,118 @@
+\documentclass{ximera}
+\title{Proof of the chain rule}
+
+\begin{document}
+	\begin{abstract}
+		This section is optional
+	\end{abstract}
+	
+	\textbf{This section is optional}
+	\\
+	\\
+	Before we beginning the proof of the chain rule, we need to introduce a new piece of machinery:
+	\\
+	\\
+	Let $L:\R^n \to \R^m$ be a linear map.  Let $S^{n-1} = \{ \vec{v} \in \R^n: |\vec{v}|  = 1\}$ be the unit sphere in $\R^n$.  Then there is a function
+		$F: \S^{n-1} \to \R^m$ defined on this sphere which takes a vector and returns the length of its image under $L$, $F(\vec{v}) = |L(\vec{v})|$.  
+		
+	\begin{definition}
+		The maximum value of the function $F$ is called the \textbf{operator norm} of $L$, and is written $|L|_{op}$.
+	\end{definition}
+	
+	The fact that the operator norm of a linear transformation exists is a kind of deep piece of analysis.  It follows from the fact that the sphere is
+	\href{http://en.wikipedia.org/wiki/Compact_space}{compact}, and continuous functions on compact spaces must achieve a maximum value.  For example, every continuous function on the closed interval
+	$[0,1] \subset \R$ has a maximum, although not every continuous function on the open interval $(0,1)$ does.  The essential difference between 
+	these two intervals is that the first one is compact, while the second one is not.
+	\\
+	\\
+	The essential property of the operator norm is that $|L(\vec{v})| \leq |L|_{op} |\vec{v}|$ for each vector $\vec{v} \in \R^n$.  This is true just because we have 
+	$L(\frac{\vec{v}}{|\vec{v}|}) \leq |L|_{op}$ because $\frac{\vec{v}}{|\vec{v}|}$ is a unit vector, and by the definition of the operator norm.  This fact will be essential 
+	to us as we prove the chain rule.
+	\\
+	\\
+	Let $f:\R^n \to \R^m$ and $g:\R^m \to \R^k$ be differentiable functions.  
+	We want to show that $D(g \circ f)(\mathbf{p}) = Dg(\mathbf{f(p)}) \circ Df(\mathbf{p})$.
+	\\
+	\\
+	All we know at the beginning of the day is that  
+	\[f(\mathbf{p}+\vec{h}) = f(\mathbf{p})+Df(\mathbf{p})(\vec{h})+\text{fError}(\vec{h})\]
+	 with 
+	\[\lim_{\vec{h} \to 0} \frac{\left| \text{fError}(\vec{h})\right|}{|\vec{h}|} = 0\]
+	 and 
+	 \[g(\mathbf{f(p)}+\vec{u}) = g(f(\mathbf{p}))+Dg(\mathbf{f(p)})(\vec{u})+\text{gError}(\vec{u})\]
+	 with 
+	\[ \lim_{\vec{u} \to 0} \frac{\left| \text{gError}(\vec{u})\right|}{|\vec{u}|} = 0\]
+	\\
+	\\
+	We will simply compose these two formulas for $f$ and $g$, and try to get some control on the complicated error term which results.
+	\begin{align*}
+	g\left(f(\mathbf{p}+\vec{h})\right) &= g\left( f(\mathbf{p})+Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\\
+		&= g(f(\mathbf{p}))+Dg(\mathbf{f(p)})\left(Df(\mathbf{p})(\vec{h})+ \text{fError}_{\mathbf{p}}(\vec{h})\right)\\
+		&\hphantom{dsdsd}+\text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\\
+		&= (g \circ f)(\mathbf{p})+Dg(\mathbf{f(p)}) \circ Df(\mathbf{p})(\vec{h})\\
+		&\hphantom{dsdsd}+ \textcolor{red}{Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)}\\
+	\end{align*}
+	
+	This looks pretty horrible, but at least we can see the error term in red that we have to get some control over.  
+	In particular we will have proven the chain rule if we can show that
+	
+	\[
+		\lim_{\vec{h} \to 0} \frac{\left|\textcolor{red}{Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)}\right|}{|\vec{h}|} = 0
+	\]
+	
+	Since $0 \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right) \right|\\\\ \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right| + \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|$
+	by the triangle inequality, we will have the result if we can prove separately that
+	
+	\[
+		\lim_{\vec{h} \to 0} \frac{\left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\left|\vec{h}\right|}  = 0
+	\]
+	
+	and 
+	
+	\[
+	\lim_{\vec{h} \to 0} \frac{ \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\vec{h}} = 0
+	\]
+	
+	Lets prove the first limit.  This is where operator norms enter the picture.
+	
+\[
+	\frac{\left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\left|\vec{h}\right|} \leq \frac{\left|Dg\right|_{op}|\text{fError}(\vec{h})|}{|\vec{h}|}
+\]
+
+Since $\frac{\left|\text{fError}\right|}{\left|\vec{h}\right|} \to 0$ as $\vec{h} \to 0$, then we see that $\frac{\left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\left|\vec{h}\right|}$ 
+must as well, since it is bounded above by a constant multiple of something which goes to $0$ (and bounded below by $0$).
+\\
+\\
+For the other part of the error,
+
+\begin{align*}
+& \frac{ \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}(\vec{h})\right)\right|}{\vec{h}}\\
+&=\frac{\left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}(\vec{h})\right)\right|}{\left|Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right|} \frac{\left|Df(\mathbf{p})(\vec{h})+\text{fError}(\vec{h})\right|)}{|\vec{h}|}\\
+\end{align*}
+
+The first factor in this expression goes to $0$ as $\vec{h} \to 0$ because $g$ is differentiable.  
+So all we need to do is make sure that the second factor is bounded.
+
+\begin{align*}
+	&\frac{\left|Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right|}{|\vec{h}|} \\
+	&\leq \frac{\left|Df(\mathbf{p})(\vec{h}) \right|}{|\vec{h}|}+ \frac{\left|\text{fError}(\vec{h})\right|}{|\vec{h}|} \text{by the triangle inequality}\\
+	&\leq \frac{\left|Df(\mathbf{p})\right|_{op}\left|\vec{h}\right|}{|\vec{h}|}+ \frac{\left|\text{fError}(\vec{h})\right|}{|\vec{h}|}\\
+	&= \left|Df(\mathbf{p})\right|_{op} + \frac{\left|\text{fError}(\vec{h})\right|}{|\vec{h}|}
+\end{align*}
+
+Now the second term in this expression goes to $0$ as $\vec{h} \to 0$ since $f$ is differentiable.  So the whole expression is bounded by, say, $|Df(\mathbf{p})|_{op}+\frac{1}{2}$
+if $\vec{h}$ is small enough.  
+\\
+\\
+Now we are done!  We have successfully shown that the nasty error term $\textcolor{red}{Error}$ 
+satisfies \[\lim_{\vec{h} \to 0}\frac{\left|\textcolor{red}{Error}(\vec{h})\right|}{|\vec{h}|} = 0\]
+\\
+\\
+Thus $g \circ f$ is differentiable at $\mathbf{p}$, and its derivative is given by $Dg(\mathbf{f(p)}) \circ Df(\mathbf{p})$.
+\\
+\\
+QED
+
+
+	
+\end{document}

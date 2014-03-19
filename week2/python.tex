@@ -25,7 +25,7 @@
 epsilon = 0.0001
 
 def derivative(f):
-  def df(x): return (f(blah blah) + f(blah blah)) / blah blah
+  def df(x): return (f(blah blah) - f(blah blah)) / blah blah
   return df
 
 def validator():
@@ -46,7 +46,7 @@ def validator():
 
   A function $f:\R^n \to \R^m$ should be stored as a Python function
   which takes a list with $n$ entries and returns a list with $m$
-  entries.  For example, $f(x,y,z) = (xy,x+z)$ could be as
+  entries.  For example, $f(x,y,z) = (xy,x+z)$ could be stored as
   \begin{pre}
 def f(v):
   return [v[0]*v[1],v[0] + v[2]]

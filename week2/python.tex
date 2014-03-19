@@ -1,0 +1,39 @@
+\documentclass{ximera}
+
+\title{Python}
+
+\begin{document}
+
+\begin{abstract}
+  We approximate derivatives in Python.
+\end{abstract}
+
+There are two different perspectives on the derivative available to us.
+
+Suppose $f : \R^n \to \R^m$ is a differentiable function, and we have
+a point $\mathbf{p} \in \R^n$.
+
+The first perspective on the derivative is the \textbf{total
+  derivative}, which is \textit{linear map} $Df(p)$ which sends the
+vector $\vec{v}$ to $Df(p)(\vec{v})$, recording how much an
+infinitesimal change in the $\vec{v}$ direction in $\R^n$ will affect
+the output of $f$ in $\R^m$.
+
+The second perspective on the derivative is the \textbf{Jacobian
+  matrix}, which is the \textit{matrix of partials} given by
+\[
+\begin{bmatrix}
+  \frac{\partial f_1}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_1}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_1}{\partial x_n}\left(\mathbf{p}\right) \\
+  \frac{\partial f_2}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_2}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_2}{\partial x_n}\left(\mathbf{p}\right) \\
+  \vdots                                                    & \vdots                                                    & \ddots & \vdots \\
+  \frac{\partial f_m}{\partial x_1} \left(\mathbf{p}\right) & \frac{\partial f_m}{\partial x_2} \left(\mathbf{p}\right) & \cdots & \frac{\partial f_m}{\partial x_n}\left(\mathbf{p}\right) 
+\end{bmatrix}
+\]
+The key fact is that this matrix represents the linear map $Df(\mathbf{p})$.  And we can try this out with a bit of Python.
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

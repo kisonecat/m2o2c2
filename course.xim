@@ -29,3 +29,6 @@ week1
     week1/inner-product/cauchy-schwarz
 week2
   week2/single-variable-derivative
+  week2/multivariable-derivative
+    week2/multivariable-derivative/intuition
+    week2/multivariable-derivative/rigorously

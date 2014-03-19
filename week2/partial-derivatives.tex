@@ -161,6 +161,7 @@
 		
 		But the quantity on the left hand side is $\frac{\partial f_j}{\parial x_i}\big|_{\mathbf{p}}$
 	\end{free-response}
+	
 	\begin{question}
 		Let $f:\R^3 \to \R^2$ be defined by $f(x,y,z) = (x^2+y+z^3,xy+yz^2)$.  
 		\begin{solution}
@@ -188,4 +189,37 @@
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}
+	
+	It is worthwhile noting that if $f:\R^n \to \R^m$ is differentiable, then there is a familiar looking formula for its derivative:
+	
+	\begin{theorem}
+		Let $f:\R^n \to \R^m$ be a differentiable function.  Then
+		\[
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+		\]
+	\end{theorem}
+	
+	Prove this theorem
+	
+	\begin{free-response}
+		By the definition of the derivative, we have that
+		
+		\begin{align*}
+			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(\vec{h\vec{v}})\right|}{|h\vec{v}|} &= 0\\
+			\frac{1}{|\vec{v}|}\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - hDf(\mathbf{p})(\vec{v})}{h} \right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}){h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+		\end{align*}
+		
+		We conclude that
+		\[
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+		\]
+	\end{free-response}
+	
+	This formula for the derivative looks a lot more natural.  You might be asking why we didn't take it as our definition of the derivative.  After all, we usually take
+	this as our definition in single variable calculus.
+	
+	In the following two $\textbf{optional}$ exercises you will find out why.
+	
+	Find a function $f:\R^2\ro \R$ 
 \end{document}

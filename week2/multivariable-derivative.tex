@@ -8,7 +8,164 @@
   We introduce the derivative.
 \end{abstract}
 
+<<<<<<< Updated upstream
 The derivative in multiple variables requires a bit more machinery.
+=======
+The single variable derivative allows us to find the best linear approximation to a function at a point.  In several variables we will \textit{define} 
+the derivative to be a linear approximation which approximates the change in the values of a function.   
+In this section we will explore what the multivariable derivative is from an intuitive point of view, without making anything too formal.
+
+We give the following wishy washy ``definition'':
+
+\begin{definition}
+	Let $f:\R^n \to \R^m$ be a function.  Then the derivative of $f$ at a point $\mathbf{p} \in \R^n$ is the linear map $D(f)\big|_{\mathbf{p}}:\R^n \to \R^m$ 
+	which allows the following approximation property:
+	
+	\[
+		f(\mathbf{p} + \vec{h}) \approx f(x) + D(f)\big|_{\mathbf{p}}(\vec{h})
+	\]
+	
+	We will make the sense in which this approximation holds precise in the next section.
+\end{definition}
+
+Note:  we also call the matrix of the derivative the \textbf{Jacobian Matrix} in honor of the mathematician 
+\href{http://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi}{Carl Gustav Jacob Jacobi}.
+
+\begin{question}
+	Let $f:\R^2 \to \R^3$ be a function, and suppose $f(2,3) = (4,8,9)$.  Suppose that the matrix of $D(f)\big|_{(2,3)}$ is 
+	$\begin{bmatrix} -1 & 3\\ 4& 5 \\ 2 & -3 \end{bmatrix}$.  
+	
+	\begin{solution}
+		\begin{hint}
+			By the defining property of derivatives,
+			
+			$f(2.01,3.04) \approx f(2,3) + D(f)\big|_{(2,3)}\left(\verticalvector{0.01\\0.04}\right)$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\begin{bmatrix} -1 & 3\\ 4& 5 \\ 2 & -3 \end{bmatrix}\verticalvector{0.01\\0.04}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\verticalvector{0.01(-1)+0.04(3)\\0.01(4)+0.04(5)\\0.01(2)+0.04(-3)}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4\\8\\9}+\verticalvector{0.11\\0.24\\-0.1}$
+		\end{hint}
+		\begin{hint}
+			 $= \verticalvector{4.11\\8.24\\8.9}$
+		\end{hint}
+		Approximate $f(2.01,3.04)$, giving your answer as a column matrix.
+		\begin{matrix-answer}[name = v]
+			correctMatrix = [['4.11'],['8.24'],['8.9']]
+		\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+\begin{question} 
+Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1,2.002) = 3.002$.  
+
+\begin{solution}
+	\begin{hint}	
+		Since $f:\R^2 \to \R$, $D(f)\big|_{(1,2)}: \R^2 \to \R$, so the matrix of the derivative is a row of length $2$.
+	\end{hint}
+	\begin{hint}
+		To find the matrix, we need to see how $ D(f)\big|_{(1,2)}$ acts on $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$
+	\end{hint}
+	\begin{hint}
+		$f(1.01,2) \approx f(1,2) + D(f)\big|_{(1,2)}\left( 0.01\\0 \right)$ by the fundamental property of the derivative
+	\end{hint}
+	\begin{hint}
+		\begin{align*}
+		3.04 &\approx 3+ D(f)\big|_{(1,2)}\left( 0.01\\0 \right)\\
+		0.04 &\approx 0.01D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{ by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 4
+		\end{align*}
+	\end{hint}
+	\begin{hint}
+		\begin{align*}
+		f(1,2.002) &\approx f(1,2) + D(f)\big|_{(1,2)}\left( 0\\0.002 \right)
+		3.002 &\approx 3+ D(f)\big|_{(1,2)}\left( 0\\0.002 \right)\\
+		0.002 &\approx 0.002D(f)\big|_{(1,2)}\left( 1\\0 \right) \text{by the linearity of the derivative}\\
+		D(f)\big|_{(1,2)}\left( 1\\0 \right) &\approx 1
+		\end{align*}
+	\end{hint}
+	\begin{hint}
+		Thus the matrix of $D(f)\big|_{(1,2)}$ is $\begin{bmatrix} 4 & 1\end{bmatrix}$
+	\end{hint}
+	
+	Approximate the Jacobian matrix of $f$ at $(1,2)$
+	\begin{matrix-answer}[name = M]
+		correctMatrix = [['4', '1']]
+	\end{matrix-answer}
+\end{solution}
+
+\begin{solution} 
+	\begin{hint}
+		$f(0.9,2.03) \approx f(1,2) +D(f)\big|_{(1,2)}\left(\verticalvector{-0.1\\0.03}\right)$
+	\end{hint}
+	\begin{hint}
+		$ = 3 + \begin{bmatrix} 4 & 1\end{bmatrix}\verticalvector{-0.1\\0.03}$
+	\end{hint}
+	\begin{hint}
+		$ = 3+4(-0.1)+1(0.03)$
+		
+		$= 2.63$
+	\end{hint}
+	Using your approximation of the  Jacobian matrix, $f(0.9,2.03) \approx $ \answer{$2.63$}
+\end{solution}
+
+This problem shows that if a function has a derivative, then only knowing how it changes in the coordinate directions lets you determine how it changes in \textbf{any} 
+direction.  This is so important it is worth driving it home:  we only started with information about how $f(1.01,2)$ and $f(1,2.002)$ compared to $f(1,2)$, but because
+this function had a derivative, we could obtain the approximate value of the function at \textbf{any} near by point by exploiting linearity.  That is powerful.
+\end{question}
+
+
+Prepare yourself:  The following two paragraphs are going to be very difficult to digest.
+
+So far we have only talked about the derivative of a function at a point.  The derivative of a function is actually a function which assigns a linear map
+to each point in the domain of the original function.   So the derivative is a function which takes (functions from $\R^n \to \R^m$ ) and 
+returns  a function which takes ( points in $\R^n$) and  returns ( linear maps from $\R^n \to \R^m$).    This level of abstraction is why we 
+wanted you to get comfortable with ``higher order functions'' earlier.  This is really not as crazy as it seems!
+
+As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y+x)$, then it will turn out that at any point $(a,b)$,
+ the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^3$ given by the matrix 
+ $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$ (we do not know why yet, but this is true).  So $Df$ is really a 
+ function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$. 
+  So what about just plain old $D$?  $D$ takes a function ($f$) and returns the function $Df$ which takes a point $(a,b)$ and returns the linear map
+  whose matrix is $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$.  Letting $L(A,B)$ stand for all the linear functions from 
+  $A\to B$ and $Func(A,B)$ be the set of all functions from $A \to B$, we could write $D: Func(\R^n,\R^m) \to Func(\R^n,L(\R^n,\R^m))$.
+  
+  Please do not give up on the course after the last two paragraphs!  Everything is going to be okay.  Hopefully you will be able to slowly digest these statements 
+  throughout the course.  Not understanding them now will not hold you back.
+
+\begin{question} 
+	Let $f$ be a function which satisfies $Df\big|_{(x,y,z)} = \begin{bmatrix} 3x^2y^2 & 2x^3y\\ 2x&2y\\ye^{xy} & xe^{xy}\end{bmatrix}$.
+	
+		\begin{solution}
+			\begin{hint}
+				\(D(f)\big|_{(1,2)} = \begin{bmatrix} 3(1)^2(2)^2 & 2(1)^3(2)\\ 2(1) & 2(2) \\ 2e^{(1)(2)} & 1e^{(1)(2)}\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				\( f\left((1,2)+ \verticalvector{0.01\\-0.02}\right)\approx f(1,2) + 
+				\begin{bmatrix} 12 & 4\\2 & 4 \\ 2e^{2} & e^{2}\end{bmatrix} \verticalvector{0.01\\-0.02}\)
+			\end{hint}
+			\begin{hint}
+				\( f(1.01,1.99) \approx (2,3,1)+ \verticalvector{12(0.01)+4(-0.04)\\ 2(0.01)+4(-0.02)\\2e^2(0.01)+e^2(-0.02)}\)
+			\end{hint}
+			\begin{hint}
+				\( f(1.01,1.99) \approx (2.08,2.94,1)\)
+			\end{hint}
+			\begin{hint}
+				Format this as $\verticalvector{2.08\\2.94\\1}$
+			\end{hint}
+			Given that \(f(1,2) = (2,3,1)\).  Approximate \(f(1.01,1.98)\).  
+			\begin{matrix-answer}
+				correctMatrix = [['2.08'],['2.94'],['1']]
+			\end{matrix-answer}
+		\end{solution}
+\end{question}
+
+
+>>>>>>> Stashed changes
 
 \end{document}
 

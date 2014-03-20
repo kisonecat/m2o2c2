@@ -6,10 +6,45 @@
 
 \begin{abstract}
   We can do some calculus with Python, too.
-  FIXME This page does not show anything to do - see comments.
 \end{abstract}
 
 Let's try doing some single-variable calculus with a bit of Python.
+
+Let \texttt{epsilon} be a small, but positive number.  Suppose $f:\R
+\to \R$ has been coded as a Python function \texttt{f} which takes a
+real number and returns a real number.  Seeing as
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h},
+$$
+can you find a Python function which approximates $f'(x)$?
+
+Given a Python function \texttt{f} which takes a real number and
+returns a real number, we can approximate $f'(x)$ by using
+\texttt{epsilon}.  Write a Python function \texttt{derivative} which
+takes a function \texttt{f} and returns an approximation to its
+derivative.
+
+\begin{solution}
+  \begin{hint}
+    To approximate this, use \texttt{(f(x+epsilon) - f(x))/epsilon}.
+  \end{hint}
+\begin{python}
+epsilon = 0.0001
+def derivative(f):
+  def df(x): return (f(blah blah) - f(blah blah)) / blah blah
+  return df
+
+def validator():
+  df = derivative(lambda x: 1+x**2+x**3)
+  if abs(df(2) - 16) > 0.01:
+    return False
+  df = derivative(lambda x: (1+x)**4)
+  if abs(df(-2.642) - -17.708405152) > 0.01:
+    return False
+  return True
+\end{python}
+This is great!  In the future, we'll review this activity, and then extend it to a multivariable setting.
+\end{solution}
 
 % def approximateDerivative(f,h):
 % #Your code here

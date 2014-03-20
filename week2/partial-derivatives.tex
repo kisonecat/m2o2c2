@@ -72,15 +72,15 @@
 		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
 		because this is really the only type of higher dimensional function we can effectively graph.
 		
-		The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_2 = b$, as pictured below:
+		% The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		% plane $x_2 = b$, as pictured below:
 		
-		BADBAD PICTURE
+		% BADBAD PICTURE
 		
-		Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_1=a$:
+		% Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		% plane $x_1=a$:
 		
-		BADBAD PICTURE
+		% BADBAD PICTURE
 		
 	\end{example}
 	
@@ -198,22 +198,26 @@
 		\end{solution}
 	\end{question}
 		
-   The formula for the derivative $Df(\mathbf{p})(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}$ looks a lot more familiar
+   The formula for the derivative
+   $$
+   Df(\mathbf{p})(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}
+   $$
+   looks a lot more familiar
    than our definition. You might be asking why we didn't take this formula as our definition of the derivative.  After all, we usually take something that looks like 
 	this as our definition in single variable calculus.
 	
 	In the following two $\textbf{optional}$ exercises you will find out why.
 	\\
 	\\
-	Find a function $f:\R^2\to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
-	$M$ is not a linear map!
+	Find a function $f:\R^2\to \R$ such that at $(0,0)$, the limit $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
+	$M$ is not a linear map.
 	
 	\begin{hint}
 		Try showing that the function 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
-			0 \text{ if $(x,y) = (0,0)$}
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) = (0,0)$} \\
+			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			
 			has the desired properties.
@@ -222,8 +226,8 @@
 		Let 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
-			0 \text{ if $(x,y) = (0,0)$}
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) = (0,0)$} \\
+			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			
 		Then for any vector $\vec{v} = \verticalvector{a\\b}$, we have 
@@ -245,20 +249,20 @@
 	\\
 	\\
 	Find a function $f:\R^2 \to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$ and 
-	the function $M$ defined this way is linear, but never the less, $f$ is \textbf{not} differentiable at $(0,0)$.
+	the function $M$ defined this way is linear, but nevertheless, $f$ is \textbf{not} differentiable at $(0,0)$.
 	
 	\begin{hint}
 		Try the function \[f(x,y) = \begin{cases}
-			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
-			0 \text{else}
+			1 & \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 & \text{else}
 		\end{cases}\]
 	\end{hint}
 	
 	\begin{free-response}
 	Let 
 	\[f(x,y) = \begin{cases}
-			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
-			0 \text{else}
+			1 & \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 & \text{else}
 		\end{cases}\]
 		
 	Let $\vec{v} = \verticalvector{a\\b}$.  Then 

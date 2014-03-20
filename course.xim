@@ -28,6 +28,8 @@ week1
     week1/inner-product/angle
     week1/inner-product/cauchy-schwarz
 week2
+  week2/limits
+  week2/limits/formal-limit
   week2/single-variable-derivative
   week2/multivariable-derivative
     week2/multivariable-derivative/intuition

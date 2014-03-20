@@ -1,0 +1,49 @@
+\documentclass{ximera}
+\title{Use the chain rule}
+
+\begin{document}
+	\begin{abstract}
+		Compute using the chain rule.
+	\end{abstract}
+	
+			
+	\begin{question}
+		Let $f:\R^2 \to \R^2$ be defined by $f(x,y)=(x^2y+x,\frac{x}{y})$.  Let 
+		$g:\R^2 \to \R^3$ be defined by $g(x,y) = (x+y,x-y,xy)$.  
+		\begin{solution}
+			\begin{hint}
+				\(\begin{bmatrix} 
+				2ab+1+\frac{1}{b}& a^2-\frac{a}{b^2}\\
+				2ab+1-\frac{1}{b}& a^2+\frac{a}{b^2}\\
+				3a^2+\frac{2a}{b} & \frac{-a^2}{b^2}
+				\end{bmatrix}\)
+			\end{hint}
+		Use the chain rule to find the
+		Jacobian of $(g \circ f)$ at the point $(a,b)$.
+		
+		\begin{matrix-answer}
+			correctMatrix = [['2ab+1+1/b','a^2-a/b^2'],['2ab+1-1/b','a^2+a/b^2'],['3a^2+2a/b','-a^2/b^2']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}	
+	
+	\begin{question}
+		Let $f:\R^2 \to \R$ be defined by $f(x,y)=x^3+y^3$.  Let 
+		$g:\R \to \R^2$ be defined by $g(x,y) = (x, \sin(x))$.  
+		\begin{solution}
+			\begin{hint}
+				\(\begin{bmatrix} 
+				3a^2& 3b^2\\
+				3a^2\cos(a^3+b^3)& 3b^2\cos(a^3+b^3)
+				\end{bmatrix}\)
+			\end{hint}
+		Use the chain rule to find the
+		Jacobian of $(g \circ f)$ at the point $(a,b)$.
+		
+		\begin{matrix-answer}
+			correctMatrix = [['3a^2','3b^2'],['3a^2cos(a^3+b^3)','3b^2cos(a^3+b^3)']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}	
+	
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass{ximera}
+\title{Gradient practice}
+
+\begin{document}
+	\begin{abstract}
+		Practice computing gradient vectors.
+	\end{abstract}
+	
+	\begin{question}	
+		Compute the $\nabla f$ where $f:\R^3 \to \R$ defined by $f(x,y,z) = x^2+xyz$.
+		\begin{solution}
+		\begin{hint}
+			\(J = \verticalvector{2x+yz\\ xz \\xy}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['2x+yz'],['xz'],['xy']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}	
+		Compute the $\nabla f$ where $f:\R^4 \to \R$ defined by $f(x,y,z,t) = \cos(xy)\sin(zt)$.
+		\begin{solution}
+		\begin{hint}
+			\(J = \verticalvector{-y\sin(xy)\sin(zt)\\ -x\sin(xy)\sin(zt) \\ t\cos(xy)\cos(zt) \\ z\cos(xy)\cos(zt)}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['-x(sin(xy)sin(zt))'],['-y(sin(xy)sin(zt))'],['t(cos(xy)cos(zt))'],['z(cos(xy)cos(zt))']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}	
+		Compute the $\nabla f$ where $f:\R^2-{(0,0)} \to \R$ defined by $f(x,y) = \frac{x}{y}$.
+		\begin{solution}
+		\begin{hint}
+			\(J = \verticalvector{\frac{1}{y} \\ \frac{-x}{y^2}}\)
+		\end{hint}
+		\begin{matrix-answer}[name=J]
+			correct-Matrix  = [['1/y'],['-x/y^2']]
+		\end{matrix-answer}
+		\end{solution}
+	\end{question}
+
+	
+\end{document}

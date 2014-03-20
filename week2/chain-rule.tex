@@ -23,7 +23,7 @@ The chain rule of multivariable calculus will work analogously.
 			\begin{align*}
 				g\left(f(2,3)+Df(2,3)\left(\verticalvector{a\\b}\right)\right) & = g((3,0,0)+\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix} \verticalvector{a\\b})\\
 				&= g\left( (3,0,0)+ \verticalvector{4a-b\\2a+3b\\b}\right)\\
-				&\approx g(3,0,0)+Dg(3,0,0)\verticalvector{4a-b\\2a+3b\\b}\right)\left(\right) \text{ using the linear approximation to $g$ at $(3,0,0)$}\\
+				&\approx g(3,0,0)+Dg(3,0,0)\verticalvector{4a-b\\2a+3b\\b} \text{ using the linear approximation to $g$ at $(3,0,0)$}\\
 				&\approx 4+\begin{bmatrix} 4&5&6 \end{bmatrix}\verticalvector{4a-b\\2a+3b\\b}\\
 				&=4+(16a-4b)+(10a+15b)+(6b)\\
 				&=4+26a+17b

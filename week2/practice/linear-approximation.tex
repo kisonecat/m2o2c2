@@ -1,0 +1,49 @@
+\documentclass{ximera}
+\title{Linear approximation practice}
+
+\begin{document}
+	\begin{abstract}
+		Practice doing some linear approximations.
+	\end{abstract}
+	
+	\begin{question}
+		Let $f:\R^2 \to \R^2$ be given by $f(x,y) = (x^2-y^2,2xy)$.
+		\begin{solution}
+			\begin{hint}
+				$\verticalvector{8.02\\7.4}$
+			\end{hint}
+			Use the linear approximation to $f$ at $(3,1)$ to approximate $f(3.1,2.3)$.  Give your answer as a column vector.
+			\begin{matrix-answer}
+				correctMatrix = [['8.02'],[7.4]]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}
+		Let $f:\R^1 \to \R^3$ be given by $f(t) = (t,t^2,t^3)$.
+		\begin{solution}
+			\begin{hint}
+				$\verticalvector{1.1\\1.2\\1.3}$
+			\end{hint}
+			Use the linear approximation to $f$ at $1$ to approximate $f(1.1)$.  Give your answer as a column vector.
+			\begin{matrix-answer}
+				correctMatrix = [['1.1'],['1.2'],['1.3']]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+    \begin{question}
+		Let $f:\R^3\to \R^2$ be given by $f(x,y,z) = (xy,yz)$.
+		\begin{solution}
+			\begin{hint}
+				$\verticalvector{2.1\\6.1}$
+			\end{hint}
+
+			Use the linear approximation to $f$ at $(1,2,3)$ to approximate $f(1.1,1.9,3.2)$.  Give your answer as a column vector.
+			\begin{matrix-answer}
+				correctMatrix = [['2.1'],['6.1']]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}	
+
+\end{document}

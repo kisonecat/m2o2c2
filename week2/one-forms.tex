@@ -11,13 +11,13 @@
 	
 	As we observed in the last section, the derivative of  a function $f:\R^n \to \R$ assigns a covector to each point in $\R^n$.  In particular,
 	$Df\big|_{\mathbf{p}} : \R^n \to \R$ is the covector whose matrix is the row 
-	\(\begin{bmatrix} \frac{\partial f}{\partial x_1}\big|_{\mathbf{p}} & \frac{\partial f}{\partial x_2}\big|_{\mathbf{p}} & .&.&.& \frac{\partial f}{\partial x_n}\big|_{\mathbf{p}}\end{bmatrix}\)
+	\(\begin{bmatrix} \frac{\partial f}{\partial x_1}\big|_{\mathbf{p}} & \frac{\partial f}{\partial x_2}\big|_{\mathbf{p}} & \cdots & \frac{\partial f}{\partial x_n}\big|_{\mathbf{p}}\end{bmatrix}\)
 	
 	\begin{definition}
 		A covector field, also known as a differential $1$-form, is a function which takes points in $\R^n$ and returns a covector on $\R^n$.  In other words, it is a covector
 		valued function.  We can always write any covector field $\omega$ as
 		
-		$\omega(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) &  f_2(\mathbf{x}) & .& .& .&  f_n(\mathbf{x})  \end{bmatrix}$ for $n$ functions $f_i:\R^n \to \R$.
+		$\omega(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) &  f_2(\mathbf{x}) & \cdots &  f_n(\mathbf{x})  \end{bmatrix}$ for $n$ functions $f_i:\R^n \to \R$.
 	\end{definition}
 	
 	The derivative of a function $f:\R^n \to \R$ is the quintessential example of a $1-$form on $\R^n$.
@@ -26,7 +26,7 @@
 		Let $f:\R^3 \to \R$ be the function $f(x,y,z)= y$. 
 		\begin{solution}
 		\begin{hint}
-			The Jacobian of $f$ is  \begin{bmatrix} 0&1&0 \end{bmatrix} everywhere
+			The Jacobian of $f$ is  $\begin{bmatrix} 0&1&0 \end{bmatrix}$ everywhere.
 		\end{hint}
 		 What is the matrix for $Df$ at the point $(a,b,c)$?
 		 	\begin{matrix-answer}
@@ -35,12 +35,12 @@
 		 \end{solution}
 	\end{question}
 	
-	Generalizing the result of the previous question, we see that if $\pi_i:\R^n \to \R$ is defined by $\pi_i(x_1,x_2,...,x_n) = x_i$, then $D(\pi_i)$ will
-	be the row $\begin{bmatrix} 0&0&.&.&0&1&0&.&.&0\end{bmatrix}$, where the $1$ appears in the $i^{th}$ slot.
+	Generalizing the result of the previous question, we see that if $\pi_i:\R^n \to \R$ is defined by $\pi_i(x_1,x_2,\ldots,x_n) = x_i$, then $D(\pi_i)$ will
+	be the row $\begin{bmatrix} 0&0& \cdots &0&1&0& \cdots &0\end{bmatrix}$, where the $1$ appears in the $i^{th}$ slot.
 	
 	We introduce the notation $dx_i$ for the covector field $D(\pi_i)$.  So we can rewrite any covector field 
-	$\omega(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) &  f_2(\mathbf{x}) & .& .& .&  f_n(\mathbf{x})  \end{bmatrix}$ for $n$ functions $f_i:\R^n \to \R$
-	in the form $\omega(\mathbf{x}) = f_1(\mathbf{x})dx_1+f_2(\mathbf{x})dx_2+...+f_3(\mathbf{x})dx_n$.
+	$\omega(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) &  f_2(\mathbf{x}) & \cdots &  f_n(\mathbf{x})  \end{bmatrix}$ for $n$ functions $f_i:\R^n \to \R$
+	in the form $\omega(\mathbf{x}) = f_1(\mathbf{x})dx_1+f_2(\mathbf{x})dx_2+ \cdots +f_3(\mathbf{x})dx_n$.
 	
 	It turns out that $1-$forms, not functions, are the appropriate objects to integrate along curves in $\R^n$. 
 	The sequel to this course will focus on the integration of differential forms:  we will not touch on it in this course.

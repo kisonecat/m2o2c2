@@ -1,0 +1,50 @@
+\documentclass[numbers,handout]{ximera}
+
+\input{preamble.tex}
+
+\let\masterdocument\document
+\let\endmasterdocument\enddocument
+\let\masterinput\input
+
+\begin{masterdocument}
+
+\begin{titlepage}
+    \vspace*{1in}
+    \begin{center}
+      {\Huge \bfseries Massively Multivariable Open Online Calculus }\\[0.5cm]
+      {\Large Jim Fowler and Steve Gubkin}\\[0.4cm]
+      This document was typeset on \today.
+    \end{center}
+    %\vspace*{\fill}
+  \end{titlepage}
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+
+\renewcommand{\documentclass}{\setbox0\vbox}
+\renewcommand{\input}{\setbox0\vbox}
+\renewenvironment{document}{}{}
+
+
+
+\masterinput{./week1/Rn.tex}
+\masterinput{./week1/vector-spaces.tex}
+\masterinput{./week1/vector-spaces/geometry.tex}
+\masterinput{./week1/vector-spaces/span.tex}
+\masterinput{./week1/functions.tex}
+\masterinput{./week1/functions/higher-order.tex}
+\masterinput{./week1/functions/python.tex}
+\masterinput{./week1/linear-maps.tex}
+\masterinput{./week1/linear-maps/matrices.tex}
+\masterinput{./week1/linear-maps/composition.tex}
+\masterinput{./week1/linear-maps/python.tex}
+\masterinput{./week1/inner-product.tex}
+\masterinput{./week1/inner-product/covectors.tex}
+\masterinput{./week1/inner-product/dot-products.tex}
+\masterinput{./week1/inner-product/length.tex}
+\masterinput{./week1/inner-product/angle.tex}
+\masterinput{./week1/inner-product/cauchy-schwarz.tex}
+
+\end{masterdocument}

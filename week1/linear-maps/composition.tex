@@ -1,5 +1,7 @@
 \documentclass{ximera}
 
+\input{../../preamble.tex}
+
 \title{Composition}
 
 \begin{document}
@@ -7,6 +9,8 @@
 \begin{abstract}
   The composition of linear maps can be computed with matrices.
 \end{abstract}
+\maketitle
+
 
 Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a linear map, then the composite function $T\circ S:\R^n \to \R^k$ is also linear.
   
@@ -250,10 +254,16 @@ each time.  Try to get faster and more efficient.  Eventually you should be able
 		Try some simple matrices.  Maybe limit yourself to $2\times2$ matrices?
 	\end{hint}
 	\begin{hint}
-		One simple linear map which would work is $L\left(\verticalvector{x\\y}\right) = \verticalvector{y\\0}$.  Applying this twice to any vector would 
-		give you the zero vector.   This linear map is great for cooking up counterexamples to all sorts of naive things you might think about matrices!  See 
-		this \href{http://mathoverflow.net/questions/16829/what-are-your-favorite-instructional-counterexamples/16841#16841}{Mathoverflow  answer} (you will understand
-		more and more of these terms as the course progresses).
+		One simple linear map which would work is
+                $L\left(\verticalvector{x\\y}\right) =
+                \verticalvector{y\\0}$.  Applying this twice to any
+                vector would give you the zero vector.  This linear
+                map is great for cooking up counterexamples to all
+                sorts of naive things you might think about matrices!
+                See this
+                \href{http://mathoverflow.net/questions/16829/what-are-your-favorite-instructional-counterexamples/16841#16841}{Mathoverflow
+                  answer} (you will understand more and more of these
+                terms as the course progresses).
 		
 		\begin{question}
 			\begin{hint}

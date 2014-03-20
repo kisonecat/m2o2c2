@@ -1,5 +1,7 @@
 \documentclass{ximera}
 
+\input{../preamble.tex}
+
 \title{Matrices}
 
 \begin{document}
@@ -7,6 +9,8 @@
 \begin{abstract}
   Matrices are a way to represent linear maps.
 \end{abstract}
+\maketitle
+
 
 To make writing a linear map a little less cumbersome, we will develop a compact notation for linear maps using our previous observation that a linear 
 map is determined by its action on the standard basis vectors.
@@ -59,14 +63,14 @@ map is determined by its action on the standard basis vectors.
 
   \begin{solution}
    \begin{hint}
-   		\begin{problem}
+   		\begin{question}
    			\begin{solution}
    			\begin{hint}
    				$b_{1,2} = 1+2 = 3$
    			\end{hint}
    			According to this rule, $b_{1,2}$ is \answer{$3$}
    			\end{solution} 
-   		\end{problem}
+   		\end{question}
    		
    		So the entry in the first row and second column of this matrix should be  $3$.
    \end{hint}
@@ -98,7 +102,7 @@ map is determined by its action on the standard basis vectors.
 \end{definition}
 
 \begin{question}
-  The linear map $L:\mathbb{R^2}\to\mathbb{R^3}$ satisfies
+  The linear map $L:\R^2\to\R^3$ satisfies
   $L\left(\verticalvector{1\\0}\right) = \verticalvector{3\\-5\\2}$ and
   $L\left(\verticalvector{0\\1}\right) = \verticalvector{-1\\1\\1}$.  What is the
   matrix of $L$?

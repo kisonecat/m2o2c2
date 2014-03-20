@@ -1,5 +1,7 @@
 \documentclass{ximera}
 
+\input{../../preamble.tex}
+
 \title{Dot product}
 
 \begin{document}
@@ -7,6 +9,7 @@
 \begin{abstract}
   The standard inner product is the dot product.
 \end{abstract}
+\maketitle
 
 \begin{definition}
   Given two vectors $\vec{v},\vec{w} \in \R^n$, we define their \textit{standard inner product} $\langle \vec{v}, \vec{w}\rangle$ by $\langle \vec{v},\vec{w} \rangle = \vec{v}^\top(\vec{w}) \in \R$.  We sometimes use the notation 
@@ -24,7 +27,7 @@
 
 Prove the following facts about the dot product.  $\vec{u},\vec{v},\vec{w} \in \R^n$ and $a \in \R$
 \begin{enumerate}
-\item $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$ (The dot product is commutati\vec{v}e)
+\item $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$ (The dot product is commutative)
 			
 \item $(\vec{u}+\vec{v})\cdot \vec{w} = \vec{u}\cdot \vec{w} + \vec{v}\cdot \vec{w}$ 	and $(a\vec{v})\cdot \vec{w} = a(\vec{v} \cdot \vec{w})$ (The dot product is linear in the first argument)
 			

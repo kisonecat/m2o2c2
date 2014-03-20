@@ -98,8 +98,8 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 
 \begin{solution}
 \begin{hint}
-	Remember that the matrix for $T \circ S$ will have columns given by $(T \circ S)\left(\verticalvector{1\\0\\0}\right)$,  $(S \circ T)\left(\verticalvector{0\\1\\0}\right)$ and 
-	$(S \circ T)\left(\verticalvector{0\\0\\1}\right)$
+	Remember that the matrix for $T \circ S$ will have columns given by $(T \circ S)\left(\verticalvector{1\\0\\0}\right)$,  $(T \circ S)\left(\verticalvector{0\\1\\0}\right)$ and 
+	$(T \circ S)\left(\verticalvector{0\\0\\1}\right)$
 \end{hint}
 \begin{hint}
 	\begin{question}
@@ -113,7 +113,7 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 				&=\verticalvector{-1\\-2\\-3}
 			\end{align*}
 		\end{hint}
-		What is  $(S \circ T)\left(\verticalvector{1\\0\\0}\right)$?
+		What is  $(T \circ S)\left(\verticalvector{1\\0\\0}\right)$?
 			\begin{matrix-answer}[name=M]
  			   correctMatrix = [['-1'],['-2'],['-3']]
  			 \end{matrix-answer}
@@ -129,7 +129,7 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 				&=\verticalvector{-1\\2\\1} \text{ we got lucky: by definition $T\left(\verticalvector{0\\1}\right)$ is the second column of the matrix of $T$ }\\
 			\end{align*}
 		\end{hint}
-		What is  $(S \circ T)\left(\verticalvector{0\\1\\0}\right)$?
+		What is  $(T \circ S)\left(\verticalvector{0\\1\\0}\right)$?
 			\begin{matrix-answer}[name=M]
  			   correctMatrix = [['-1'],['2'],['1']]
  			 \end{matrix-answer}
@@ -147,7 +147,7 @@ Prove that if $S:\R^n \to \R^m$ is a linear map, and $T:\R^m \to \R^k$ is a line
 				&=\verticalvector{0\\2\\2}
 			\end{align*}
 		\end{hint}
-		What is  $(S \circ T)\left(\verticalvector{0\\0\\1}\right)$?
+		What is  $(T \circ S)\left(\verticalvector{0\\0\\1}\right)$?
 			\begin{matrix-answer}[name=M]
  			   correctMatrix = [['0'],['2'],['2']]
  			 \end{matrix-answer}

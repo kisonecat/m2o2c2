@@ -21,9 +21,9 @@ The chain rule of multivariable calculus will work analogously.
 		\end{hint}
 		\begin{hint}
 			\begin{align*}
-				g\left(f(2,3)+Df(2,3)\left(\verticalvector{a\\b}\right)\right) & = g((3,0,0)+\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix} \verticalvector{a\\b})\\
+				g\left(f(2,3)+Df(2,3)\left(\verticalvector{a\\b}\right)\right) & = g\left((3,0,0)+\begin{bmatrix}  4 & -1 \\2& 3\\ 0 &1\end{bmatrix} \verticalvector{a\\b}\right)\\
 				&= g\left( (3,0,0)+ \verticalvector{4a-b\\2a+3b\\b}\right)\\
-				&\approx g(3,0,0)+Dg(3,0,0)\verticalvector{4a-b\\2a+3b\\b}\right)\left(\right) \text{ using the linear approximation to $g$ at $(3,0,0)$}\\
+				&\approx g(3,0,0)+Dg(3,0,0)\verticalvector{4a-b\\2a+3b\\b} \text{ using the linear approximation to $g$ at $(3,0,0)$}\\
 				&\approx 4+\begin{bmatrix} 4&5&6 \end{bmatrix}\verticalvector{4a-b\\2a+3b\\b}\\
 				&=4+(16a-4b)+(10a+15b)+(6b)\\
 				&=4+26a+17b
@@ -92,7 +92,7 @@ You \textbf{should} understand this essential idea, even if you do not understan
 			\sin(t) & r\cos(t)
 			\end{bmatrix}\]
 		\end{hint}
-		What is the Jacobian of $f$ at $(r,\theta)$?
+		What is the Jacobian of $f$ at $(r,t)$?
 		\begin{matrix-answer}[name =J]
 			correctMatrix = [['cos(t)', '-r(sin(t))'],['sin(t)','r(cos(t))']]
 		\end{matrix-answer}
@@ -157,24 +157,24 @@ The product rule from single variable calculus can be proved by invoking the cha
 can you complete this outline to give a full proof?
 \\
 \\
-Let $f,g:\R \to \R$ be two differentiable functions. Let $p:\R \to \R$ be defined by $p(t) = f(t)g(t)$. Let $Both:\R \to \R^2$ be defined by $\text{Both}(t) = (f(t),g(t))$.  
-Finally let $\text{Multiply}:\R^2 \to \R$ be defined by $\text{Multiply}(x,y) = xy$.  Then we can differentiate $Multiply(Both(t)) = p(t)$ using the multivariable chain rule.
+Let $f,g:\R \to \R$ be two differentiable functions. Let $p:\R \to \R$ be defined by $p(t) = f(t)g(t)$. Let $\text{Both}:\R \to \R^2$ be defined by $\text{Both}(t) = (f(t),g(t))$.  
+Finally let $\text{Multiply}:\R^2 \to \R$ be defined by $\text{Multiply}(x,y) = xy$.  Then we can differentiate $\text{Multiply}(\text{Both}(t)) = p(t)$ using the multivariable chain rule.
 This should result in the product rule.
 
 \begin{free-response}
-	$D\left(Both\right)$ has the matrix $\verticalvector{f'(t) \\ g'(t)}$ at the point $t \in \R$.
+	$D\left(\text{Both}\right)$ has the matrix $\verticalvector{f'(t) \\ g'(t)}$ at the point $t \in \R$.
 	\\
 	\\
-	$D\left( Multiply \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
+	$D\left( \text{Multiply} \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
 	\\
 	\\
-	So $p'(t) =  D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}$ by the multivariable chain rule.
+	So $p'(t) =  D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}$ by the multivariable chain rule.
 	\\
 	\\
 	So
 	\begin{align*}
-		p'(t) &= D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}\\
-			&= D\left( Multiply \right)\big|_{(f(t),g(t))}}\circ D\left(Both\right)\big|_{t}\\
+		p'(t) &= D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}\\
+			&= D\left( \text{Multiply} \right)\big|_{(f(t),g(t))}}\circ D\left(\text{Both}\right)\big|_{t}\\
 			&= \begin{bmatrix} g(t) & f(t)\end{bmatrix} \verticalvector{f'(t)\\g'(t)}\\
 			&= g(t)f'(t)+f(t)g'(t)
 	\end{align*}

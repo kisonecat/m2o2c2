@@ -157,24 +157,24 @@ The product rule from single variable calculus can be proved by invoking the cha
 can you complete this outline to give a full proof?
 \\
 \\
-Let $f,g:\R \to \R$ be two differentiable functions. Let $p:\R \to \R$ be defined by $p(t) = f(t)g(t)$. Let $Both:\R \to \R^2$ be defined by $\text{Both}(t) = (f(t),g(t))$.  
-Finally let $\text{Multiply}:\R^2 \to \R$ be defined by $\text{Multiply}(x,y) = xy$.  Then we can differentiate $Multiply(Both(t)) = p(t)$ using the multivariable chain rule.
+Let $f,g:\R \to \R$ be two differentiable functions. Let $p:\R \to \R$ be defined by $p(t) = f(t)g(t)$. Let $\text{Both}:\R \to \R^2$ be defined by $\text{Both}(t) = (f(t),g(t))$.  
+Finally let $\text{Multiply}:\R^2 \to \R$ be defined by $\text{Multiply}(x,y) = xy$.  Then we can differentiate $\text{Multiply}(\text{Both}(t)) = p(t)$ using the multivariable chain rule.
 This should result in the product rule.
 
 \begin{free-response}
-	$D\left(Both\right)$ has the matrix $\verticalvector{f'(t) \\ g'(t)}$ at the point $t \in \R$.
+	$D\left(\text{Both}\right)$ has the matrix $\verticalvector{f'(t) \\ g'(t)}$ at the point $t \in \R$.
 	\\
 	\\
-	$D\left( Multiply \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
+	$D\left( \text{Multiply} \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
 	\\
 	\\
-	So $p'(t) =  D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}$ by the multivariable chain rule.
+	So $p'(t) =  D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}$ by the multivariable chain rule.
 	\\
 	\\
 	So
 	\begin{align*}
-		p'(t) &= D\left( Multiply \right)\big|_{\text{Both(t)}}\circ D\left(Both\right)\big|_{t}\\
-			&= D\left( Multiply \right)\big|_{(f(t),g(t))}}\circ D\left(Both\right)\big|_{t}\\
+		p'(t) &= D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}\\
+			&= D\left( \text{Multiply} \right)\big|_{(f(t),g(t))}}\circ D\left(\text{Both}\right)\big|_{t}\\
 			&= \begin{bmatrix} g(t) & f(t)\end{bmatrix} \verticalvector{f'(t)\\g'(t)}\\
 			&= g(t)f'(t)+f(t)g'(t)
 	\end{align*}

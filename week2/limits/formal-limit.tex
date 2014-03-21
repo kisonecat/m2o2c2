@@ -22,7 +22,7 @@ If you get through it and understand everything, you can consider yourself ``har
 Prove that $U \subset \overline{U}$ for any subset $U$ of $\R^n$.
 \begin{free-response}
 	
-	Let $\mathbf{p} \in U$.  Then for every $r >0$, $\mathbf{p}$ is an element of $U$ whose distance to $\mathbf{p}$ is less than $r$.  In other words,
+	Let $\mathbf{p} \in U$.  Then for every $r >0$, $\mathbf{x}$ is an element of $U$ whose distance to $\mathbf{p}$ is less than $r$.  In other words,
 	since every solid ball centered at $\mathbf{p}$ must contain $\mathbf{p}$, and $\mathbf{p}$ is in $U$, then $\mathbf{p}$ must be in the closure of $U$. 
 	So $\mathbf{p} \in \overline{U}$.
 	
@@ -61,7 +61,7 @@ Prove, using the $\epsilon$-$\delta$ definition of the limit, that $f:\R^2 \to \
 		&|xy-ab|<\epsilon\\
 		&\impliedby |[(x-a)+a][(y-b)+b]-ab| <\epsilon \\
 		&\impliedby |(x-a)(y-b)+a(y-b) +b(x-a)| <\epsilon \\
-		&\impliedby |x-a||y-b|+a|y-b|+a|x-a|< \epsilon \text{ by the triangle inequality}\\
+		&\impliedby |x-a||y-b|+a|y-b|+b|x-a|< \epsilon \text{ by the triangle inequality}\\
 		&\impliedby \begin{cases}
 			|x-a||y-b| < \frac{\epsilon}{3}\\
 			a|y-b| < \frac{\epsilon}{3}\\

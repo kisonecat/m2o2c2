@@ -119,12 +119,23 @@ You \textbf{should} understand this essential idea, even if you do not understan
 			The answer is \[\begin{bmatrix} 2r\cos(t) &2r\sin(t)\end{bmatrix}\]
 		\end{hint}
 		What is the matrix of $Dg(\mathbf{r,t})$?
-		\begin{matrix-derivative}
+		\begin{matrix-answer}
 			correctMatrix = [['2r(cos(t))','2r(sin(t))']]
-		\end{matrix-derivative}
+		\end{matrix-answer}
 	\end{solution}
 	
 	\begin{solution}
+		\begin{hint}
+			\begin{align*}
+			\begin{bmatrix} 2r\cos(t) &2r\sin(t)\end{bmatrix} \begin{bmatrix}  
+			\cos(t) & -r\sin(t)
+			\\  
+			\sin(t) & r\cos(t)
+			\end{bmatrix} 
+			&= \begin{bmatrix} 2r\cos^2(t) + 2r\sin^2(t)  & -2r^2\cos(t)\sin(t)+2r^2\sin(t)\cos(t) \end{bmatrix}\\
+			&= \begin{bmatrix} 2r & 0\end{bmatrix}
+			\end{align*}
+		\end{hint}
 		What is the matrix of $Dg(\mathbf{(r,t)}) \circ Df(r,t)$?
 			\begin{matrix-answer}
 				correctMatrix = [['2r','0']]

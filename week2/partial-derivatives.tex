@@ -23,9 +23,9 @@
 		By the definition of the derivative, we have that
 		
 		\begin{align*}
-			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(\vec{h\vec{v}})\right|}{|h\vec{v}|} &= 0\\
+			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(h\vec{v})\right|}{|h\vec{v}|} &= 0\\
 			\frac{1}{|\vec{v}|}\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - hDf(\mathbf{p})(\vec{v})}{h} \right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
-			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}){h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p})}{h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
 		\end{align*}
 		
 		We conclude that
@@ -41,7 +41,7 @@
 					\begin{align*}
 						  Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) &= \lim_{h \to 0} \frac{f\left((3,4)+h\verticalvector{-1\\2}\right) - f(3,4)}{h}\\
 						  &= \lim_{h \to 0} \frac{f(3-h,4+2h)-f(3,4)}{h}\\
-						  &= \lim_{h \to 0}\frac{1}{h} \left( ((3-h)^2 -(4+2h)^2,2(3-h)(4+2h)) - (-7,24)\right) \\
+						  &= \lim_{h \to 0}\frac{1}{h}  \verticalvector{(3-h)^2 -(4+2h)^2\\2(3-h)(4+2h)} - \verticalvector{-7,24} \\
 						  &=\lim_{h \to 0}\frac{1}{h} \verticalvector{(3-h)^2 -(4+2h)^2+7\\2(3-h)(4+2h)-24}
 					\end{align*}
 				\end{hint}
@@ -172,7 +172,7 @@
 																				\frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\end{bmatrix}\)
 		\end{hint}
 		\begin{hint}
-			As an example, $\frac{\partial f_2}{\partial z}\end{bmatrix} = \frac{\partial}{\partial z} xy+yz^2 = 2yz$.  Remember that we 
+			As an example, $\frac{\partial f_2}{\partial z}= \frac{\partial}{\partial z} xy+yz^2 = 2yz$.  Remember that we 
 			just differentiate with respect to $z$, treating $x$ and $y$ as constants. 
 		\end{hint}
 		\begin{hint}
@@ -187,10 +187,10 @@
 		\end{hint}
 		\begin{hint}
 			The Jacobian matrix is \(
-			\begin{align*}
+			\begin{bmatrix}
 				2x & 1 & 3z^2\\
 				y&x+z^2 & 2yz
-			\end{align*}
+			\end{bmatrix}
 			\)
 		\end{hint}
 		What is the Jacobian Matrix of $f$?  This should be a matrix valued function of $x,y,z$.
@@ -235,14 +235,14 @@
 		Then for any vector $\vec{v} = \verticalvector{a\\b}$, we have 
 		
 		\begin{align*}
-			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+			M\left(\vec{v}\right) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
 							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
 							&=\lim_{h \to 0}\frac{h^3a^3}{h(h^2a^2+h^2b^2)}\\
 							&=\lim_{h \to 0}\frac{a^3}{a^2+b^2}\\
 							&=\frac{a^3}{a^2+b^2}
 		\end{align*}
 		
-		So $M(\verticalvector{a\\b}) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
+		So $M\left(\verticalvector{a\\b}\right) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
 			
 	\end{free-response}
 	
@@ -270,7 +270,7 @@
 	Let $\vec{v} = \verticalvector{a\\b}$.  Then 
 	
 	\begin{align*}
-			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+			M\left(\vec{v}\right) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
 							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
 		\end{align*}
 		

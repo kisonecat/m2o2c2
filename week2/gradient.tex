@@ -15,18 +15,19 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
  \begin{definition}
  	The gradient of a differentiable function $f:\R^n \to \R$ is defined by $\nabla f (\mathbf{p})= Df\left(\mathbf{p}\right)^\top$.
  	Equivalently, $\nabla f$ is the (unique) vector which makes the following equation true for all $\vec{v} \in \R^n$:
- 	\[ \nabla f\mathbf{p} \cdot v = Df(\mathbf{p})(v)\] 
+ 	
+ 	\[ \nabla f(\mathbf{p}) \cdot v = Df(\mathbf{p})(v)\] 
  \end{definition}
  
  \begin{question}
  	\begin{solution}
  		\begin{hint}
- 			$\nabla f(a,b,c) = \verticalvector{\frac{\partial}{\partial x} sin(xyz^2) \\ \frac{\partial}{\partial y} sin(xyz^2) \\\frac{\partial}{\partial z} sin(xyz^2) }$
+ 			$\nabla f(x,y,z) = \verticalvector{\frac{\partial}{\partial x} sin(xyz^2) \\ \frac{\partial}{\partial y} sin(xyz^2) \\\frac{\partial}{\partial z} sin(xyz^2) }$
  		\end{hint}
  		\begin{hint}
- 			$\nabla f(a,b,c) = \verticalvector{yz^2\cos(xyz^2)\\ xz^2\cos(xyz^2)\\ 2xyz\cos(xyz^2)}$
+ 			$\nabla f(x,y,z) = \verticalvector{yz^2\cos(xyz^2)\\ xz^2\cos(xyz^2)\\ 2xyz\cos(xyz^2)}$
  		\end{hint}
- 	If $f:\R^3 \to \R$ is defined by $f(x,y,z) = sin(xyz^2)$, what is $\nabla f(a,b,c)$?
+ 	If $f:\R^3 \to \R$ is defined by $f(x,y,z) = sin(xyz^2)$, what is $\nabla f(x,y,z)$?
  		\begin{matrix-answer}
  			correctMatrix = [['yz^2cos(xyz^2)'],['xz^2cos(xyz^2)'],['2xyzcos(xyz^2)']]
  		\end{matrix-answer}
@@ -42,7 +43,7 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
  \end{free-response}	
  
  \begin{theorem}
- 	Let $f:\R^n \to \R$, and $\mathbf{p}\in R^n$.   Let $\nu = \frac{\nable f(\mathbf{p}){\left|\nabla f (p)\right|}$
+ 	Let $f:\R^n \to \R$, and $\mathbf{p} \in R^n$.   Let $\nu = \frac{\nabla f(\mathbf{p})}{\left|\nabla f (p)\right|}$
  	
  	If $\left|\vec{v}\right| = 1$, then $Df(\mathbf{p})(\vec{v}) \leq Df(\mathbf{p})( \nu )$
  \end{theorem}
@@ -52,16 +53,21 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
 	
 
 	Prove this theorem.
+	
 	\begin{free-response}
-		 $Df(\mathbf{p})(\vec{v}) = \nabla f (\mathbf{p}) \cdot v   \leq |v||\nabla f(\mathbf{p})|$, by Cauchy-Schwarz
-		 $ =  \left|\nabla f(\mathbf{p})\right|$ since $|v| = 1$ 
+		 
+		 \begin{align*}
+		 	Df(\mathbf{p})(\vec{v}) &= \nabla f (\mathbf{p}) \cdot \vec{v}\\
+		 		&\leq |\vec{v}||\nabla f(\mathbf{p})| \text{ by Cauchy-Schwarz}\\
+		 		&= |\nabla f(\mathbf{p})| \text{ since $|\vec{v}|=1$}
+		 \end{align*}
 		 
 		 On the other hand, 
 		 
 		 \begin{align*}
-		 	Df\big|_{\mathbf{p}}(\vec{\nu}) &= (\nabla f (\mathbf{p}) \cdot \vec{\nu}\\
-		 		&= (\nabla f (\mathbf{p})) \cdot  \frac{\nable f(\mathbf{p}){\left|\nabla f (p)\right|}\\
-		 		& = \frac{\left| \nabla f(\mathbf{p})\right|^2}{\left| \nabla f(\mathbf{p})\right|}\\
+		 	Df\big|_{\mathbf{p}}(\vec{\nu}) &= \nabla f (\mathbf{p}) \cdot \vec{\nu}\\
+		 		&= \nabla f (\mathbf{p}) \cdot  \frac{\nabla f(\mathbf{p})}{\left|\nabla f (\mathbf{p})\right|}\\
+		 		&= \frac{\left| \nabla f(\mathbf{p})\right|^2}{\left| \nabla f(\mathbf{p})\right|}\\
 		 		&= \left| \nabla f (\mathbf{p})\right|
 		 			 \end{align*}
 		 			 

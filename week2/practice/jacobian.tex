@@ -10,10 +10,10 @@
 		Compute the Jacobian of $f:\R^2 \to \R^3$ defined by $f(x,y) = (\sin(xy),x^2y^3, x^3)$.
 		\begin{solution}
 		\begin{hint}
-			\(J = \begin{bmatrix} y\cos(xy) & x\cos(xy) \\ 2xy^4 & 3x^2y^2 \\ 3x^2 & 0 \end{bmatrix}\)
+			\(J = \begin{bmatrix} y\cos(xy) & x\cos(xy) \\ 2xy^3 & 3x^2y^2 \\ 3x^2 & 0 \end{bmatrix}\)
 		\end{hint}
 		\begin{matrix-answer}[name=J]
-			correct-Matrix  = [['y(cos(xy))','x(cos(xy))'],['2xy^4','3x^2y^2'],['3x^2','0']]
+			correctMatrix  = [['y(cos(xy))','x(cos(xy))'],['2xy^3','3x^2y^2'],['3x^2','0']]
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}
@@ -25,7 +25,7 @@
 			\(J = \begin{bmatrix} 2xyz^3t^4 +\frac{1}{y} & x^2z^3t^4 - \frac{x}{y^2} & 3x^2yz^2t^4 & 4x^2yz^3t^3\end{bmatrix}\)
 		\end{hint}
 		\begin{matrix-answer}[name=J]
-			correct-Matrix  = [['2xyz^3t^4 +1/y','x^2z^3t^4 - xy^(-2)', '3x^2yz^2t^4', '4x^2yz^3t^3']]
+			correctMatrix  = [['2xyz^3t^4 +1/y','x^2z^3t^4 - xy^(-2)', '3x^2yz^2t^4', '4x^2yz^3t^3']]
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}
@@ -37,7 +37,7 @@
 			\(J = \begin{bmatrix} \frac{y^2-x^2}{(x^2+y^2)^2} & \frac{-2xy}{(x^2+y^2)^2} \\   \frac{-2xy}{(x^2+y^2)^2} & \frac{x^2-y^2}{(x^2+y^2)^2}  \end{bmatrix}\)
 		\end{hint}
 		\begin{matrix-answer}[name=J]
-			correct-Matrix  = [['(y^2-x^2)/(x^2+y^2)^2', ' -2xy/(x^2+y^2)^2'],['-2xy/(x^2+y^2)^2','(x^2-y^2)/(x^2+y^2)^2']]
+			correctMatrix  = [['(y^2-x^2)/(x^2+y^2)^2', ' -2xy/(x^2+y^2)^2'],['-2xy/(x^2+y^2)^2','(x^2-y^2)/(x^2+y^2)^2']]
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}
@@ -46,10 +46,10 @@
 		Compute the Jacobian of $f:\R \to \R^4$ defined by $f(t) = (\cos(t),\sin(t),t,t^2)$.
 		\begin{solution}
 		\begin{hint}
-			\(J = \verticalvector{-\sin(r)\\ \cos(t) \\ 1 \\ 2t}\)
+			\(J = \verticalvector{-\sin(t)\\ \cos(t) \\ 1 \\ 2t}\)
 		\end{hint}
 		\begin{matrix-answer}[name=J]
-			correct-Matrix  = [['-sin(t)'],['cos(t)'],['1'],['2t']]
+			correctMatrix  = [['-sin(t)'],['cos(t)'],['1'],['2t']]
 		\end{matrix-answer}
 		\end{solution}
 	\end{question}

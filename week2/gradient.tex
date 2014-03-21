@@ -22,7 +22,7 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
  \begin{question}
  	\begin{solution}
  		\begin{hint}
- 			$\nabla f(x,y,z) = \verticalvector{\frac{\partial}{\partial x} sin(xyz^2) \\ \frac{\partial}{\partial y} sin(xyz^2) \\\frac{\partial}{\partial z} sin(xyz^2) }$
+ 			$\nabla f(x,y,z) = \verticalvector{\frac{\partial}{\partial x} \sin(xyz^2) \\ \frac{\partial}{\partial y} \sin(xyz^2) \\\frac{\partial}{\partial z} \sin(xyz^2) }$
  		\end{hint}
  		\begin{hint}
  			$\nabla f(x,y,z) = \verticalvector{yz^2\cos(xyz^2)\\ xz^2\cos(xyz^2)\\ 2xyz\cos(xyz^2)}$
@@ -43,9 +43,9 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
  \end{free-response}	
  
  \begin{theorem}
- 	Let $f:\R^n \to \R$, and $\mathbf{p} \in R^n$.   Let $\nu = \frac{\nabla f(\mathbf{p})}{\left|\nabla f (p)\right|}$
+ 	Let $f:\R^n \to \R$, and $\mathbf{p} \in R^n$.   Let $\eta = \frac{\nabla f(\mathbf{p})}{\left|\nabla f (p)\right|}$
  	
- 	If $\left|\vec{v}\right| = 1$, then $Df(\mathbf{p})(\vec{v}) \leq Df(\mathbf{p})( \nu )$
+ 	If $\left|\vec{v}\right| = 1$, then $Df(\mathbf{p})(\vec{v}) \leq Df(\mathbf{p})( \eta )$
  \end{theorem}
 
 	More geometrically, this theorem says that $\nabla f(\mathbf{p})$ points in the direction of  ``greatest increase'' for the function $f$.
@@ -65,7 +65,7 @@ If $f$ is such a function, the derivative $Df\left(\mathbf{p}\right) :\R^n \to \
 		 On the other hand, 
 		 
 		 \begin{align*}
-		 	Df\big|_{\mathbf{p}}(\vec{\nu}) &= \nabla f (\mathbf{p}) \cdot \vec{\nu}\\
+		 	Df\big|_{\mathbf{p}}(\vec{\eta}) &= \nabla f (\mathbf{p}) \cdot \vec{\eta}\\
 		 		&= \nabla f (\mathbf{p}) \cdot  \frac{\nabla f(\mathbf{p})}{\left|\nabla f (\mathbf{p})\right|}\\
 		 		&= \frac{\left| \nabla f(\mathbf{p})\right|^2}{\left| \nabla f(\mathbf{p})\right|}\\
 		 		&= \left| \nabla f (\mathbf{p})\right|
@@ -101,7 +101,7 @@ Let's start with the two dimensional case.  Let $f: \R^2 \to \R$, and consider t
 \end{question}
 
 In general, if $f:\R^n \to \R$, and the contour $\mathcal{C} = \{ \mathbf{p} \in \R^n :  f(\mathbf{p}) = c \}$ for some $c \in \R$, then for every tangent 
-vector $\vec{v}$ to $\mathcal{C}$, we will have $Df{\mathbf{p}}{\vec{v}}  =0$.  
+vector $\vec{v}$ to $\mathcal{C}$, we will have $Df{\mathbf{p}}(vec{v}) =0$.  
 Intuitively this is true because moving a small amount in the direction of $\vec{v}$ will not change the value of the function much,
  since you are staying as close as possible to the contour where the function is constant.  Accepting this, we have the following:
  
@@ -138,18 +138,18 @@ contour.
 				$\nabla f  =\verticalvector{ 2x+y\\x\\8z}$
 			\end{hint}
 			\begin{hint}
-				$\nabla f (1,0,0) = \verticalvector{1\\1\\0} $
+				$\nabla f (1,0,0) = \verticalvector{2\\1\\0} $
 			\end{hint}
 			\begin{hint}
 				For a point $(x,y,z)$ to be in the tangent plane, we would need that $(x,y,z) - (1,0,0)$ is perpendicular to $\nabla f (1,0,0)$.
 			\end{hint}
 			\begin{hint}
-				So we need $\verticalvector{x-1\\y\\z} \cdot \verticalvector{1\\1\\0} = 0$
+				So we need $\verticalvector{x-1\\y\\z} \cdot \verticalvector{2\\1\\0} = 0$
 			\end{hint}
 			\begin{hint}
-				This says that the equation of the plane is $x-1+y=0$
+				This says that the equation of the plane is $2x-2+y=0$
 			\end{hint}
-			\answer{$x+y-1$} $= 0$
+			\answer{$2x+y-2$} $= 0$
 		\end{solution}
 \end{question}
 

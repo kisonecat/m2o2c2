@@ -12,7 +12,7 @@ Limits are the backbone of calculus.  Multivariable calculus is no different.  I
 
 We will postone the rigorous $\epsilon$-$\delta$ analysis to the next section.
 \begin{definition}
-Let $f: \R^n \to \R^m$ and let $\mathbf{p} \in \R^n$.  We say that \[\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{L}\] for some $\mathbf{L} \in \R^m$ 
+Let $f: \R^n \to \R^m$ and let $\mathbf{p} \in \R^n$.  We say that \[\displaystyle\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{L}\] for some $\mathbf{L} \in \R^m$ 
 if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\mathbf{x})$ ``get arbitrarily close to $\mathbf{L}$''.  
 	\end{definition}
 	%\begin{question}
@@ -35,7 +35,7 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 	%\end{problem}
 	
 	\begin{definition}
-		A function $f: \R^n \to \R^m$ is said to be \textit{continuous} at a point $\mathbf{p} \in \R^n$ if \(\displaystyle\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = \mathbf{p}\)
+		A function $f: \R^n \to \R^m$ is said to be \textit{continuous} at a point $\mathbf{p} \in \R^n$ if \(\displaystyle\lim_{\mathbf{x} \to \mathbf{p}} f(\mathbf{x}) = f(\mathbf{p})\)
 	\end{definition}
 	
 	Most functions defined by formulas are continuous where they are defined.  For example, the function
@@ -48,8 +48,8 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 	\\
 		Argue intuitively that the function $f:\R^2 \to \R$ defined by 
 			\(f(x,y) = \begin{cases}
-			0  \text{if $x<y$}\\
-			1  \text{if $x\geq y$}
+			0  \text{ if $x<y$}\\
+			1  \text{ if $x\geq y$}
 			\end{cases}\)
 			
 			is continuous at every point off the line $y=x$, and is discontinuous at every point on the line $y=x$
@@ -96,10 +96,10 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 		
 		\begin{solution}
 			\begin{hint}
-				$\displaystyle\lim_{(x,y) \to (0,0)} \frac{x^2+xy}{x+y} = \lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)}$
+				$\displaystyle\lim_{(x,y) \to (0,0)} \frac{x^2+xy}{x+y} = \displaystyle\lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)}$
 			\end{hint}
 			\begin{hint}
-				$\displaystyle\lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)} = \lim_{(x,y) \to (0,0)} x = 0$
+				$\displaystyle\lim_{(x,y) \to (0,0)} \frac{x(x+y)}{(x+y)} = \displaystyle\lim_{(x,y) \to (0,0)} x = 0$
 			\end{hint}
 			$\displaystyle\lim_{(x,y) \to (0,0)} \frac{x^2+xy}{x+y} = $\answer{$0$}
 		\end{solution}		
@@ -121,10 +121,10 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 		
 		\begin{solution}
 			\begin{hint}
-				$\displaystyle\lim_{(x,y) \to (3,3)} \frac{x^2-9}{xy-3y} = \lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)}$
+				$\displaystyle\lim_{(x,y) \to (3,3)} \frac{x^2-9}{xy-3y} = \displaystyle\lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)}$
 			\end{hint}
 			\begin{hint}
-				$\displaystyle\lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)} = \lim_{(x,y) \to (3,3)} \frac{x+y}{y} = \frac{3+3}{3} = 2$
+				$\displaystyle\lim_{(x,y) \to (3,3)} \frac{(x-3)(x+3)}{y(x-3)} = \displaystyle\lim_{(x,y) \to (3,3)} \frac{x+3}{y} = \frac{3+3}{3} = 2$
 			\end{hint}
 			$\displaystyle\lim_{(x,y) \to (3,3)} \frac{x^2-9}{xy-3y} = $\answer{$2$}
 		\end{solution}		
@@ -132,14 +132,14 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 	\end{question}
 	
 	\begin{question}
-		Let $f:\R^2 \to \R^2$ be defined by $f(x,y) = (\frac{x^2y-2y}{x-2},xy)$
+		Let $f:\R^2 \to \R^2$ be defined by $f(x,y) = (\frac{x^2y-4y}{x-2},xy)$
 		\begin{solution}
 			\begin{hint}
 				We can consider the limit component by component
 			\end{hint}
 			\begin{hint}
 				\begin{align*}
-					\displaystyle\lim_{(x,y) \to (2,2)} \frac{x^2y-2y}{x-2} &= \lim_{(x,y) \to (2,2)} \frac{(x-2)(x+2)y}{x-2}\\
+					\displaystyle\lim_{(x,y) \to (2,2)} \frac{x^2y-4y}{x-2} &= \displaystyle\lim_{(x,y) \to (2,2)} \frac{(x-2)(x+2)y}{x-2}\\
 						&= \displaystyle\lim_{(x,y) \to (2,2)} y(x+2)\\
 						&= 2(2+2)\\
 						&= 8
@@ -169,7 +169,7 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 				the line $x=0$
 			\end{hint}
 			\begin{hint}
-				If we look at $\isplaystyle\lim_{(t,t) \to (0,0)} \frac{t}{t}$, this is just the limit of the constant $1$ function.  So the function approaches the limit $1$ along the 
+				If we look at $\displaystyle\lim_{(t,t) \to (0,0)} \frac{t}{t}$, this is just the limit of the constant $1$ function.  So the function approaches the limit $1$ along the 
 				line $y=x$
 			\end{hint}
 			\begin{hint}
@@ -191,12 +191,12 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 		
 	\begin{solution}
 	\begin{hint}
-		On the line $y=kx$, we have $f(x,y) = f(x,kx) = \frac{x+kx+x^2}{x-kx}  = \frac{1+k+x^2}{1-k }$.
+		On the line $y=kx$, we have $f(x,y) = f(x,kx) = \frac{x+kx+x^2}{x-kx}  = \frac{1+k+x}{1-k }$.
 	\end{hint}
 	\begin{hint}
-		So we have  $\displaystyle\lim_{x \to 0} \frac{1+k+x^2}{1-k} = \frac{1+k}{1-k}$ 
+		So we have  $\displaystyle\lim_{x \to 0} \frac{1+k+x}{1-k} = \frac{1+k}{1-k}$ 
 	\end{hint}
-		The limit of $f: \mathbb{R^2} \to \R$ defined by $f(x,y) = \frac{x+y+x^2}{x-y}$ as $(x,y) \to (0,0)$ along the line $y=kx$ is \answer{$(1+k)/(1-k)$}
+		The limit of $f: \mathbb{R^2} \to \R$ defined by $f(x,y) = \frac{x+y+x}{x-y}$ as $(x,y) \to (0,0)$ along the line $y=kx$ is \answer{$(1+k)/(1-k)$}
 	\end{solution}		
 	\end{question}
 	
@@ -217,7 +217,7 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 	\]
 	
 	Along each line $y = kx$, we have $f(x,y) = \frac{kx^3}{x^4+k^2x^2}$, so $\lim_{x \to 0} \frac{kx^3}{x^4+k^2x^2} = \frac{k}{x+k^2x^{-1}} = 0$.  
-	On the other hand, along the parabola $y=x^2$, we have $f(x,y) = \frac{x^4}{2x^4} = \frac{1}{2}$m where the limit is $\frac{1}{2}$.  So even though the limit
+	On the other hand, along the parabola $y=x^2$, we have $f(x,y) = \frac{x^4}{2x^4} = \frac{1}{2}$ where the limit is $\frac{1}{2}$.  So even though the limit
 	along all lines through the origin is $0$, the limit does not exist.
 	
 	

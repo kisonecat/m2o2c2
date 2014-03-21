@@ -13,7 +13,7 @@
 	\begin{theorem}
 		Let $f:\R^n \to \R^m$ be a differentiable function.  Then
 		\[
-			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
 		\]
 	\end{theorem}
 	
@@ -41,13 +41,13 @@
 					\begin{align*}
 						  Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) &= \lim_{h \to 0} \frac{f\left((3,4)+h\verticalvector{-1\\2}\right) - f(3,4)}{h}\\
 						  &= \lim_{h \to 0} \frac{f(3-h,4+2h)-f(3,4)}{h}\\
-						  &= \lim_{h \to 0}\frac{1}{h}  \verticalvector{(3-h)^2 -(4+2h)^2\\2(3-h)(4+2h)} - \verticalvector{-7,24} \\
+						  &= \lim_{h \to 0}\frac{1}{h}  \verticalvector{(3-h)^2 -(4+2h)^2\\2(3-h)(4+2h)} - \verticalvector{-7\\24} \\
 						  &=\lim_{h \to 0}\frac{1}{h} \verticalvector{(3-h)^2 -(4+2h)^2+7\\2(3-h)(4+2h)-24}
 					\end{align*}
 				\end{hint}
 				\begin{hint}
 					\begin{align*}
-						&=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
+						& \hphantom{Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) }=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
 						&=\lim_{h \to 0}\verticalvector{-22-3h\\4-4h}\\
 						&=\verticalvector{-22\\4}
 					\end{align*}
@@ -126,7 +126,7 @@
 	 only better notational bookkeeping.
 	
 	\begin{theorem}
-		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
+		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to \R$, for $i=1,2,3,...,m$.  In other words,
 		$f(\mathbf{p}) = \verticalvector{f_1(\mathbf{p})\\f_2(\mathbf{p})\\f_3(\mathbf{p})\\ \vdots \\ f_m(\mathbf{p})}$.  If $f$ is differentiable at $\mathbf{p}$,
 		 then its Jacobian matrix at $\mathbf{p}$ is 
                  \[
@@ -157,9 +157,9 @@
 		  \lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h} - M(\vec{e_i}) \right|&= 0
 		 \end{align*}
 		 
-		 So $\lim_{h \to 0}  \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h}  = M (\vec{e}_i)$.  But for this to be true, the $j^{th}$ row of each side must be equal, so 
+		 So $\displaystyle\lim_{h \to 0}  \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h}  = M (\vec{e}_i)$.  But for this to be true, the $j^{th}$ row of each side must be equal, so 
 		 
-		\[\lim_{h \to 0}  \frac{f_j(\mathbf{p}+h\vec{e_i}) - f_j(\mathbf{p})}{h}  = M _{ji}\]
+		\[\displaystyle\lim_{h \to 0}  \frac{f_j(\mathbf{p}+h\vec{e_i}) - f_j(\mathbf{p})}{h}  = M _{ji}\]
 		
 		But the quantity on the left hand side is $\frac{\partial f_j}{\partial x_i}\big|_{\mathbf{p}}$
 	\end{free-response}
@@ -201,9 +201,9 @@
 	\end{question}
 		
    The formula for the derivative
-   $$
-   Df(\mathbf{p})(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}
-   $$
+   \[
+   Df(\mathbf{p})(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}
+   \]
    looks a lot more familiar
    than our definition. You might be asking why we didn't take this formula as our definition of the derivative.  After all, we usually take something that looks like 
 	this as our definition in single variable calculus.
@@ -211,7 +211,7 @@
 	In the following two $\textbf{optional}$ exercises you will find out why.
 	\\
 	\\
-	Find a function $f:\R^2\to \R$ such that at $(0,0)$, the limit $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
+	Find a function $f:\R^2\to \R$ such that at $(0,0)$, the limit $M(\vec{v}) = \displaystyle\lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
 	$M$ is not a linear map.
 	
 	\begin{hint}
@@ -281,9 +281,9 @@
 		
 		This definitely \textbf{is} a linear function, but $f$ is not differentiable at $(0,0)$ using our definition, since
 		
-		\[\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
+		\[\displaystyle\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \displaystyle\lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
 		
-		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \lim_{t \to 0} \frac{1}{|t|}$, which
+		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\displaystyle\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \displaystyle\lim_{t \to 0} \frac{1}{|t|}$, which
 		diverges to $\infty$. 
 		
 	\end{free-response}

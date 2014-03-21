@@ -16,7 +16,7 @@ If you get through it and understand everything, you can consider yourself ``har
 	every solid ball centered at $p$ contains at least one point of $U$.
 
         Symbolically,
-	$$\overline{U} = \{ \mathbf{p} \in \R^n : \text{for all $r>0$ there exists $\mathbf{x} \in U$ so that $|x-p|<r$} \}.$$
+	\[\overline{U} = \{ \mathbf{p} \in \R^n : \text{for all $r>0$ there exists $\mathbf{x} \in U$ so that $|x-p|<r$} \}\]
 \end{definition}
 
 Prove that $U \subset \overline{U}$ for any subset $U$ of $\R^n$.
@@ -35,7 +35,7 @@ Prove that the closure of the open unit ball is the closed unit ball.  That is, 
 	 Let $B = \{\mathbf{x}:|x|\leq 1\}$.  We need to see that $\overline{U} = B$.
 	 
 	 It is easy to see that $B \subset \overline{U}$, since for each point $\mathbf{p} \in B$, either $\mathbf{p} \in U$ (in which case it is in the closure), 
-	 or $|\mathbf{p}| = 1$.  In this case, for every $r > 0$, the point $\mathbf{q} = \mathbf{p} - \frac{1}{2r}\mathbf{p}$ is in $U$ and satisfies 
+	 or $|\mathbf{p}| = 1$.  In this case, for every $r > 0$, the point $\mathbf{q} = \mathbf{p} - \frac{1}{2}r\mathbf{p}$ is in $U$ and satisfies 
 	  $|\mathbf{p} - \mathbf{q}|<r$.
 	  
 	  On the other hand, if $|\mathbf{p}|>1$, then a solid ball of radius $\frac{|\mathbf{p}|-1}{2}$ centered at $\mathbf{p}$ will not intersect $U$.  So we are done.
@@ -43,7 +43,7 @@ Prove that the closure of the open unit ball is the closed unit ball.  That is, 
 
 \begin{definition}
 	Let $f:U \to  V$  with $U \subset \R^n$, $V \subset \R^m$ and $\mathbf{p} \in \overline{U}$.  We say that $\lim_{\mathbf{x} \to \mathbf{p}}f(x) = \mathbf{L}$ if for every $\epsilon >0$ we can find a 
-	$\delta>0$ so that if $0<|\mathbf{x}-\mathbf{p}|<\delta$ and $\mathbf{x} \in U$, then $|\mathbf{p}-\mathbf{x}|<\epsilon$.
+	$\delta>0$ so that if $0<|\mathbf{x}-\mathbf{p}|<\delta$ and $\mathbf{x} \in U$, then $|f(\mathbf{p})-\mathbf{L}|<\epsilon$.
 \end{definition}
 
 \begin{definition}

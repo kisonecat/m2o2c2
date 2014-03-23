@@ -123,7 +123,7 @@ returns  a function which takes ( points in $\R^n$) and  returns ( linear maps f
 wanted you to get comfortable with ``higher-order functions'' earlier.  We are not as crazy as we seem.
 
 As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y+x)$, then it will turn out that at any point $(a,b)$,
- the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^3$ given by the matrix 
+ the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^2$ given by the matrix 
  $\begin{bmatrix}2ab & a^2\\ 1 & 1\end{bmatrix}$ (we do not know why yet, but this is true).  So $Df$ is really a 
  function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & a^2\\ 1 & 1\end{bmatrix}$. 
   So what about just plain old $D$?  $D$ takes a function ($f$) and returns the function $Df$ which takes a point $(a,b)$ and returns the linear map

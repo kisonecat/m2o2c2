@@ -30,9 +30,9 @@ This definition is great, but it doesn't tell us how to actually compute the der
 	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f\left(\verticalvector{x\\y}\right) = \verticalvector{f_1(x)\\f_2(x)}$. 
 	 Assuming $f$ is differentiable at the point $(1,2)$, lets try to compute the derivative there. 
 	 Let $M$ be the derivative of $f$ at $(1,2)$.  Then 
-	 \begin{align*}\displaystyle\lim_{h \to 0} \frac{\left|f(1,2+h\verticalvector{1\\0}) - f(\verticalvector{1\\2} - M(h\verticalvector{1\\0}))\right|}{\left|h\verticalvector{1\\0}\right|} &= 0\\
-	  \displaystyle\lim_{h \to 0}\left| \frac{f(1+h,2) - f(1,2) - hM(\verticalvector{1\\0}))}{h} \right| &= 0\\
-	  \displaystyle\lim_{h \to 0}\left| \frac{f(\verticalvector{1+h\\2}) - f(\verticalvector{1\\2}}{h} -M(\verticalvector{1\\0})\right| &= 0
+	 \begin{align*}\displaystyle\lim_{h \to 0} \frac{\left|f((1,2)+h\verticalvector{1\\0}) - f(\verticalvector{1\\2}) - M(h\verticalvector{1\\0})\right|}{\left|h\verticalvector{1\\0}\right|} &= 0\\
+	  \displaystyle\lim_{h \to 0}\left| \frac{f(1+h,2) - f(1,2) - hM(\verticalvector{1\\0})}{h} \right| &= 0\\
+	  \displaystyle\lim_{h \to 0}\left| \frac{f(\verticalvector{1+h\\2}) - f(\verticalvector{1\\2})}{h} -M(\verticalvector{1\\0})\right| &= 0
 	  \end{align*}
 	  so
 	  \begin{align*}

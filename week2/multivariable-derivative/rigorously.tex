@@ -27,7 +27,7 @@
 This definition is great, but it doesn't tell us how to actually compute the derivative of a differentiable function!  Lets dig a little deeper:
 
 \begin{example}
-	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f\left(\verticalvector{x\\y}\right) = \verticalvector{f_1(x)\\f_2(x)}$. 
+	Let $f:\mathbb{R^2} \to \mathbb{R^2}$ be defined by $f\left(\verticalvector{x\\y}\right) = \verticalvector{f_1(x,y)\\f_2(x,y)}$. 
 	 Assuming $f$ is differentiable at the point $(1,2)$, lets try to compute the derivative there. 
 	 Let $M$ be the derivative of $f$ at $(1,2)$.  Then 
 	 \begin{align*}\displaystyle\lim_{h \to 0} \frac{\left|f((1,2)+h\verticalvector{1\\0}) - f(\verticalvector{1\\2}) - M(h\verticalvector{1\\0})\right|}{\left|h\verticalvector{1\\0}\right|} &= 0\\

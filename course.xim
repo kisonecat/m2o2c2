@@ -27,6 +27,7 @@ week1
     week1/inner-product/length
     week1/inner-product/angle
     week1/inner-product/cauchy-schwarz
+    week1/inner-product/multiply-dot
 week2
   week2/limits
     week2/limits/formal-limit
@@ -52,3 +53,11 @@ week2
     week2/practice/stationary-points
     week2/practice/hypersurfaces
     week2/practice/chain-rule
+week3
+    week3/abstract-vector-space
+    week3/abstract-linear-maps
+    week3/dimension
+    week3/bases
+    week3/subspace
+    week3/eigenstuff
+    week3/cayley-hamilton

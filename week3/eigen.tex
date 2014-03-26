@@ -1,0 +1,113 @@
+\documentclass{ximera}
+\title{Eigenvectors}
+
+\begin{document}
+\begin{abstract}
+	Eigenvectors get mapped to multiples of themselves
+\end{abstract}
+
+\begin{definition}
+	Let $L:V \to V$ be a linear map.  A vector $\vec{v} \in V$ is called an \textbf{eigenvector} of $L$ if $L(\vec{v})  =\lambda \vec{v}$ for some $\lambda \in \R$. 
+	 A constant $\lambda \in \R$ is called an eigenvalue of $L$ if there is a nonzero eigenvector  $\vec{v}$ with $L(\vec{v}) = \lambda \vec{v}$ .
+\end{definition}
+
+Observation:  if $(v_1,v_2,...,v_n)$ is a basis of eigenvectors of a linear operator $L$, then the matrix of $L$ with respect to that basis is diagonal, with the eigenvalues
+of $L$ appearing along the diagonal.
+
+\begin{theorem}
+	Let $\lambda$ be an eigenvalue of a linear operator $L:V\to V$.  Then the set $E_\lambda(L) = \{ v \in V: L(v) = \lambda v\}$ of all eigenvectors with eigenvalue $\lambda$ forms a subspace of $V$.
+	We call this subspace the \textbf{eigenspace} associated to the eigenvalue $\lambda$.
+\end{theorem}
+
+Prove this theorem
+\begin{free-response}
+	We need to check that $E_\lambda(L)$ is closed under scalar multiplication and vector addition
+	
+	If $v \in E_\lambda(L)$, and $c \in \R$, then $L(cv) = cL(v) = c\lambda v = \lambda( cv)$, so $cv$ is also an eigenvector of $L$.
+	
+	If $v_1,v_2 \in E_\lambda(L)$, then $L(v_1+v_2) = \lambda v_1+\lambda v_2 = \lambda( v_1 + v_2)$, so $v_1+v_2$ is also an eigenvalue of $L$.
+\end{free-response}
+
+Note: The kernel of $L$ is the eigenspace of the eigenvalue $0$.
+
+\begin{question}
+	Let $L :\R^2 \to \R^2$ be the linear map whose matrix  is \(\begin{bmatrix} 1 & 2 \\2& 1\end{bmatrix}\) with respect to the standard basis.  $L$ has two different
+	eigenvalues.  What are they?  Given your answer in the form $\verticalvector{\lambda_1 \\ \lambda_2}$, where $\lambda_1 \leq \lambda_2$
+	
+	\begin{solution}
+		\begin{hint}
+			For $lambda$ to be an eigenvalue we need
+			\(\begin{bmatrix} 1 & 2 \\2& 1\end{bmatrix} \verticalvector{x\\y} = \lambda \verticalvector{x\\y}\)
+		\end{hint}
+		\begin{hint}
+			This is the same as \(\begin{cases}
+			x+2y = \lambda x \\
+			2x+y =\lambda y
+			\end{cases}\)
+			
+			or
+			
+			 \(\begin{cases}
+			(1-\lambda)x+2y = 0 \\
+			2x+(1-\lambda)y =0
+			\end{cases}\)
+			
+		\end{hint}
+		\begin{hint}
+			These are two lines passing through the origin.  To have more than just the origin as a solution, we need that the slope of the two lines is the same.  So
+			
+			\(
+				\frac{1-\lambda}{2} = \frac{2}{1-\lambda}
+			\)
+		\end{hint}
+		\begin{hint}
+			\begin{align*}
+				\frac{1-\lambda}{2} &= \frac{2}{1-\lambda}\\
+				(1-\lambda)^2 &= 4\\
+				1-\lambda &= \pm 2\\
+				lambda &= -1 \text{ or } 3
+			\end{align*}
+		\end{hint}
+		\begin{hint}
+			Lets check that these really are eigenvalues:
+			
+			If we let $\lambda = -1$, we have the equation $2x+2y=0$.  Check that $\verticalvector{1\\-1}$ is an eigenvector with eigenvalue $-1$
+			
+			If we let $\lambda = 3$, we have the equation $2x-2y=0$.  Check that $\verticalvector{1\\1}$ is an eigenvector with eigenvalue $3$
+
+		\end{hint}
+			\begin{matrix-answer}
+			correctMatrix =[['-1'],['3']]
+		\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+\begin{theorem}
+	Let $L:V \to W$ be a linear map. If $v_1,v_2,...,v_n$ are nonzero eigenvectors of $L$ with distinct eigenvalues $\lambda_1,\lambda_2,...\lambda_n$, then $(v_1,v_2,...,v_n)$
+	are linearly independent.
+\end{theorem}
+
+Prove this theorem
+
+\begin{free-response}
+	Assume to the contrary that the list is linearly dependent.  Let $v_k$ be the first vector in the list which is in the span of the preceding vectors, 
+	so that the vectors $(v_1,v_2,...,v_{k-1})$  are linearly dependent.  
+	Let $a_1v_1+a_2v_2+...+a_{k-1}v_{j-1} = v_k$.  Then applying $L$ to both sides of this equation we have
+	$a_1\lambda_1 v_1+a_2\lambda_2 v_2+ ...+a_{k-1}\lambda_{k-1} v_{k-1} = \lambda_k v_k$.  If we multiply the first equation by $\lambda_k$ we also have
+	$a_1\lambda_1v_1+a_2\lambda_1v_2+...+a_{k-1}\lambda_1v_{j-1} = \lambda_1v_k$.  Subtracting these two equations we have
+	
+	\(
+		a_1(\lambda_k-\lambda_1)v_1+a_2(\lambda_k-\lambda_2)v_2+...+a_3(\lambda_k-\lambda_{k-1})v_k=0.
+	\)
+	
+	Since the vectors   $(v_1,v_2,...,v_{k-1})$  are linearly dependent, we must have that $a_i(\lambda_k - \lambda_i) = 0$.  But $\lambda_k \neq \lambda_i$, so 
+	$a_i=0$ for each $i$.  Looking back at where the $a_i$ came from, we see that this implies that $v_k=0$.  This contradicts the assumption that the $v_j$ were all nonzero.
+	
+	So our assumption that the list was linearly dependent was absurd, hence the list is linearly dependent.
+	\end{free-response}
+	
+A corollary of this theorem is that if $V$ is $n$ dimensional and $L: V \to V$ has $n$ distinct eigenvalues, then the eigenvectors of $L$ form a basis of $V$.
+The matrix of the operator with respect to this basis is diagonal.
+	
+
+\end{document}

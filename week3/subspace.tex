@@ -1,0 +1,139 @@
+
+
+\documentclass{ximera}
+\title{Subspaces}
+
+\begin{document}
+\begin{abstract}
+	A subspace is a subset of a vector space which is also a vector space
+\end{abstract}
+
+\begin{definition}
+	A subset $U$ of a vector space $V$ is called a \textbf{subspace} of $V$ if $U$ is a vector space with respect to
+	the scalar multiplication and vector addition inherited from $V$.
+\end{definition}
+
+\begin{question}
+	Which of the following is a subspace of $\R^2$?
+	\begin{solution}
+		\begin{hint}
+			$A$ is not a subspace because $\verticalvector{1\\0} \in A$, but $-1\verticalvector{1\\0}$ is not in $A$, so scalar multiplication is not defined on
+			$A$
+		\end{hint}
+		\begin{hint}
+			$C$ is not a subspace because even though it is closed under scalar multiplication (Check this!) it is not closed under vector addition, since
+			$\verticalvector{1\\-2}$ and $\verticalvector{1\\2}$ are both in $C$, but their sum $\verticalvector{2\\0}$ is not.  Draw a picture of this example!
+		\end{hint}
+		\begin{hint}
+			As the only choice left, $B$ must be a subspace.  The reason is that it is just the span of the vector $\verticalvector{2\\1}$, and as such is obviously closed under 
+			scalar multiplication and vector addition.
+		\end{hint}
+	\begin{multiple-choice}
+		\choice{ The set $A = \{ \verticalvector{x\\y} : x>0 \text{ and} y>0  \}$}
+		\choice[correct]{ The set $B = \verticalvector{x\\y}: x=2y$}
+		\choice{ The set $C = \{ \verticalvector{x\\y} : |y| < |x| \}$}
+	\end{multiple-choice}
+	\end{solution}
+\end{question}
+
+
+\begin{theorem}
+	If $L:V \to W$ is a linear transformation, then the \textbf{kernel} of $L$, defined by $ker(L) = \{\vec{v} \in V:L(\vec{v}) = \vec{0}\}$ is a subspace of $L$
+\end{theorem}
+
+You may also hear this referred to as the ``null space'' of $L$.
+
+Prove this theorem
+
+\begin{free-response}
+We only need to show that $ker(L)$ is closed under scalar multiplication and vector addition.
+
+For any $\vec{v} \in ker(L)$ and $c \in \R$,
+
+\begin{align*}
+	L(c\vec{v}) &=cL(\vec{v})\\
+		&=c\vec{0}\\
+		&=0
+\end{align*}
+
+so $c\vec{v} \in ker(L)$.
+
+If $\vec{v},\vec{w} \in ker(L)$, then
+
+\begin{align*}
+	L(\vec{v}+\vec{w}) &= L(\vec{v})+L(\vec{w})\\
+	&= \vec{0}+\vec{0}\\
+	&=\vec{0}
+\end{align*}
+
+so $\vec{v}+\vec{w} \in ker(L)$
+
+Thus $ker(L)$ is a subspace!
+
+\end{free-response}
+
+\begin{theorem}
+	A linear map $L:V \to W$ is injective if and only if $ker(L) = \{\vec{0}\}$.
+\end{theorem}
+
+Note:  injective is an adjective meaning the same thing as one to one.  In other words, a function $f:A \to B$ is injective if $f(a_1)=f(a_2)$ implies $a_1=a_2$.
+
+Prove this theorem
+	
+\begin{free-response}
+	Let $L$ be injective.  Then $L(vec{v}) = \vec{0}$ implies $L(\vec{v}) = L(\vec{0})$.  Since $L$ is injective, this implies $\vec{v} = \vec{0}$.  Thus the only element
+	of the kernel is $\vec{0}$.
+	
+	On the other hand, if $ker(L) = \{\vec{0}\}$, then if $L(\vec{v_1}) = L(\vec{v_2})$, then $L(\vec{v_1}-\vec{v_2})= \vec{0}$, so $\vec{v_1}-\vec{v_2}$
+	 is in the null space, and hence must be equal to $\vec{0}$.  But then we can conclude that $\vec{v_1} = \vec{v_2}$
+	\end{free-response}
+
+
+\begin{theorem}
+		If $L:V \to W$ is a linear transformation, then the \textbf{image} of $L$, defined by 
+		\(Im(L) = \{\vec{w} \in W: \text{ there exists $\vec{v} \in V $ with }L(\vec{v}) = \vec{w}\}$\),
+		is a subspace of $L$.
+\end{theorem}
+
+Prove this theorem
+
+\begin{free-response}
+	If $w \in Im(L)$, then there is a $v \in V$ with $L(v) =w$.  $L(cv) = cL(v)=cw$, so $cw \in Im(L)$ for any $c\in \R$. 
+	 Thus $Im(L)$ is closed under scalar multiplication.
+	 
+	 If $w_1$, $w_2 \in Im(L)$, then there are $v_1,v_2 \in V$ with $L(v_1)=w_1$ and $L(v_2)=w_2$.  $L(v_1+v_2)=L(v_1)+L(v_2)=w_1+w_2$, so $w_1+w_2 \in Im(L)$.
+	 Thus $Im(L)$ is closed under vector addition.
+\end{free-response}
+
+\begin{theorem}[Rank-Nullity]
+	If $L:V \to W$ is a linear transformation, then the sum of the dimension of the kernel of $L$ and the dimension of the image of $L$ is the dimension of $V$.
+ \end{theorem}
+ 
+ Note:  the dimension of the kernel is sometimes called the ``nullity'' of $L$, and the dimension of the image is sometimes called the ``rank'' of $L$.  
+ Hence the name ``rank-nullity'' theorem.
+ 
+ Prove this theorem
+ 
+ \begin{warning}
+ This is hard!
+ \end{warning}
+ 
+ \begin{free-response}
+ 	Let $v_1,v_2,v_3,...,v_m$ be a basis of $ker(L)$.  We can extend this to a basis of $V$, $v_1,v_2,...,v_n,u_1,u_2,...,u_k$.  We need to show that 
+ 	We will be done if we can show that $L(u_1),L(u_2),...,L(u_k)$ form a basis of $Im(L)$.
+ 	
+ 	Let $w \in Im(L)$.  Then $w = L(v)$ for some $v \in V$.  Since $v_1,v_2,...,v_n,u_1,u_2,...,u_k$ is a basis of $V$ , we can write
+ 	
+ 	\begin{align*}
+ 		w &= L( a_1v_1+a_2v_2+...+a_nv_n+b_1u_1+...+b_ku_k)\\
+ 			&=a_1L(v_1)+...+a_nL(v_n)+b_1L(u_1)+...+b_kL(u_k)\\
+ 			&=b_1L(u_1)+...+b_kL(u_k)\\
+ 	\end{align*}
+ 	
+ 	So $Im(L)$ is spanned by the $L(u_i)$.  Now we need to see that the $L(u_i)$ are linearly independent.
+ 	
+ 	Assume $b_1L(u_1)+b_2L(u_2)+...+b_kL(u_k) = 0$.  Then $L(b_1u_1+...+b_ku_k) = 0$.  Then $b_1u_1+...+b_ku_k$ would be in the null space of $L$.  But
+ 	the $u_i$ were chosen specifically to be linearly independent of all of the vectors in the null space.  So $b_1=b_2=...=b_k = 0$.   Thus the $u_i$ are linearly independent
+ 	and we are done.
+ \end{free-response}
+\end{document}

@@ -11,38 +11,66 @@ A great feature of these vectors is that they \textit{span} all of $\R^n$:  ever
  Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
  
  \begin{definition}
- 	The \textit{span} of an ordered list of vectors $(v_1,v_2, ...,v_n)$ is the set of all \textit{linear combinations} of the $v_i$:
- 	$\textrm{Span}(v_1,v_2, ...,v_n) = \{a_1v_1+a_2v_2+...+a_nv_n: a_i \in \R\}$
+ 	The \textbf{span} of an ordered list of vectors $(v_1,v_2, ...,v_n)$ is the set of all \textbf{linear combinations} of the $v_i$.
+ 	\[\textrm{Span}(v_1,v_2, ...,v_n) = \{a_1v_1+a_2v_2+...+a_nv_n: a_i \in \R\}\]
  \end{definition}
  
- \begin{question}
- 	Which of the following vectors are in the span of BLAH?
- \end{question}
+% \begin{question}
+% 	Which of the following vectors are in the span of BLAH?
+% \end{question}
  
- \begin{question}
- 	Show that $\verticalvector{1,1}$ and $\verticalvector{1,0}$ span the entire space $\R^2$.
- \end{question}
+ 	Show that $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ span the entire space $\R^2$.
+
+\begin{free-response}
+	Since we already know that $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ span $\R^2$,
+	 it is enough to show that $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ span these two vectors, i.e.
+	 we need only show that $\verticalvector{0\\1}$ is in the span of these two vectors.
+	 
+	 But $\verticalvector{0\\1} = \verticalvector{1\\1} +-1\verticalvector{1\\0}$, so we are done.
+	 
+	 To be a bit more explicit, we can write any vector \begin{align*}
+	 \verticalvector{x\\y} &= x\verticalvector{1\\0}+ y\verticalvector{0\\1}\\
+	 &= x\verticalvector{1\\0}+ y\left(\verticalvector{1\\1} +-1\verticalvector{1\\0}\right)\\
+	 &=(x-y)\verticalvector{1\\0}+y\vecticalvector{1\\1}
+	 \end{align*}
+	 
+	 So we have expressed any vector as a linear combination of $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$.
+\end{free-response} 
+
+%  \begin{question}
+ %	Show that $(\verticalvector{2,3},\verticalvector{1,0},\verticalvector{4,5})$ span the space $\R^2$.
+ %\end{question}
  
-  \begin{question}
- 	Show that $(\verticalvector{2,3},\verticalvector{1,0},\verticalvector{4,5})$ span the space $\R^2$.
- \end{question}
- 
- \begin{question}
- 	Show that $1$, $x-1$, $(x-1)^2$ and $(x-1)^3$ span the space of polynomials of degree at most $3$.
- \end{question}
+ 	Show that $1$, $x-1$, and $(x-1)^2$  span the space of polynomials of degree at most $2$.
+
+\begin{free-response}
+	Let $p(x)=a_0+a_1x+a_2x^2$. 
+	
+	Then \begin{align*}
+		p(x) &= a_0+a_1[(x-1)+1]+a_2[(x-1)+1]^2\\
+			   &= a_0+a_1(x-1)+a_1+a_2[(x-1)^2+2(x-1)+1]\\
+			   &= (a_0+a_1+a_2)1+(a_1+2a_2)(x-1)+a_2(x-1)^2
+		\end{align*}
+	
+	so we have expressed every polynomial of degree at most $2$ as a linear combination of $1,(x-1)$ and $(x-1)^2$.
+	
+	You could also solve this problem by appealing to Taylor's theorem in one variable calculus.  Can you see how?
+\end{free-response}
+
  
   \begin{definition}
- 	A vector space is called \textit{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
+ 	A vector space is called \textbf{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
  \end{definition}
  
- \begin{question}
- 	Show that the space of all polynomials of one variable is infinite dimensional
- \end{question}
- 
- \begin{question}
- 	Show that the space of all continuous functions on the interval $[0,1]$ is infinite dimensional
- \end{question}
- 
+ 	Show that the space $P$ of all polynomials in one variable $x$ is infinite dimensional
+
+\begin{free-response}
+	 Let $p_1,p_2,...,p_n$ be a finite list of  vectors.  
+	Since this list of polynomials is finite they must be bounded in degree, i.e.  the degree of $p_i$ must be less than some $k$ for each $i$.  But a linear combination
+	of polynomials of degree at most $k$ is also of degree at most $k$.  So the polynomial $x^{k+1} \not\in  \textrm{Span}(p_1,p_2,...,p_n)$. Thus no finite list of 
+	polynomials spans all of $P$.  So $P$ is infinite dimensional.
+\end{free-response}
+
  \begin{definition}
  	Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,...,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
  	$a_1v_1+a_2v_2 + ...+a_nv_n = b_1v_1 + b_2v_2 + ... + b_nv_n$ implies that $a_1  = b_1$, $a_2 = b_2$, ...,$a_n=b_n$.  In other words,
@@ -50,75 +78,134 @@ A great feature of these vectors is that they \textit{span} all of $\R^n$:  ever
  	If the set of vectors is not linearly independent it is called \textit{linearly dependent}.
  \end{definition}
  
- \begin{question}
- 	Is BLAH linearly independent?
- \end{question}
+%\begin{question}
+% 	Is BLAH linearly independent?
+%\end{question}
  
- \begin{question}
  	Show that the following alternative definition for linear independence is equivalent to our definition:
  	
  	\begin{definition}
  		Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,...,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
  	$a_1v_1+a_2v_2 + ...+a_nv_n = \vec{0}$ implies that $a_i = 0 $ for all $i=1,2,3,...,n$.
  	\end{definition}
- \end{question}
+ 	
  
- \begin{question}
+ \begin{free-response}
+	Let us say that our original definition is of  being linearly independent in the first sense, while this second definition is being linearly independent 
+	in the second sense.  If a list of vectors $(v_1,v_2,...,v_n)$ is linearly independent in the first sense, then if $a_1v_1+a_2v_2 + ...+a_nv_n = \vec{0}$ we have
+	$a_1v_1+a_2v_2 + ...+a_nv_n = 0v_1+0v_2+...+0v_n$, so by the definition of linear independence in the first sense, we have $a_1=a_2=...=a_n=0$.
+	
+	On the other hand, if $(v_1,v_2,...,v_n)$ are linearly independent in the second sense, then if $a_1v_1+a_2v_2 + ...+a_nv_n = b_1v_1 + b_2v_2 + ... + b_nv_n$ we have
+	$(a_1-b_1)v_1+(a_2-b_2)v_2+...+(a_n-b_n)v_n = \vec{0}$, so $a_i-b_i=0$ for each $i$.  Thus $a_i=b_i$ for each $i$, proving that the list was linearly independent 
+	in the first sense.
+ \end{free-response}
+ 
+  	Often this definition is easier to check, although it does not capture the "meaning" of linear independence as well as the first definition.
+
+ 
  	Prove that any ordered list of vectors containing the zero vector is linearly dependent. 
- \end{question}
+	\begin{free-response}
+		We can see immediately from the second definition that since $1\vec{0} = \vec{0}$, but $1\neq 0$, that the list cannot be linearly independent
+	\end{free-response}
  
- \begin{question}
  	Prove that an ordered list of length $2$ (i.e. $(v_1,v_2)$) is linearly dependent if and only if one vector is a scalar multiple of the other.
- \end{question}
+	\begin{free-response}
+		For $v_1$ and $v_2$ to be linearly independent there must be two scalars $a,b \in V$ with $av_1+bv_2=0$ with at least one of $a$ or $b$ nonzero.
+		Let us assume (without loss of generality) that $a \neq 0$.  Then $av_1=-bv_2$, so $v_1=\frac{-b}{a}v_2$.  Thus one vector is a scalar multiple of the other.	
+	
+		\end{free-response}
+
 
  \begin{theorem}
  	If $(\vec{v_1},\vec{v_2},\vec{v_3}, ..., \vec{v_n})$ is linearly dependent in $V$ and $\vec{v_1} \neq 0$, then one of the vectors $v_j$ is in the 
  	span of $\vec{v_1},\vec{v_2},...,\vec{v_{j-1}}$
  \end{theorem}
  
- \begin{proof}
+Prove this theorem.
+
+\begin{free-response}
  	Since $(\vec{v_1},\vec{v_2},\vec{v_3}, ..., \vec{v_n})$ is linearly dependent, by definition there are scalars $a_i \in \R$ with 
  	$a_1\vec{v_1}+a_2\vec{v_2}+ ...+a_n\vec{v_n} = 0$, and not all of the $a_j =0$.  Let $j$ be the largest element of ${2,3,...,n}$ so that $a_j$ is not equal to $0$.
  	Then we have 
  	$v_j = -\frac{a_1}{a_j}\vec{v_1}-\frac{a_2}{a_j}\vec{v_2} -\frac{a_3}{a_j}\vec{v_3} - ...-\frac{a_{j-1}}{a_{j-1}}\vec{v_{j-1}}$.
  	So $v_j$ is in the span of $\vec{v_1},\vec{v_2},...,\vec{v_{j-1}}$.
- \end{proof}
+ \end{free-response}
  
- \begin{question}
+ 
  	If $2$ vectors $\vec{v_1},\vec{v_2}$ span $V$, is it possible that the three vectors $\vec{w_1},\vec{w_2},\vec{w_3}$ are linearly independent?
- \end{question}
+ 	
+ 	\begin{warning}
+ 		This is harder to prove than you might think!
+ 	\end{warning}
+\begin{free-response}
+	No!
+	
+	Assume to the contrary that $\vec{w_1},\vec{w_2},\vec{w_3}$ are linearly independent.
+	
+	Since the list $(v_1,v_2)$ spans $V$, the list $(w_1,v_1,v_2)$ is linearly independent.  Thus by the previous theorem, either $v_1$ is in the span of $w_1$,
+	or $v_2$ is in the span of $(w_1,v_1)$.  In either case we get that $(w_1,v)$ spans $V$, where $v$ is either $v_1$ or $v_2$.
+	
+	Now apply the same trick:  $(w_2,w_1,v)$ must span $V$.  So by the previous theorem, either $w_1$ is in the span of $w_2$ or $v$ is in the span of $w_2,w_1$.  
+	$w_2$ cannot be in the span of $w_1$ because the $w$'s are linearly independent.  So $v$ is in the span of $w_2,w_1$.  So $(w_2,w_1)$ spans $V$.  But then
+	$w_3$ is in the span of $(w_2,w_1)$, contradicting the fact that it is linearly independent from those two vectors.  We have arrived at our contradiction.
+	
+	Therefore, $w_1,w_2,w_3$ cannot be linearly independent.
+\end{free-response}
 
- 
- \begin{question}
- 	Prove that the length of a linearly independent list of spanning vectors is less than the length of any spanning list of vectors. (i.e. generalize the problem above)
- \end{question}
+This problem generalizes:
+
+ \begin{theorem}
+ 	The length of a linearly independent list of spanning vectors is less than the length of any spanning list of vectors.
+	\end{theorem}
+Prove this theorem
+ \begin{free-response}
+ 	We will follow the same procedure that we did above.  Assume $(v_1,v_2,...,v_n)$ is a list of vectors which spans $V$, and $(w_1,w_2,...,w_m)$ is a linearly
+ 	independent list of vectors.  We must show that $m<n$.
+ 	
+ 	$(w_1,v_1,v_2,...,v_n)$ is linearly dependent since $w_1$ is in the span of the $v_i$.  
+ 	By the theorem above, we can remove on of the $v_i$ and still have a spanning list of length $n$.
+ 	
+ 	Repeating this, we can always add one $w$ vector to the beginning of the list, while deleting a $v$ vector from the end of the list.  This maintains a list of length 
+ 	$n$ which spans all of $V$.  We know that it must be a $v$ which gets deleted, because the $w$s are all linearly independent. 
+ 	 If $m>n$, then at the $n^{th]$ stage of this process we obtain that $(w_1,w_2,...,w_n)$ spans all of $V$, which contradicts the fact that $w_{n+1}$ is supposed 
+ 	 to be linearly independent from the rest of the $w$.
+ \end{free-response}
  
  \begin{definition}
  	An ordered list of vectors $\mathcal{B} = (\vec{v_1},\vec{v_2},\vec{v_3},...,\vec{v_n})$ is called a \textit{basis} of the vector space $V$ if 
  	$\mathcal{B}$ is both spans $V$ and is linearly independent.  
  \end{definition}
  
- \begin{question}
- 	Show that $1$, $x-1$, $(x-1)^2$ is a basis for the space of polynomials of degree at most $2$.
- \end{question}
+ %Show that $1$, $x-1$, $(x-1)^2$ is a basis for the space of polynomials of degree at most $2$.
+ %\begin{free-response}
+ %	We already showed that the
+ %\end{free-response}
  
- \begin{question}
+ 
  	Let $V$ be a finite dimensional vector space.  Show that $V$ has a basis.
- \end{question}
+\begin{free-response}
+	Let $(v_1,v_2,...,v_n)$ be a spanning list of vectors (which exists and is finite since $V$ is finite dimensional).  If this list is linearly dependent we can 
+	go through the following process:
+	For each $i$ if $v_i \in Span(v_1,v_2,...,v_{i-1})$, delete $v_i$ from the list.  Note that this also covers the $1st$ case:  if $v_1=0$ delete it from the list.
+	
+	At the end of this process, we have a list of vectors which span $V$, and also no vector is the span of all the previos vectors.  By the theorem above, the list is linearly 
+	independent.  So this new list is a basis for $V$.
+\end{free-response}
+
  
- \begin{question}
- 	Let $V$ be a finite dimensional vector space.  Show that every basis of $V$ has the same length.  In other words, if
- 	$\vec{v_1},\vec{v_2}, ..., \vec{v_n}$ is a basis and	$\vec{w_1},\vec{w_2}, ..., \vec{w_m}$ is a basis, then $n=m$.
-  \end{question}
+ 	Note: Let $V$ be a finite dimensional vector space.  Then  every basis of $V$ has the same length.  In other words, if
+ 	$\vec{v_1},\vec{v_2}, ..., \vec{v_n}$ is a basis and	$\vec{w_1},\vec{w_2}, ..., \vec{w_m}$ is a basis, then $n=m$.  This follows because we have already proven
+ 	that $n\leq m$ and $m\leq n$
   
   \begin{definition}
   	We say that a finite dimensional vector space has dimension $n$ if it has a basis of length $n$.
   \end{definition}
   
-  \begin{question}
-  	Let $p_1,p_2,..,p_n$ be polynomials in the space $P_n$of all polynomials of degree at most $n$.  Assume $p_i(3) = 0$ for $i=1,2,...,n$.  Is it possible that
-  	$p_1,p_2,...,p_n$ are all linearly independent?  Why or why not?
-  \end{question}
-  
+  	Let $p_1,p_2,..,p_n,p_{n+1}$ be polynomials in the space $P_n$of all polynomials of degree at most $n$.  Assume $p_i(3) = 0$ for $i=1,2,...,n$.  Is it possible that
+  	$p_1,p_2,...,p_n,p_{n+1}$ are all linearly independent?  Why or why not?
+\begin{free-response}
+	No.  If $p_1,p_2,...,p_n,p_{n+1}$ were all linearly independent then they would form a basis of $P_n$, since $P_n$ has dimension $n+1$.  
+	But every polynomial in the span of the $p_i$ must evaluate to $0$ at $x=3$, while some polynomials in $P_n$ do not evaluate to $0$ at $x=3$,  (for example, the polynomial $x$).
+\end{free-response}  
 
 \end{document}

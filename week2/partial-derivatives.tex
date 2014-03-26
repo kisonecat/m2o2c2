@@ -30,7 +30,7 @@
 		
 		We conclude that
 		\[
-			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
 		\]
 	\end{free-response}
 	
@@ -47,7 +47,7 @@
 				\end{hint}
 				\begin{hint}
 					\begin{align*}
-						& \hphantom{Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) }=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
+						 \hphantom{Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) }&=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
 						&=\lim_{h \to 0}\verticalvector{-22-3h\\4-4h}\\
 						&=\verticalvector{-22\\4}
 					\end{align*}
@@ -64,7 +64,7 @@
 	\begin{definition}
 		Let $f: \R^n \to \R$ be a (not necessarily differentiable) function.  We define its partial derivative with respect to $x_i$ by
 		\[
-			\frac{\partial f}{\partial x_i} (\mathbf{p}) = f_{x_i}(\mathbf{p}) := \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{e}_i)-f(\mathbf{p})}{h}
+			\frac{\partial f}{\partial x_i} (\mathbf{p}) = f_{x_i}(\mathbf{p}) := \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{e}_i)-f(\mathbf{p})}{h}
 		\]
 		
 		In other words, $\frac{\partial f}{\partial x_i} (\mathbf{p})$ is the instantaneous rate of change in $f$ by moving only in the $\vec{e}_i$ direction.
@@ -141,8 +141,8 @@
 		  More compactly, we might write
 		  
 		  \[
-		  	\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)
-		  \]
+		  	\begin{bmatrix}\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)		\end{bmatrix}
+		  	  \]
 		  
 
 	\end{theorem}
@@ -218,7 +218,7 @@
 		Try showing that the function 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} & \text{if $(x,y) = (0,0)$} \\
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) \neq (0,0)$} \\
 			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			
@@ -228,7 +228,7 @@
 		Let 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} & \text{if $(x,y) = (0,0)$} \\
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) \neq (0,0)$} \\
 			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			

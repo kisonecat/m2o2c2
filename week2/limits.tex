@@ -196,7 +196,7 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 	\begin{hint}
 		So we have  $\displaystyle\lim_{x \to 0} \frac{1+k+x}{1-k} = \frac{1+k}{1-k}$ 
 	\end{hint}
-		The limit of $f: \mathbb{R^2} \to \R$ defined by $f(x,y) = \frac{x+y+x}{x-y}$ as $(x,y) \to (0,0)$ along the line $y=kx$ is \answer{$(1+k)/(1-k)$}
+		The limit of $f: \mathbb{R^2} \to \R$ defined by $f(x,y) = \frac{x+y+x^2}{x-y}$ as $(x,y) \to (0,0)$ along the line $y=kx$ is \answer{$(1+k)/(1-k)$}
 	\end{solution}		
 	\end{question}
 	
@@ -216,7 +216,8 @@ if as $\mathbf{x}$ ``gets arbitrarily close to '' $\mathbf{p}$, the points $f(\m
 		f(x,y) = \frac{x^2y}{x^4+y^2}
 	\]
 	
-	Along each line $y = kx$, we have $f(x,y) = \frac{kx^3}{x^4+k^2x^2}$, so $\lim_{x \to 0} \frac{kx^3}{x^4+k^2x^2} = \frac{k}{x+k^2x^{-1}} = 0$.  
+	Along each line $y = kx$, we have 
+	$f(x,y) = \frac{kx^3}{x^4+k^2x^2}$, so $\displaystyle\lim_{x \to 0} \frac{kx^3}{x^4+k^2x^2} = \displaystyle\lim_{x \to 0}\frac{k}{x+k^2x^{-1}} = 0$.  
 	On the other hand, along the parabola $y=x^2$, we have $f(x,y) = \frac{x^4}{2x^4} = \frac{1}{2}$ where the limit is $\frac{1}{2}$.  So even though the limit
 	along all lines through the origin is $0$, the limit does not exist.
 	

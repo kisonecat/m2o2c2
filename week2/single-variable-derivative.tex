@@ -14,7 +14,7 @@ manner which is ripe for generalization.
 The derivative of a function $f:\R \to \R$ at a point $x = a$ is the ``instantaneous rate of change'' of $f(x)$ with respect to $x$.
 In other words, 
 	
-$f(a + \Delta x) \approx f(x) +f'(a)\Delta x$.
+$f(a + \Delta x) \approx f(a) +f'(a)\Delta x$.
 	
 This is really the essential thing to understand about the derivative.
 	
@@ -55,7 +55,7 @@ This is really the essential thing to understand about the derivative.
 \end{question}
 
 We have not made precise what we mean the approximate sign.  After all, if $\Delta x$ is small enough and $f$ is continuous, 
-$f(a+\Delta x)$ will be close to $f(x)$, but we do not want to say that the derivative is always zero.  We will make the  $\approx$ sign precise by asking that the difference 
+$f(a+\Delta x)$ will be close to $f(a)$, but we do not want to say that the derivative is always zero.  We will make the  $\approx$ sign precise by asking that the difference 
 between the actual value and the estimated value goes to zero faster than $\Delta x$ goes to zero.
 
 \begin{definition}
@@ -65,7 +65,7 @@ between the actual value and the estimated value goes to zero faster than $\Delt
   
   with
   
-  \[ \lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \].
+  \[ \displaystyle\lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \].
   
   If $f$ is differentiable at $a$, there is only one such number $m$, which we call the derivative of $f$ at $a$.  
   
@@ -103,7 +103,7 @@ $m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$.  This also shows
 \begin{free-response}
   Let $f$ be differentiable (in the sense above) at $x=a$, with derivative $m$.  Then 
   
-  \[ \lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \]
+  \[ \displaystyle\lim_{\Delta x \to 0} \frac{\left|\text{Error}_a(\Delta x)\right|}{\left|\Delta x\right|} = 0 \]
   
   where $\text{Error}_a(\Delta x)$ is defined by $f(a+\Delta x) = f(a) + m\Delta x + \text{Error}_a(\Delta x)$, i.e. $\text{Error}_a(\Delta x) = f(a+\Delta x) - f(a) -m\Delta x$.
   
@@ -116,7 +116,7 @@ $m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$.  This also shows
   
   But this implies that
   
-  \[m = \lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}\]
+  \[m = \displaystyle\lim_{\Delta x \to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}\]
   
   So our definition of the derivative agrees with the  ``usual'' definition
   

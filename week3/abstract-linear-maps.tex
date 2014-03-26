@@ -1,57 +1,79 @@
+\documentclass{ximera}
+\title{Linear maps, redux}
+
 \begin{document}
-\section{Linear maps, revisited}
+\begin{abstract}
+	Linear maps respect scalar multiplication and vector addition
+\end{abstract}
 
 \begin{definition}
 	Let $V$ and $W$ be two vector spaces.  A function $L: V \to W$ is called \textit{linear} if 
 	\begin{itemize}
-		\item (Respects vector addition) For all $\vec{v_1},\vec{v_2} \in V$, $L(v_1+v_2) = L(v_1)+L(v_2)$
+		\item (Respects vector addition) For all $\vec{v}_1,\vec{v}_2 \in V$, $L(\vec{v}_1+\vec{v}_2) = L(\vec{v}_1)+L(\vec{v}_2)$
 		\item (Respects scalar multiplication) For all $c \in \R$ and $\vec{v} \in V$, $L(c\vec{c}) = cL(\vec{v})$
 	\end{itemize}
 \end{definition}
 
-\begin{question}
-	Let $V$ be the space of all polynomials in one variable $x$, and $W = \R$.  For each real number $c \in \R$, define the function
-	$Eval_c: V \to W$ defined by $Eval_c(p) = p(c)$.  Show that $Eval_c$ is a linear map. 
-\end{question}
+	Let $V$ be the space of all polynomials in one variable $x$, and $W = \R$.  For each real number $a \in \R$, define the function
+	$Eval_a: V \to W$ defined by $Eval_a(p) = p(a)$.  Show that $Eval_c$ is a linear map. 
 
-\begin{question}
-	Let $V$ be the set of all solutions to the differential equation $y''=-y$.  Show that $V$ is a vector space with function addition and multiplication.
-	Show that the map $L:V \to V$ given by $L(f)(x)  = f(-x)$ is a linear map. 
-	(In particular, make sure it really does take solutions of the differential equation to other solutions!)
-	This is the "time invariance of the wave equation".
-\end{question}
+\begin{free-response}	
+	 Let $p_1, p_2 \in V$.  Then $Eval_a(p_1+p_2)  = p_1(a)+p_2(a) = Eval_a(p_1+p_2)$.  Also if $c \in \R$, then $Eval_a(cp) = cp(a) = cEval_a(p)$.  So $Eval_a$
+	 is a linear map.
+\end{free-response}
 
-\begin{question}
-	Let $V$ be the set of all differentiable functions on $\R$.  Consider the map $L:V \to \R$ defined by $L(f) = f'(2)$.  Show that $L$ is linear.
-\end{question}
+	%Let $V$ be the set of all solutions to the differential equation $y''=-y$.  Show that $V$ is a vector space with function addition and multiplication.
+	%Show that the map $L:V \to V$ given by $L(f)(x)  = f(-x)$ is a linear map. 
+	%(In particular, make sure it really does take solutions of the differential equation to other solutions!)
+	%This is the "time invariance of the wave equation".
+
+%\begin{free-response}
+%		$V$ is a vector space because 
+%\end{free-response}
+
 
 To make sure linear maps work they way we expect them to in this new context, and to flex our brains a little bit, let's prove some facts about linear functions:
 
-\begin{question}
 	Let $L:V \to W$ be a linear map.  Show that $L(\vec{0}) = \vec{0}$. 
 	(Note: $\vec{0}$ means different things on either side of the equation.  On the LHS it means the additive identity of $V$, while on the RHS it means the 
 	additive identity of $W$).
-\end{question}
 
-\begin{question}
-	Let $V$ and $W$ be vector spaces, and define a function $\mathrm{Zero}: V \to W$ by $\mathrm{Zero}(\vec{v}) = \vec{0}$ for all $\vec{v} \in V$.  Show that 
+\begin{free-response}
+	\begin{align*}
+		L(\vec{0}) &= L(0\vec{0}) \text{ we proved in the last section that $0\vec{v} = \vec{0}$ for any $\vec{v}$}\\
+						&= 0L(\vec{0}) \text{ because $L$ respects scalar multiplication}\\
+						&=\vec{0} \text{ by the same reasoning quoted above}
+	\end{align*}
+	
+	Another way to do this would be by starting with $L(\vec{0}) = L(\vec{0}+\vec{0})$ and using the fact that $L$ respects vector addition.  Try this proof out too!
+	\end{free-response}
+
+	Let $V$ and $W$ be vector spaces, and define a function $\text{\textbf{Zero}}: V \to W$ by $\text{\textbf{Zero}}(\vec{v}) = \vec{0}$ for all $\vec{v} \in V$.  Show that 
 	$\mathrm{Zero}$ is a linear function. 
-\end{question}
 
-\begin{question}
-	Let $L:V \to W$ be a linear map. Show that $L(-v) = -L(v)$ for each $v\in V$
-\end{question}
+\begin{free-response}
+	Let $\vec{v}_1,\vec{v}_2 \in V$.  Then
+	\begin{align*}
+		\text{\textbf{Zero}}(\vec{v}_1+\vec{v}_2) &= \vec{0}\\
+						&= \vec{0}+\vec{0}\\
+						&=\text{\textbf{Zero}}(\vec{v}_1)+\text{\textbf{Zero}}(\vec{v}_2)
+	\end{align*}
+	
+	So $\text{\textbf{Zero}}$ respects vector addition
+	
+	Let $\vec{v} \in V$ and $c \in \R$.
+	
+	\begin{align*}
+		\text{\textbf{Zero}}(c\vec{v}) &= \vec{0}}\\
+						&= c\vec{0}\\
+						&=c\text{\textbf{Zero}}(\vec{v})
+	\end{align*}
+	
+	So $\text{\textbf{Zero}}$ respects scalar multiplication.
+	
+\end{free-response}
 
-\begin{question}
-	Let $L:V \to W$ be a linear map.  Let $N(L) = \{ \vec{v} \in V : L(\vec{v}) = \vec{0}\}$.  Show that $N(L)$ is a vector space with addition and scalar multiplication
-	inherited from $V$.  It is called the ``Null space'' of $L$.
-\end{question}
 
-\begin{question}
-	Let $L:V \to W$ be a linear map.  Let $Im(L) = \{ \vec{w} \in W : \text{there is a }\vec{v} \in V \text{with } L(\vec{v}) = \vec{w}\}$. 
-	 Show that $Im(L)$ is a vector space with addition and scalar multiplication
-	inherited from $W$.  It is called the ``Image' of $L$.
-\end{question}
 
 
 

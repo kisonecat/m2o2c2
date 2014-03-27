@@ -2,27 +2,72 @@
 \title{Image}
 
 \begin{document}
+
 \begin{abstract}
-	The image is every actual output.
+  The ``image'' is every actual output.
 \end{abstract}
 
-
-\begin{theorem}
+\begin{definition}
   If $L:V \to W$ is a linear transformation, then the \textbf{image}
-  of $L$, defined by \(Im(L) = \{\vec{w} \in W: \text{ there exists
-    $\vec{v} \in V $ with }L(\vec{v}) = \vec{w}\}$\), is a subspace of
-  $W$.
-\end{theorem}
+  of $L$ is $$\text{Imag}(L) = \{\vec{w} \in W: \text{ there exists
+    $\vec{v} \in V $ with }L(\vec{v}) = \vec{w}\}$$.
+\end{definition}
 
-Prove this theorem
+(Some people may call this the ``range.''  Some other people use the
+word ``range'' for what we've been calling the codomain.  The result
+is that, in my opinion, the word ``range'' is now overused, so we give
+up and never use the word.)
 
-\begin{free-response}
-	If $w \in Im(L)$, then there is a $v \in V$ with $L(v) =w$.  $L(cv) = cL(v)=cw$, so $cw \in Im(L)$ for any $c\in \R$. 
-	 Thus $Im(L)$ is closed under scalar multiplication.
-	 
-	 If $w_1$, $w_2 \in Im(L)$, then there are $v_1,v_2 \in V$ with $L(v_1)=w_1$ and $L(v_2)=w_2$.  $L(v_1+v_2)=L(v_1)+L(v_2)=w_1+w_2$, so $w_1+w_2 \in Im(L)$.
-	 Thus $Im(L)$ is closed under vector addition.
-\end{free-response}
+\begin{question}
+  Suppose $L : \R^2 \to \R^3$, and suppose that
+  \begin{align*}
+    L\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) &= \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix} \\
+    L\left(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) &= \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+  \end{align*}
+
+  What is a vector $\vec{v} \in \R^2$ so that $L(\vec{v}) = \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}$?
+
+  \begin{solution}
+    \begin{hint}
+      Use the fact that $\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix} - \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$.
+    \end{hint}
+
+    \begin{hint}
+      In other words, $\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} = L(\vec{e}_1) - L(\vec{e}_2)$.
+    \end{hint}
+
+    \begin{hint}
+      By linearity of $L$, we have $L(\vec{e}_1) - L(\vec{e}_2) = L(\vec{e}_1 - \vec{e}_2)$.
+    \end{hint}
+
+    \begin{hint}
+      And so a vector in the domain which is sent to $\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}$ is the vector $\begin{bmatrix} 1 \\ -1 \end{bmatrix}$.
+    \end{hint}
+
+    \begin{matrix-answer}[name=v]
+      correctMatrix = [['1'],['-1']]
+    \end{matrix-answer}
+  \end{solution}
+
+  This is a special case of a general fact: if we have two vectors in the image, then their sum is in the image, too.
+
+  \begin{theorem}
+    The image of a linear map is a subspace of the codomain.
+  \end{theorem}
+
+  Prove this.
+
+  \begin{free-response}
+    If $w \in \text{Imag}(L)$, then there is a $v \in V$ with $L(v) =w$.  $L(cv) = cL(v)=cw$, so $cw \in \text{Imag}(L)$ for any $c\in \R$. 
+    Thus $\text{Imag}(L)$ is closed under scalar multiplication.
+    
+    If $w_1$, $w_2 \in \text{Imag}(L)$, then there are $v_1,v_2 \in V$ with $L(v_1)=w_1$ and $L(v_2)=w_2$.  $L(v_1+v_2)=L(v_1)+L(v_2)=w_1+w_2$, so $w_1+w_2 \in \text{Imag}(L)$.
+    Thus $\text{Imag}(L)$ is closed under vector addition.
+  \end{free-response}
+
+\end{question}
+
+\hrule
 
 We finish with some terminology.
 
@@ -32,5 +77,66 @@ We finish with some terminology.
 
 Be careful to observe that the image of $L$ is a subspace, while the dimension of the image of $L$
 is a number, so the rank of $L$ is just a number.
+
+\begin{question}
+  Consider the linear map $L : \R^2 \to \R^3$ given by the matrix
+  $$
+  \begin{bmatrix}
+    2 & 1 \\
+    4 & 2 \\
+    6 & 3
+  \end{bmatrix}.
+  $$
+  
+  \begin{solution}
+    \begin{hint}
+      Not every vector in $\R^3$ is the image of $L$.
+    \end{hint}
+
+    \begin{hint}
+      Let's think about which vectors are in the image of $L$.
+
+      \begin{question}
+        Is $\begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}$ in the image of $L$?
+
+        \begin{solution}
+          \begin{multiple-choice}
+            \choice[correct]{Yes.}
+            \choice{No.}
+          \end{multiple-choice}
+        \end{solution}
+
+        In fact, $\begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix} = L \left( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right)$.
+
+        Is $\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$ in the image of $L$?
+
+        \begin{solution}
+          \begin{multiple-choice}
+            \choice{Yes.}
+            \choice[correct]{No.}
+          \end{multiple-choice}
+        \end{solution}
+
+        But how can we tell?  The only things in the image of $L$ are
+        vectors of the form $\begin{bmatrix} x \\ 2x \\
+          3x \end{bmatrix}$ for some $x \in \R$.  This is the span of $\left(\begin{bmatrix} 1 \\ 2 \\
+          3 \end{bmatrix}\right)$.
+
+        So what is the dimension of the vector space spanned by this single vector?
+        \begin{solution}
+          \begin{multiple-choice}
+            \choice{$0$}
+            \choice[correct]{$1$}
+            \choice{$2$}
+          \end{multiple-choice}
+        \end{solution}        
+        
+        And so the rank is one.
+      \end{question}
+    \end{hint}
+    
+    The rank of $L$ is \answer{$1$}.
+  \end{solution}
+\end{question}
 
 \end{document}

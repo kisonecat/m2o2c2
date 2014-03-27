@@ -14,6 +14,8 @@ Let $\mathcal{P}$ be the collection of all Python functions \texttt{f} with the 
 \end{itemize}
 We'll say that two Python functions are ``equal'' if they produce the same outputs for the same inputs.
 
+\hrule
+
 Now the collection $\mathcal{P}$ (arguably) forms a vector space.  I
 say ``arguably'' because ``numbers'' in Python aren't real numbers,
 but let's just play along and pretend that they are.
@@ -41,6 +43,8 @@ def validator():
     \end{python}
   \end{solution}
 
+  \hrule
+
   Now suppose we have a function \texttt{f} and a scalar \texttt{c}.  What is \texttt{c} times \texttt{f}?
   \begin{solution}
     \begin{python}
@@ -52,7 +56,36 @@ def validator():
     \end{python}
   \end{solution}
 
-  Now some food for thought: in a little while, we'll be thinking
+  \hrule
+
+    Now suppose we have a function \texttt{f} and a scalar \texttt{c}.  What is \texttt{c} times \texttt{f}?
+  \begin{solution}
+    \begin{python}
+def scalar_multiple(c,f):
+  return (lambda x: c * f(x))
+def vector_sum(f,g):
+  return (lambda x: f(x) + g(x))
+def evaluation_map(a,f):
+  # return the value of f at the point a
+#
+# Now note that evaluation_map(a,vector_sum(f,g)) = evaluation_map(a,f) + evaluation_map(a,g)
+#
+f = lambda x: x**2
+g = lambda x: x**3
+a = 3
+print evaluation_map(a,vector_sum(f,g))
+print evaluation_map(a,f) + evaluation_map(a,g)
+    
+def validator():
+  return (evaluation_map(17,(lambda x: x**2)) == 289)
+    \end{python}
+  \end{solution}
+
+  This is an example of the fact that ``evaluation at \texttt{a}'' is a linear map from $\mathcal{P}$ to the underlying number system.
+
+  \hrule
+
+  Finally, some food for thought: in a little while, we'll be thinking
   about ``dimension.''  Keep in mind the following question: what is
   the dimension of the vector space $\mathcal{P}$?  You may want to
   think about this in the ideal world where ``Python functions'' take

@@ -20,21 +20,23 @@ domain and codomain.
   Let $V$ be a vector space with basis $(\vec{v}_1,\vec{v}_2,\vec{v}_3)$ and $W$ be a vector space with basis $(\vec{w}_1,\vec{w}_2)$.
 
   Suppose there is a linear map $L: V \to W$ for which
+  
   \begin{align*}
-    L(\vec{v}_1) &= 3\vec{w}_1 + 2\vec{w}_2,
-    L(\vec{v}_2) &= 3\vec{w}_1 - 2\vec{w}_2, \text{ and}
+    L(\vec{v}_1) &= 3\vec{w}_1 + 2\vec{w}_2, \\ 
+    L(\vec{v}_2) &= 3\vec{w}_1 - 2\vec{w}_2, \text{ and} \\
     L(\vec{v}_3) &= \vec{w}_1 + \vec{w}_2.
-    \end{align*}
-    
-    In light of all this, compute $L(2\vec{v}_1)$.  But how will we write down our answer?
+  \end{align*}
+  
+  In light of all this, compute $L(2\vec{v}_1)$.  But how will we write down our answer?
 
-    Where does $L(2\vec{v}_1)$ live?
-    \begin{solution}
-      \begin{multiple-choice}
-        \choice[correct]{In $W$.}
-        \choice{In $V$.}
-      \end{multiple-choice}
-    \end{solution}
+  Where does $L(2\vec{v}_1)$ live?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{In $W$.}
+      \choice{In $V$.}
+    \end{multiple-choice}
+  \end{solution}
 
     And since we know that $L(2\vec{v}_1) \in W$, we'll write our
     answer as $\alpha \vec{w}_1 + \beta \vec{w}_2$ for some numbers
@@ -82,109 +84,114 @@ domain and codomain.
   $L(\vec{v_i}) = a_{i,1}\vec{w}_1+a_{i,2}\vec{w}_2 + \cdots +
   a_{i,m}\vec{w}_m$.
 
-  Then the \textit{matrix with respect to the bases} $\mathcal{B}_V
-  and \mathcal{B}_V$ is the matrix $M$ whose entry in the $i^{th}$
+  Then the \textit{matrix with respect to the bases} $\mathcal{B}_V$
+  and $\mathcal{B}_V$ is the matrix $M$ whose entry in the $i^{th}$
   column and $j^{th}$ row is $a_{i,j}$
 \end{definition}
 
 \begin{problem}
-	Let $\mathcal{B}_1 = \left(\verticalvector{1,1},\verticalvector{1,0}\right)$ and $\mathcal{B}_2 = \left(\verticalvector{1,0,0},\verticalvector{0,0,1},\verticalvector{0,1,0}\right)$ be bases
-	for $\R^2$ and $\R^3$, respectively. 
+  Let $\mathcal{B}_1 = \left(\verticalvector{1\\1}_{\mathcal{E}_2},\verticalvector{1\\0}_{\mathcal{E}_2}\right)$ and $\mathcal{B}_2 = \left(\verticalvector{1\\0\\0}_{\mathcal{E}_3},\verticalvector{0\\0\\1}_{\mathcal{E}_3},\verticalvector{0\\1\\0}_{\mathcal{E}_3}\right)$ be bases
+  for $\R^2$ and $\R^3$, respectively. 
 
-	\begin{solution}
-	\begin{hint}
-		The first column of the matrix will be the image of $\verticalvector{1\\1}$ expressed in the new basis.  Note that the \textit{order} of vectors in the basis matters.
-	\end{hint}
-	\begin{hint}
-		\begin{align*}
-			L\left(\verticalvector{1\\1}\right) &= \verticalvector{2\\1\\0}\\
-				&= 2\verticalvector{1\\0\\0}+0\verticalvector{0\\0\\1}+1\verticalvector{0\\1\\0}\\
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-		So the first column of the matrix is $\verticalvector{2\\0\\1}$.
-	\end{hint}
-	\begin{hint}
-		Similarly, the second column is $\verticalvector{1\\0\\1}$
-	\end{hint}
-	\begin{hint}
-		So the matrix of this linear map is \(\begin{bmatrix} 2 & 1 \\0& 0\\ 1 & 1\end{bmatrix}\)
-	\end{hint}
-        What is the matrix for the linear map $L\left(\verticalvector{x \\ y}\right) = \verticalvector{x+y \\x \\0}$ with respect to the 
-         bases $\mathcal{B}_1$  and $\mathcal{B}_2$?
-	\begin{matrix-answer}
-          correctMatrix = [['2','1'],['0','0'],['1','1']]
-	\end{matrix-answer}
-	\end{solution}
+  \begin{solution}
+    \begin{hint}
+      The first column of the matrix will be $\verticalvector{1\\1}_{\mathcal{E}_2}$ but written with respect to the basis $\mathcal{B}_2$.
+
+      Remember the \textit{order} of vectors in the basis matters.
+    \end{hint}
+
+    \begin{hint}
+      \begin{align*}
+        L\left(\verticalvector{1\\1}_{\mathcal{E}_2}\right) &= \verticalvector{2\\1\\0}_{\mathcal{E}_3}\\
+        &= 2\verticalvector{1\\0\\0}_{\mathcal{E}_3}+0\verticalvector{0\\0\\1}_{\mathcal{E}_3}+1\verticalvector{0\\1\\0}_{\mathcal{E}_3}\\
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      So the first column of the matrix is $\verticalvector{2\\0\\1}_{\mathcal{B}_2}$.
+    \end{hint}
+    \begin{hint}
+      Similarly, the second column is $\verticalvector{1\\0\\1}_{\mathcal{B}_2}$.
+    \end{hint}
+    \begin{hint}
+      So the matrix of this linear map is \(\begin{bmatrix} 2 & 1 \\0& 0\\ 1 & 1\end{bmatrix}\)
+    \end{hint}
+
+    What is the matrix for the linear map $L\left(\verticalvector{x \\ y}_{\mathcal{E}_2}\right) = \verticalvector{x+y \\x \\0}_{\mathcal{E}_3}$ with respect to the 
+    bases $\mathcal{B}_1$  and $\mathcal{B}_2$?
+
+    \begin{matrix-answer}
+      correctMatrix = [['2','1'],['0','0'],['1','1']]
+    \end{matrix-answer}
+  \end{solution}
 \end{problem}
 
 \begin{problem}
-	Let $P_2$ be the space of polynomials of degree at most $2$.  Let $\mathcal{B}_0 = (1,x,x^2)$ and $\mathcal{B}_1 = (1,(x-1),(x-1)^2)$.  
-	Consider the map $L:P_2 \to \R$ given by $L(p) = p(1)$.  
-	\begin{solution}
-	\begin{hint}
-		\begin{align*}
-			L(1) &= 1\\
-			L(x) &= 1\\
-			L(x^2)&=1^2=1
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-	\begin{bmatrix}
-		The matrix of $L$ with respect to $\mathcal{B}_0$ is \( \begin{bmatrix} 1&1&1 \end{bmatrix}\)
-	\end{bmatrix}
-	\end{hint}
-	What is the matrix of this linear map with respect to the basis $\mathcal{B}_0$?  
-	\begin{matrix-answer}
-		correctMatrix = [['1','1','1']]
-	\end{matrix-answer}
-	\end{solution}
-		
-	\begin{solution}
-	\begin{hint}
-		\begin{align*}
-			L(1) &= 1\\
-			L(x-1) &= 1-1=0\\
-			L((x-1)^2)&=(1-1)^2=0
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-	\begin{bmatrix}
-		The matrix of $L$ with respect to $\mathcal{B}_1$ is \( \begin{bmatrix} 1&0&0 \end{bmatrix}\)
-	\end{bmatrix}
-	\end{hint}
-	What is the matrix of this linear map with respect to the basis $\mathcal{B}_1$?  
-	
-	\begin{matrix-answer}
-		correctMatrix = [['1','0','0']]
-	\end{matrix-answer}
-	\end{solution}
+  Let $P_2$ be the space of polynomials of degree at most $2$.  Let $\mathcal{B}_0 = (1,x,x^2)$ and $\mathcal{B}_1 = (1,(x-1),(x-1)^2)$.  
+  Consider the map $L:P_2 \to \R$ given by $L(p) = p(1)$.  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        L(1) &= 1\\
+        L(x) &= 1\\
+        L(x^2)&=1^2=1
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{bmatrix}
+        The matrix of $L$ with respect to $\mathcal{B}_0$ is \( \begin{bmatrix} 1&1&1 \end{bmatrix}\)
+      \end{bmatrix}
+    \end{hint}
+    What is the matrix of this linear map with respect to the basis $\mathcal{B}_0$?  
+    \begin{matrix-answer}
+      correctMatrix = [['1','1','1']]
+    \end{matrix-answer}
+  \end{solution}
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        L(1) &= 1\\
+        L(x-1) &= 1-1=0\\
+        L((x-1)^2)&=(1-1)^2=0
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{bmatrix}
+        The matrix of $L$ with respect to $\mathcal{B}_1$ is \( \begin{bmatrix} 1&0&0 \end{bmatrix}\)
+      \end{bmatrix}
+    \end{hint}
+    What is the matrix of this linear map with respect to the basis $\mathcal{B}_1$?  
+    
+    \begin{matrix-answer}
+      correctMatrix = [['1','0','0']]
+    \end{matrix-answer}
+  \end{solution}
 \end{problem}
 
 \begin{problem}
-	Let $P_3$ be the space of polynomials of degree at most $3$.  Let $\mathcal{B} = (1,x,x^2,x^3)$.  Consider the map $L:P_3 \to P_3$ given by 
-	$L(p(x)) = \frac{d}{dx} p(x)$. This map is linear (why?).  
-	\begin{solution}
-		\begin{hint}
-			$L$ is linear because the derivative of a sum of two functions is the sum of the derivative of the two functions, and since the derivative of a constant
-			times a function is the constant times the derivative of the function.
-		\end{hint}
-		\begin{hint}
-			\begin{align*}
-				L(1) &=0\\
-				L(x) &=1\\
-				L(x^2)&=2x\\
-				L(x^3)&=3x^2
-			\end{align*}
-		\end{hint}
-		\begin{hint}
-			The matrix of $L$ is \(\begin{bmatrix} 0&1&0&0\\0&0&2&0\\0&0&0&3\\0&0&0&0\end{bmatrix}\)
-		\end{hint}
-	What is the matrix for $L$ with respect to the basis $\mathcal{B}$?
-	\begin{matrix-answer}
-		correctMatrix = [['0','1','0','0'],['0','0','2','0'],['0','0','0','3'],['0','0','0','0']]
-	\end{matrix-answer}
-	\end{solution}
+  Let $P_3$ be the space of polynomials of degree at most $3$.  Let $\mathcal{B} = (1,x,x^2,x^3)$.  Consider the map $L:P_3 \to P_3$ given by 
+  $L(p(x)) = \frac{d}{dx} p(x)$. This map is linear (why?).  
+  \begin{solution}
+    \begin{hint}
+      $L$ is linear because the derivative of a sum of two functions is the sum of the derivative of the two functions, and since the derivative of a constant
+      times a function is the constant times the derivative of the function.
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        L(1) &=0\\
+        L(x) &=1\\
+        L(x^2)&=2x\\
+        L(x^3)&=3x^2
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      The matrix of $L$ is \(\begin{bmatrix} 0&1&0&0\\0&0&2&0\\0&0&0&3\\0&0&0&0\end{bmatrix}\)
+    \end{hint}
+    What is the matrix for $L$ with respect to the basis $\mathcal{B}$?
+    \begin{matrix-answer}
+      correctMatrix = [['0','1','0','0'],['0','0','2','0'],['0','0','0','3'],['0','0','0','0']]
+    \end{matrix-answer}
+  \end{solution}
 \end{problem}
 
 \end{document}

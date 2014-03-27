@@ -58,8 +58,9 @@ week3
     week3/abstract/vector-space
     week3/abstract/linear-maps
     week3/abstract/python
-  week3/dimension
   week3/bases
+    week3/bases/dimension
+    week3/bases/matrix
   week3/subspace
     week3/subspace/kernel
     week3/subspace/image

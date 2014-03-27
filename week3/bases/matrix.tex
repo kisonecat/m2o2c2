@@ -3,40 +3,97 @@
 
 \begin{document}
 \begin{abstract}
-	Matrices record where basis vectors go
+  Matrices record where basis vectors go.
 \end{abstract}
 
-In our first brush with linear algebra, we only dealt with linear maps between the spaces spaces $\R^n$.  For those spaces, the convenient 
-standard basis allowed us to record linear maps using the finite data of a matrix.  In this section we will see that a similar story plays out for
-maps between finite dimensional vector spaces:  they too can be described by matrices with respect to a choice of basis on the codomain and codomain.
+In our first brush with linear algebra, we only dealt with linear maps
+between the spaces spaces $\R^n$ for varying $n$.  For those maps and
+those spaces, the convenient standard basis allowed us to record
+linear maps using the finite data of a matrix.
+
+In this section we will see that a similar story plays out for maps
+between finite dimensional vector spaces: they too can be described by
+a matrix, \textbf{but only after making a choice} of ``basis'' on the
+domain and codomain.
 
 \begin{question}
-	Let $V$ be a vector space with basis $\vec{v_1},\vec{v_2},\vec{v_3}$ and $W$ be a vector space with basis $\vec{w_1},\vec{w_2}$.
-	Moreover, suppose there is a linear map $L: V \to W$ for which $L(\vec{v_1}) = 3\vec{w_1} + 2\vec{w_3}$, 
-	$L(\vec{v_2}) = 3\vec{w_1} - 2\vec{w_3}$, and $L(\vec{v_3}) = \vec{w_1} + \vec{w_3}$.
-	
-	What is $L(2\vec{v_1}+3\vec{v_2}-4\vec{v_3})$?
-\end{question}
+  Let $V$ be a vector space with basis $(\vec{v}_1,\vec{v}_2,\vec{v}_3)$ and $W$ be a vector space with basis $(\vec{w}_1,\vec{w}_2)$.
 
-\begin{question}
-	Show that if $L:V \to W$ is a linear map, and you know the value of $L(v_i)$ for some basis $(\vec{v_1},\vec{v_2},...,\vec{v_n})$ of $V$, 
-	then you can compute $L(\vec{v})$ for any $\vec{v} \in V$.
+  Suppose there is a linear map $L: V \to W$ for which
+  \begin{align*}
+    L(\vec{v}_1) &= 3\vec{w}_1 + 2\vec{w}_2,
+    L(\vec{v}_2) &= 3\vec{w}_1 - 2\vec{w}_2, \text{ and}
+    L(\vec{v}_3) &= \vec{w}_1 + \vec{w}_2.
+    \end{align*}
+    
+    In light of all this, compute $L(2\vec{v}_1)$.  But how will we write down our answer?
+
+    Where does $L(2\vec{v}_1)$ live?
+    \begin{solution}
+      \begin{multiple-choice}
+        \choice[correct]{In $W$.}
+        \choice{In $V$.}
+      \end{multiple-choice}
+    \end{solution}
+
+    And since we know that $L(2\vec{v}_1) \in W$, we'll write our
+    answer as $\alpha \vec{w}_1 + \beta \vec{w}_2$ for some numbers
+    $\alpha$ and $\beta$.
+
+    So say $L(2\vec{v}_1) = \alpha \vec{w}_1 + \beta \vec{w}_2$.  
+
+    \begin{solution}
+      In this case, $\alpha = $ \answer{$6$}.
+    \end{solution}
+
+    \begin{solution}
+      And $\beta = $ \answer{$4$}.
+    \end{solution}
+
+    Next compute $L(2\vec{v}_1+3\vec{v}_2-4\vec{v}_3) = \alpha \vec{w}_1 + \beta \vec{w}_2$.
+    \begin{solution}
+      \begin{hint}
+        Use the fact that $L(2\vec{v}_1+3\vec{v}_2-4\vec{v}_3) = L(2\vec{v}_1)+L(3\vec{v}_2)-L(4\vec{v}_3)$.
+      \end{hint}
+
+      \begin{hint}
+        Further use the fact that $L(2\vec{v}_1)+L(3\vec{v}_2)-L(4\vec{v}_3) = 2 \, L(\vec{v}_1)+3\,L(\vec{v}_2)-4\,L(\vec{v}_3)$.
+      \end{hint}
+
+      In this case, $\alpha = 11$ but $\beta =$ \answer{$-6$}.
+    \end{solution}
+
+    What we are seeing is an instance of the following observation.
+
+    \begin{observation}
+      If $L:V \to W$ is a linear map, and you know the value of $L(v_i)$ for each vector in the basis $(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n)$ of $V$, 
+      then you can compute $L(\vec{v})$ for any $\vec{v} \in V$.
+
+      And by ``compute,'' I mean you can write down $L(\vec{v})$ in terms of a basis of $W$.
+    \end{observation}
+
 \end{question}
 
 \begin{definition}
-	Let $L:V \to W$ be a linear map between finite dimensional vector spaces,  let $\mathcal{B}_V  =(\vec{v_1},\vec{v_2},...,\vec{v_n}) $ be
-	a basis for $V$, and let $\mathcal{B}_W = (\vec{w_1},\vec{w_2},...,\vec{w_m})$  be a basis for $W$.  
-	Then $L(\vec{v_i}) = a_{i,1}\vec{w_1}+a_{i,2}\vec{w_2} +...+ a_{i,m}\vec{w_m}$.
-	Then the \textit{matrix of $L$ with respect to the bases
-	$\mathcal{B}_V and \mathcal{B}_V$} is the matrix $M$ whose entry in the $i^{th}$ column and $j^{th}$ row is $a_{i,j}$
+  Let $L:V \to W$ be a linear map between finite dimensional vector
+  spaces, let $\mathcal{B}_V =(\vec{v}_1 ,\vec{v}_2,\ldots,\vec{v}_n) $
+  be a basis for $V$, and let $\mathcal{B}_W =
+  (\vec{w}_1,\vec{w}_2,\ldots,\vec{w}_m)$ be a basis for $W$.  Then
+  $L(\vec{v_i}) = a_{i,1}\vec{w}_1+a_{i,2}\vec{w}_2 + \cdots +
+  a_{i,m}\vec{w}_m$.
+
+  Then the \textit{matrix with respect to the bases} $\mathcal{B}_V
+  and \mathcal{B}_V$ is the matrix $M$ whose entry in the $i^{th}$
+  column and $j^{th}$ row is $a_{i,j}$
 \end{definition}
 
 \begin{problem}
-	Let $\mathcal{B}_1 = (\verticalvector{1,1},\verticalvector{1,0})$ and $\mathcal{B}_2 = (\verticalvector{1,0,0},\verticalvector{0,0,1},\verticalvector{0,1,0})$ be bases
-	for $\R^2$ and $\R^3$ respectively. 
+	Let $\mathcal{B}_1 = \left(\verticalvector{1,1},\verticalvector{1,0}\right)$ and $\mathcal{B}_2 = \left(\verticalvector{1,0,0},\verticalvector{0,0,1},\verticalvector{0,1,0}\right)$ be bases
+	for $\R^2$ and $\R^3$, respectively. 
+
 	\begin{solution}
 	\begin{hint}
-		The first column of the matrix will be the image of $\verticalvector{1\\1}$ expressed in the new basis.  Note that the order of the basis matters!
+		The first column of the matrix will be the image of $\verticalvector{1\\1}$ expressed in the new basis.  Note that the \textit{order} of vectors in the basis matters.
 	\end{hint}
 	\begin{hint}
 		\begin{align*}
@@ -53,10 +110,10 @@ maps between finite dimensional vector spaces:  they too can be described by mat
 	\begin{hint}
 		So the matrix of this linear map is \(\begin{bmatrix} 2 & 1 \\0& 0\\ 1 & 1\end{bmatrix}\)
 	\end{hint}
-	 What is the matrix for the linear map $L(\verticalvector{x,y} = \verticalvector{x+y,x,0})$ with respect to the 
-	bases $\mathcal{B}_1$  and $\mathcal{B}_2$?
+        What is the matrix for the linear map $L\left(\verticalvector{x \\ y}\right) = \verticalvector{x+y \\x \\0}$ with respect to the 
+         bases $\mathcal{B}_1$  and $\mathcal{B}_2$?
 	\begin{matrix-answer}
-		correctMatrix = [['2','1'],['0','0'],['1','1']]
+          correctMatrix = [['2','1'],['0','0'],['1','1']]
 	\end{matrix-answer}
 	\end{solution}
 \end{problem}

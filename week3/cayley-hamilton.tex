@@ -1,0 +1,255 @@
+\documentclass{ximera}
+
+\title{Cayley-Hamilton theorem}
+
+\begin{document}
+
+\begin{abstract}
+  Sometimes eigen-information reveals quite a bit about linear
+  operators.
+\end{abstract}
+
+We will not be proving---or even stating!---the
+\href{http://en.wikipedia.org/wiki/Cayley–Hamilton_theorem}{Cayley-Hamilton
+  theorem}, but there is one very special case which provides a nice
+activity.  This activity will force us to think about bases and about
+eigenvectors and eigenvalues.
+
+Here's the setup: suppose $L : \R^2 \to \R^2$ is a linear map, and it
+has an eigenvector $\vec{u}$ (with eigenvalue $2$) and an eigenvector
+$\vec{w}$ (with eigenvalue $3$).
+
+\begin{question}
+  Now suppose $\vec{v} \in \R^2$ is some arbitrary vector.  How does
+  $L(L(\vec{v}))$ compare to $-6 \vec{v} + 5 \cdot L(\vec{v})$?  
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$L(L(\vec{v})) = -6 \vec{v} + 5 \cdot L(\vec{v})$}
+      \choice{$L(L(\vec{v})) \neq -6 \vec{v} + 5 \cdot L(\vec{v})$}
+      \choice{It cannot be determined from the information given.}
+    \end{multiple-choice}
+  \end{solution}
+
+  Why is this the case?
+  
+  \begin{solution}
+    \begin{hint}
+      The vectors $\vec{u}$ and $\vec{w}$ together form a basis for $\R^2$.
+    \end{hint}
+
+    Can we write $\vec{v}$ as $\alpha \vec{u} + \beta \vec{w}$?
+
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}    
+  \end{solution}
+  
+  What is $L(\vec{v})$ in terms of $\alpha$, $\beta$, $\vec{u}$, and $\vec{w}$?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$\alpha L(\vec{u}) + \beta L(\vec{w})$}
+      \choice{$\alpha L(\vec{w}) + \beta L(\vec{u})$}
+    \end{multiple-choice} 
+  \end{solution}
+  
+  But what is $L(\vec{u})$?
+  \begin{solution}
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          Remember that $\vec{u}$ is an eigenvector with eigenvalue \answer{$2$}.
+        \end{solution}
+
+        Consequently $L(\vec{u}) = 2 \vec{u}$.
+      \end{question}
+    \end{hint}
+    
+    \begin{multiple-choice}
+      \choice[correct]{$2 \vec{u}$}
+      \choice{$3 \vec{u}$}
+      \choice{$2 \vec{w}$}
+      \choice{$3 \vec{w}$}
+    \end{multiple-choice}   
+  \end{solution}
+  
+  And what is $L(\vec{w})$?
+  \begin{solution}
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          Remember that $\vec{w}$ is an eigenvector with eigenvalue \answer{$3$}.
+        \end{solution}
+
+        Consequently $L(\vec{w}) = 3 \vec{w}$.
+      \end{question}
+    \end{hint}
+    
+    \begin{multiple-choice}
+      \choice{$2 \vec{u}$}
+      \choice{$3 \vec{u}$}
+      \choice{$2 \vec{w}$}
+      \choice[correct]{$3 \vec{w}$}
+    \end{multiple-choice}   
+  \end{solution}
+  
+  Using these facts, what is $L(\vec{v})$ in terms of $\alpha$, $\beta$, $\vec{u}$, and $\vec{w}$?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$2\alpha\,\vec{u} + 3\beta\,\vec{w}$}
+      \choice{$3\alpha\,\vec{u} + 2\beta\,\vec{w}$}
+      \choice{$2\alpha\,\vec{w} + 3\beta\,\vec{u}$}
+      \choice{$3\alpha\,\vec{w} + 2\beta\,\vec{u}$}
+    \end{multiple-choice} 
+  \end{solution}
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          Using linearity of $L$, what is $L(L(\vec{v}))$?
+
+          \begin{multiple-choice}
+            \choice[correct]{$2\alpha\,L(\vec{u}) + 3\beta\,L(\vec{w})$}
+            \choice{$3\alpha\,L(\vec{u}) + 2\beta\,L(\vec{w})$}
+            \choice{$2\alpha\,L(\vec{w}) + 3\beta\,L(\vec{u})$}
+            \choice{$3\alpha\,L(\vec{w}) + 2\beta\,L(\vec{u})$}
+          \end{multiple-choice} 
+        \end{solution}
+      \end{question}
+    \end{hint}
+
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          But what is $L(\vec{u}))$?
+
+          \begin{multiple-choice}
+            \choice[correct]{$L(\vec{u})) = 2 \vec{u}$}
+            \choice{$L(\vec{u})) = 3 \vec{u}$}
+            \choice{$L(\vec{u})) = 2 \vec{w}$}
+            \choice{$L(\vec{u})) = 3 \vec{w}$}
+          \end{multiple-choice} 
+        \end{solution}
+      \end{question}
+    \end{hint}
+
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          And what is $L(\vec{w}))$?
+
+          \begin{multiple-choice}
+            \choice[correct]{$L(\vec{w})) = 3 \vec{w}$}
+            \choice{$L(\vec{w})) = 2 \vec{w}$}
+            \choice{$L(\vec{w})) = 2 \vec{u}$}
+            \choice{$L(\vec{w})) = 3 \vec{u}$}
+          \end{multiple-choice} 
+        \end{solution}
+      \end{question}
+    \end{hint}
+
+    \begin{hint}
+      Try substituting the facts that $L(\vec{u})) = 2 \vec{u}$ and $L(\vec{w})) = 3 \vec{w}$ into $2\alpha\,L(\vec{u}) + 3\beta\,L(\vec{w})$.
+    \end{hint}
+
+    What is $L(L(\vec{v}))$?
+    \begin{multiple-choice}
+      \choice[correct]{$4\alpha\,\vec{u} + 9\beta\,\vec{w}$}
+      \choice{$4\alpha\,\vec{w} + 9\beta\,\vec{u}$}
+      \choice{$9\alpha\,\vec{u} + 4\beta\,\vec{w}$}
+      \choice{$9\alpha\,\vec{w} + 4\beta\,\vec{u}$}
+    \end{multiple-choice} 
+  \end{solution}
+
+  What is $-6 \vec{v} + 5 \cdot L(\vec{v})$ in terms of $\alpha$, $\beta$, $\vec{u}$, and $\vec{w}$?
+  \begin{solution}
+    \begin{hint}
+      Earlier we wrote $\vec{v} = \alpha \vec{u} + \beta \vec{w}$.
+    \end{hint}
+
+    \begin{hint}
+      Since $L$ is a linear map, we have $L(\vec{v}) = \alpha L(\vec{u}) + \beta L(\vec{w})$.
+    \end{hint}
+
+    \begin{multiple-choice}
+      \choice[correct]{$-6 \left( \alpha \vec{u} + \beta \vec{w} \right) + 5 \alpha L(\vec{u}) + 5 \beta L(\vec{w})$}
+      \choice{$-6 \left( \alpha \vec{u} + \beta \vec{w} \right) + 5 \beta L(\vec{u}) + 5 \alpha L(\vec{w})$}
+      \choice{$-6 \left( \alpha \vec{u} + \beta \vec{w} \right) + 3 \alpha L(\vec{u}) + 3 \beta L(\vec{w})$}
+      \choice{$-6 \left( \alpha \vec{u} + \beta \vec{w} \right) + 3 \beta L(\vec{u}) + 3 \alpha L(\vec{w})$}
+    \end{multiple-choice} 
+  \end{solution}
+
+  \begin{question}
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          But what is $L(\vec{u}))$?
+
+          \begin{multiple-choice}
+            \choice[correct]{$L(\vec{u})) = 2 \vec{u}$}
+            \choice{$L(\vec{u})) = 3 \vec{u}$}
+            \choice{$L(\vec{u})) = 2 \vec{w}$}
+            \choice{$L(\vec{u})) = 3 \vec{w}$}
+          \end{multiple-choice} 
+        \end{solution}
+      \end{question}
+    \end{hint}
+
+    \begin{hint}
+      \begin{question}
+        \begin{solution}
+          And what is $L(\vec{w}))$?
+
+          \begin{multiple-choice}
+            \choice[correct]{$L(\vec{w})) = 3 \vec{w}$}
+            \choice{$L(\vec{w})) = 2 \vec{w}$}
+            \choice{$L(\vec{w})) = 2 \vec{u}$}
+            \choice{$L(\vec{w})) = 3 \vec{u}$}
+          \end{multiple-choice} 
+        \end{solution}
+      \end{question}
+    \end{hint}
+
+    \begin{hint}
+      Try substituting the facts that $L(\vec{u})) = 2 \vec{u}$ and $L(\vec{w})) = 3 \vec{w}$ into $-6 \left( \alpha \vec{u} + \beta \vec{w} \right) + 5 \alpha L(\vec{u}) + 5 \beta L(\vec{w})$.
+    \end{hint}    
+
+    \begin{hint}
+      Then we get $-6 \alpha \vec{u} - 6 \beta \vec{w} + (5 \cdot 2) \alpha \vec{u} + (5 \cdot 3) \beta \vec{w}$.
+    \end{hint}    
+
+    \begin{hint}
+      But $-6 + 10 = 4$ and $-6 + 15 = 9$.
+    \end{hint}    
+
+    \begin{hint}
+      Consequently, this simplifies to $4\alpha\,\vec{u} + 9\beta\,\vec{w}$.
+    \end{hint}    
+
+    Now write $-6 \vec{v} + 5 \cdot L(\vec{v})$ but without referring to $L$.
+    \begin{multiple-choice}
+      \choice[correct]{$4\alpha\,\vec{u} + 9\beta\,\vec{w}$}
+      \choice{$4\alpha\,\vec{w} + 9\beta\,\vec{u}$}
+      \choice{$9\alpha\,\vec{u} + 4\beta\,\vec{w}$}
+      \choice{$9\alpha\,\vec{w} + 4\beta\,\vec{u}$}
+    \end{multiple-choice} 
+  \end{question}
+
+  And so, after all this, we see that $L(L(\vec{v})) = -6 \vec{v} + 5 \cdot L(\vec{v})$.
+
+  What happens if you try this in higher dimensions?  Suppose you have
+  a map $L : \R^3 \to \R^3$ and it has three eigenvectors with three
+  different eigenvalues.  Can you rewrite $L(L(L(\vec{v})))$ in terms
+  of $\vec{v}$ and $L(\vec{v})$ and $L(L(\vec{v}))$ in that case?
+
+\end{question}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

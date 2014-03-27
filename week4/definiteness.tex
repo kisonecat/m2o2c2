@@ -110,6 +110,7 @@ Our goal will now be to reduce the study of general symmetric bilinear forms to 
 
 This, in some sense, completely answers the question of how to characterize the definiteness of a symmetric bilinear form.  Look at its associated linear operator, 
 which must be self adjoint.  By the Spectral Theorem, it has a orthonormal basis of eigenvectors.  Then 
+
 \begin{itemize}
 	\item $B$ positive definite $\Longleftrightarrow$ $L_B$ has all positive eigenvalues
 	\item $B$ positive semidefinite $\Longleftrightarrow$ $L_B$ has all nonnegative eigenvalues
@@ -117,5 +118,9 @@ which must be self adjoint.  By the Spectral Theorem, it has a orthonormal basis
 	\item $B$ negative semidefinite $\Longleftrightarrow$ $L_B$ has all nonpositive eigenvalues
 	\item $B$ indefinite $\Longleftrightarrow$ $L_B$ has both positive and negative eigenvalues
 \end{itemize}
+
+This will be crucially important when we get to the second derivative test:  it will turn out that the second derivative is a symmetric bilinear form, and the definiteness of this 
+bilinear form is analogous to the concavity of a function of one variable.  Identifying local maxima and minima with the ``second derivative test'' will require analysis of the eigenvalues
+of the associated linear map.
 	
 \end{document}

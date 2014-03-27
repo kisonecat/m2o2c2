@@ -54,10 +54,13 @@ week2
     week2/practice/hypersurfaces
     week2/practice/chain-rule
 week3
-    week3/abstract-vector-space
-    week3/abstract-linear-maps
-    week3/dimension
-    week3/bases
-    week3/subspace
-    week3/eigenstuff
-    week3/cayley-hamilton
+  week3/abstract-vector-space
+  week3/abstract-linear-maps
+  week3/dimension
+  week3/bases
+  week3/subspace
+    week3/subspace/kernel
+    week3/subspace/image
+    week3/subspace/rank-nullity
+  week3/eigenstuff
+  week3/cayley-hamilton

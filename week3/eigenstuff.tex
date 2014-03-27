@@ -1,25 +1,90 @@
 \documentclass{ximera}
+
 \title{Eigenvectors}
 
 \begin{document}
+
 \begin{abstract}
-	Eigenvectors get mapped to multiples of themselves
+  Eigenvectors are mapped to multiples of themselves.
 \end{abstract}
 
 \begin{definition}
-	Let $L:V \to V$ be a linear map.  A vector $\vec{v} \in V$ is called an \textbf{eigenvector} of $L$ if $L(\vec{v})  =\lambda \vec{v}$ for some $\lambda \in \R$. 
-	 A constant $\lambda \in \R$ is called an eigenvalue of $L$ if there is a nonzero eigenvector  $\vec{v}$ with $L(\vec{v}) = \lambda \vec{v}$ .
+  Let $L:V \to V$ be a linear map.  A vector $\vec{v} \in V$ is called
+  an \textbf{eigenvector} of $L$ if $L(\vec{v}) = \lambda \vec{v}$ for
+  some $\lambda \in \R$.
+
+  A constant $\lambda \in \R$ is called an \textbf{eigenvalue} of $L$
+  if there is a nonzero eigenvector $\vec{v}$ with $L(\vec{v}) =
+  \lambda \vec{v}$.
 \end{definition}
 
-Observation:  if $(v_1,v_2,...,v_n)$ is a basis of eigenvectors of a linear operator $L$, then the matrix of $L$ with respect to that basis is diagonal, with the eigenvalues
-of $L$ appearing along the diagonal.
+Let's try some examples.
+
+\begin{question}
+  Suppose $L : \R^2 \to \R^2$ is the linear map represented by the matrix
+  $$
+  \begin{bmatrix}
+    3 & 2 \\
+    4 & 1
+  \end{bmatrix}.
+  $$
+  Note that $L\left( \verticalvector{1 \\ 1} \right)$ is
+  $\verticalvector{5 \\ 5} = 5 \cdot \verticalvector{1 \\ 1}$, and so
+  $\verticalvector{1 \\ 1}$ is an eigenvector.
+
+  \begin{solution}
+    \begin{hint}
+      Try computing $L\left( \verticalvector{1 \\ -2} \right)$.
+    \end{hint}
+
+    \begin{hint}
+      In this case, $L\left( \verticalvector{1 \\ -2} \right) = \verticalvector{-1 \\ 2}$.
+    \end{hint}
+
+    \begin{hint}
+      \begin{question}
+        Find $\lambda \in \R$ so that $\verticalvector{1 \\ -2} = \lambda \cdot \verticalvector{-1 \\ 2}$.
+        \begin{solution}
+          $\lambda = $ \answer{$-1$}
+        \end{solution}
+
+        And so $-1$ is an eigenvalue, with eigenvector $\verticalvector{1 \\ -2}$.
+      \end{question}
+    \end{hint}
+
+    Which of the following is another eigenvector?
+    \begin{multiple-choice}
+      \choice[correct]{$\verticalvector{1 \\ -2}$}
+      \choice{$\verticalvector{2 \\ -1}$}
+    \end{multiple-choice}
+  \end{solution}
+
+  That's right!  We check that 
+  $$
+  L\left( \verticalvector{1 \\ -2} \right) = \verticalvector{-1 \\ 2} = -1 \cdot \verticalvector{1 \\ -2}
+  $$
+  and so $\verticalvector{1 \\ -2}$ is an eigenvector with eigenvalue $-1$.
+
+
+\end{question}
+
+\begin{observation}
+  If $(v_1,v_2,...,v_n)$ is a basis of eigenvectors of a linear
+  operator $L$, then the matrix of $L$ with respect to that basis is
+  diagonal, with the eigenvalues of $L$ appearing along the diagonal.
+\end{observation}
 
 \begin{theorem}
-	Let $\lambda$ be an eigenvalue of a linear operator $L:V\to V$.  Then the set $E_\lambda(L) = \{ v \in V: L(v) = \lambda v\}$ of all eigenvectors with eigenvalue $\lambda$ forms a subspace of $V$.
-	We call this subspace the \textbf{eigenspace} associated to the eigenvalue $\lambda$.
+  Let $\lambda$ be an eigenvalue of a linear operator $L:V\to V$.
+  Then the set $E_\lambda(L) = \{ v \in V: L(v) = \lambda v\}$ of all
+  (including zero) eigenvectors with eigenvalue $\lambda$ forms a
+  subspace of $V$.
+
+  This subspace is the \textbf{eigenspace} associated to the
+  eigenvalue $\lambda$.
 \end{theorem}
 
-Prove this theorem
+Prove this theorem.
 \begin{free-response}
 	We need to check that $E_\lambda(L)$ is closed under scalar multiplication and vector addition
 	

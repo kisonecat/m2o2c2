@@ -1,6 +1,6 @@
 \documentclass{ximera}
 
-\title{Vector Spaces}
+\title{Vector spaces}
 
 \begin{document}
 
@@ -41,30 +41,39 @@ Let's list off some nice examples of vector spaces.
 
 \begin{example}
   Let $\text{Poly}_2$ be the set of all polynomials of degree at most $2$ in one variable.  For example $1+2x \in \text{Poly}_2$ and $3+x^2 \in \text{Poly}_2$.  Then the usual way of 
-  adding polynomials and multiplying them by \textit{constants} turns $\text{Poly}_2$ into a vector space.  For example $2 \, (1+2x)+(3+x^2)  = 7+4x+x^2$.
+  adding polynomials and multiplying them by \textit{constants} turns $\text{Poly}_2$ into a vector space.  For example $2 \, (1+2x)+(3+x^2)  = 5+4x+x^2$.
 \end{example}
-		
+
+\hrule
+
 The next example will probably be the most important example for us.  Thinking of matrices as points in a vector space will be useful for us when we 
 start thinking about the second derivative.
 	
 \begin{example}
   Let $\text{Mat}_{nm}$ be the collection of all $n \times m$ matrixes.  Then $\text{Mat}_{nm}$ is a vector space with the usual notion of matrix addition and scalar multiplication.
 \end{example}
+
+\hrule
 	
-The next example is an important, but very small, first step into the world of functional analysis:
+The following is an important, but very small, first step into the world of functional analysis.
 	
 \begin{example}
   Let $\mathcal{C}([0,1])$ be the set of all continuous functions from $[0,1]$ to $\R$.  Then $\mathcal{C}([0,1])$ is a vector space with addition and scalar 
   multiplication defined pointwise ($f+g$ is the function whose value at $x$ is $f(x)+g(x)$, and $cf$ is the function whose value at $x$ is $cf(x)$).
 \end{example}
+
+\hrule
 	
 Realizing that solution sets of certain differential equations form vector spaces is important.
-	
 
-Let $V$ be the set of all differentiable functions $f: \R \to \R$ which solve the differential equation $\frac{d^2f}{dx^2} + 3\frac{df}{dx} +4f(x) = 0$.
-Addition is the usual addition of functions, likewise for scalar multiplication.  Show that $V$ is a vector space.
+Let $V$ be the set of all smooth functions $f: \R \to \R$ which
+satisfy the differential equation $\frac{d^2f}{dx^2} + 3\frac{df}{dx}
++4f(x) = 0$.  Addition is the usual addition of functions, meaning
+that $f + g$ denotes the function which sends $x$ to $f(x) + g(x)$.
+Scalar multiplication $cf$ means the function that sends $x$ to
+$c\,f(x)$.  With this, we can show that $V$ is a vector space.
 		
-What is we change the differential equation to $\frac{d^2f}{dx^2} + 3\frac{df}{dx} +4 = 0$?  Is this still a vector space?  Why or why not?
+What if we change the differential equation to $\frac{d^2f}{dx^2} + 3\frac{df}{dx} +4 = 0$?  Is this still a vector space?  Why or why not?
 \begin{free-response}
   We already know that function addition and scalar multiplication of functions satisfy all of the axioms of a vector space:  what we do not know is whether
   function addition and scalar multiplication are well defined for solutions to this differential equation.  
@@ -91,7 +100,7 @@ met before.  It is worthwhile taking some time to prove certain
 ``obvious'' (though they are not so obvious) statements
 formally from the axioms:
 	
-Prove that in any vector space, there is a unique additive identity.  In other words, if $V$ is a vector space, and there are two elements $\vec{0},\vec{0}' \in V$ so that for each 
+Prove that in any vector space, there is a unique additive identity.  In other words, if $V$ is a vector space, and there are two elements $\vec{0} \in V$ and $\vec{0}' \in V$ so that for each 
 $\vec{v} \in V$, $\vec{v}+\vec{0}=\vec{v}$ and $\vec{v} + \vec{0}' = \vec{v}$, then $\vec{0}=\vec{0}'$.  Every line of your proof should be justified with a vector space axiom!
 		
 \begin{free-response}
@@ -148,27 +157,26 @@ Let $V$ be a vector space.  Prove that $a\vec{0} = \vec{0}$ for every $a \in \R$
 
 \begin{free-response}
   \begin{align*}
-    a\vec{0} &= a(\vec{0}+\vec{0})} \text{ by definition of the additive identity}\\
-  &=a\vec{0}+a\vec{0} \text{ by the distributivity of scalar multiplication over vector adddition}
-\end{align*}
-
-So 
-\[
-a\vec{0} = a\vec{0}+a\vec{0}
-\]
-
-Let $\vec{w}$ be the additive inverse of $a\vec{0}$.  Adding $\vec{w}$ to both sides we have
-
-\begin{align*}
-  a\vec{0}+\vec{w} &= \left(a\vec{0}+a\vec{0}\right) +\vec{w}\\
-  a\vec{0}+\vec{w} &= a\vec{0}+\left( \vec{0}+\vec{w}\right) \text{ by associativity of vector addition}\\
-  \vec{0} &= a\vec{0}+\vec{0} \text{by definition of additive inverses}\\
-  \vec{0} &= a\vec{0} \text{ by definition of the additive identity}
-\end{align*}
-
-QED
+    a\vec{0} &= a(\vec{0}+\vec{0}) \text{ by definition of the additive identity}\\
+    &=a\vec{0}+a\vec{0} \text{ by the distributivity of scalar multiplication over vector adddition}
+  \end{align*}
+  
+  So 
+  \[
+  a\vec{0} = a\vec{0}+a\vec{0}
+  \]
+  
+  Let $\vec{w}$ be the additive inverse of $a\vec{0}$.  Adding $\vec{w}$ to both sides we have
+  
+  \begin{align*}
+    a\vec{0}+\vec{w} &= \left(a\vec{0}+a\vec{0}\right) +\vec{w}\\
+    a\vec{0}+\vec{w} &= a\vec{0}+\left( \vec{0}+\vec{w}\right) \text{ by associativity of vector addition}\\
+    \vec{0} &= a\vec{0}+\vec{0} \text{by definition of additive inverses}\\
+    \vec{0} &= a\vec{0} \text{ by definition of the additive identity}
+  \end{align*}
+  
+  QED
 \end{free-response}
-
 
 Let $V$ be a vector space.  Prove that $(-1)\vec{v}$ is the additive inverse of $\vec{v}$ for every $\vec{v} \in \R$.
 

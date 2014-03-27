@@ -9,7 +9,7 @@
 There are some special subspaces that we will want to pay attention to.
 
 \begin{theorem}
-	If $L:V \to W$ is a linear transformation, then the \textbf{kernel} of $L$, defined by $ker(L) = \{\vec{v} \in V:L(\vec{v}) = \vec{0}\}$ is a subspace of $L$
+	If $L:V \to W$ is a linear transformation, then the \textbf{kernel} of $L$, defined by $ker(L) = \{\vec{v} \in V:L(\vec{v}) = \vec{0}\}$ is a subspace of $V$
 \end{theorem}
 
 You may also hear this referred to as the ``null space'' of $L$.
@@ -43,11 +43,30 @@ Thus $ker(L)$ is a subspace!
 
 \end{free-response}
 
+\begin{question}
+	Let $L:\R^3 \to \R^2$ be the linear map whose matrix is 
+	\( \begin{bmatrix} 
+		2 & 3 & 1\\
+		1 & 1 & -1
+	\end{bmatrix}\)
+	\begin{solution}
+		\begin{hint}
+			Just by evaluating all three, we see the only one which gets sent to $\verticalvector{0\\0}$ by $L$ is $\verticalvector{0\\0\\2}$
+		\end{hint}
+		Which of the following vectors is in the kernel of $L$?
+		\begin{multiple-choice}
+			\choice{$\verticalvector{1\\-1\\1}$}
+			\choice{$\verticalvector{3\\2\\0}$}
+			\choice[correct]{$\verticalvector{0\\0\\2}$}
+		\end{multiple-choice}
+	\end{solution}
+\end{question}
+
 \begin{theorem}
 	A linear map $L:V \to W$ is injective if and only if $ker(L) = \{\vec{0}\}$.
 \end{theorem}
 
-Note:  injective is an adjective meaning the same thing as one to one.  In other words, a function $f:A \to B$ is injective if $f(a_1)=f(a_2)$ implies $a_1=a_2$.
+Note:  ``injective'' is an adjective meaning the same thing as one to one.  In other words, a function $f:A \to B$ is injective if $f(a_1)=f(a_2)$ implies $a_1=a_2$.
 
 Prove this theorem
 	

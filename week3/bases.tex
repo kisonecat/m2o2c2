@@ -1,0 +1,72 @@
+\documentclass{ximera}
+\title{Bases}
+
+\begin{document}
+
+\begin{abstract}
+  Basis vectors span the space without redundancy.
+\end{abstract}
+
+In our study of the vector spaces $\R^n$, we have relied quite heavily on the ``standard basis vectors'' $\vec{e}_1  =\verticalvector{1\\0\\0\\ \vdots \\ 0}, 
+\vec{e}_2  =\verticalvector{0 \\ 1 \\ 0 \\ \vdots \\ 0}, \vec{e}_3  =\verticalvector{0\\0\\1\\ 0 \\ \vdots \\ 0},\ldots, \vec{e}_n  =\verticalvector{0\\ \vdots \\ 0 \\ 1}$.  
+
+A great feature of these vectors is that they \textit{span} all of $\R^n$:  every vector $\vec{v} \in \R^n$ can be written in the form
+ $\vec{v} = x_1\vec{e}_1 +x_2\vec{e}_2+ \cdots +x_n\vec{e}_n$.  What is even better is that this representation is unique:  if I also have $\vec{v}v = y_1\vec{e}_1 +y_2\vec{e}_2+ \cdots +y_n\vec{e}_n$
+ then $x_1 = y_1, x_2 = y_2, \ldots, x_n=y_n$.
+ 
+ Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
+ 
+ \begin{definition}
+ 	The \textbf{span} of an ordered list of vectors $(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n)$ is the set of all \textbf{linear combinations} of the $\vec{v}_i$.
+ 	\[\textrm{Span}(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n) = \{a_1\vec{v}_1+a_2\vec{v}_2+ \cdots +a_n\vec{v}_n: a_i \in \R\}\]
+ \end{definition}
+ 
+% \begin{question}
+% 	Which of the following vectors are in the span of BLAH?
+% \end{question}
+ 
+ 	Show that $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ span the entire space $\R^2$.
+
+\begin{free-response}
+	Since we already know that $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ span $\R^2$,
+	 it is enough to show that $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ span these two vectors, i.e.
+	 we need only show that $\verticalvector{0\\1}$ is in the span of these two vectors.
+	 
+	 But $\verticalvector{0\\1} = \verticalvector{1\\1} +-1\verticalvector{1\\0}$, so we are done.
+	 
+	 To be a bit more explicit, we can write any vector \begin{align*}
+	 \verticalvector{x\\y} &= x\verticalvector{1\\0}+ y\verticalvector{0\\1}\\
+	 &= x\verticalvector{1\\0}+ y\left(\verticalvector{1\\1} +-1\verticalvector{1\\0}\right)\\
+	 &=(x-y)\verticalvector{1\\0}+y\vecticalvector{1\\1}
+	 \end{align*}
+	 
+	 So we have expressed any vector as a linear combination of $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$.
+\end{free-response} 
+
+%  \begin{question}
+ %	Show that $(\verticalvector{2,3},\verticalvector{1,0},\verticalvector{4,5})$ span the space $\R^2$.
+ %\end{question}
+ 
+ 	Show that $1$, $x-1$, and $(x-1)^2$  span the space of polynomials of degree at most $2$.
+
+\begin{free-response}
+	Let $p(x)=a_0+a_1x+a_2x^2$. 
+	
+	Then \begin{align*}
+		p(x) &= a_0+a_1[(x-1)+1]+a_2[(x-1)+1]^2\\
+			   &= a_0+a_1(x-1)+a_1+a_2[(x-1)^2+2(x-1)+1]\\
+			   &= (a_0+a_1+a_2)1+(a_1+2a_2)(x-1)+a_2(x-1)^2
+		\end{align*}
+	
+	so we have expressed every polynomial of degree at most $2$ as a linear combination of $1,(x-1)$ and $(x-1)^2$.
+	
+	You could also solve this problem by appealing to Taylor's theorem in one variable calculus.  Can you see how?
+\end{free-response}
+
+ 
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,68 @@
+\documentclass{ximera}
+\title{Image}
+
+\begin{document}
+\begin{abstract}
+	The image is every actual output.
+\end{abstract}
+
+
+\begin{theorem}
+  If $L:V \to W$ is a linear transformation, then the \textbf{image}
+  of $L$, defined by \(Im(L) = \{\vec{w} \in W: \text{ there exists
+    $\vec{v} \in V $ with }L(\vec{v}) = \vec{w}\}$\), is a subspace of
+  $L$.
+\end{theorem}
+
+Prove this theorem
+
+\begin{free-response}
+	If $w \in Im(L)$, then there is a $v \in V$ with $L(v) =w$.  $L(cv) = cL(v)=cw$, so $cw \in Im(L)$ for any $c\in \R$. 
+	 Thus $Im(L)$ is closed under scalar multiplication.
+	 
+	 If $w_1$, $w_2 \in Im(L)$, then there are $v_1,v_2 \in V$ with $L(v_1)=w_1$ and $L(v_2)=w_2$.  $L(v_1+v_2)=L(v_1)+L(v_2)=w_1+w_2$, so $w_1+w_2 \in Im(L)$.
+	 Thus $Im(L)$ is closed under vector addition.
+\end{free-response}
+
+\begin{theorem}[Rank-Nullity]
+	If $L:V \to W$ is a linear transformation, then the sum of the dimension of the kernel of $L$ and the dimension of the image of $L$ is the dimension of $V$.
+ \end{theorem}
+ 
+ Note:  the dimension of the kernel is sometimes called the ``nullity'' of $L$, and the dimension of the image is sometimes called the ``rank'' of $L$.  
+ Hence the name ``rank-nullity'' theorem.
+ 
+ Prove this theorem
+ 
+ \begin{warning}
+ This is hard!
+ \end{warning}
+ 
+ \begin{free-response}
+ 	Let $v_1,v_2,v_3,...,v_m$ be a basis of $ker(L)$.  We can extend this to a basis of $V$, $v_1,v_2,...,v_n,u_1,u_2,...,u_k$.  We need to show that 
+ 	We will be done if we can show that $L(u_1),L(u_2),...,L(u_k)$ form a basis of $Im(L)$.
+ 	
+ 	Let $w \in Im(L)$.  Then $w = L(v)$ for some $v \in V$.  Since $v_1,v_2,...,v_n,u_1,u_2,...,u_k$ is a basis of $V$ , we can write
+ 	
+ 	\begin{align*}
+ 		w &= L( a_1v_1+a_2v_2+...+a_nv_n+b_1u_1+...+b_ku_k)\\
+ 			&=a_1L(v_1)+...+a_nL(v_n)+b_1L(u_1)+...+b_kL(u_k)\\
+ 			&=b_1L(u_1)+...+b_kL(u_k)\\
+ 	\end{align*}
+ 	
+ 	So $Im(L)$ is spanned by the $L(u_i)$.  Now we need to see that the $L(u_i)$ are linearly independent.
+ 	
+ 	Assume $b_1L(u_1)+b_2L(u_2)+...+b_kL(u_k) = 0$.  Then $L(b_1u_1+...+b_ku_k) = 0$.  Then $b_1u_1+...+b_ku_k$ would be in the null space of $L$.  But
+ 	the $u_i$ were chosen specifically to be linearly independent of all of the vectors in the null space.  So $b_1=b_2=...=b_k = 0$.   Thus the $u_i$ are linearly independent
+ 	and we are done.
+ \end{free-response}
+
+We finish with some terminology.
+
+\begin{definition}
+  The dimension of the image of $L$ is the \textbf{rank} of $L$.
+\end{definition}
+
+Be careful to observe that the image of $L$ is a subspace, while the dimension of the image of $L$
+is a number, so the rank of $L$ is just a number.
+
+\end{document}

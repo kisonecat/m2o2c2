@@ -1,0 +1,69 @@
+\documentclass{ximera}
+\title{Kernel}
+
+\begin{document}
+\begin{abstract}
+	A kernel is everything sent to zero.
+\end{abstract}
+
+There are some special subspaces that we will want to pay attention to.
+
+\begin{theorem}
+	If $L:V \to W$ is a linear transformation, then the \textbf{kernel} of $L$, defined by $ker(L) = \{\vec{v} \in V:L(\vec{v}) = \vec{0}\}$ is a subspace of $L$
+\end{theorem}
+
+You may also hear this referred to as the ``null space'' of $L$.
+
+Prove this theorem
+
+\begin{free-response}
+We only need to show that $ker(L)$ is closed under scalar multiplication and vector addition.
+
+For any $\vec{v} \in ker(L)$ and $c \in \R$,
+
+\begin{align*}
+	L(c\vec{v}) &=cL(\vec{v})\\
+		&=c\vec{0}\\
+		&=0
+\end{align*}
+
+so $c\vec{v} \in ker(L)$.
+
+If $\vec{v},\vec{w} \in ker(L)$, then
+
+\begin{align*}
+	L(\vec{v}+\vec{w}) &= L(\vec{v})+L(\vec{w})\\
+	&= \vec{0}+\vec{0}\\
+	&=\vec{0}
+\end{align*}
+
+so $\vec{v}+\vec{w} \in ker(L)$
+
+Thus $ker(L)$ is a subspace!
+
+\end{free-response}
+
+\begin{theorem}
+	A linear map $L:V \to W$ is injective if and only if $ker(L) = \{\vec{0}\}$.
+\end{theorem}
+
+Note:  injective is an adjective meaning the same thing as one to one.  In other words, a function $f:A \to B$ is injective if $f(a_1)=f(a_2)$ implies $a_1=a_2$.
+
+Prove this theorem
+	
+\begin{free-response}
+	Let $L$ be injective.  Then $L(vec{v}) = \vec{0}$ implies $L(\vec{v}) = L(\vec{0})$.  Since $L$ is injective, this implies $\vec{v} = \vec{0}$.  Thus the only element
+	of the kernel is $\vec{0}$.
+	
+	On the other hand, if $ker(L) = \{\vec{0}\}$, then if $L(\vec{v_1}) = L(\vec{v_2})$, then $L(\vec{v_1}-\vec{v_2})= \vec{0}$, so $\vec{v_1}-\vec{v_2}$
+	 is in the null space, and hence must be equal to $\vec{0}$.  But then we can conclude that $\vec{v_1} = \vec{v_2}$
+	\end{free-response}
+
+\begin{definition}
+  The dimension of the kernel of $L$ is the \textbf{nullity} of $L$.        
+\end{definition}
+
+Be careful to observe that $\ker L$ is a subspace, while $\dim \ker L$
+is a number, so the nullity of $L$ is just a number.
+
+\end{document}

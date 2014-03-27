@@ -1,0 +1,45 @@
+\documentclass{ximera}
+\title{Rank nullity theorem}
+
+\begin{document}
+\begin{abstract}
+	Rank plus nullity is the dimension of the domain.
+\end{abstract}
+
+
+\begin{theorem}[Rank-Nullity]
+	If $L:V \to W$ is a linear transformation, then the sum of the dimension of the kernel of $L$ and the dimension of the image of $L$ is the dimension of $V$.
+ \end{theorem}
+ 
+ The dimension of the kernel is sometimes called the ``nullity'' of
+ $L$, and the dimension of the image is sometimes called the ``rank''
+ of $L$.
+
+Hence the name ``rank-nullity'' theorem.
+ 
+ Prove this theorem
+ 
+ \begin{warning}
+ This is hard!
+ \end{warning}
+ 
+ \begin{free-response}
+ 	Let $v_1,v_2,v_3,...,v_m$ be a basis of $ker(L)$.  We can extend this to a basis of $V$, $v_1,v_2,...,v_n,u_1,u_2,...,u_k$.  We need to show that 
+ 	We will be done if we can show that $L(u_1),L(u_2),...,L(u_k)$ form a basis of $Im(L)$.
+ 	
+ 	Let $w \in Im(L)$.  Then $w = L(v)$ for some $v \in V$.  Since $v_1,v_2,...,v_n,u_1,u_2,...,u_k$ is a basis of $V$ , we can write
+ 	
+ 	\begin{align*}
+ 		w &= L( a_1v_1+a_2v_2+...+a_nv_n+b_1u_1+...+b_ku_k)\\
+ 			&=a_1L(v_1)+...+a_nL(v_n)+b_1L(u_1)+...+b_kL(u_k)\\
+ 			&=b_1L(u_1)+...+b_kL(u_k)\\
+ 	\end{align*}
+ 	
+ 	So $Im(L)$ is spanned by the $L(u_i)$.  Now we need to see that the $L(u_i)$ are linearly independent.
+ 	
+ 	Assume $b_1L(u_1)+b_2L(u_2)+...+b_kL(u_k) = 0$.  Then $L(b_1u_1+...+b_ku_k) = 0$.  Then $b_1u_1+...+b_ku_k$ would be in the null space of $L$.  But
+ 	the $u_i$ were chosen specifically to be linearly independent of all of the vectors in the null space.  So $b_1=b_2=...=b_k = 0$.   Thus the $u_i$ are linearly independent
+ 	and we are done.
+ \end{free-response}
+
+\end{document}

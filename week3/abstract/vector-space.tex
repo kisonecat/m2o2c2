@@ -1,0 +1,199 @@
+\documentclass{ximera}
+
+\title{Vector spaces}
+
+\begin{document}
+
+\begin{abstract}
+  Vector spaces are sets with a notion of addition and scaling.
+\end{abstract}
+
+Until now, we have only dealt with the spaces $\R^n$.  We now begin the journey of understanding more general spaces.  
+	
+The crucial structure we need to talk about linear maps on $\R^n$ are addition and scalar multiplication.  Addition is a function which takes a 
+pair of vectors $\vec{v},\vec{w} \in \R^n$ and returns a new vector $\vec{v}+\vec{w} \in \R^n$.  Scalar multiplication is function which takes a vector $\vec{v} \in \R^n$  and 
+a scalar $c \in \R$, and returns a new vector $cv$.  
+	
+\begin{definition}
+  A \textit{vector space} is a set $V$ equipped with a notion of addition, which is a function that takes a pair of vectors $\vec{v},\vec{w} \in V$ and returns 
+  a new vector $\vec{v}+\vec{w}$, and a notion of scalar multiplication, which is a function that takes a scalar $c \in \R$ and a vector $\vec{v} \in V$ and returns a 
+  new vector $c\vec{v} \in V$.
+		
+  These operations are subject to the following requirements:
+		
+  \begin{description}
+  \item[Commutativity] For each $\vec{v},\vec{w} \in V$, $ \vec{v} +\vec{w} = \vec{w}+\vec{v}$
+  \item[Associativity] For each $\vec{v},\vec{w},\vec{u} \in V$, $\vec{v} +(\vec{w} +\vec{u}) = (\vec{v} +\vec{w}) +\vec{u}$
+  \item[Additive identity] There is a vector called $\vec{0} \in V$ with $\vec{v}+\vec{0} = \vec{v}$ for each $\vec{v} \in V$.
+  \item[Additive inverse] For each $\vec{v} \in V$ there is a vector $\vec{w} \in V$ with $v+w = \vec{0}$
+  \item[Multiplicative identity] For each $\vec{v} \in V$, $1\vec{v}= \vec{v}$ (here $1$ is really the real number $1 \in \R$, and $1\vec{v}$ is the
+    scalar product of $1$ with $v$)
+  \item[Distributivity of scalar multiplication over vector addition]  For each $\vec{v},\vec{w} \in V$ and $c \in \R$, $c(\vec{v}+\vec{w}) = c\vec{v} + c\vec{w}$
+  \item[Distributivity of vector  multiplication under scalar addition] For each $a,b \in \R$ and $\vec{v} \in V$, $(a+b)\vec{v} = a\vec{v}+b\vec{v}$
+  \end{description}
+\end{definition}
+
+Let's list off some nice examples of vector spaces.
+
+\begin{example}
+  Our old friend $\R^n$ is a vector space with the notions of vector addition and scalar multiplication we introduced in Week 1.
+\end{example}
+
+\begin{example}
+  Let $\text{Poly}_2$ be the set of all polynomials of degree at most $2$ in one variable.  For example $1+2x \in \text{Poly}_2$ and $3+x^2 \in \text{Poly}_2$.  Then the usual way of 
+  adding polynomials and multiplying them by \textit{constants} turns $\text{Poly}_2$ into a vector space.  For example $2 \, (1+2x)+(3+x^2)  = 5+4x+x^2$.
+\end{example}
+
+\hrule
+
+The next example will probably be the most important example for us.  Thinking of matrices as points in a vector space will be useful for us when we 
+start thinking about the second derivative.
+	
+\begin{example}
+  Let $\text{Mat}_{nm}$ be the collection of all $n \times m$ matrixes.  Then $\text{Mat}_{nm}$ is a vector space with the usual notion of matrix addition and scalar multiplication.
+\end{example}
+
+\hrule
+	
+The following is an important, but very small, first step into the world of functional analysis.
+	
+\begin{example}
+  Let $\mathcal{C}([0,1])$ be the set of all continuous functions from $[0,1]$ to $\R$.  Then $\mathcal{C}([0,1])$ is a vector space with addition and scalar 
+  multiplication defined pointwise ($f+g$ is the function whose value at $x$ is $f(x)+g(x)$, and $cf$ is the function whose value at $x$ is $cf(x)$).
+\end{example}
+
+\hrule
+	
+Realizing that solution sets of certain differential equations form vector spaces is important.
+
+Let $V$ be the set of all smooth functions $f: \R \to \R$ which
+satisfy the differential equation $\frac{d^2f}{dx^2} + 3\frac{df}{dx}
++4f(x) = 0$.  Addition is the usual addition of functions, meaning
+that $f + g$ denotes the function which sends $x$ to $f(x) + g(x)$.
+Scalar multiplication $cf$ means the function that sends $x$ to
+$c\,f(x)$.  With this, we can show that $V$ is a vector space.
+		
+What if we change the differential equation to $\frac{d^2f}{dx^2} + 3\frac{df}{dx} +4 = 0$?  Is this still a vector space?  Why or why not?
+\begin{free-response}
+  We already know that function addition and scalar multiplication of functions satisfy all of the axioms of a vector space:  what we do not know is whether
+  function addition and scalar multiplication are well defined for solutions to this differential equation.  
+			
+  We need to check that if $f$ and $g$ are solutions, and $c\in \R$, then $f+g$ and $cf$ are as well.
+			
+  \begin{align*}
+    \frac{d^2}{dx^2}(f+g) + 3\frac{d}{dx}(f+g)+4(f+g)(x) &=  frac{d^2f}{dx^2} `+ frac{d^2g}{dx^2} + 3\frac{df}{dx} + 3\frac{df}{dx} +4f(x)+4g(x)\\
+    &= \frac{d^2f}{dx^2} + 3\frac{df}{dx} +4f(x) + \frac{d^2g}{dx^2} + 3\frac{dg}{dx} +4g(x) \\
+    &= 0
+  \end{align*}
+  
+  So $f+g$ is a solution to the DE if $f$ and $g$ are.
+  
+  \[ \frac{d^2}{dx^2} (cf(x))+ 3\frac{d}{dx} (cf(x)) +4cf(x) = c(\frac{d^2f}{dx^2} + 3\frac{df}{dx} +4f(x)) = 0\]
+  
+  So $cf$ is a solution to the DE if $f$ is, and $c\in \R$
+  
+  So  addition and scalar multiplication are well defined on $V$, giving $V$ the structure of a vector space.
+\end{free-response}
+
+We are dealing with a level of abstraction here that you may not have
+met before.  It is worthwhile taking some time to prove certain
+``obvious'' (though they are not so obvious) statements
+formally from the axioms:
+	
+Prove that in any vector space, there is a unique additive identity.  In other words, if $V$ is a vector space, and there are two elements $\vec{0} \in V$ and $\vec{0}' \in V$ so that for each 
+$\vec{v} \in V$, $\vec{v}+\vec{0}=\vec{v}$ and $\vec{v} + \vec{0}' = \vec{v}$, then $\vec{0}=\vec{0}'$.  Every line of your proof should be justified with a vector space axiom!
+		
+\begin{free-response}
+  We will start with $\vec{0}$, and use our vector space axioms to construct a string of equalities ending in $\vec{0}'$
+  \begin{align*}
+    \vec{0} &= \vec{0}+\vec{0}' \text{ because $\vec{0}'$ is an additive identity}\\
+    &= \vec{0}'+\vec{0} \text{ by the commutativity of vector addition}\\
+    &=\vec{0}'\text{ because $\vec{0}$ is an additive identity}
+  \end{align*}
+  
+  So $\vec{0} = \vec{0}'$.
+\end{free-response}	
+		
+
+Prove that each element of a vector space has a unique (only one) additive inverse.
+\begin{free-response}
+  Let $\vec{v} \in V$.  Assume that both $\vec{w}_1$ and $\vec{w}_2$ are both additive inverses of $\vec{v}$.  We will show that $\vec{w}_1=\vec{w}_2$
+  
+  \begin{align*}
+    \vec{w}_1&= \vec{w}_1+\vec{0} \text{ by the definition of the additive identity}\\
+    &= \vec{w}_1+\left(\vec{v}+ \vec{w}_2\right) \text{ because $\vec{v}$ and $\vec{w}_2$ are additive inverses}\\
+    &=\left( \vec{w}+\vec{v}\right)+\vec{w}_2 \text{ by associativity of vector addition}\\
+    &= \vec{0}+\vec{w}_2 \text{ because $\vec{v}$ and $\vec{w}_1$ are additive inverses}\\
+    &= \vec{w}_2 \text{ by the definition of the additive identity}
+  \end{align*}
+\end{free-response}
+	
+
+Let $V$ be a vector space. Prove that $0\vec{v} = \vec{0}$ for every $\vec{v} \in V$. (Note: $0$ means different things on the different sides of the equation!  On
+the left hand side, it is the scalar $0\in\R$, whereas on the right hand side it is the zero vector $\vec{0} \in V$ )
+
+\begin{free-response}
+  
+  \begin{align*}
+    0\vec{v} &= (0+0)\vec{v} \text{ nothing funny here:  $0+0=0$}\\
+    &=0\vec{v}+0\vec{v} \text{ by the distributivity of vector multiplication under scalar addition}\\
+  \end{align*}
+  
+  So $0\vec{v} = 0\vec{v}+0\vec{v}$.
+  
+  Now let $\vec{w}$ be the additive inverse of $0\vec{v}$, and add it to both sides of the equation:
+  \begin{align*}
+    0\vec{v}+w &= \left(0\vec{v}+0\vec{v} \right) + \vec{w}\\
+    0\vec{v}+w & = 0\vec{v}+\left( 0\vec{v} +\vec{w}\right) \text{ by the associativity of vector addition}\\
+    \vec{0} &= 0\vec{0}+\vec{0} \text{ by the definition of additive inverses}\\
+    \vec{0}&= 0\vec{0} \text{ by the definition of the additive identity}
+  \end{align*}
+  
+  QED
+\end{free-response}
+
+
+Let $V$ be a vector space.  Prove that $a\vec{0} = \vec{0}$ for every $a \in \R$
+
+\begin{free-response}
+  \begin{align*}
+    a\vec{0} &= a(\vec{0}+\vec{0}) \text{ by definition of the additive identity}\\
+    &=a\vec{0}+a\vec{0} \text{ by the distributivity of scalar multiplication over vector adddition}
+  \end{align*}
+  
+  So 
+  \[
+  a\vec{0} = a\vec{0}+a\vec{0}
+  \]
+  
+  Let $\vec{w}$ be the additive inverse of $a\vec{0}$.  Adding $\vec{w}$ to both sides we have
+  
+  \begin{align*}
+    a\vec{0}+\vec{w} &= \left(a\vec{0}+a\vec{0}\right) +\vec{w}\\
+    a\vec{0}+\vec{w} &= a\vec{0}+\left( \vec{0}+\vec{w}\right) \text{ by associativity of vector addition}\\
+    \vec{0} &= a\vec{0}+\vec{0} \text{by definition of additive inverses}\\
+    \vec{0} &= a\vec{0} \text{ by definition of the additive identity}
+  \end{align*}
+  
+  QED
+\end{free-response}
+
+Let $V$ be a vector space.  Prove that $(-1)\vec{v}$ is the additive inverse of $\vec{v}$ for every $\vec{v} \in \R$.
+
+\begin{free-response}
+  The proof of this uses the ``rat poison principle'':  if you want to show that something is rat poison, try feeding it to a rat! 
+  In this case we want to see if $(-1)\vec{v}$ is the additive inverse of $\vec{v}$, so we should try adding it to $\vec{v}$.
+  \begin{align*}
+    (-1)\vec{v}+\vec{v} &= (-1)\vec{v}+1\vec{v} \text{ Multiplicative identity property}\\
+    &= (-1+1)\vec{v}  \text{ distributivity of vector multiplication over scalar addition}\\
+    &= 0\vec{v} 
+    &= \vec{0} \text{ by one of the theorems above}
+  \end{align*} 
+  
+  So, indeed, $(-1)\vec{v}$ is an additive inverse
+  of $\vec{v}$.  We already proved uniqueness of additive inverses above, so we are done.  
+  We will often simply write $-\vec{v}$ for the additive inverse of
+  $\vec{v}$ in the future.
+\end{free-response}
+
+\end{document}

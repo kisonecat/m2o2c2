@@ -1,0 +1,101 @@
+
+\documentclass{ximera}
+\title{Duality}
+\begin{document}
+\section{Linear maps associated with bilinear forms}
+	
+	It turns out that we will be able to use the inner product on $\R^n$ to rewrite any bilinear form on $\R^n$ in a special form. 
+	
+	Given a bilinear map $B:V \times W \to \R$, we obtain a new map $B(\cdot, w):V \to \R$ for each vector $w \in W$.   $B(\cdot, w)$ is linear, since 
+	by definition of bilinearity it is linear in the first slot for a fixed vector $\vec{w}$ in the second slot.  Thus we have a map $\textrm{Curry}(B): W \to V^*$ defined by
+	$\textrm{Curry}(B)(w) = B(\cdot, w)$.
+	
+	If $V$ and $W$ are Euclidean spaces, then we have that every bilinear map $\R^n \times \R^m \to \R$ gives rise to a map $\R^m \to (\R^n)^*$.  But every element
+	of $ \omega \in (\R^n)^*$ is just a row vector, and so can be represented as the dot product against the vector  $\omega^\top$.  
+	Thus we obtain a map $L_B:\R^m \to \R^n$ defined by $L_B(w) = B(\cdot,w)^\top$. 
+	This is called the \textbf{linear map associated to the bilinear form}. 
+	We also call the matrix of $L_B$ the \textbf{matrix of $B$}.
+	
+	Hopefully computing some examples will make these definitions less abstract.
+	
+	\begin{question}
+		Let  $B:\R^2 \times \R^3 \to R$ be a bilinear mapping, and you know the following values of $B$:
+			\begin{itemize}
+				\item $B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}\right) = 2$
+				\item $B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}\right) = 1$
+				\item $B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right) = -3$
+				\item $B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}\right) = 3$
+				\item $B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}\right) = 5$
+				\item $B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right) = 4$ 
+			\end{itemize}
+			
+			What is the matrix of $L_B$?
+			
+			\begin{solution}
+				\begin{hint}
+					$L_B:\R^3 \to \R^2$
+				\end{hint}
+				\begin{hint}
+					$L_B(e_1) = B(\cdot, e_1)^\top$
+				\end{hint}
+				\begin{hint}
+					To fin the matrix of $B(\cdot,e_1):\R^2 \to \R$, we need to see its effect on basis vectors.
+					\begin{align*}
+						B(e_1,e_1) &= 2\\
+						B(e_2,e_1) &=3
+					\end{align*}
+					
+					so the matrix of $B(\cdot,e_1)$ is \(\begin{bmatrix} 2 &3\end{bmatrix}\)
+				\end{hint}
+				\begin{hint}
+					Thus $L_B(e_1) = B(\cdot, e_1)^\top = \verticalvector{2\\3}$
+				\end{hint}
+				\begin{hint}
+					Similarly, $L_B(e_2) = \verticalvector{1\\5}$ and $L_B(e_3)=\verticalvector{-3\\4}$
+				\end{hint}
+				\begin{hint}
+					Thus the matrix of $L_B$ is \(\begin{bmatrix} 2&1&-3\\3&5&4\end{bmatrix}\)
+				\end{hint}
+				\begin{matrix-answer}
+					correctMatrix = [['2','1','-3'],['3','5','4']]
+				\end{matrix-answer}
+			\end{solution}
+	\end{question}
+	
+	\begin{question}
+		If $B: \R^3 \times \R^3 \to \R$ is a bilinear map, and the matrix of $B$ is 
+		\(\begin{bmatrix} 2 & 3 & 1 \\ -2  & 1& 5\\ 3&2 & 1\end{bmatrix}\)
+		\begin{solution}
+			\begin{hint}
+				By definition, $B\left( \verticalvector{1\\2\\0}, \verticalvector{0\\0\\1}\right) = \verticalvector{1\\2\\0} \cdot L_B(\verticalvector{0\\0\\1})$
+			\end{hint}
+			\begin{hint}
+				Thus $B\left( \verticalvector{1\\2\\0}, \verticalvector{0\\0\\1}\right) = \verticalvector{1\\2\\0} \cdot \verticalvector{1\\5\\1} = 11$
+			\end{hint}
+			Then $B\left( \verticalvector{1\\2\\0}, \verticalvector{0\\0\\1}\right) =$ \answer{'11'}
+		\end{solution}
+	\end{question}
+	
+	Show that the matrix of the bilinear form $\sum a_{i,j} dx_i \otimes dx_j$ is the matrix $[a_{i,j}]$.
+	
+	\begin{free-response}
+		Let $M$ be the matrix of $L_B$.
+		
+		Following the same line of reasoning as in \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week1/inner-product/multiply-dot/}{this activity}, we 
+		know that $M_{i,j} = e_i^\top L_B(e_j)$.  But by definition, this is 	$B(e_i,e_j)$, which plainly evaluates to $a_{i,j}$.   The claim is proven.
+	\end{free-response}
+	
+	To every linear map  $L:\R^m \to \R^n$ we also obtain a bilinear map $B_L : \R^n \times \R^m \to \R$ defined by $B_L(v,w) = v^\top L(w)$.
+	
+	To summarize, we have a really nice story about bilinear maps $B:\R^n \times \R^m \to \R$:  Every single one can be written as $B(v,w) = v^\top L(w)$ for some 
+	unique linear map $L:\R^m \to \R^n$. Also every linear map $\R^m \to \R^n$ gives rise to a bilinear form by defining $B(v,w) = v^\top L(w)$.  On the level of matrices,
+	we just have that $B(v,w) = v^\top M w $ where $M$ is the matrix of the linear map $L_B$.  We will sometimes say talk about "using a matrix as a bilinear form":  this is what we
+	mean by that.  This will be very important to us when we start talking about the second derivative.
+	
+	In this activity we have shown that for bilinear maps $\R^n \times \R^m \to \R$, there is a useful notion of a linear map associated to that bilinear form from 
+	$\R^m \to \R^n$.  If the codomain of the original bilinear map had been anything other than $\R$ we would not have such luck: our work depended crucially on
+	the ability to turn covectors into vectors using the inner product on $\R^n$.
+	
+	
+
+\end{document}

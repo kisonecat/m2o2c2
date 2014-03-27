@@ -1,0 +1,35 @@
+\documentclass{ximera}
+
+\title{Eigenspace}
+
+\begin{document}
+
+\begin{abstract}
+  An eigenspace collects together all the eigenvectors for a given eigenvalue.
+\end{abstract}
+
+\begin{theorem}
+  Let $\lambda$ be an eigenvalue of a linear operator $L:V\to V$.
+  Then the set $E_\lambda(L) = \{ v \in V: L(v) = \lambda v\}$ of all
+  (including zero) eigenvectors with eigenvalue $\lambda$ forms a
+  subspace of $V$.
+
+  This subspace is the \textbf{eigenspace} associated to the
+  eigenvalue $\lambda$.
+\end{theorem}
+
+Prove this theorem.
+\begin{free-response}
+	We need to check that $E_\lambda(L)$ is closed under scalar multiplication and vector addition
+	
+	If $v \in E_\lambda(L)$, and $c \in \R$, then $L(cv) = cL(v) = c\lambda v = \lambda( cv)$, so $cv$ is also an eigenvector of $L$.
+	
+	If $v_1,v_2 \in E_\lambda(L)$, then $L(v_1+v_2) = \lambda v_1+\lambda v_2 = \lambda( v_1 + v_2)$, so $v_1+v_2$ is also an eigenvalue of $L$.
+\end{free-response}
+
+The kernel of $L$ is the eigenspace of the eigenvalue $0$.
+
+
+
+
+\end{document}

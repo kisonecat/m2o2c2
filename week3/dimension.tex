@@ -8,18 +8,18 @@
   Basis vectors span the space without redundancy.
 \end{abstract}
 
-In our study of the vector spaces $\R^n$, we have relied quite heavily on the ``standard basis vectors'' $\vec{e_1}  =\verticalvector{1,0,0,...,0}, 
-\vec{e_2}  =\verticalvector{0,1,0,...,0}, \vec{e_3}  =\verticalvector{0,0,1,...,0},..., \vec{e_n}  =\verticalvector{0,0,0,...,1}$.  
+In our study of the vector spaces $\R^n$, we have relied quite heavily on the ``standard basis vectors'' $\vec{e}_1  =\verticalvector{1\\0\\0\\ \vdots \\ 0}, 
+\vec{e}_2  =\verticalvector{0 \\ 1 \\ 0 \\ \vdots \\ 0}, \vec{e}_3  =\verticalvector{0\\0\\1\\ 0 \\ \vdots \\ 0},\ldots, \vec{e}_n  =\verticalvector{0\\ \vdots \\ 0 \\ 1}$.  
 
 A great feature of these vectors is that they \textit{span} all of $\R^n$:  every vector $\vec{v} \in \R^n$ can be written in the form
- $v = x_1\vec{e_1} +x_2\vec{e_2}+...+x_n\vec{e_n}$.  What is more this representation is unique:  if I also have $v = y_1\vec{e_1} +y_2\vec{e_2}+...+y_n\vec{e_n}$
- then $x_1 = y_1, x_2 = y_2, ..., x_n=y_n$.
+ $\vec{v} = x_1\vec{e}_1 +x_2\vec{e}_2+ \cdots +x_n\vec{e}_n$.  What is even better is that this representation is unique:  if I also have $\vec{v}v = y_1\vec{e}_1 +y_2\vec{e}_2+ \cdots +y_n\vec{e}_n$
+ then $x_1 = y_1, x_2 = y_2, \ldots, x_n=y_n$.
  
  Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
  
  \begin{definition}
- 	The \textbf{span} of an ordered list of vectors $(v_1,v_2, ...,v_n)$ is the set of all \textbf{linear combinations} of the $v_i$.
- 	\[\textrm{Span}(v_1,v_2, ...,v_n) = \{a_1v_1+a_2v_2+...+a_nv_n: a_i \in \R\}\]
+ 	The \textbf{span} of an ordered list of vectors $(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n)$ is the set of all \textbf{linear combinations} of the $\vec{v}_i$.
+ 	\[\textrm{Span}(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n) = \{a_1\vec{v}_1+a_2\vec{v}_2+ \cdots +a_n\vec{v}_n: a_i \in \R\}\]
  \end{definition}
  
 % \begin{question}
@@ -69,19 +69,19 @@ A great feature of these vectors is that they \textit{span} all of $\R^n$:  ever
  	A vector space is called \textbf{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
  \end{definition}
  
- 	Show that the space $P$ of all polynomials in one variable $x$ is infinite dimensional
+ 	Show that the space $P$ of all polynomials in one variable $x$ is infinite dimensional.
 
 \begin{free-response}
-	 Let $p_1,p_2,...,p_n$ be a finite list of  vectors.  
+	 Let $p_1,p_2,\ldots,p_n$ be a finite list of  vectors.  
 	Since this list of polynomials is finite they must be bounded in degree, i.e.  the degree of $p_i$ must be less than some $k$ for each $i$.  But a linear combination
-	of polynomials of degree at most $k$ is also of degree at most $k$.  So the polynomial $x^{k+1} \not\in  \textrm{Span}(p_1,p_2,...,p_n)$. Thus no finite list of 
+	of polynomials of degree at most $k$ is also of degree at most $k$.  So the polynomial $x^{k+1} \not\in  \textrm{Span}(p_1,p_2,\ldots,p_n)$. Thus no finite list of 
 	polynomials spans all of $P$.  So $P$ is infinite dimensional.
 \end{free-response}
 
  \begin{definition}
- 	Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,...,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
- 	$a_1v_1+a_2v_2 + ...+a_nv_n = b_1v_1 + b_2v_2 + ... + b_nv_n$ implies that $a_1  = b_1$, $a_2 = b_2$, ...,$a_n=b_n$.  In other words,
- 	every vector in the span of $(v_1,v_2,...,v_n)$ can be expressed as a linear combination of the $v_i$ in only one way.  
+ 	Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
+ 	$a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ implies that $a_1  = b_1, a_2 = b_2, \ldots,a_n=b_n$.  In other words,
+ 	every vector in the span of $(v_1,v_2,\ldots,v_n)$ can be expressed as a linear combination of the $v_i$ in only one way.  
  	If the set of vectors is not linearly independent it is called \textit{linearly dependent}.
  \end{definition}
  
@@ -92,18 +92,18 @@ A great feature of these vectors is that they \textit{span} all of $\R^n$:  ever
  	Show that the following alternative definition for linear independence is equivalent to our definition:
  	
  	\begin{definition}
- 		Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,...,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
- 	$a_1v_1+a_2v_2 + ...+a_nv_n = \vec{0}$ implies that $a_i = 0 $ for all $i=1,2,3,...,n$.
+ 		Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
+ 	$a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ implies that $a_i = 0 $ for all $i=1,2,3,\ldots,n$.
  	\end{definition}
  	
  
  \begin{free-response}
 	Let us say that our original definition is of  being linearly independent in the first sense, while this second definition is being linearly independent 
-	in the second sense.  If a list of vectors $(v_1,v_2,...,v_n)$ is linearly independent in the first sense, then if $a_1v_1+a_2v_2 + ...+a_nv_n = \vec{0}$ we have
-	$a_1v_1+a_2v_2 + ...+a_nv_n = 0v_1+0v_2+...+0v_n$, so by the definition of linear independence in the first sense, we have $a_1=a_2=...=a_n=0$.
+	in the second sense.  If a list of vectors $(v_1,v_2,\ldots,v_n)$ is linearly independent in the first sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ we have
+	$a_1v_1+a_2v_2 + \cdots +a_nv_n = 0v_1+0v_2+ \cdots +0v_n$, so by the definition of linear independence in the first sense, we have $a_1=a_2= \cdots =a_n=0$.
 	
-	On the other hand, if $(v_1,v_2,...,v_n)$ are linearly independent in the second sense, then if $a_1v_1+a_2v_2 + ...+a_nv_n = b_1v_1 + b_2v_2 + ... + b_nv_n$ we have
-	$(a_1-b_1)v_1+(a_2-b_2)v_2+...+(a_n-b_n)v_n = \vec{0}$, so $a_i-b_i=0$ for each $i$.  Thus $a_i=b_i$ for each $i$, proving that the list was linearly independent 
+	On the other hand, if $(v_1,v_2,\ldots,v_n)$ are linearly independent in the second sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ we have
+	$(a_1-b_1)v_1+(a_2-b_2)v_2+\cdots+(a_n-b_n)v_n = \vec{0}$, so $a_i-b_i=0$ for each $i$.  Thus $a_i=b_i$ for each $i$, proving that the list was linearly independent 
 	in the first sense.
  \end{free-response}
  
@@ -124,18 +124,18 @@ A great feature of these vectors is that they \textit{span} all of $\R^n$:  ever
 
 
  \begin{theorem}
- 	If $(\vec{v_1},\vec{v_2},\vec{v_3}, ..., \vec{v_n})$ is linearly dependent in $V$ and $\vec{v_1} \neq 0$, then one of the vectors $v_j$ is in the 
- 	span of $\vec{v_1},\vec{v_2},...,\vec{v_{j-1}}$
+ 	If $(\vec{v_1},\vec{v_2},\vec{v_3}, \ldots, \vec{v_n})$ is linearly dependent in $V$ and $\vec{v_1} \neq 0$, then one of the vectors $v_j$ is in the 
+ 	span of $\vec{v_1},\vec{v_2},\ldots,\vec{v_{j-1}}$
  \end{theorem}
  
 Prove this theorem.
 
 \begin{free-response}
- 	Since $(\vec{v_1},\vec{v_2},\vec{v_3}, ..., \vec{v_n})$ is linearly dependent, by definition there are scalars $a_i \in \R$ with 
- 	$a_1\vec{v_1}+a_2\vec{v_2}+ ...+a_n\vec{v_n} = 0$, and not all of the $a_j =0$.  Let $j$ be the largest element of ${2,3,...,n}$ so that $a_j$ is not equal to $0$.
+ 	Since $(\vec{v_1},\vec{v_2},\vec{v_3}, \ldots, \vec{v_n})$ is linearly dependent, by definition there are scalars $a_i \in \R$ with 
+ 	$a_1\vec{v_1}+a_2\vec{v_2}+ \cdots +a_n\vec{v_n} = 0$, and not all of the $a_j =0$.  Let $j$ be the largest element of ${2,3,\ldots,n}$ so that $a_j$ is not equal to $0$.
  	Then we have 
- 	$v_j = -\frac{a_1}{a_j}\vec{v_1}-\frac{a_2}{a_j}\vec{v_2} -\frac{a_3}{a_j}\vec{v_3} - ...-\frac{a_{j-1}}{a_{j-1}}\vec{v_{j-1}}$.
- 	So $v_j$ is in the span of $\vec{v_1},\vec{v_2},...,\vec{v_{j-1}}$.
+ 	$v_j = -\frac{a_1}{a_j}\vec{v_1}-\frac{a_2}{a_j}\vec{v_2} -\frac{a_3}{a_j}\vec{v_3} - \cdots -\frac{a_{j-1}}{a_{j-1}}\vec{v_{j-1}}$.
+ 	So $v_j$ is in the span of $\vec{v_1},\vec{v_2},\ldots,\vec{v_{j-1}}$.
  \end{free-response}
  
  
@@ -166,20 +166,20 @@ This problem generalizes:
 	\end{theorem}
 Prove this theorem
  \begin{free-response}
- 	We will follow the same procedure that we did above.  Assume $(v_1,v_2,...,v_n)$ is a list of vectors which spans $V$, and $(w_1,w_2,...,w_m)$ is a linearly
+ 	We will follow the same procedure that we did above.  Assume $(v_1,v_2,\ldots,v_n)$ is a list of vectors which spans $V$, and $(w_1,w_2,\ldots,w_m)$ is a linearly
  	independent list of vectors.  We must show that $m<n$.
  	
- 	$(w_1,v_1,v_2,...,v_n)$ is linearly dependent since $w_1$ is in the span of the $v_i$.  
+ 	$(w_1,v_1,v_2,\ldots,v_n)$ is linearly dependent since $w_1$ is in the span of the $v_i$.  
  	By the theorem above, we can remove on of the $v_i$ and still have a spanning list of length $n$.
  	
  	Repeating this, we can always add one $w$ vector to the beginning of the list, while deleting a $v$ vector from the end of the list.  This maintains a list of length 
  	$n$ which spans all of $V$.  We know that it must be a $v$ which gets deleted, because the $w$s are all linearly independent. 
- 	 If $m>n$, then at the $n^{th]$ stage of this process we obtain that $(w_1,w_2,...,w_n)$ spans all of $V$, which contradicts the fact that $w_{n+1}$ is supposed 
+ 	 If $m>n$, then at the $n^{th]$ stage of this process we obtain that $(w_1,w_2,\ldots,w_n)$ spans all of $V$, which contradicts the fact that $w_{n+1}$ is supposed 
  	 to be linearly independent from the rest of the $w$.
  \end{free-response}
  
  \begin{definition}
- 	An ordered list of vectors $\mathcal{B} = (\vec{v_1},\vec{v_2},\vec{v_3},...,\vec{v_n})$ is called a \textit{basis} of the vector space $V$ if 
+ 	An ordered list of vectors $\mathcal{B} = (\vec{v_1},\vec{v_2},\vec{v_3},\ldots,\vec{v_n})$ is called a \textit{basis} of the vector space $V$ if 
  	$\mathcal{B}$ is both spans $V$ and is linearly independent.  
  \end{definition}
  
@@ -191,9 +191,9 @@ Prove this theorem
  
  	Let $V$ be a finite dimensional vector space.  Show that $V$ has a basis.
 \begin{free-response}
-	Let $(v_1,v_2,...,v_n)$ be a spanning list of vectors (which exists and is finite since $V$ is finite dimensional).  If this list is linearly dependent we can 
+	Let $(v_1,v_2,\ldots,v_n)$ be a spanning list of vectors (which exists and is finite since $V$ is finite dimensional).  If this list is linearly dependent we can 
 	go through the following process:
-	For each $i$ if $v_i \in Span(v_1,v_2,...,v_{i-1})$, delete $v_i$ from the list.  Note that this also covers the $1st$ case:  if $v_1=0$ delete it from the list.
+	For each $i$ if $v_i \in Span(v_1,v_2,\ldots,v_{i-1})$, delete $v_i$ from the list.  Note that this also covers the $1st$ case:  if $v_1=0$ delete it from the list.
 	
 	At the end of this process, we have a list of vectors which span $V$, and also no vector is the span of all the previos vectors.  By the theorem above, the list is linearly 
 	independent.  So this new list is a basis for $V$.
@@ -201,17 +201,17 @@ Prove this theorem
 
  
  	Note: Let $V$ be a finite dimensional vector space.  Then  every basis of $V$ has the same length.  In other words, if
- 	$\vec{v_1},\vec{v_2}, ..., \vec{v_n}$ is a basis and	$\vec{w_1},\vec{w_2}, ..., \vec{w_m}$ is a basis, then $n=m$.  This follows because we have already proven
+ 	$\vec{v_1},\vec{v_2}, \ldots, \vec{v_n}$ is a basis and	$\vec{w_1},\vec{w_2}, \ldots, \vec{w_m}$ is a basis, then $n=m$.  This follows because we have already proven
  	that $n\leq m$ and $m\leq n$
   
   \begin{definition}
   	We say that a finite dimensional vector space has dimension $n$ if it has a basis of length $n$.
   \end{definition}
   
-  	Let $p_1,p_2,..,p_n,p_{n+1}$ be polynomials in the space $P_n$of all polynomials of degree at most $n$.  Assume $p_i(3) = 0$ for $i=1,2,...,n$.  Is it possible that
-  	$p_1,p_2,...,p_n,p_{n+1}$ are all linearly independent?  Why or why not?
+  	Let $p_1,p_2,\ldots,p_n,p_{n+1}$ be polynomials in the space $P_n$of all polynomials of degree at most $n$.  Assume $p_i(3) = 0$ for $i=1,2,\ldots,n$.  Is it possible that
+  	$p_1,p_2,\ldots,p_n,p_{n+1}$ are all linearly independent?  Why or why not?
 \begin{free-response}
-	No.  If $p_1,p_2,...,p_n,p_{n+1}$ were all linearly independent then they would form a basis of $P_n$, since $P_n$ has dimension $n+1$.  
+	No.  If $p_1,p_2,\ldots,p_n,p_{n+1}$ were all linearly independent then they would form a basis of $P_n$, since $P_n$ has dimension $n+1$.  
 	But every polynomial in the span of the $p_i$ must evaluate to $0$ at $x=3$, while some polynomials in $P_n$ do not evaluate to $0$ at $x=3$,  (for example, the polynomial $x$).
 \end{free-response}  
 

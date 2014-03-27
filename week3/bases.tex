@@ -12,15 +12,39 @@ In our study of the vector spaces $\R^n$, we have relied quite heavily on the ``
 We'll write $\mathcal{E_n}$ for the collection of vectors $\left( \vec{e}_1, \vec{e}_2, \ldots, \vec{e}_n \right)$.
 
 A great feature of these vectors is that they \textit{span} all of $\R^n$:  every vector $\vec{v} \in \R^n$ can be written in the form
- $$\vec{v} = x_1\vec{e}_1 +x_2\vec{e}_2+ \cdots +x_n\vec{e}_n.$$  What is even better is that this representation is unique:  if I also have that $$\vec{v} = y_1\vec{e}_1 +y_2\vec{e}_2+ \cdots +y_n\vec{e}_n,$$
- then $x_1 = y_1, x_2 = y_2, \ldots, x_n=y_n$.
+$$\vec{v} = x_1\vec{e}_1 +x_2\vec{e}_2+ \cdots +x_n\vec{e}_n.$$  What is even better is that this representation is unique:  if I also have that $$\vec{v} = y_1\vec{e}_1 +y_2\vec{e}_2+ \cdots +y_n\vec{e}_n,$$
+then $x_1 = y_1, x_2 = y_2, \ldots, x_n=y_n$.
  
- Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
- 
- \begin{definition}
- 	The \textbf{span} of an ordered list of vectors $(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n)$ is the set of all \textbf{linear combinations} of the $\vec{v}_i$.
- 	\[\textrm{Span}(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n) = \{a_1\vec{v}_1+a_2\vec{v}_2+ \cdots +a_n\vec{v}_n: a_i \in \R\}\]
- \end{definition}
+Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
+
+\begin{question}
+  A \textbf{linear combination} of two vectors $\vec{v}$ and $\vec{w}$ is an expression of the form
+  $$
+  \alpha \vec{v} + \beta \vec{w}
+  $$
+  for some numbers $\alpha, \beta \in \R$.
+  
+  Which of the following vectors is a linear combination of $\vec{v} = \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix}$ and $\vec{w} = \begin{bmatrix} 1 \\ 5 \\ 1\end{bmatrix}$?
+    
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$\begin{bmatrix} \phantom{-}1 \\ -8 \\ -1 \end{bmatrix}$}
+      \choice{$\begin{bmatrix} -1 \\ \phantom{-}8 \\ \phantom{-}1 \end{bmatrix}$}
+    \end{multiple-choice}
+  \end{solution}
+
+  So not every vector in $\R^3$ is a linear combination of $\vec{v}$
+  and $\vec{w}$.  Vectors which \textit{are} a linear combination of
+  $\vec{v}$ and $\vec{w}$ are said to be in the ``span'' of $\vec{v}$
+  and $\vec{w}$.  Let's make this more general for more than just two
+  vectors.
+
+  \begin{definition}
+    The \textbf{span} of an ordered list of vectors $(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n)$ is the set of all \textbf{linear combinations} of the $\vec{v}_i$.
+    \[\textrm{Span}(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n) = \{a_1\vec{v}_1+a_2\vec{v}_2+ \cdots +a_n\vec{v}_n: a_i \in \R\}\]
+  \end{definition}
+\end{question}
+
  
 % \begin{question}
 % 	Which of the following vectors are in the span of BLAH?

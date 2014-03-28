@@ -9,45 +9,60 @@
 \end{abstract}
 
   \begin{definition}
- 	A vector space is called \textbf{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
+    A vector space is called \textbf{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
  \end{definition}
- 
- 	Show that the space $P$ of all polynomials in one variable $x$ is infinite dimensional.
 
-\begin{free-response}
-	 Let $p_1,p_2,\ldots,p_n$ be a finite list of  vectors.  
-	Since this list of polynomials is finite they must be bounded in degree, i.e.  the degree of $p_i$ must be less than some $k$ for each $i$.  But a linear combination
-	of polynomials of degree at most $k$ is also of degree at most $k$.  So the polynomial $x^{k+1} \not\in  \textrm{Span}(p_1,p_2,\ldots,p_n)$. Thus no finite list of 
-	polynomials spans all of $P$.  So $P$ is infinite dimensional.
-\end{free-response}
+ \begin{question}
+   The space $P$ of all polynomials in one variable $x$ is:
+
+   \begin{solution}
+     \begin{multiple-choice}
+       \choice[correct]{Infinite dimensional.}
+       \choice{Finite dimensional.}
+     \end{multiple-choice}
+   \end{solution}
+
+   Can you prove it?  Suppose that $P$ were finite dimensional, and then deduce a contradiction to show that it is impossible.
+
+   \begin{free-response}
+     Let $p_1,p_2,\ldots,p_n$ be a finite list of  vectors.  
+     Since this list of polynomials is finite they must be bounded in degree, i.e.  the degree of $p_i$ must be less than some $k$ for each $i$.  But a linear combination
+     of polynomials of degree at most $k$ is also of degree at most $k$.  So the polynomial $x^{k+1} \not\in  \textrm{Span}(p_1,p_2,\ldots,p_n)$. Thus no finite list of 
+     polynomials spans all of $P$.  So $P$ is infinite dimensional.
+   \end{free-response}
+
+ \end{question}
+
+\hrule
 
  \begin{definition}
- 	Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
- 	$a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ implies that $a_1  = b_1, a_2 = b_2, \ldots,a_n=b_n$.  In other words,
- 	every vector in the span of $(v_1,v_2,\ldots,v_n)$ can be expressed as a linear combination of the $v_i$ in only one way.  
- 	If the set of vectors is not linearly independent it is called \textit{linearly dependent}.
+   Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is \textbf{linearly independent} if
+   $a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ implies that $a_1  = b_1, a_2 = b_2, \ldots,a_n=b_n$.  In other words,
+   every vector in the span of $(v_1,v_2,\ldots,v_n)$ can be expressed as a linear combination of the $v_i$ in only one way.  
+   
+   If the set of vectors is not linearly independent it is \textbf{linearly dependent}.
  \end{definition}
  
 %\begin{question}
 % 	Is BLAH linearly independent?
 %\end{question}
  
- 	Show that the following alternative definition for linear independence is equivalent to our definition:
+ Show that the following alternative definition for linear independence is equivalent to our definition:
  	
- 	\begin{definition}
- 		Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
- 	$a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ implies that $a_i = 0 $ for all $i=1,2,3,\ldots,n$.
- 	\end{definition}
+ \begin{definition}
+   Let $V$ be a vector space. An ordered list of vectors $(v_1,v_2,\ldots,v_n)$ where all the $v_i \in V$ is called \textit{linearly independent} if
+   $a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ implies that $a_i = 0 $ for all $i=1,2,3,\ldots,n$.
+ \end{definition}
  	
  
  \begin{free-response}
-	Let us say that our original definition is of  being linearly independent in the first sense, while this second definition is being linearly independent 
-	in the second sense.  If a list of vectors $(v_1,v_2,\ldots,v_n)$ is linearly independent in the first sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ we have
-	$a_1v_1+a_2v_2 + \cdots +a_nv_n = 0v_1+0v_2+ \cdots +0v_n$, so by the definition of linear independence in the first sense, we have $a_1=a_2= \cdots =a_n=0$.
-	
-	On the other hand, if $(v_1,v_2,\ldots,v_n)$ are linearly independent in the second sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ we have
-	$(a_1-b_1)v_1+(a_2-b_2)v_2+\cdots+(a_n-b_n)v_n = \vec{0}$, so $a_i-b_i=0$ for each $i$.  Thus $a_i=b_i$ for each $i$, proving that the list was linearly independent 
-	in the first sense.
+   Let us say that our original definition is of  being linearly independent in the first sense, while this second definition is being linearly independent 
+   in the second sense.  If a list of vectors $(v_1,v_2,\ldots,v_n)$ is linearly independent in the first sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = \vec{0}$ we have
+   $a_1v_1+a_2v_2 + \cdots +a_nv_n = 0v_1+0v_2+ \cdots +0v_n$, so by the definition of linear independence in the first sense, we have $a_1=a_2= \cdots =a_n=0$.
+   
+   On the other hand, if $(v_1,v_2,\ldots,v_n)$ are linearly independent in the second sense, then if $a_1v_1+a_2v_2 + \cdots +a_nv_n = b_1v_1 + b_2v_2 + \cdots + b_nv_n$ we have
+   $(a_1-b_1)v_1+(a_2-b_2)v_2+\cdots+(a_n-b_n)v_n = \vec{0}$, so $a_i-b_i=0$ for each $i$.  Thus $a_i=b_i$ for each $i$, proving that the list was linearly independent 
+   in the first sense.
  \end{free-response}
  
   	Often this definition is easier to check, although it does not capture the ``meaning'' of linear independence as well as the first definition.

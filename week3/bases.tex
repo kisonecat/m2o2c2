@@ -1,133 +1,123 @@
 \documentclass{ximera}
-\title{Matrix of a linear map}
+\title{Bases}
 
 \begin{document}
+
 \begin{abstract}
-	Matrices record where basis vectors go
+  Basis vectors span the space without redundancy.
 \end{abstract}
 
-In our first brush with linear algebra, we only dealt with linear maps between the spaces spaces $\R^n$.  For those spaces, the convenient 
-standard basis allowed us to record linear maps using the finite data of a matrix.  In this section we will see that a similar story plays out for
-maps between finite dimensional vector spaces:  they too can be described by matrices with respect to a choice of basis on the codomain and codomain.
+In our study of the vector spaces $\R^n$, we have relied quite heavily on the ``standard basis vectors'' $\vec{e}_1  =\verticalvector{1\\0\\0\\ \vdots \\ 0}, 
+\vec{e}_2  =\verticalvector{0 \\ 1 \\ 0 \\ \vdots \\ 0}, \vec{e}_3  =\verticalvector{0\\0\\1\\ 0 \\ \vdots \\ 0},\ldots, \vec{e}_n  =\verticalvector{0\\ \vdots \\ 0 \\ 1}$.  
+We'll write $\mathcal{E_n}$ for the collection of vectors $\left( \vec{e}_1, \vec{e}_2, \ldots, \vec{e}_n \right)$.
+
+A great feature of these vectors is that they \textit{span} all of $\R^n$:  every vector $\vec{v} \in \R^n$ can be written in the form
+$$\vec{v} = x_1\vec{e}_1 +x_2\vec{e}_2+ \cdots +x_n\vec{e}_n.$$  What is even better is that this representation is unique:  if I also have that $$\vec{v} = y_1\vec{e}_1 +y_2\vec{e}_2+ \cdots +y_n\vec{e}_n,$$
+then $x_1 = y_1, x_2 = y_2, \ldots, x_n=y_n$.
+ 
+Our goal in this section will be to find similarly nice sets of vectors in an abstract vector space.
 
 \begin{question}
-	Let $V$ be a vector space with basis $\vec{v_1},\vec{v_2},\vec{v_3}$ and $W$ be a vector space with basis $\vec{w_1},\vec{w_2}$.
-	Moreover, suppose there is a linear map $L: V \to W$ for which $L(\vec{v_1}) = 3\vec{w_1} + 2\vec{w_3}$, 
-	$L(\vec{v_2}) = 3\vec{w_1} - 2\vec{w_3}$, and $L(\vec{v_3}) = \vec{w_1} + \vec{w_3}$.
-	
-	What is $L(2\vec{v_1}+3\vec{v_2}-4\vec{v_3})$?
-\end{question}
+  A \textbf{linear combination} of two vectors $\vec{v}$ and $\vec{w}$ is an expression of the form
+  $$
+  \alpha \vec{v} + \beta \vec{w}
+  $$
+  for some numbers $\alpha, \beta \in \R$.
+  
+  Which of the following vectors is a linear combination of $\vec{v} = \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix}$ and $\vec{w} = \begin{bmatrix} 1 \\ 5 \\ 1\end{bmatrix}$?
+    
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{$\begin{bmatrix} \phantom{-}1 \\ -8 \\ -1 \end{bmatrix}$}
+      \choice{$\begin{bmatrix} -1 \\ \phantom{-}8 \\ \phantom{-}1 \end{bmatrix}$}
+    \end{multiple-choice}
+  \end{solution}
 
-\begin{question}
-	Show that if $L:V \to W$ is a linear map, and you know the value of $L(v_i)$ for some basis $(\vec{v_1},\vec{v_2},...,\vec{v_n})$ of $V$, 
-	then you can compute $L(\vec{v})$ for any $\vec{v} \in V$.
+  So not every vector in $\R^3$ is a linear combination of $\vec{v}$
+  and $\vec{w}$.  Vectors which \textit{are} a linear combination of
+  $\vec{v}$ and $\vec{w}$ are said to be in the ``span'' of $\vec{v}$
+  and $\vec{w}$.  Let's make this more general for more than just two
+  vectors.
+
 \end{question}
 
 \begin{definition}
-	Let $L:V \to W$ be a linear map between finite dimensional vector spaces,  let $\mathcal{B}_V  =(\vec{v_1},\vec{v_2},...,\vec{v_n}) $ be
-	a basis for $V$, and let $\mathcal{B}_W = (\vec{w_1},\vec{w_2},...,\vec{w_m})$  be a basis for $W$.  
-	Then $L(\vec{v_i}) = a_{i,1}\vec{w_1}+a_{i,2}\vec{w_2} +...+ a_{i,m}\vec{w_m}$.
-	Then the \textit{matrix of $L$ with respect to the bases
-	$\mathcal{B}_V and \mathcal{B}_V$} is the matrix $M$ whose entry in the $i^{th}$ column and $j^{th}$ row is $a_{i,j}$
+  The \textbf{span} of an ordered list of vectors $(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n)$ is the set of all \textbf{linear combinations} of the $\vec{v}_i$.
+  \[\textrm{Span}(\vec{v}_1,\vec{v}_2, \ldots,\vec{v}_n) = \{a_1\vec{v}_1+a_2\vec{v}_2+ \cdots +a_n\vec{v}_n: a_i \in \R\}\]
 \end{definition}
 
-\begin{problem}
-	Let $\mathcal{B}_1 = (\verticalvector{1,1},\verticalvector{1,0})$ and $\mathcal{B}_2 = (\verticalvector{1,0,0},\verticalvector{0,0,1},\verticalvector{0,1,0})$ be bases
-	for $\R^2$ and $\R^3$ respectively. 
-	\begin{solution}
-	\begin{hint}
-		The first column of the matrix will be the image of $\verticalvector{1\\1}$ expressed in the new basis.  Note that the order of the basis matters!
-	\end{hint}
-	\begin{hint}
-		\begin{align*}
-			L\left(\verticalvector{1\\1}\right) &= \verticalvector{2\\1\\0}\\
-				&= 2\verticalvector{1\\0\\0}+0\verticalvector{0\\0\\1}+1\verticalvector{0\\1\\0}\\
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-		So the first column of the matrix is $\verticalvector{2\\0\\1}$.
-	\end{hint}
-	\begin{hint}
-		Similarly, the second column is $\verticalvector{1\\0\\1}$
-	\end{hint}
-	\begin{hint}
-		So the matrix of this linear map is \(\begin{bmatrix} 2 & 1 \\0& 0\\ 1 & 1\end{bmatrix}\)
-	\end{hint}
-	 What is the matrix for the linear map $L(\verticalvector{x,y} = \verticalvector{x+y,x,0})$ with respect to the 
-	bases $\mathcal{B}_1$  and $\mathcal{B}_2$?
-	\begin{matrix-answer}
-		correctMatrix = [['2','1'],['0','0'],['1','1']]
-	\end{matrix-answer}
-	\end{solution}
-\end{problem}
+% \begin{question}
+% 	Which of the following vectors are in the span of BLAH?
+% \end{question}
+ 
+\begin{question}
+  Do $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ together span the vector space $\R^2$?
 
-\begin{problem}
-	Let $P_2$ be the space of polynomials of degree at most $2$.  Let $\mathcal{B}_0 = (1,x,x^2)$ and $\mathcal{B}_1 = (1,(x-1),(x-1)^2)$.  
-	Consider the map $L:P_2 \to \R$ given by $L(p) = p(1)$.  
-	\begin{solution}
-	\begin{hint}
-		\begin{align*}
-			L(1) &= 1\\
-			L(x) &= 1\\
-			L(x^2)&=1^2=1
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-	\begin{bmatrix}
-		The matrix of $L$ with respect to $\mathcal{B}_0$ is \( \begin{bmatrix} 1&1&1 \end{bmatrix}\)
-	\end{bmatrix}
-	\end{hint}
-	What is the matrix of this linear map with respect to the basis $\mathcal{B}_0$?  
-	\begin{matrix-answer}
-		correctMatrix = [['1','1','1']]
-	\end{matrix-answer}
-	\end{solution}
-		
-	\begin{solution}
-	\begin{hint}
-		\begin{align*}
-			L(1) &= 1\\
-			L(x-1) &= 1-1=0\\
-			L((x-1)^2)&=(1-1)^2=0
-		\end{align*}
-	\end{hint}
-	\begin{hint}
-	\begin{bmatrix}
-		The matrix of $L$ with respect to $\mathcal{B}_1$ is \( \begin{bmatrix} 1&0&0 \end{bmatrix}\)
-	\end{bmatrix}
-	\end{hint}
-	What is the matrix of this linear map with respect to the basis $\mathcal{B}_1$?  
-	
-	\begin{matrix-answer}
-		correctMatrix = [['1','0','0']]
-	\end{matrix-answer}
-	\end{solution}
-\end{problem}
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}
+  \end{solution}
 
-\begin{problem}
-	Let $P_3$ be the space of polynomials of degree at most $3$.  Let $\mathcal{B} = (1,x,x^2,x^3)$.  Consider the map $L:P_3 \to P_3$ given by 
-	$L(p(x)) = \frac{d}{dx} p(x)$. This map is linear (why?).  
-	\begin{solution}
-		\begin{hint}
-			$L$ is linear because the derivative of a sum of two functions is the sum of the derivative of the two functions, and since the derivative of a constant
-			times a function is the constant times the derivative of the function.
-		\end{hint}
-		\begin{hint}
-			\begin{align*}
-				L(1) &=0\\
-				L(x) &=1\\
-				L(x^2)&=2x\\
-				L(x^3)&=3x^2
-			\end{align*}
-		\end{hint}
-		\begin{hint}
-			The matrix of $L$ is \(\begin{bmatrix} 0&1&0&0\\0&0&2&0\\0&0&0&3\\0&0&0&0\end{bmatrix}\)
-		\end{hint}
-	What is the matrix for $L$ with respect to the basis $\mathcal{B}$?
-	\begin{matrix-answer}
-		correctMatrix = [['0','1','0','0'],['0','0','2','0'],['0','0','0','3'],['0','0','0','0']]
-	\end{matrix-answer}
-	\end{solution}
-\end{problem}
+  Indeed, every vector in $\R^2$ can be written as a linear
+  combination of $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$.
+  Prove it!
 
+  \begin{free-response}
+    Since we already know that $\verticalvector{1\\0}$ and $\verticalvector{0\\1}$ span $\R^2$,
+    it is enough to show that $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$ span these two vectors, i.e.
+    we need only show that $\verticalvector{0\\1}$ is in the span of these two vectors.
+    
+    But $\verticalvector{0\\1} = \verticalvector{1\\1} +-1\verticalvector{1\\0}$, so we are done.
+    
+    To be a bit more explicit, we can write any vector \begin{align*}
+      \verticalvector{x\\y} &= x\verticalvector{1\\0}+ y\verticalvector{0\\1}\\
+      &= x\verticalvector{1\\0}+ y\left(\verticalvector{1\\1} +-1\verticalvector{1\\0}\right)\\
+      &=(x-y)\verticalvector{1\\0}+y\vecticalvector{1\\1}
+    \end{align*}
+    
+    So we have expressed any vector as a linear combination of $\verticalvector{1\\1}$ and $\verticalvector{1\\0}$.
+  \end{free-response} 
+\end{question}
+
+
+%  \begin{question}
+ %	Show that $(\verticalvector{2,3},\verticalvector{1,0},\verticalvector{4,5})$ span the space $\R^2$.
+ %\end{question}
+
+\begin{question}
+  Can every polynomial of degree at most $2$ be written in the form
+  $$
+  \alpha (1) + \beta (x-1) + \gamma (x-1)^2 ?
+  $$
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}
+  \end{solution}
+
+  In other words: the polynomials $1$, $x-1$, and $(x-1)^2$  span the vector space of polynomials of degree at most $2$. Prove it!
+
+  \begin{free-response}
+    Let $p(x)=a_0+a_1x+a_2x^2$. 
+    
+    Then \begin{align*}
+      p(x) &= a_0+a_1[(x-1)+1]+a_2[(x-1)+1]^2\\
+      &= a_0+a_1(x-1)+a_1+a_2[(x-1)^2+2(x-1)+1]\\
+      &= (a_0+a_1+a_2)1+(a_1+2a_2)(x-1)+a_2(x-1)^2
+    \end{align*}
+    
+    so we have expressed every polynomial of degree at most $2$ as a linear combination of $1,(x-1)$ and $(x-1)^2$.
+    
+    You could also solve this problem by appealing to Taylor's theorem in one variable calculus.  Can you see how?
+\end{free-response}
+\end{question}
+ 
 \end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

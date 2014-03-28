@@ -1,0 +1,41 @@
+\documentclass{ximera}
+\title{Rigorously}
+
+\begin{document}
+	\begin{abstract}
+		The second derivative allows approximations to second order accuracy.
+	\end{abstract}
+	
+	\begin{theorem}
+	If $f$ has continuous second partial derivatives everywhere, then 
+	\[
+		D^2f|_\mathbf{p}  = \Sum_{i,j=1}^n \frac{\partial^2 f}{\partial x^i \partial x^j} dx_i \otimes dx_j
+	\]
+	
+	The matrix associated to this bilinear form is the matrix:
+	
+		\[ 
+		
+		\mathcal{H}(f)\big|_\mathbf{p} = [\frac{\partial^2 f}{\partial x_i \partial x_j}]
+	
+		\]
+		
+		and is called the Hessian matrix of $f$ at $\mathbf{p}$.
+\end{theorem}
+
+\begin{question}
+	If $f:\R^n \to \R$ is a function and $Df = BLAH$ what is the hessian matrix of $f$?
+\end{question}
+
+\begin{question}
+	What is the hessian of $f(x,y) = x\sin(xy)$?
+\end{question}
+
+In working out Hessians of various functions, you might have noticed that the matrix you get is symmetric, i.e.  that ``mixed partials commute'' 
+$frac{\partial^2 f}{\partial x^i \partial x^j}$
+
+\begin{theorem}
+	If $f$ has continuous second partial derivatives, then $D^2f$ is a symmetric bilinear form.
+\end{theorem}
+ 
+\end{document}

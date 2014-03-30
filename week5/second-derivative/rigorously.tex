@@ -1,0 +1,84 @@
+\documentclass{ximera}
+\title{Rigorously}
+
+\begin{document}
+	\begin{abstract}
+		The second derivative allows approximations to the derivative.
+	\end{abstract}
+	
+\begin{definition}
+	Let $f:\R^n \to \R$ be a differentiable function, and $\mathbf{p} \in \R^n$.  We say that $f$ is twice differentiable at $\mathbf{p}$
+	if there is a bilinear form $B:\R^n \times \R^n \to \R$ with
+	
+	\[
+		$Df(\mathbf{p}+\vec{h_1})(\vec{h_2}) = Df(\mathbf{p})(\vec{h_2})+B(vec{h_1},\vec{h_2})+\textrm{Error}(\vec{h_1},\vec{h_2})$
+	\]
+	
+	With 
+	
+	\[
+		\lim_{\vec{h_1},\vec{h_2} \to 0} \frac{\left| \textrm{Error}(\vec{h_1},\vec{h_2}) \right| }{|\vec{h_1}| |\vec{h_2}|} = 0
+	\]
+	
+	In this case we call $B$ the second derivative of $f$ at $\mathbf{p}$ and write $B =D^2f(\mathbf{p})$.
+\end{definition}
+
+\begin{theorem}
+	Let $f:\R^n \to \R$ be a function which is twice differentiable everywhere.  Then the second derivative of $f$
+	at $\mathbf{p}$ has the matrix
+	
+	\[ \mathcal{H}(\mathbf{p}) = \begin{bmatrix}
+		 f_{x_1x_1}(p) &  f_{x_1x_2}(p) & ... &  f_{x_1x_n}(p)\\ f_{x_2x_1}(p) &  f_{x_2x_2}(p) & ... &  f_{x_2x_n}(p)\\ \vdots \\ f_{x_nx_1}(p) &  f_{x_nx_2}(p) & ... &  f_{x_nx_n}(p)
+ \end{bmatrix}\]
+\end{theorem}
+
+	Prove this theorem!
+	
+	
+	\begin{hint}
+		Apply the definition to $B(h\vec{e}_i,k\vec{e}_j)$
+	\end{hint}
+	
+\begin{free-response}
+	We want to show that $D^2f(\mathbf{p})(\vec{e}_i,\vec{e}_j) = f_{x_i,x_j}(\mathbf{p})$.
+	
+	By definition, we have that 
+	
+	\[
+		\displaystyle\lim_{h,k \to 0} \frac{\left| Df(\mathbf{p}+h\vec{e}_i)(k\vec{e_j}) - Df(\mathbf{p})(k\vec{e_j}) - D^2f(h\vec{e}_i,k\vec{e}_j) \right|}{|h\vec{e}_i||k\vec{e}_j|} = 0
+	\]
+	
+	So 
+	
+	\[
+		\displaystyle\lim_{h,k \to 0} \frac{\left| kDf(\mathbf{p}+h\vec{e}_i)(\vec{e_j}) - k Df(\mathbf{p})(\vec{e_j}) - hkD^2f(\vec{e}_i,\vec{e}_j) \right|}{|hk|} = 0, \text{ by the linearity
+		of the derivative, and the bilinearity of the second derivative}
+	\]
+	
+	So we have 
+	
+	\[
+	\displaystyle\lim_{h,k \to 0} \left| \frac{Df(\mathbf{p}+h\vec{e}_i)(\vec{e_j}) - Df(\mathbf{p})(\vec{e_j})}{h} - D^2f(\vec{e}_i,\vec{e}_j) \right|= 0
+	\]
+	
+	Which implies
+	
+	\[
+	  D^2f(\mathbf{p})(\vec{e_1},\vec{e_2})  = \displaystyle\lim_{h \to 0}  \frac{ Df(\mathbf{p}+h\vec{e}_i)(\vec{e_j}) - Df(\mathbf{p})(\vec{e_j}) }{h}
+	\]
+	
+	But $Df(\mathbf{x})(\vec{e_j}) = f_{x_j}(\mathbf{x})$ for any $\mathbf{x} \in \R^n$, so this is 
+	
+	\[
+	  D^2f(\mathbf{p})(\vec{e_1},\vec{e_2})  = \displaystyle\lim_{h \to 0}  \frac{ f_{x_j}(\mathbf{p}+h\vec{e_i}) - f_{x_j}(\mathbf{p}) }{h}
+	\]
+	
+	But by definition of the directional derivative, this implies that  
+	
+	\[
+		 D^2f(\mathbf{p})(\vec{e_1},\vec{e_2})  = f_{x_i,x_j}(\mathbf{p})
+	\]
+	
+\end{free-response} 
+
+\end{document}

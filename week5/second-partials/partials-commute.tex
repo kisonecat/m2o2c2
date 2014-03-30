@@ -1,0 +1,157 @@
+\documentclass{ximera}
+\title{Mixed partials commute}
+
+\begin{document}
+	\begin{abstract}
+		Order of partial differentiation doesn't matter
+	\end{abstract}
+	
+	In the last section on partial derivatives we made the interesting observation that $\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}$
+	for all of the functions we considered.  We will now prove this, modulo some technical assumptions.
+	
+	\begin{theorem}
+		Let $f:\R^n \to \R$ be a differentiable function.  Assume that the partial derivatives $f_{x_i}:\R^n \to \R$ are all differentiable, and the second partial derivatives
+		$f_{x_i,x_j}$ are continuous.  Then $f_{x_i,x_j} = f_{x_j,x_i}$.
+	\end{theorem}
+	
+	First, let's develop some intuition about why this result is true.  This informal discussion will also suggest how we should proceed with the formal proof.
+	
+	Let's restrict our attention, for the moment, to functions $g: \R^2 \to \R$.  Observe that  $g_{x}(a,b) \approx \frac{g(a+h,b)-g(a,b)}{h}$ for small values of $h$.  Analogously,
+	$g_{y}(a,b) \approx \frac{g(a,b+k)-g(a,b)}{k}$.
+	
+	Now applying this idea twice, we have 
+	
+	\begin{align*}
+		f_{xy}(a,b) &\approx \frac{1}{h} \left( f_y(a+h,b) - f_y(a,b)\right)\\
+			&\approx \frac{1}{h} \left( \frac{f(a+h,b+k)-f(a+h,b)}{k} - \frac{f(a,b+k)-f(a,b)}{k}\right)\\
+			&=\frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk}
+	\end{align*}
+	
+	Going through the same process with $f_{yx}$ leads to exactly the same approximation!
+	
+	So our strategy of proof will be to show that we can express both of these partial derivatives as the two variable limit:
+	
+	\[
+		f_{xy}(a,b) = \displaystyle\lim_{h,k \to 0} \frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk} = f_{yx}
+	\]
+	
+	\begin{proof}
+		Let $\textrm{HODQ}(h,k) = f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)$.  (Here $\textrm{HODQ}$ stands for "higher order difference quotient").
+		
+		Let $Q(s) = f(s,b+k) - f(s,b)$.
+		
+		Then $\textrm{HODQ}(h,k) = Q(a+h) - Q(a)$.
+		
+		By the mean value theorem for derivatives, there is an $0<\epsilon_1 < h$ such that 
+		$Q(a+h)-Q(a) = hQ'(a+\epsilon_1)$.
+		
+		So $\textrm{HODQ}(h,k) = h( f_{x}(a+\epsilon_1,b+k) -f_x(a,b))$ .
+		
+		By the mean value theorem again, we have
+		
+		$\textrm{HODQ}(h,k) = hkf_{yx}(a+\epsilon_1,b+\epsilon_2)$ for some $0<\epsilon_2<k$.
+		
+		Now apply exactly the same reasoning to conclude that $\textrm{HODQ}(h,k) = hkf_{yx}(a+\xi_2,b+\xi_1)$ for some $0<\xi_1<k$ and $0<\xi_2<h$.
+		\begin{free-response}
+		
+		Let $R(s) = f(a+h,s) - f(a,s)$.
+		
+		Then $\textrm{HODQ}(h,k) = R(b+k) - R(b)$.
+		
+		By the mean value theorem for derivatives, there is an $0<\xi_1 < k$ such that 
+		$ R(b+k) - R(b) = kR'(b+\xi_1)$.
+		
+		So $\textrm{HODQ}(h,k) = k( f_y(a+h,b+\xi_1) -f_y(a,b))$ .
+		
+		By the mean value theorem again, we have
+		
+		$\textrm{HODQ}(h,k) = hkf_{xy}(a+\xi_2,b+\xi_1)$ for some $0<\xi_2<h$.
+			
+		\end{free-response}
+		
+		So we have 
+		\begin{align*}
+			\displaystyle\lim_{h,k \to 0} \frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk} &= \displaystyle\lim_{h,k \to 0} \frac{\textrm{HODQ}(h,k)}{hk}\\
+				&= \displaystyle\lim_{h,k \to 0} \f_{yx}( a+\epsilon_1,b+\epsilon_2) 
+		\end{align*}
+		
+		But since $0<\epsilon_1 < h$ and $0<\epsilon_2<k$ , then as $h,k \to 0$, $a+\epsilon_1 \to a$ and $b+\epsilon_2 \to b$.  By the continuity of $f_{yx}$, we have that 
+		the limit equals $f_{yx}(a,b)$.
+		
+		Apple the same reasoning to conclude that $\displaystyle\lim_{h,k \to 0} \frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk} = f_{xy}(a,b)$
+		\begin{free-response}
+		\begin{align*}
+			\displaystyle\lim_{h,k \to 0} \frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk} &= \displaystyle\lim_{h,k \to 0} \frac{\textrm{HODQ}(h,k)}{hk}\\
+				&= \displaystyle\lim_{h,k \to 0} \f_{xy}( a+\xi_2,b+\xi_1) 
+		\end{align*}
+		
+		But since $0<\xi_1 < k$ and $0<\xi_2<h$ , then as $h,k \to 0$, $a+\xi_2 \to a$ and $b+\xi_1 \to b$.  By the continuity of $f_{xy}$, we have that 
+		the limit equals $f_{xy}(a,b)$.
+		
+		\end{free-response}
+		
+		So we can conclude that $f_{xy}(a,b) = f_{yx}(a,b)$, because they are the common value of the limit $\displaystyle\lim_{h,k \to 0} \frac{f(a+h,b+k)-f(a+h,b)-f(a,b+k)+f(a,b)}{hk}$.
+	\end{proof}
+	
+	We close with a cautionary example.  This result is not always true if the second partial derivatives are not continuous.  Remember that we define
+	
+	$g_x(a,b) = \displaystyle\lim_{h \to 0} \frac{g(a+h,b)-g(a,b)}{h}$, and similarly $g_y(a,b) = \displaystyle\lim_{k \to 0} \frac{g(a,b+k)-g(a,b)}{k}$
+	
+	\begin{question}
+		Define \(f(x,y) = \begin{cases} 
+				xy\frac{x^2-y^2}{x^2+y^2} \text{ if $(x,y) \neq (0,0)$}\\
+				0 \text{ if (x,y)=(0,0)}
+				\end{cases}\)
+		\begin{solution}
+			
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							\begin{align*}
+							f_y(x,0) &=  \displaystyle\lim_{k \to 0} \frac{f(x,k)-f(x,0)}{k}\\
+								&= \displaystyle\lim_{k \to 0} \frac{xk\frac{x^2-k^2}{x^2+k^2} - 0}{k}\\
+								&=\displaystyle\lim_{k \to 0} x\frac{x^2-k^2}{x^2+k^2}
+								&=x
+							\end{align*}
+						\end{hint}
+						$f_y(x,0) = $\answer{$x$}
+					\end{solution}
+					\begin{solution}
+						\begin{hint}
+							\begin{align*}
+							f_x(0,y) &=  \displaystyle\lim_{h \to 0} \frac{f(h,y)-f(0,y)}{h}\\
+								&= \displaystyle\lim_{h \to 0} \frac{hy\frac{h^2-y^2}{h^2+y^2} - 0}{h}\\
+								&=\displaystyle\lim_{h \to 0} y\frac{h^2-y^2}{h^2+y^2}
+								&=-y
+							\end{align*}
+						\end{hint}
+						$f_x(0,y) = $\answer{$-y$}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					f_{xy}(0,0) &= \displaystyle\lim_{h \to 0} \frac{f_y(h,0) - f_y(0,0)}{h}\\
+						&=\displaystyle\lim_{h \to 0} \frac{h -0}{h}\\
+						&=1
+				\end{align*}
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					f_{yx}(0,0) &= \displaystyle\lim_{k \to 0} \frac{f_x(0,k) - f_x(0,0)}{k}\\
+						&=\displaystyle\lim_{h \to 0} \frac{-k -0}{k}\\
+						&=-1
+				\end{align*}
+			\end{hint}
+			
+			$f_{xy}(0,0)=$\answer{$1$}
+		\end{solution}
+		\begin{solution}
+			$f_{yx}(0,0)=$\answer{$-1$}
+		\end{solution}
+	\end{question}
+	
+	
+	
+\end{document}

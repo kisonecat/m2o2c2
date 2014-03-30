@@ -1,0 +1,254 @@
+\documentclass{ximera}
+\title{Intuitively}
+
+\begin{document}
+
+\begin{abstract}
+	The second derivative approximates the change in the derivative
+\end{abstract}
+	
+	From our perspective, the second derivative of a function $f: \R^n \to \R$ at a point will be a bilinear form on $\R^n$.  
+	Let us take some time to understand, intuitively, why that should be the case.
+	
+	Let $f:\mathbb{R}^2 \to \mathbb{R}$ be defined by $f(x,y) = x^2y$.
+
+$D(f)\big|_{(x,y)}$ is the linear map given by the matrix $\left[ \begin{matrix} 2xy&x^2\end{matrix} \right]$.  
+That is to say, $D(f)\big|_{(x,y)}(\Delta x,\Delta y) = 2xy\Delta x + x^2\Delta y \approx f(x+\Delta x,y+\Delta y) - f(x,y)$.  
+
+
+The second derivative should now tell you how much the derivative changes from point to point.  
+If we increment $(x,y)$ by a little bit to $(x+\Delta x,y)$ then we should expect the derivative to 
+increase by about $\begin{matrix} \Delta x \frac{\partial}{ \partial x} ( 2xy) & \Delta x\frac{\partial}{\partial x}(x^2) \end{matrix} = \begin{matrix} 2y\Delta x&2x \Delta x\end{matrix}$.  
+Similarly, when we increase $y$ by $\Delta y$, the derivative should change by about 
+$\begin{matrix} \Delta y \frac{\partial}{ \partial y} ( 2xy) & \Delta y\frac{\partial}{\partial y}(x^2) \end{matrix} = \left[ \begin{matrix} 2x \Delta y&0\Delta y\end{matrix} \right]$.
+
+By linearity, if we change from $(x,y)$ to $(x+\Delta x,y+\Delta y)$, 
+we expect the derivative to change by
+ \[\begin{bmatrix} 2y\Deltax + 2x\Delta y & 2x\Delta x + 0 \end{bmatrix}  = \begin{matrix} \Delta x&\Delta y\end{matrix} \right] \left[ \begin{matrix} 2y&2x\\2x&0\end{matrix} \]
+
+This gives a matrix which is the approximate change in the derivative.  You can then apply this to another vector if you so wish.  
+
+Summing it up, if you wanted to see approximately how much the derivative changes from $p = (x,y)$ to $(x+\Delta x_2,y+\Delta y_2) = p+\vec{h_2}$ 
+($\vec{h_2} = \verticalvector{\Delta x_2,\Delta y_2}$)
+when both are evaluated in the same direction  $\vec{h_1} = (\Delta x_1,\Delta y_1)$, you would perform the computation:
+
+\[ 
+Df_{p+\vec{h_2}}(\vec{h_1})  -Df_p(\vec{h_1}) \approx
+\begin{bmatrix} 
+\Delta x_2&\Delta y_2\end{bmatrix} 
+ \begin{bmatrix} 2x&2x\\2x&0\end{bmatrix} \begin{bmatrix} \Delta x_1\\ \Delta y_1\end{matrix}
+ \]
+ 
+ This is exactly using the matrix $\begin{bmatrix} 2x&2x\\2x&0\end{bmatrix} \begin{bmatrix}$ as a bilinear form applied to the two vectors 
+ $\vec{h_1} = \verticalvector{\Delta x_1,\Delta y_1}$ and $\vec{h_2} = \verticalvector{\Delta x_2,\Delta y_2}$.
+ 
+With all of this as motivation, we make the following wishy washy "definition"
+
+\begin{definition}
+	The second derivative of a function $f:\R^n \to \R$ is a bilinear form at a point $\mathbf{p}\in \R^n$  
+	is a bilinear form $D^2f\big|_\mathbf{p} : \R^n \times \R^n \to \R$ enjoying the following approximation property:
+	
+	\[
+		Df\big|_{\mathbf{p}+\vec{h_1}}(\vec{h_2})  \approx Df\Big|_\mathbf{p}{\vec{h_2}} + D^2f\big_\mathbf{p} (\vec{h}_1,\vec{h}_2)
+	\]
+	
+\end{definition} 
+
+We will make the sense in which this approximation holds precise in another section, but for now this is good enough.
+
+\begin{question}
+	If $f: \R^2 \to \R$ is a function, and \(Df\big|_{\mathbf{(1,2)}} = \begin{bmatrix}  -1 & 1\end{bmatrix} \) 
+	and \(Hf\big|_{\mathbf{(1,2)}} =  \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix}\). $Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3})$.
+		\begin{solution}
+			\begin{hint}
+				By the fundamental approximating property, we have 
+				\(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}}(-0.2\\0.3)  \approx Df\Big|_\mathbf{(1,2)}{\verticalvector{-0.2\\0.3}} 
+				+ D^2f\big_\mathbf{(1,2)} \left( \verticalvector{0.2\\0.1},\verticalvector{-0.2\\0.3}\right)\)
+			\end{hint}
+			\begin{hint}
+				Thus \(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}}(-0.2\\0.3)  \approx
+					\begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
+					+ \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\)
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) &\approx \begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
+					+ \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\\
+					&=-1(-0.2)+1(0.3)+
+					+ (0.2)(0)(-0.2)+(0.2)(4)(0.3)+(0.1)(4)(-0.2)+(0.1)(1)(0.3)\\
+					&= 0.2+0.3+0+0.12-0.08+0.03\\
+					&=0.57
+				\end{align*}	
+			\end{hint}
+			$Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) \approx$ \answer{0.57}
+		\end{solution}
+		
+		Note that the computation really splits into a first order change ($Df|_p(\vec{h})$) and a second order change ($D^2f(\vec{h_1},\vec{h_2})$).  In this case
+		the first order change was $0.5$, and the second order change was $0.07$.  
+		This should be a better approximation to the real value than if we had used the first derivative alone.
+\end{question}
+
+\begin{question}
+	Let $f:\R^2 \to \R$ be a function with  \(Df|_p =  \begin{bmatrix}  3 & 4\end{bmatrix}\) and 
+	\(Hf|_p = \begin{bmatrix}  1 & 3 \\ 3 & -2\end{bmatrix}\), approximate $Df_{p+\verticalvector{0.01\\0.02}}$.
+	\begin{solution}
+		\begin{hint}
+			By the fundamental approximation property, \(Df_{p+\verticalvector{0.01\\0.02}}(\vec{h}) \approx Df_{p}(\vec{v})+\begin{bmatrix} 0.01 & 0.02\end{bmatrix} Hf|_p \vec{v} \).  So
+			$Df_{p+\verticalvector{0.01\\0.02}} \approx Df_{p}+\begin{bmatrix} 0.01 & 0.02\end{bmatrix} Hf|_p$ as linear maps from $\R^2 \to \R$
+		\end{hint}
+		\begin{hint}
+			\begin{align*}
+				\begin{bmatrix} 0.01 & 0.02\end{bmatrix} Hf|_p  &= \begin{bmatrix} 0.01 & 0.02\end{bmatrix} \begin{bmatrix}  1 & 3 \\ 3 & -2\end{bmatrix}\\
+					&=\begin{bmatrix} 0.01(1)+0.02(3) & 0.01(3)+0.02(-2)\end{bmatrix}\\
+					&=\begin{bmatrix} 0.07 & -0.01\end{bmatrix}
+			\end{align*}
+		\end{hint}
+		\begin{hint}
+			So $Df_{p+\verticalvector{0.01\\0.02}} \approx \begin{bmatrix}  3 & 4\end{bmatrix} + \begin{bmatrix} 0.07 & -0.01\end{bmatrix} = \begin{bmatrix} 3.07 & 3.99\end{bmatrix}$
+		\end{hint}
+	\begin{matrix-answer}
+		correctMatrix = [['3.07','3.99']]
+	\end{matrix-answer}
+	\end{solution}
+\end{question}
+
+
+Following the development at the beginning of this activity, we can anticipate how to compute the second derivative as a bilinear form:
+
+\begin{warning}
+	This is an intuitive development, not a rigorous proof
+\end{warning}
+
+Let $f:\R^n \to \R$.
+
+Since \[Df\big|_p =  \begin{bmatrix}  f_{x_1}(p) & f_{x_2}(p) & ...& f_{x_n}(p) \end{bmatrix}\] 
+
+It is reasonable to think that
+ \[ Df\big|_{\mathbf{p}+\vec{h}_1} \approx Df\big|_{\mathbf{p}}+\begin{bmatrix} Df_{x_1}(p)(\vec{h}_1) & Df_{x_2}(p)(\vec{h}_1) & ...& Df_{x_n}(p)(\vec{h}_1) \end{bmatrix}\]
+ 
+ but \[Df_{x_i}(\vec{h_1})  = \begin{bmatrix} f_{x_1x_1}(p)  & f_{x_2x_1}(p) & ... & f_{x_nx_1}(p)\end{bmatrix} \vec{h_1}\]
+ 
+ We can rewrite this as $\vec{h_1}^\top \verticalvector{ f_{x_1x_1}(p) \\ f_{x_2x_1}(p) \\ \vdots \\ f_{x_nx_1}(p)}$, so we obtain the rather pleasing formula
+ 
+ 
+ \[ 
+ Df\big|_{\mathbf{p}+\vec{h}_1} \approx Df\big|_{\mathbf{p}}+\vec{h_1}^\top
+ \begin{bmatrix}
+		 f_{x_1x_1}(p) &  f_{x_1x_2}(p) & ... &  f_{x_1x_n}(p)\\ f_{x_2x_1}(p) &  f_{x_2x_2}(p) & ... &  f_{x_2x_n}(p)\\ \vdots \\ f_{x_nx_1}(p) &  f_{x_nx_2}(p) & ... &  f_{x_nx_n}(p)
+ \end{bmatrix} 
+ \]
+ 
+ 
+ So 
+ 
+  \[ 
+ Df\big|_{\mathbf{p}+\vec{h}_1}(\vec{h}_2) \approx Df\big|_{\mathbf{p}}(\vec{h}_2)+\vec{h_1}^\top
+ \begin{bmatrix}
+		 f_{x_1x_1}(p) &  f_{x_1x_2}(p) & ... &  f_{x_1x_n}(p)\\ f_{x_2x_1}(p) &  f_{x_2x_2}(p) & ... &  f_{x_2x_n}(p)\\ \vdots \\ f_{x_nx_1}(p) &  f_{x_nx_2}(p) & ... &  f_{x_nx_n}(p)
+ \end{bmatrix} \vec{h}_2
+ \]
+ 
+ So it looks like we have:
+ 
+ \begin{theorem}
+ 	If $f: \R^n \to \R$, the matrix of the bilinear form $D^2f\big|_p : \R^n \times \R^n \to \R$ is \[\begin{bmatrix}
+		 f_{x_1x_1}(p) &  f_{x_1x_2}(p) & ... &  f_{x_1x_n}(p)\\ f_{x_2x_1}(p) &  f_{x_2x_2}(p) & ... &  f_{x_2x_n}(p)\\ \vdots \\ f_{x_nx_1}(p) &  f_{x_nx_2}(p) & ... &  f_{x_nx_n}(p)
+ \end{bmatrix}\]
+ 
+ This matrix is also called the \textbf{Hessian} matrix of $f$.
+ 
+ We could also express this in the following convenient notation:
+ 
+ \[D^2f\big|_p  = \sum_{i,j=1}^n \frac{\partial^2 f}{\partial x_i \partial x_j} dx_i \otimes dx_j\]
+ \end{theorem}
+ 
+ By the equality of mixed partial derivatives, this bilinear form is actually symmetric!  So all of the theory we developed about self adjoint linear operators and symmetric bilinear forms
+ can (and will) be brought to bear on the study of the second derivative.
+ 
+ \begin{question}
+ 	Let $f:\R^2 \to \R$ be defined by $f(x,y) = \frac{x}{y}$.  
+ 	\begin{solution}
+ 		\begin{hint}
+ 					\begin{question}
+ 						
+ 						\begin{solution}
+ 						\begin{hint}
+ 							\begin{align*}
+ 								f_{xx} &= \frac{\partial}{\partial x} \frac{\partial }{\partial x} \frac{x}{y}\\
+ 									&= \frac{\partial}{\partial x} \frac{1}{y}\\
+ 									&= 0
+ 							\end{align*}
+ 						\end{hint}
+ 							$f_{xx}=$\answer{$0$}
+ 						\end{solution}
+ 						\begin{solution}
+ 						\begin{hint}
+ 							\begin{align*}
+ 								f_{xy} &= \frac{\partial}{\partial x} \frac{\partial }{\partial y} \frac{x}{y}\\
+ 									&= \frac{\partial}{\partial x} \frac{-x}{y^2}\\
+ 									&= \frac{-1}{y^2}
+ 							\end{align*}
+ 						\end{hint}
+ 							$f_{xy}=$\answer{$-1/y$}
+ 						\end{solution}
+ 						\begin{solution}
+ 						\begin{hint}
+ 							\begin{align*}
+ 								f_{yx} &= f_{xy} \text{ by equality of mixed partials}\\
+ 									&= \frac{-1}{y^2}
+ 							\end{align*}
+ 						\end{hint}
+ 							$f_{yx}=$\answer{$-1/y^2$}
+ 						\end{solution}
+ 						\begin{solution}
+ 						\begin{hint}
+ 							\begin{align*}
+ 								f_{yy} &= \frac{\partial}{\partial y} \frac{\partial }{\partial y} \frac{x}{y}\\
+ 									&= \frac{\partial}{\partial y} \frac{-x}{y^2}\\
+ 									&= \frac{2x}{y^2}
+ 							\end{align*}
+ 						\end{hint}
+ 							$f_{xx}=$\answer{$2x/y^3$}
+ 						\end{solution}
+ 					\end{question}
+ 				\end{hint}
+ 		\begin{hint}
+ 					\(\mathcal{H} = \begin{bmatrix} 0 & \frac{-1}{y^2}\\ \frac{-1}{y^2}  \frac{2x}{y^3} \end{bmatrix} \)
+ 				\end{hint}
+ 		What is the Hessian matrix of $f$ at the point $(x,y)$?
+ 			\begin{matrix-answer}
+ 				correctMatrix = [['0','-1/y^2'],['-1/y^2','2x/y^3']]
+ 			\end{matrix-answer}
+ 	\end{solution}
+ \end{question}
+ 
+ \begin{question}
+ 	Let $f:\R^3 \to \R$ be defined by $f(x,y,z) = xy+yz$.
+ 	\begin{solution}
+ 		\begin{hint}
+ 			The only second partials which are not zero are $f_{xy} = f_{yx}$ and $f_{yz} =f_{zy}$
+ 		\end{hint}
+ 		\begin{hint}
+ 			$f_{xy} = f_{yx} = 1$
+ 			
+ 			and
+ 		
+ 			$f_{yz} = f_{zy} = 1$
+ 		\end{hint}
+ 		\begin{hint}	
+ 			\(\mathcal{H} = \begin{bmatrix} 0 & 1&0\\1&0&1\\0&1&0\end{bmatrix}\)
+ 		\end{hint}
+ 		What is the Hessian matrix of $f$ at the point $(x,y,z)$?
+ 			\begin{matrix-answer}
+ 				correctMatrix = [['0','1','0'],['1','0','1'],['0','1','0']]
+ 			\end{matrix-answer}
+ 	\end{solution}
+ 		Notice that the second derivative of this function is the same at every point because $f$ was a quadratic function.  Any other polynomial of
+ 		degree $2$ in $n$ variables would also have a constant second derivative. For example $f(x,y,z,t) = 1+2x+3z+4z^2+zx+xt+t^2+yx$ would also have
+ 		constant second derivative.
+ \end{question}
+ 
+% Would be nice to have a video here where we explain how we can think of $Df: \R^n \to Hom(\R^n, \R)$, so $D^2f: \R^n \to Hom( \R^n, Hom(\R^n,\R))$
+% Which then naturally corresponds to $D^2f: \R^n \to \R^n^* \otimes \R^n^*$
+%
+\end{document}

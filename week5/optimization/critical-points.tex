@@ -1,0 +1,168 @@
+\documentclass{ximera}
+\title{Critical points and extrema}
+
+\begin{document}
+	\begin{abstract}
+		Extremes happen where the derivative vanishes
+	\end{abstract}
+	
+	
+	\begin{definition}
+		Let $f:\R^n \to \R $ be a differentiable function.  A point $p \in U$ is called a critical point of $f$ if $Df(p)$ is the zero map.
+	\end{definition}
+	
+	\begin{question}
+		Consider \(f: \R^2 \to \R\) defined by $f(x,y) = e^{x^2+y^2}$.  $f$ has only one critical point
+		\begin{solution}
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							\begin{align*}
+								Df(x,y) &= \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}\end{bmatrix}\\
+									&= \begin{bmatrix} 2xe^{x^2+y^2} & 2ye^{x^2+y^2}\end{bmatrix}
+							\end{align*}
+						\end{hint}
+						What is $Df(x,y)$?
+							\begin{matrix-answer}
+								correctMatrix = [['2xe^(x^2+y^2)','2ye^(x^2+y^2)']]
+							\end{matrix-answer}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				So we need \(\begin{bmatrix} 2xe^{x^2+y^2} & 2ye^{x^2+y^2}\end{bmatrix} = \begin{bmatrix} 0 & 0\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				This only occurs when $x=0$ and $y=0$
+			\end{hint}
+			\begin{hint}
+				Enter this as $\verticalvector{0\\0}$
+			\end{hint}
+			What is this critical point?  Give you answer as a vertical vector.
+			\begin{matrix-answer}
+				correctMatrix = [['0'],['0']]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}
+		Consider \(f: \R^2 \to \R\) defined by $f(x,y) = x^3+y^3-3xy$. 
+		\begin{solution}
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							\begin{align*}
+								Df(x,y) &= \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}\end{bmatrix}\\
+									&= \begin{bmatrix} 3x^2-3y & 3y^2-3x\end{bmatrix}
+							\end{align*}
+						\end{hint}
+						What is $Df(x,y)$?
+							\begin{matrix-answer}
+								correctMatrix = [['3x^2-3y','3y^2-3x']]
+							\end{matrix-answer}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				So we need \(\begin{bmatrix} 3x^2-3y & 3y^2-3x\end{bmatrix} = \begin{bmatrix} 0 & 0\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					&\begin{cases}
+						3x^2-3y=0\\
+						3y^2-3x=0
+					\end{cases}
+					\\
+					&\begin{cases}
+						y=x^2\\
+						x=y^2
+					\end{cases}
+					\\
+					&\begin{cases}
+						y=y^4\\
+						x=y^2
+					\end{cases}
+					\\
+					&\begin{cases}
+						y(y-1)(y^2+y+1) = 0\\
+						x=y^2
+					\end{cases}
+				\end{align*}
+			\end{hint}
+			
+			\begin{hint}
+				The only two points that work are $(0,0)$ and $(1,1)$
+			\end{hint}
+			$f$ has two critical points.  One of them is $(0,0)$.  What is the other?
+			\begin{matrix-answer}
+				correctMatrix = [['1'],['1']]
+			\end{matrix-answer}
+		\end{solution}
+	\end{question}
+	
+	You already had some practice with this concept in \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week2/practice/stationary-points/}{week 2}.
+	
+	\begin{definition}
+		A function $f:\R^n \to \R$ has a \textbf{local maximum} at the point $\mathbf{p} \in \R^n$ if there is an $\epsilon \geq 0$ so that for all $\mathbf{x} \in \R^n$
+		with $|\mathbf{x} - \mathbf{p}| \leq \epsilon$, $f(\mathbf{x}) \leq f(\mathbf{p})$.
+	\end{definition}
+	
+	Write a good definition for the local minimum of a function
+	\begin{free-response}
+		A function $f:\R^n \to \R$ has a \textbf{local minimum} at the point $\mathbf{p} \in \R^n$ if there is an $\epsilon \geq 0$ so that for all $\mathbf{x} \in \R^n$
+		with $|\mathbf{x} - \mathbf{p}| \leq \epsilon$, $f(\mathbf{x}) \geq f(\mathbf{p})$.
+	\end{free-response}
+		
+		We call points which are either local maxima or local minima \textbf{local extrema}.
+		
+	\begin{theorem}
+		If $f:\R^n \to \R$ is a differentiable function, and $\mathbf{p}$ a local extremum.  Then $\mathbf{p}$ is a critical point of $f$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\mathbf{p}$ be a local maximum.  We want to show that $Df(\mathbf{p})(\vec{v}) = 0$ for all $\vec{v} \in \R^n$.  Recall that one formula for the derivative is
+		\[
+		Df(\mathbf{p})(\vec{v}) = \displaystyle\lim_{t \to 0} \frac{f(\mathbf{p}+t\vec{v}) - f(\mathbf{p})}{t}
+		\]
+		
+		Since $f$ is differentiable, this limit must exist.  As $t \to 0^+$, we have $\frac{f(\mathbf{p}+t\vec{v}) - f(\mathbf{p})}{t} \leq 0$, since the numerator is less than or
+		equal to zero by definition of a local maximum, and the denominator is greater than $0$.  So the limit must be less than or equal to $0$
+		
+		On the other hand, as $t \to 0^-$, the numerator is still less than $0$, but the denominator is now negative, so the limit must be greater than or equal to $0$.
+		
+		Therefore 
+		\[
+		Df(\mathbf{p})(\vec{v}) = \displaystyle\lim_{t \to 0} \frac{f(\mathbf{p}+t\vec{v}) - f(\mathbf{p})}{t} = 0
+		\]
+		
+		Since we did this with an arbitrary vector $\vec{v} \in \R^n$, we see that $Df(\mathbf{p})$ is the zero map.
+		
+		We leave the nearly identical case of a local minima to you.
+	\end{proof}
+	
+	
+	This theorem tells us that if we want to identify local extrema, a good place to start is by looking for all the critical points.  It is worthwhile to note
+	that just because a point is a critical point does not mean it is a local extrema:
+	
+	\begin{example}
+		Let $f:\R^2 \to \R$ be defined by $f(x,y) = x^2-y^2$.  Then $(0,0)$ is a critical point of $f$ (check this!), but $(0,0)$ is not a local extremum.  In fact we can see
+		that along the line $y=0$, $(0,0)$ is a local maximum, while along the line $x=0$ it is a local minimum.  The graph of $f$ looks like a saddle. 
+	\end{example}
+	
+	\begin{definition}
+		A critical point which is not a local extremum is a \textbf{saddle point}.
+	\end{definition}
+	
+	\begin{warning}
+		A saddle point does not need to be a local minimum in some directions and a local maximum in others.  For example, according to our definition
+		$0$ is a saddle point of $f(x,y)  = x^3$
+	\end{warning}
+	
+	In the next section we will learn how to determine when a critical point is a local maximum, minimum, or saddle by using the second derivative.
+	
+	
+	
+	
+\end{document}

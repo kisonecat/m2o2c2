@@ -109,19 +109,24 @@
 		with $|\mathbf{x} - \mathbf{p}| \leq \epsilon$, $f(\mathbf{x}) \leq f(\mathbf{p})$.
 	\end{definition}
 	
+	\begin{warning}
+		The fact that the inequalities in this definition are not strict means that, for example, for the $f(x,y) = 1$ every point is both a local maximum and a local minimum.
+	\end{warning}
+	
 	Write a good definition for the local minimum of a function
 	\begin{free-response}
 		A function $f:\R^n \to \R$ has a \textbf{local minimum} at the point $\mathbf{p} \in \R^n$ if there is an $\epsilon \geq 0$ so that for all $\mathbf{x} \in \R^n$
 		with $|\mathbf{x} - \mathbf{p}| \leq \epsilon$, $f(\mathbf{x}) \geq f(\mathbf{p})$.
 	\end{free-response}
 		
-		We call points which are either local maxima or local minima \textbf{local extrema}.
+	We call points which are either local maxima or local minima \textbf{local extrema}.
 		
 	\begin{theorem}
 		If $f:\R^n \to \R$ is a differentiable function, and $\mathbf{p}$ a local extremum.  Then $\mathbf{p}$ is a critical point of $f$.
 	\end{theorem}
 	
-	\begin{proof}
+	Prove this theorem
+	\begin{free-response}
 		Let $\mathbf{p}$ be a local maximum.  We want to show that $Df(\mathbf{p})(\vec{v}) = 0$ for all $\vec{v} \in \R^n$.  Recall that one formula for the derivative is
 		\[
 		Df(\mathbf{p})(\vec{v}) = \displaystyle\lim_{t \to 0} \frac{f(\mathbf{p}+t\vec{v}) - f(\mathbf{p})}{t}
@@ -140,7 +145,7 @@
 		Since we did this with an arbitrary vector $\vec{v} \in \R^n$, we see that $Df(\mathbf{p})$ is the zero map.
 		
 		We leave the nearly identical case of a local minima to you.
-	\end{proof}
+	\end{free-response}
 	
 	
 	This theorem tells us that if we want to identify local extrema, a good place to start is by looking for all the critical points.  It is worthwhile to note
@@ -161,8 +166,5 @@
 	\end{warning}
 	
 	In the next section we will learn how to determine when a critical point is a local maximum, minimum, or saddle by using the second derivative.
-	
-	
-	
 	
 \end{document}

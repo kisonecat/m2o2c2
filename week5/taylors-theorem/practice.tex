@@ -1,0 +1,196 @@
+\documentclass{ximera}
+\title{Taylor's theorem examples}
+\begin{document}
+	\begin{abstract}
+		Let's see how Taylor's theorem gives us better approximations
+	\end{abstract}
+	
+	\begin{warning}
+		Just due to the sheer number of calculations, these questions are quite long.
+	\end{warning}
+	
+	\begin{question}
+		Consider $f:\R^2 \to \R$ defined by $f(x,y) = x\cos(y)+xy$.
+		\begin{solution}
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							$\frac{\partial}{\partial x} x\cos(y)+xy= \cos(y)+y$
+							\\
+							\\
+							So $f_x(0,0) = 1$
+						\end{hint}
+					$f_x(0,0) = $\answer{1}
+					\end{solution}
+					\begin{solution}
+						\begin{hint}
+							$\frac{\partial }{\partial y} x\cos(y)+xy = -x\sin(y)+x$
+							\\
+							\\
+							So $f_y(0,0) = 0$
+						\end{hint}
+					$f_y(0,0) = $\answer{0}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				\begin{align*}
+					f(x,y) &\approx f(0,0)+ Df(0,0)(\verticalvector{x\\y})\\
+						&=0\cos(0)+0(0)+\begin{bmatrix} f_x(0,0)  & f_y(0,0) \end{bmatrix}\verticalvector{x\\y}\\
+						&= \begin{bmatrix} 1 & 0 \end{bmatrix}\verticalvector{x\\y}\\
+						&= x
+				\end{align*}
+			\end{hint}
+			The linear approximation to $f$ at $(0,0)$ is $f(x,y) \approx$ \answer{$x$}
+		\end{solution}
+		\begin{solution}
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							$f_{xx}= 0$
+						\end{hint}
+						$f_{xx}(0,0) = $\answer{0}
+					\end{solution}
+					\begin{solution}
+						\begin{hint}
+							$f_{xy} = -\sin(y)+1$
+						\end{hint}
+						$f_{xy}(0,0) = $\answer{1}
+					\end{solution}
+					\begin{solution}
+					\begin{hint}
+							$f_{yx} = -\sin(y)+1$
+						\end{hint}
+						$f_{yx}(0,0) = $\answer{1}
+					\end{solution}
+					\begin{solution}
+					\begin{hint}
+							$f_{yy} = 0$
+						\end{hint}
+						$f_{yy}(0,0) = $\answer{0}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				So \(\mathcal{H}(0,0) = \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				By Taylors theorem, $f(x,y) \approx f(0,0)+Df(0,0)(\verticalvector{x\\y})+\frac{1}{2}D^2f(\verticalvector{x\\y},\verticalvector{x\\y})$
+			\end{hint}
+			\begin{hint}
+				So \begin{align*}
+				f(x,y) &\approx 0+x+\begin{bmatrix} x & y \end{bmatrix} \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix} \verticalvector{x\\y}\)\\
+					&=x+\frac{1}{2} (2xy)\\
+					&=x+xy
+					\end{align*}
+			\end{hint}
+			The second order approximation to $f$ at $(0,0)$ is $f(x,y) \approx$ \answer{$x+xy$}
+		\end{solution}
+		
+		It is kind of cool that we could also read this off from the following magic:
+			\begin{align*}
+				x\cos(y)+xy &= x(1-\frac{y^2}{2!}+\frac{y^4}{4!}-...)+xy\\	
+						&=x+xy-\frac{xy^2}{2!}+\frac{xy^4}{4!}-...
+			\end{align*}
+		
+		So it looks like the second order approximation is $x+xy$
+		\begin{solution}
+			Using the first order approximation $f(0.1,0.2) \approx$ \answer{$0.1$}
+		\end{solution}
+		\begin{solution}
+			Using the second order approximation $f(0.1,0.2) \approx$ \answer{$0.12$}
+		\end{solution}
+		
+		A calculator tells me $f(0.1,0.2) \approx 0.11800665778$.  So clearly, the second order approximation is better.  Notice that the second order approximation is slightly
+		high, and this is apparent from our magical calculation, since the next term should be $-\frac{0.1(0.2)^2}{2}  = -0.002$, which gets us even closer to the exact answer.  We will make the 
+		voodoo more precise when we deal with the full multivariable taylors theorem later.
+	\end{question}
+	
+	\begin{question}
+		Consider $f:\R^3 \to \R$ defined by $f(x,y,z) = xe^{z+y} +z^2$
+			\begin{solution}
+				\begin{hint}
+					$f(x,y,z) \approx f(0,0,1)+Df(0,0,1)(\verticalvector{x\\y\\z-1})+ \frac{1}{2}D^2f\left(\verticalvector{x\\y\\z-1},\verticalvector{x\\y\\z-1}\right)$
+				\end{hint}
+				\begin{hint}
+					\begin{question}
+						\begin{solution}
+							\begin{hint}
+								\begin{align*}
+									Df(0,0,1) &= \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}& \frac{\partial f}{\partial z} \end{bmatrix} \big|_{(0,0,1)}\\
+									&= \begin{bmatrix} e^{z+y} & xe^{z+y}& xe^{z+y}+2z \end{bmatrix} \big|_{(0,0,1)}\\
+									&=\begin{bmatrix} e & 0 &2\end{bmatrix} 
+								\end{align*}
+							\end{hint}
+						The matrix of $Df(0,0,1)$ is 
+						\begin{matrix-answer}
+							correctMatrix = [['e','0','2']]
+						\end{matrix-answer}
+						\end{solution}
+						\begin{solution}
+							\begin{hint}
+								\begin{align*}
+									\mathcal{H}(0,0,1) &= 
+									\left.\begin{bmatrix}  
+									\frac{\partial ^2f}{\partial x\partial x} & \frac{\partial ^2f}{\partial x\partial y}&\frac{\partial ^2f}{\partial x\partial z}\\
+									\frac{\partial ^2f}{\partial y\partial x} & \frac{\partial ^2f}{\partial y\partial y}&\frac{\partial ^2f}{\partial y\partial z}\\
+									\frac{\partial ^2f}{\partial z\partial x} & \frac{\partial ^2f}{\partial z\partial y}&\frac{\partial ^2f}{\partial z\partial z}\\
+									\end{bmatrix}\right|_{(0,0,1)}\\
+									&=\left.\begin{bmatrix}  
+									0& e^{z+y}&e^{z+y}\\
+									e^{z+y} & xe^{z+y}&xe^{z+y}\\
+									e^{z+y}& xe^{z+y}&xe^{z+y}+2\\
+									\end{bmatrix}\right|_{(0,0,1)}\\
+									&=\begin{bmatrix}  
+									0 & e & e\\
+									e & 0 & 0\\
+									e & 0 & 2\\
+									\end{bmatrix}
+								\end{align*}
+							\end{hint}
+							The hessian matrix of $f$ at $(1,0,0)$ is 
+							\begin{matrix-answer}
+								correctMatrix = [['0','e','e'],['e','0','0'],['e','0','2']]
+							\end{matrix-answer}
+							
+						\end{solution}
+					\end{question}
+				\end{hint}
+				\begin{hint}
+					\begin{align*}
+						f(x,y,z) \approx 1+\begin{bmatrix} e & 0& 2 \end{bmatrix}\verticalvector{x\\y\\z-1} + \frac{1}{2}\begin{bmatrix} x & y& z-1\end{bmatrix}\begin{bmatrix}  
+									0 & e & e\\
+									e & 0 & 0\\
+									e & 0 & 2\\
+									\end{bmatrix} \verticalvector{x\\y\\z-1}\\
+									&= 1+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2
+					\end{align*}
+				\end{hint}
+				The second order taylor expansion of $f$ about the point $(1,1,0)$ is $f(x,y,z) \approx$\answer{ $1+e+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2$}
+			\end{solution}
+	\end{question}
+	
+	\begin{question}
+		Let $f:\R^4 \to \R$ be a function with 
+			\begin{itemize}
+				\item $f(0,0,0,0) = 2$
+				\item \(Df(0,0,0,0) = \begin{bmatrix} 1 & -1 & 0&0\end{bmatrix}\)
+				\item \( D^2f(0,0,0,0) = \begin{bmatrix} 0&0&0&0 \\ 0&2&0&3 \\ 0&0&0&0\\0&3&0&0\end{bmatrix}\)
+			\end{itemize}
+			\begin{solution}
+				\begin{hint}
+					$f(x,y,z,t) \approx f(0,0,0,0)+ Df(0,0,0,0)\left(\verticalvector{x\\y\\z\\t}\right)+ \frac{1}{2}D^2f\left(\verticalvector{x\\y\\z\\t},\verticalvector{x\\y\\z\\t}\right)$
+				\end{hint}
+				\begin{hint}
+					\begin{align*}
+					f(x,y,z,t) \approx 2+ \begin{bmatrix} 1 & -1 & 0&0\end{bmatrix}\verticalvector{x\\y\\z\\t}+ 
+					\frac{1}{2}\begin{bmatrix} x&y&z&t\end{bmatrix}\begin{bmatrix} 0&0&0&0 \\ 0&2&0&3 \\ 0&0&0&0\\0&3&0&0\end{bmatrix}\verticalvector{x\\y\\z\\t}\\
+					&= 2+x-y+y^2+3yt
+					\end{align*}
+				\end{hint}
+				The second order approximation to $f$ at $(0,0,0,0)$ is $f(x,y,z,t) \approx$ \answer{$2+x-y+y^2+3yt$}
+			\end{solution}
+	\end{question}
+\end{document}

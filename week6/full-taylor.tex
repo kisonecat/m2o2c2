@@ -4,4 +4,46 @@
 \begin{abstract}
 	Higher order derivatives give rise to higher order polynomial approximations.
 \end{abstract}
+
+\begin{theorem}
+	Let $f:\R^n \to \R$ be a $k+1$ times differentiable function.  Then
+	
+	$f(\mathbf{p}+\vec{h}) 
+	= f(\mathbf{p})+Df(\mathbf{p})(\vec{h})+D^2f(\mathbf{p})(\vec{h},\vec{h})+D^3f(\mathbf{p})(\vec{h},\vec{h},\vec{h})+...
+	+D^kf(\mathbf{p})(\vec{h}^k) + D^{k+1}(\mathbf{p}+\xi\vec{h})(\vec{h}^{k+1})$ for some $\xi \in [0,1]$,  where have abbreviated the 
+	ordered tuple of $i$ $\vec{h}'$s as $\vec{h}^i$
+\end{theorem}
+
+	\begin{question}
+		Let $f:\R^2 \to \R$ be defined by $f(x,y) = e^{x+y}$.  
+		\begin{solution}
+			\begin{hint}
+				I will assume that, from the last section, you know how to get that the second order taylor approximation is $1+(x+y)+\frac{(x+y)^2}{2}$
+			\end{hint}
+			\begin{hint}
+				Every partial derivative of this function is $e^{x+y}$, so all of the third partial derivatives are $1$
+			\end{hint}
+			\begin{hint}
+				So the third derivative is the sum of all of the following terms 
+				\begin{itemize}
+					\item $dx \otimes dx \otimes dx$
+					\item $dx \otimes dx \otimes dy$
+					\item $dx \otimes dy \otimes dx$
+					\item $dx \otimes dy \otimes dy$
+					\item $dy \otimes dx \otimes dx$
+					\item $dy \otimes dx \otimes dy$
+					\item $dy \otimes dy \otimes dx$
+					\item $dy \otimes dy \otimes dy$
+				\end{itemize}
+			\end{hint}
+			\begin{hint}
+				Applying this tensor to $(\verticalvector{x\\y},\vertticalvector{x\\y},\vertcalvector{x\\y})$ we get 
+				$xxx+xxy+xyx+xyy+yxx+yxy+yyx+yyy = (x+y)^3$
+			\end{hint}
+			\begin{hint}
+				So the third order taylor expansion is $1+(x+y)+\frac{(x+y)^2}{2}+\frac{(x+y)^3}{6}$
+			\end{hint}
+			The third order taylor series of $f$ about the point $(0,0)$ is \answer{$1+(x+y)+(x+y)^2/2+(x+y)^3/6$}
+		\end{solution}
+	\end{question}
 \end{document}

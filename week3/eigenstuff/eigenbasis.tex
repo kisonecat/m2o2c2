@@ -23,19 +23,19 @@ Prove this theorem.
 
 \begin{free-response}
   Assume to the contrary that the list is linearly dependent.  Let $v_k$ be the first vector in the list which is in the span of the preceding vectors, 
-  so that the vectors $(v_1,v_2,...,v_{k-1})$  are linearly dependent.  
-  Let $a_1v_1+a_2v_2+...+a_{k-1}v_{j-1} = v_k$.  Then applying $L$ to both sides of this equation we have
+  so that the vectors $(v_1,v_2,...,v_{k-1})$  are linearly independent.  
+  Let $a_1v_1+a_2v_2+...+a_{k-1}v_{k-1} = v_k$.  Then applying $L$ to both sides of this equation we have
   $a_1\lambda_1 v_1+a_2\lambda_2 v_2+ ...+a_{k-1}\lambda_{k-1} v_{k-1} = \lambda_k v_k$.  If we multiply the first equation by $\lambda_k$ we also have
-  $a_1\lambda_1v_1+a_2\lambda_1v_2+...+a_{k-1}\lambda_1v_{j-1} = \lambda_1v_k$.  Subtracting these two equations we have
+  $a_1\lambda_1v_1+a_2\lambda_1v_2+...+a_{k-1}\lambda_1v_{k-1} = \lambda_1v_k$.  Subtracting these two equations we have
   
   \(
   a_1(\lambda_k-\lambda_1)v_1+a_2(\lambda_k-\lambda_2)v_2+...+a_3(\lambda_k-\lambda_{k-1})v_k=0.
   \)
   
-  Since the vectors   $(v_1,v_2,...,v_{k-1})$  are linearly dependent, we must have that $a_i(\lambda_k - \lambda_i) = 0$.  But $\lambda_k \neq \lambda_i$, so 
+  Since the vectors   $(v_1,v_2,...,v_{k-1})$  are linearly independent, we must have that $a_i(\lambda_k - \lambda_i) = 0$.  But $\lambda_k \neq \lambda_i$, so 
   $a_i=0$ for each $i$.  Looking back at where the $a_i$ came from, we see that this implies that $v_k=0$.  This contradicts the assumption that the $v_j$ were all nonzero.
   
-  So our assumption that the list was linearly dependent was absurd, hence the list is linearly dependent.
+  So our assumption that the list was linearly dependent was absurd, hence the list is linearly independent.
 \end{free-response}
 
 A corollary of this theorem is that if $V$ is $n$ dimensional and $L: V \to V$ has $n$ distinct eigenvalues, then the eigenvectors of $L$ form a basis of $V$.

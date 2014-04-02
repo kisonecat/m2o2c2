@@ -2,111 +2,88 @@
 \title{Adjoints}
 
 \begin{document}
-	\begin{abstract}
-		Adjoints formalize the transpose
-	\end{abstract}
+
+\begin{abstract}
+  Adjoints formalize the transpose.
+\end{abstract}
 	
-		Let $L: \R^m \to \R^n$ be a linear map.  
-		Then there is an associated bilinear form $B_L  : \R^n \times \R^m \to \R$ given by $B_L(\vec{v},\vec{w}) = \langle \vec{v}, L(\vec{w}) \rangle$
-		Now we can just as easily view $B_L$ as a bilinear map  $B_L^*: \R^m \times \R^n \to \R$, namely $B_L^* (\vec{w},\vec{v}) = B_L(\vec{v},\vec{w})$.
-		But then we get an associated linear map $L_{B_L^*} : \R^n \to \R^m$.
+Let $L: \R^m \to \R^n$ be a linear map.  Then there is an associated
+bilinear form $B_L : \R^n \times \R^m \to \R$ given by
+$B_L(\vec{v},\vec{w}) = \langle \vec{v}, L(\vec{w}) \rangle$.
+
+One thing we can do to a bilinear map is swap the two inputs, namely,
+we can build $B_L^*: \R^m \times \R^n \to \R$ by the rule $B_L^*
+(\vec{w},\vec{v}) = B_L(\vec{v},\vec{w})$.
+
+And with this ``swapped'' bilinear map, we can go back and recover an
+associated linear map $L_{B_L^*} : \R^n \to \R^m$.
+
+\begin{question}
+  The domain of $L_{B_L^*}$ is the same as
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{the codomain of $L$.}
+      \choice{the codomain of $L$.}
+    \end{multiple-choice}
+  \end{solution}
+
+  Right!  The minor surprise is that $L$ went from $\R^m$ to $\R^n$, but $L_{B_L^*}$ goes ``the other way'' from $\R^n$ to $\R^m$.
+\end{question}
+
+
+\begin{definition}
+  If $L:\R^m \to \R^n$ is a linear map, the \textbf{adjoint} of $L$ is
+  the map $L_{B_L^*} : \R^m \to \R^n$.  We usually write $L^*$ for the
+  adjoint of $L$.
+\end{definition}
 		
-		\begin{definition}
-			If $L:\R^m \to \R^n$ is a linear map, we call the associated map $L^* : \R^m \to \R^n$ given by the line of reasoning above the \textbf{adjoint} of $L$.
-		\end{definition}
-		
-			Let $L: \R^m \to \R^n$ be a linear map.  
-			Show that $\langle \vec{v}, L(\vec{w})\rangle = \langle  L^*(\vec{v}),\vec{w}\rangle$ for every $v \in \R^n$ and $w \in \R^m$
-			\begin{free-response}
-				\begin{align*}
-					\langle \vec{v}, L(\vec{w})\rangle &= B_L(\vec{v},\vec{w})\\
-						&= B_L^*(\vec{w},\vec{v})\\
-						&=\langle \vec{w},L^*(\vec{v}) \rangle\\
-						&=\langle L^*(\vec{v}), \vec{w}\rangle
-				\end{align*}
-			\end{free-response}
-	
-			Let $L: \R^n \to \R^m$ be a linear map.
-			If $L$ has matrix $M$ with respect to the standard basis, show that $L^*$ has matrix $M^\top$.
+Let $L: \R^m \to \R^n$ be a linear map.  
+Show that $\langle \vec{v}, L(\vec{w})\rangle = \langle  L^*(\vec{v}),\vec{w}\rangle$ for every $v \in \R^n$ and $w \in \R^m$
 \begin{free-response}
-	Let's use the fundamental insight from \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week1/inner-product/multiply-dot/}{this activity}.  
-	
-	Let the matrix of $L^*$ be called $M^*$ for now.
-	To find the entry in the $i^{th}$ row and $j^{th}$ column of $M^*$, we just  compute 
-	\begin{align*}
-		M_{i,j} &= e_i^\top M^*(e_j)\\
-			&=e_i^\top L^*(e_j)\\
-			&= \langle e_i , L^*(e_j)\rangle\\
-			&= \langle  L(e_i), e_j \rangle\\
-			&=e_j^\top L(e_i)\\
-			&=e_j^\top M(e_i)\\
-			&= M_{j,i}
-	\end{align*}
-	
-	So the entry  in the $i^{th}$ row and $j^{th}$ column of $M^*$ is the entry in the $j^{th}$ row and $i^{th}$ column of $M$.  Thus $M^* = M^\top$.
+  \begin{align*}
+    \langle \vec{v}, L(\vec{w})\rangle &= B_L(\vec{v},\vec{w})\\
+    &= B_L^*(\vec{w},\vec{v})\\
+    &=\langle \vec{w},L^*(\vec{v}) \rangle\\
+    &=\langle L^*(\vec{v}), \vec{w}\rangle
+  \end{align*}
+\end{free-response}
+
+Let $L: \R^n \to \R^m$ be a linear map.
+If $L$ has matrix $M$ with respect to the standard basis, show that $L^*$ has matrix $M^\top$.
+\begin{free-response}
+  Let's use the fundamental insight from \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week1/inner-product/multiply-dot/}{this activity}.  
+  
+  Let the matrix of $L^*$ be called $M^*$ for now.
+  To find the entry in the $i^{th}$ row and $j^{th}$ column of $M^*$, we just  compute 
+  \begin{align*}
+    M_{i,j} &= e_i^\top M^*(e_j)\\
+    &=e_i^\top L^*(e_j)\\
+    &= \langle e_i , L^*(e_j)\rangle\\
+    &= \langle  L(e_i), e_j \rangle\\
+    &=e_j^\top L(e_i)\\
+    &=e_j^\top M(e_i)\\
+    &= M_{j,i}
+  \end{align*}
+  
+  So the entry  in the $i^{th}$ row and $j^{th}$ column of $M^*$ is the entry in the $j^{th}$ row and $i^{th}$ column of $M$.  Thus $M^* = M^\top$.
 \end{free-response}
 
 \begin{question}
-	Let $L:\R^3 \to \R^2$ have the matrix \(\begin{bmatrix} 3&2 &1\\ -4&2&9\end{bmatrix}\).
-	\begin{solution}
-		\begin{hint}
-			The matrix of the adjoint of a linear map is the transpose of the matrix of that linear map.
-		\end{hint}
-		\begin{hint}
-			The matrix of $L^*$ is \(\begin{bmatrix} 3&-2\\ 2&2\\1&9\end{bmatrix}\)
-		\end{hint}
-		What is the matrix of $L^*$?
-			\begin{matrix-answer}
-				correctMatrix = [['3','-4'],['2','2'],['1','9']]
-			\end{matrix-answer}
-	\end{solution}
+  Let $L:\R^3 \to \R^2$ have the matrix \(\begin{bmatrix} 3&2 &1\\ -4&2&9\end{bmatrix}\).
+  \begin{solution}
+    \begin{hint}
+      The matrix of the adjoint of a linear map is the transpose of the matrix of that linear map.
+    \end{hint}
+    \begin{hint}
+      The matrix of $L^*$ is \(\begin{bmatrix} 3&-2\\ 2&2\\1&9\end{bmatrix}\)
+    \end{hint}
+    What is the matrix of $L^*$?
+    \begin{matrix-answer}
+      correctMatrix = [['3','-4'],['2','2'],['1','9']]
+    \end{matrix-answer}
+  \end{solution}
 \end{question}
 
-		
-			Show that if $\vec{v}$ is a nonzero eigenvector of $L:\R^n \to \R^n$, with eigenvalue $\lambda$ then
-			there is a nonzero eigenvector $\vec{u}$ of $L^*$ with eigenvector $\lambda$. 
-\begin{warning}
-	This is a very hard problem.
-\end{warning}
-\begin{hint}
-	Consider the map $S: \R^n \to \R^n$ given by $S(\vec{v}) = L^*(\vec{v}) - \lambda \vec{v}$, or in other words $S = L^* - \lambda I$.  Showing that this map has a nontrivial kernel is the same as
-	showing that $L^*$ has $\lambda$ as an eigenvector.
-\end{hint}
-\begin{hint}
-	Notice that $L-\lambda I$ is adjoint to $S = L^* -\lambda I$
-\end{hint}
-\begin{hint}
-	For all $\vec{w} \in \R^n$, we have $\langle S(\vec{w}),\vec{v}\rangle = \langle \vec{w}, L(\vec{v}) - \lambda \vec{v}\rangle = 0$
-\end{hint}
-\begin{hint}
-	Thus $S(\vec{w})$ is in the subspace of vectors perpendicular to the eigenvector $\vec{v}$, which we denote $\vec{v}^\perp$.
-\end{hint}
-\begin{hint}
-	Thus we have that $Im(S) \subset \vec{v}^\perp$.  This implies that $dim(Im(S)) \leq n-1$
-\end{hint}
-\begin{hint}
-	By the rank nullity theorem, we have that $dim(ker(S)) \geq 1$
-\end{hint}
-\begin{hint}
-	So $S$ has a nontrivial kernel, so $L^*$ has a nonzero eigenvector $\vec{u}$ with eigenvalue $\lambda$. 
-\end{hint}
-\begin{free-response}
-	Consider the map $S: \R^n \to \R^n$ given by $S(\vec{v}) = L^*(\vec{v}) - \lambda \vec{v}$.  Showing that this map has a nontrivial kernel is the same as
-	showing that $L^*$ has $\lambda$ as an eigenvector.
-	
-	Notice that $L-\lambda I$ is adjoint to $S = L^* -\lambda I$
-	
-	For all $\vec{w} \in \R^n$, we have $\langle S(\vec{w}),\vec{v}\rangle = \langle \vec{w}, L(\vec{v}) - \lambda \vec{v}\rangle = 0$
-	
-	Thus $S(\vec{w})$ is in the subspace of vectors perpendicular to the eigenvector $\vec{v}$, which we denote $\vec{v}^\perp$.
-	
-	Thus we have that $Im(S) \subset \vec{v}^\perp$.  This implies that $dim(Im(S)) \leq n-1$
-	
-	By the rank nullity theorem, we have that $dim(ker(S)) \geq 1$
-	
-	So $S$ has a nontrivial kernel, so $L^*$ has a nonzero eigenvector $\vec{u}$ with eigenvalue $\lambda$. 
-\end{free-response}
-		
-		
+
 	
 \end{document}

@@ -21,16 +21,16 @@
 	\begin{proof}
 		By the second order taylor's theorem, we have 
 		\[
-			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})+D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) for some $\xi \in [0,1]$
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})+D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) \text{ for some } \xi \in [0,1]$
 		\]
 		
 		Since $\mathbf{p}$ is a critical point,
 		
 		\[
-			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) for some $\xi \in [0,1]$
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) \text{ for some } \xi \in [0,1]$
 		\]
 		
-		If f $D^2f(\mathbf{p})$ is positive definite, then because $f$ is $\mathcal{C}^2$,  $D^2f(\mathbf{p}+\xi\vec{h})$ is also positive semidefinite for 
+		If  $D^2f(\mathbf{p})$ is positive definite, then because $f$ is $\mathcal{C}^2$,  $D^2f(\mathbf{p}+\xi\vec{h})$ is also positive semidefinite for 
 		small enough $\vec{h}$ (this just uses continuity of the second derivative).  Thus $D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) > 0$ for
 		all small enough values of $\vec{h}$, say $|\vec{h}| \leq \epsilon$.  But this just says that $f(\mathbf{p}+\vec{h}) > f(\mathbf{p})$, so $\mathbf{p}$
 		is a local minimum.
@@ -71,15 +71,15 @@
 					&\begin{cases}
 						3x^2-3e^y = 0\\
 						3e^{3y}-3xe^y = 0
-					\end{cases}
+					\end{cases}\\
 					&\begin{cases}
 						x^2=e^y\\
 						e^{3y}=xe^y
-					\end{cases}
+					\end{cases}\\
 					&\begin{cases}
 						x^2=e^y\\
 						x=e^{2y}
-					\end{cases}
+					\end{cases}\\
 					&\begin{cases}
 						x^4=x\\
 						x=e^{2y}

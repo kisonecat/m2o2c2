@@ -8,37 +8,36 @@
 \end{abstract}
 
 \begin{definition}
-	A bilinear form $B$ is
-	\begin{itemize}
-		\item \textit{Positive definite} if $B(\vec{v},\vec{v}) > 0 $ for all $\vec{v} \neq \vec{0}$
-		\item \textit{Positive semidefinite} if $B(\vec{v},\vec{v}) \geq 0 $ for all $\vec{v}$
-		\item \textit{Negative definite} if $B(\vec{v},\vec{v}) < 0 $ for all $\vec{v} \neq \vec{0}$
-		\item \textit{Negative semidefinite} if $B(\vec{v},\vec{v}) \leq 0 $ for all $\vec{v}$	
-		\item \textit{Indefinite} if $B$ there are $v$ and $w$ with $B(v,v)>0$ and $B(w,w)<0$
-		\end{itemize}
+  A bilinear form $B : \R^n \times \R^n \to \R$ is
+  \begin{description}
+  \item[Positive definite] if $B(\vec{v},\vec{v}) > 0 $ for all $\vec{v} \neq \vec{0}$,
+  \item[Positive semidefinite] if $B(\vec{v},\vec{v}) \geq 0 $ for all $\vec{v}$,
+  \item[Negative definite] if $B(\vec{v},\vec{v}) < 0 $ for all $\vec{v} \neq \vec{0}$,
+  \item[Negative semidefinite] if $B(\vec{v},\vec{v}) \leq 0 $ for all $\vec{v}$, and
+  \item[Indefinite] if $B$ there are $v$ and $w$ with $B(v,v)>0$ and $B(w,w)<0$
+  \end{description}
 \end{definition}
 
-
-	Let $M$ be a diagonal matrix.  In a sentence, can you relate the sign of the entries $M_{i,i}$ to the definiteness of the associated bilinear form? 
+Let $M$ be a diagonal matrix.  In a sentence, can you relate the sign of the entries $M_{i,i}$ to the definiteness of the associated bilinear form? 
 	
-	\begin{free-response}
-		Given a diagonal $n times n$ matrix $M$ with $M_{i,i} = \lambda_i$, we see that 
-		\(
-		B(\vec{x},\vec{x}) = \begin{bmatrix} x_1 & x_2 & ...& x_n\end{bmatrix} M  \verticalvector{x_1 \\x_2\\ \vdots \\x_n}\vec{v} = \lambda_1x_1^2 +\lambda_2x_2^2+...+\lambda_nx_n^2
-		\)
-		
-		If the $\lambda_i$ are all positive, this expression is always positive whenever the $x_i$ are not all $0$.  So the bilinear form is positive definite.
-		
-		If the $\lambda_i$ are all nonnegative, this expression is always nonnegative whenever the $x_i$ are not all $0$.  So the bilinear form is positive semidefinite.
-		
-		If the $\lambda_i$ are all negative, this expression is always negative whenever the $x_i$ are not all $0$.  So the bilinear form is negative definite.
-		
-		If the $\lambda_i$ are all nonpositive, this expression is always nonpositive whenever the $x_i$ are not all $0$.  So the bilinear form is negative  semidefinite.
-		
-		If the $\lambda_i>0$ and $\lambda_j<0$  for some $i,j\leq n$, then $B(e_i,e_i) = \lambda_i >0$ and $B(e_j,e_j) = \lambda_j <0$, so the bilinear form 
-		is indefinite. 
-		 
-	\end{free-response}
+\begin{free-response}
+  Given a diagonal $n times n$ matrix $M$ with $M_{i,i} = \lambda_i$, we see that 
+  \(
+  B(\vec{x},\vec{x}) = \begin{bmatrix} x_1 & x_2 & ...& x_n\end{bmatrix} M  \verticalvector{x_1 \\x_2\\ \vdots \\x_n}\vec{v} = \lambda_1x_1^2 +\lambda_2x_2^2+...+\lambda_nx_n^2
+  \)
+  
+  If the $\lambda_i$ are all positive, this expression is always positive whenever the $x_i$ are not all $0$.  So the bilinear form is positive definite.
+  
+  If the $\lambda_i$ are all nonnegative, this expression is always nonnegative whenever the $x_i$ are not all $0$.  So the bilinear form is positive semidefinite.
+  
+  If the $\lambda_i$ are all negative, this expression is always negative whenever the $x_i$ are not all $0$.  So the bilinear form is negative definite.
+  
+  If the $\lambda_i$ are all nonpositive, this expression is always nonpositive whenever the $x_i$ are not all $0$.  So the bilinear form is negative  semidefinite.
+  
+  If the $\lambda_i>0$ and $\lambda_j<0$  for some $i,j\leq n$, then $B(e_i,e_i) = \lambda_i >0$ and $B(e_j,e_j) = \lambda_j <0$, so the bilinear form 
+  is indefinite. 
+  
+\end{free-response}
 
 Our goal will now be to reduce the study of general symmetric bilinear forms to those whose associated matrix is diagonal.
 

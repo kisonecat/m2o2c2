@@ -81,7 +81,7 @@
 			\end{hint}
 			\begin{hint}
 				So \begin{align*}
-				f(x,y) &\approx 0+x+\begin{bmatrix} x & y \end{bmatrix} \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix} \verticalvector{x\\y}\)\\
+				f(x,y) &\approx 0+x+\begin{bmatrix} x & y \end{bmatrix} \begin{bmatrix} 0&1 \\ 1&0\end{bmatrix} \verticalvector{x\\y}\\
 					&=x+\frac{1}{2} (2xy)\\
 					&=x+xy
 					\end{align*}
@@ -105,7 +105,7 @@
 		
 		A calculator tells me $f(0.1,0.2) \approx 0.11800665778$.  So clearly, the second order approximation is better.  Notice that the second order approximation is slightly
 		high, and this is apparent from our magical calculation, since the next term should be $-\frac{0.1(0.2)^2}{2}  = -0.002$, which gets us even closer to the exact answer.  We will make the 
-		voodoo more precise when we deal with the full multivariable taylors theorem later.
+		magic more precise when we deal with the full multivariable taylors theorem later.
 	\end{question}
 	
 	\begin{question}
@@ -150,7 +150,7 @@
 									\end{bmatrix}
 								\end{align*}
 							\end{hint}
-							The hessian matrix of $f$ at $(1,0,0)$ is 
+							The hessian matrix of $f$ at $(0,0,1)$ is 
 							\begin{matrix-answer}
 								correctMatrix = [['0','e','e'],['e','0','0'],['e','0','2']]
 							\end{matrix-answer}
@@ -168,7 +168,7 @@
 									&= 1+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2
 					\end{align*}
 				\end{hint}
-				The second order taylor expansion of $f$ about the point $(1,1,0)$ is $f(x,y,z) \approx$\answer{ $1+e+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2$}
+				The second order taylor expansion of $f$ about the point $(0,0,1)$ is $f(x,y,z) \approx$\answer{$1+e+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2$}
 			\end{solution}
 	\end{question}
 	

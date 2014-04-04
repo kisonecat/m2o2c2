@@ -2,83 +2,129 @@
 \title{Bilinear maps}
 
 \begin{document}
+
 \begin{abstract}
-	Bilinear maps are linear in two vector variables separately 
+  Bilinear maps are linear in two vector variables separately.
 \end{abstract}	
 
-	\begin{definition}
-		Let $V,W$ and $U$ be vector spaces.  A \textbf{bilinear map} $B: V \times W \to U$ is a function of two vector variables which is linear in each variable separately. 
-		That is
-			\begin{itemize}
-				\item (Additivity in the first slot) For all $\vec{v}_1,\vec{v}_2 \in V$ and 
-				$\vec{w} \in W$, $B(\vec{v}_1+\vec{v}_2,\vec{w}) = B(\vec{v}_1,\vec{w})+B(\vec{v}_2,\vec{w})$
-				
-				\item (Additivity in the second slot) For all $\vec{v} \in V$ and 
-				$\vec{w}_1,\vec{w}_2 \in W$, $B(\vec{v},\vec{w}_1+\vec{w}_2) = B(\vec{v},\vec{w}_1)+B(\vec{v},\vec{w}_2)$
-				
-				\item (Scaling in each slot) For all $c \in \R$, $\vec{v} \ in V$ and 
-				$\vec{w} \in W$, $B(c\vec{v},\vec{w}) = B(\vec{v},c\vec{w}) = cB(\vec{v},\vec{w})$
-			\end{itemize}
-	\end{definition}
+\begin{definition}
+  Let $V,W$ and $U$ be vector spaces.  A \textbf{bilinear map} $B: V \times W \to U$ is a function of two vector variables which is linear in each variable separately. 
+  That is
+  \begin{description}
+  \item[Additivity in the first slot] For all $\vec{v}_1,\vec{v}_2 \in V$ and 
+    all $\vec{w} \in W$, we have $B(\vec{v}_1+\vec{v}_2,\vec{w}) = B(\vec{v}_1,\vec{w})+B(\vec{v}_2,\vec{w})$
+    
+  \item[Additivity in the second slot] For all $\vec{v} \in V$ and all
+    $\vec{w}_1,\vec{w}_2 \in W$, we have $B(\vec{v},\vec{w}_1+\vec{w}_2) = B(\vec{v},\vec{w}_1)+B(\vec{v},\vec{w}_2)$.
+    
+  \item[Scaling in each slot] For all $c \in \R$ and all $\vec{v} \ in V$ and all
+    $\vec{w} \in W$, we have $B(c\vec{v},\vec{w}) = B(\vec{v},c\vec{w}) = cB(\vec{v},\vec{w})$.
+  \end{description}
+\end{definition}
 	
-	A bilinear map from $V \times V \to \R$ is called a \textbf{bilinear form} on $V$.
+A bilinear map from $V \times V \to \R$ is called a \textbf{bilinear
+  form} on $V$.  We will mostly be focusing on bilinear forms on
+$\R^n$, but we will sometimes need to work with more general bilinear
+maps.
+
+\begin{example}	
+The map $B:\R^n \times \R^n \to \R$ given by $B(\vec{v},\vec{w}) = \vec{v} \cdot \vec{w}$ is a bilinear form, since we confirmed that
+the dot product has these properties immediately after defining the dot product.
+\end{example}
+
+\begin{question}
+  $\R^n \times \R^m$ can be identified with $\R^{n+m}$.  Is a bilinear
+  map $\R^n \times \R^m \to \R^k$ linear when viewed as a map from
+  $\R^{n+m} \to \R^k$?  
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{No.}
+      \choice{Yes.}
+    \end{multiple-choice}
+  \end{solution}
+
+  You are correct: a bilinear map $\R^n \times \R^m \to \R^k$ is
+  \textit{not} necessarily a linear map when we identify $\R^n \times
+  \R^m$ with $\R^{n+m}$.  Why?  What is an example?
+  \begin{free-response}
+    For example, the dot product $dot:\R^2 \times \R^2 \to \R$ defined
+    by $B(\verticalvector{x\\y},\verticalvector{z\\t})=xz+yt$ is
+    bilinear, but it is certainly not a linear map from $\R^4 \to \R$.
+  \end{free-response}
+\end{question}
+
 	
-	We will mostly be focusing on bilinear forms on $\R^n$, but we will sometimes need to work with more general bilinear maps.
-	
-	Note that the map $B:\R^n \times \R^n \to \R$ given by $B(\vec{v},\vec{w}) = \vec{v} \cdot \vec{w}$ is a bilinear form, since we confirmed that
-	the dot product has these properties immediately after defining the dot product.
-	
-		$\R^n \times \R^m$ can be identified with $\R^{n+m}$.  Is a bilinear map $\R^n \times \R^m \to \R^k$ linear when viewed as a map from $\R^{n+m} \to \R^k$?
-	\begin{free-response}
-		No!  For example, the dot product $dot:\R^2 \times \R^2 \to \R$ defined by $B(\verticalvector{x\\y},\verticalvector{z\\t})=xz+yt$ is bilinear, but it is certainly not a linear map from $\R^4 \to \R$.
-	\end{free-response}
-	
-	\begin{question}
-		Let  $B:\R^2 \times \R^3 \to R$ be a bilinear mapping, and you know the following values of $B$:
-			\begin{itemize}
-				\item $B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}\right) = 2$
-				\item $B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}\right) = 1$
-				\item $B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right) = -3$
-				\item $B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}\right) = 2$
-				\item $B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}\right) = 5$
-				\item $B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right) = 4$ 
-			\end{itemize}
+\begin{question}
+  Let  $B:\R^2 \times \R^3 \to R$ be a bilinear mapping, and you know the following values of $B$:
+  \begin{itemize}
+  \item $B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}\right) = 2$
+  \item $B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}\right) = 1$
+  \item $B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right) = -3$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}\right) = 2$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}\right) = 5$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right) = 4$ 
+  \end{itemize}
 			
-			What is $B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)$?
+  What is $B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)$?
 			
-			\begin{solution}
-				\begin{hint}
-					We need to use the linearity in each slot to break this down into a computation involving only the basis vectors.
-				\end{hint}
-				\begin{hint}
-					\begin{align*}
-						B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) &= B\left(\verticalvector{3\\0}+\verticalvector{0\\2} ,\verticalvector{4\\2\\1}\right) \\
-						&= B\left(\verticalvector{3\\0},\verticalvector{4\\2\\1}\right)+B\left(\verticalvector{0\\2},\verticalvector{4\\2\\1}\right)\\
-					\end{align*}
-				\end{hint}
-				\begin{hint}
-					\begin{align*}
-						\hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
-						&= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
-						&= 3\left(4B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}+2B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}+ B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right)\right)
-						+2\left(4B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}+2B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}+ B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right)\right)
-					\end{align*}
-				\end{hint}
-				\begin{hint}
-					\begin{align*}
-						\hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3\left(4(2)+2(1)+ 1(-3)\right)+2\left( 4(2)+2(5)+1(4)\right\\
-						&=21+44\\
-						&=65
-						\end{align*}
-				\end{hint}
-				$B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) = $ \answer{$65$}
-			\end{solution}
-	\end{question}
+  \begin{solution}
+    \begin{hint}
+      We need to use the linearity in each slot to break this down into a computation involving only the basis vectors.
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) &= B\left(\verticalvector{3\\0}+\verticalvector{0\\2} ,\verticalvector{4\\2\\1}\right) \\
+        &= B\left(\verticalvector{3\\0},\verticalvector{4\\2\\1}\right)+B\left(\verticalvector{0\\2},\verticalvector{4\\2\\1}\right)\\
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
+        &= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
+        &= 3\left(4B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}+2B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}+ B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right)\right)
+            +2\left(4B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}+2B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}+ B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right)\right)
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3\left(4(2)+2(1)+ 1(-3)\right)+2\left( 4(2)+2(5)+1(4)\right\\
+        &=21+44\\
+        &=65
+      \end{align*}
+    \end{hint}
+    $B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) = $ \answer{$65$}
+  \end{solution}
+\end{question}
 	
-	\begin{question}
-		Write a nonzero bilinear map  $B: \R \times \R \to \R$.  
-		\begin{solution}
-			$B(x,y) = $ \begin{expression-answer}
+\begin{question}
+  \begin{hint}
+    If we set $L(x) = B(x,3)$, then $L$ should be a linear map $\R \to \R$.
+  \end{hint}
+
+  \begin{hint}
+    But a linear map $\R \to \R$ is just multiplication, so $B(x,3) = \alpha x$ for some number $\alpha$.
+  \end{hint}
+
+  \begin{hint}
+    But a bilinear map is linear in \textit{both} variables, so $B(17,y) = \beta y$ for some number $\beta$.
+  \end{hint}
+
+  \begin{hint}
+    So one way to get a bilinear map would be to set $B(x,y) = 10 x y$.  Can you think of other examples?
+  \end{hint}
+
+  \begin{hint}
+    Sure!  Another way to get a bilinear map would be to set $B(x,y) = 13 x y$.
+  \end{hint}
+
+  \begin{hint}
+    If $B : \R \times \R \to \R$ is bilinear, then it must be $B(x,y) = \lambda x y$ for some $\lambda \in \R$.
+  \end{hint}
+
+  Write a nonzero bilinear map  $B: \R \times \R \to \R$.  
+  \begin{solution}
+    $B(x,y) = $ \begin{expression-answer}
   	function validator(f) {
     if (f.variables().indexOf('x') == -1) {
       feedback( 'You should include an "x" in your answer.' );
@@ -92,129 +138,15 @@
       feedback( 'The only variable you should use are "x" and "y".' );
     }
 
-    if ((abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:2,y:3})/6) < 0.0001)&(abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:4,y:3})/12) < 0.0001)){
-      return 1;
-      }
-    return 0;
+    if ((Math.abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:2,y:3})/6) < 0.01) &&
+        (Math.abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:4,y:3})/12) < 0.01)) {
+          return 1;
+    } else {
+      return 0;
+    }
   }
-\end{expression-answer}
-		\end{solution}
-	\end{question}
-	
-	The set of all bilinear maps from $V \times W \to \R$ naturally has the structure of a vector space:  We can add such maps, and multiply them by scalars.
-	\begin{definition}
-		We define $V^* \otimes W^*$ to be the vector space of all bilinear maps from $V \times W \to \R$.  This is also called the \textbf{tensor product} of the dual spaces
-		$V^*$ and $W^*$.
-	\end{definition}
-	
-		Hopefully the reason for the duality involved in the definition above will become clear shortly.
-				
-		Given covectors $S : V \to \R$ and $T:W \to \R$ define their \textit{tensor product} to be the map 
-		$S \otimes T: V \times W \to \R$ defined by $S \otimes T(\vec{v},\vec{w}) = S(\vec{v}) T(\vec{w})$
-		( Note: the is the product of $S(\vec{v})$ and $T(\vec{w})$  as real numbers)
-		
-		Prove that $S \otimes T$ is bilinear.
-		
-\begin{free-response}
-	First lets check additivity in the first slot:
-		\begin{align*}
-			(S \otimes T)(\vec{v_1}+\vec{v_2},\vec{w}) &= S(\vec{v}_1+\vec{v}_2)T(\vec{w})\\
-				&= \left(S(\vec{v}_1) +S(\vec{v}_2)\right)T(\vec{w})\\
-				&=S(\vec{v}_1)T(\vec{w})+S(\vec{v}_2)T(\vec{w})\\
-				&=(S\otimes T)(\vec{v}_1,\vec{w})+(S\otimes T)(\vec{v}_2,\vec{w})
-		\end{align*}
-		
-		Proving additivity in the second slot is similar.
-		
-		Lets check scaling in the first slot:
-		\begin{align*}
-			(S \otimes T)(c\vec{v_1},\vec{w}) &= S(c\vec{v})T(\vec{w})\\
-				&= cS(\vec{v})T(\vec{w})\\
-				&=c(S\otimes T)(\vec{v},\vec{w})
-		\end{align*}
-		
-		Proving scaling in the other slot is similar.
-		
-		So $S \otimes T$ really is bilinear!
-		
-\end{free-response}	
-
-	Let us pause for a minute to recall some notation from the section on derivatives.
-	
-	Let $e_i$ be the standard basis for $\R^n$.  Then any covector can be written as a linear combination of the covectors $e_i^\top$ (This is just saying any row 
-	vector $\begin{bmatrix} a_1 & a_2  &... &a_n\end{bmatrix} = a_1\begin{bmatrix} 1& 0&0&...&0\end{bmatrix} + a_2\begin{bmatrix} 0& 1&0&...&0\end{bmatrix} 
-	+ ... + a_n \begin{bmatrix} 0& 0&0&...&1\end{bmatrix}$).   The coordinate functions $\pi_i:\R^n \to \R$ given by $\pi_i (x_1,x_2,x_3,...,x_n) = x_i$ have 
-	derivatives $D\pi_i = e_i^\top$.  For this reason we will write $dx_i$ as another notation for the covector $e_i^\top$.
-	
-	\begin{question}
-		\begin{solution}
-			\begin{hint}
-				$dx_2$ will select the second entry of any vector 
-			\end{hint}
-			\begin{hint}
-				$dx_2(\verticalvector{3,6,4})=6$
-			\end{hint}
-			$dx_2(\verticalvector{3,6,4})=$ \answer{$6$}
-		\end{solution}
-	\end{question}
-	
-	\begin{question}
-		\begin{solution}
-			\begin{hint}
-				$dx_1 \otimes dx_2 \left(\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}\right) = dx_1\left(\verticalvector{2\\5\\3}\right)dx_2\left(\verticalvector{7\\9\\4}\right)$
-			\end{hint}
-			\begin{hint}
-				\begin{align*}
-					\hphantom{dx_1 \otimes dx_2 \left(\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}\right)} &= 2(9)\\
-					&= 18 
-				\end{align*}
-			\end{hint}
-		 $dx_1 \otimes dx_2 (\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}) = $\answer{$18$}
-		 \end{solution}
-	\end{question}
-		
-	Prove that the set of bilinear forms $\{ dx_i \otimes dy_j : 0 \leq i \leq n \text{ and } 0\leq j \leq m\}$ forms a basis for the space 
-	$\left(R^n\right)^* \otimes \left(R^m\right)^*$ 
-	\begin{warning}
-		One of your greatest challenges here will be dealing with the all of the indexes!
-	\end{warning}
-	
-	\begin{free-response}
-		Let $B:\R^n \times \R^m \to \R$ be a bilinear map.  Let $\vec{x} = \verticalvector{x_1\\x_2\\ \vdots \\ x_n}$ and 
-		$\vec{y} = \verticalvector{y_1\\y_2\\ \vdots \\ y_m}$. Then we can write
-			\begin{align*}
-				B(\vec{x},\vec{y})&=
-				B\left( \verticalvector{x_1\\x_2\\ \vdots \\ x_n}, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right) \\
-				&= \sum_{j=1}^{j=n} x_jB\left( e_j, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right)\\
-				&= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} x_jy_i B\left( e_j , e_i\right)\\
-				&= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j(\vec{x},\vec{y})
-			\end{align*}
-			
-			So $B = \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j$.  This shows that the $dx_i \otimes dy_j$ span all of 
-			$\left(R^n\right)^* \otimes \left(R^m\right)^*$ .
-			
-			To see that the $dx_i \otimes dy_j$ are linearly independent, simply observe that if 
-			$sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j = 0$, then in particular
-			$sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j (e_i,e_j)= 0$, which implies that
-			$a_{i,j} = 0$ for all $i,j$.
-	\end{free-response}
-	
-	\begin{example}
-	  The dot product on $\R^2$ is given by the expression $dx_1 \otimes dy_1 + dx_2 \otimes dy_2$
-	\end{example}
-	
-	\begin{example}
-		Let $\R^4$ have coordinates $(t,x,y,z)$.  The bilinear form $\eta = -dt \otimes dt +dx \otimes dx + dy\otimes dy + dz \otimes dz $ on $\R^4$ is incredibly important to physics.  
-		It is called the \href{http://en.wikipedia.org/wiki/Minkowski_space}{Minkowski inner product}, and is one of the basic structures underlying the local geometry of our 
-		universe.
-	\end{example}
-	
-
-
-		
-	
-	
-	
-	
+    \end{expression-answer}
+  \end{solution}
+\end{question}
 	
 \end{document}

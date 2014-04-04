@@ -44,11 +44,11 @@ def validator():
 
   Suppose \texttt{B} is a bilinear form $B : \mathbb{R}^n \times \mathbb{R}^m \to \R$.  Write a Python function for taking such a bilinear form, and producing the corresponding linear map $L_B$.
 
-  Recall that we encode a linear map $\R^n \to \R^m$ in Python as regular Python function which takes as input a list of $n$ real numbers, and outputs a list of $m$ real numbers.
+  Recall that we encode a linear map $\R^m \to \R^n$ in Python as regular Python function which takes as input a list of $m$ real numbers, and outputs a list of $n$ real numbers.
 
   \begin{solution}
     \begin{hint}
-      You may want to make use of \texttt{covector\_to\_vector}.
+      You may want to make use of \texttt{covector\_to\_vector}; copy the code from above and paste it into the box below.
     \end{hint}
     \begin{hint}
       We defined $L_B(\vec{w}) = B(\cdot,\vec{w})^\top$.
@@ -69,14 +69,18 @@ def bilinear_to_linear(B):
   return # the associated linear map L_B
 
 def validator():
-  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7,11])[1] != 21:
+  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7])[1] != 21:
     return False
-  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7,11])[0] != 35:
+  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7])[0] != 35:
     return False
   return True
     \end{python}
   \end{solution}
 
+  These are again examples of ``higher-order functions.''  Keeping
+  track of dual spaces and thinking about operations which transform
+  bilinear maps into linear maps are two examples of where such
+  ``higher-order thinking'' comes in handy.
 \end{question}
 
 \end{document}

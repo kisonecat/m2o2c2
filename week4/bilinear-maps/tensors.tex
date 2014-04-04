@@ -1,0 +1,66 @@
+\documentclass{ximera}
+\title{Tensor products}
+
+\begin{document}
+
+\begin{abstract}
+  Bilinear forms comprise a vector space of tensors.
+\end{abstract}	
+
+The set of all bilinear maps from $V \times W \to \R$ has the structure of a vector space: we can add such maps, and multiply them by scalars.
+
+\begin{definition}
+  We define $V^* \otimes W^*$ to be the vector space of all bilinear maps from $V \times W \to \R$.
+
+  This is the \textbf{tensor product} of the dual spaces $V^*$ and $W^*$.
+\end{definition}
+	
+Hopefully the reason for the duality involved in the definition above will become clear shortly.
+				
+Given covectors $S : V \to \R$ and $T : W \to \R$, their \textit{tensor product} is the map 
+$S \otimes T: V \times W \to \R$ given by the rule $S \otimes T(\vec{v},\vec{w}) = S(\vec{v}) T(\vec{w})$
+
+\begin{warning}
+This formula involves the product of $S(\vec{v})$ and $T(\vec{w})$ \textit{as real numbers.}
+\end{warning}
+
+\begin{question}
+  $S \otimes T$ is a function from $V \times W$ to $\R$.  Is it bilinear?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}
+  \end{solution}
+
+  Let's prove it!
+  
+  \begin{free-response}
+    First lets check additivity in the first slot:
+    \begin{align*}
+      (S \otimes T)(\vec{v_1}+\vec{v_2},\vec{w}) &= S(\vec{v}_1+\vec{v}_2)T(\vec{w})\\
+      &= \left(S(\vec{v}_1) +S(\vec{v}_2)\right)T(\vec{w})\\
+      &=S(\vec{v}_1)T(\vec{w})+S(\vec{v}_2)T(\vec{w})\\
+      &=(S\otimes T)(\vec{v}_1,\vec{w})+(S\otimes T)(\vec{v}_2,\vec{w})
+    \end{align*}
+    
+    Proving additivity in the second slot is similar.
+    
+    Lets check scaling in the first slot:
+    \begin{align*}
+      (S \otimes T)(c\vec{v_1},\vec{w}) &= S(c\vec{v})T(\vec{w})\\
+      &= cS(\vec{v})T(\vec{w})\\
+      &=c(S\otimes T)(\vec{v},\vec{w})
+    \end{align*}
+    
+    Proving scaling in the other slot is similar.
+    
+    So $S \otimes T$ really is bilinear!
+    
+  \end{free-response}	
+  
+\end{question}
+
+	
+\end{document}

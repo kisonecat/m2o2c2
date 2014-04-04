@@ -67,7 +67,17 @@ week3
     week3/subspace/rank-nullity
   week3/eigenstuff
     week3/eigenstuff/eigenvalues
-    week3/eigenstuff/eigenspace
+    week3/eigenstuff/eigenspaceve thread
     week3/eigenstuff/eigenbasis
     week3/eigenstuff/python
   week3/cayley-hamilton
+week4
+  week4/bilinear-maps
+    week4/bilinear-maps/tensors
+    week4/bilinear-maps/covectors
+    week4/bilinear-maps/basis
+  week4/bilinear-matrix
+  week4/adjoints
+    week4/adjoints/eigenvectors
+  week4/self-adjoint
+  week4/definiteness

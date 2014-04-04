@@ -82,4 +82,6 @@ week4
   week4/adjoints
     week4/adjoints/eigenvectors
   week4/self-adjoint
+    week4/self-adjoint/matrix
+    week4/self-adjoint/python
   week4/definiteness

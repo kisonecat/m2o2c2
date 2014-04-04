@@ -1,0 +1,55 @@
+\documentclass{ximera}
+\title{Python}
+
+\begin{document}
+
+\begin{abstract}
+  Build some self-adjoint operators in Python.
+\end{abstract}	
+
+\begin{question}
+  We will represent a linear operator in Python as a function which takes as input a list of $n$ real numbers, and outputs a list of $n$ real numbers.
+
+  Write down a linear operator \texttt{L} which is \textit{self-adjoint}.
+  \begin{solution}
+    \begin{hint}
+      In this problem, $n = 4$.
+    \end{hint}
+    \begin{hint}
+      So the input \texttt{v} will be a list of four numbers, namely \texttt{v[0]}, \texttt{v[1]}, \texttt{v[2]}, and \texttt{v[3]}.
+    \end{hint}
+    \begin{hint}
+      The output should also be a list of four numbers.
+    \end{hint}
+    \begin{hint}
+      We must make sure that the resulting operator is self-adjoint, which we can achieve if the corresponding matrix is symmetric.
+    \end{hint}
+    \begin{hint}
+      Since we just need to write down one example, we could even get away with \texttt{return v}, namely, the identity operator.  But let's try to be fancier!
+    \end{hint}
+    \begin{hint}
+      Let's make \texttt{L} into the linear operator represented by the matrix $\begin{bmatrix} 2 & 3 & 0 & 0 \\ 3 & 4 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$.
+    \end{hint}
+    \begin{hint}
+      We can achieve this with \texttt{return [2*v[0] + 3*v[1], 3*v[0] + 4*v[1], v[2], v[3]]}.
+    \end{hint}
+    \begin{python}
+n = 4
+def L(v):
+  return # the vector L(v), but make sure that L is self-adjoint
+
+def validator():
+  e = lambda i: [0] * i + [1] + [0] * (n-i-1)
+  for i in range(0,4):
+    for j in range(i,4):   
+      if L(e(i))[j] != L(e(j))[i]:
+        return False
+  return True
+    \end{python}
+  \end{solution}
+
+Fantastic!
+
+\end{question}
+
+\end{document}

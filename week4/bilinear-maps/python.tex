@@ -12,7 +12,7 @@
 
   \begin{solution}
     \begin{hint}
-      For example, you could try returning \texttt{v[0] * w[0] + 4 * v[1] * w[3]}.
+      For example, you could try returning \texttt{17 * v[0] * w[3]}.
     \end{hint}
     \begin{python}
 def B(v,w):
@@ -35,8 +35,24 @@ def validator():
     \end{python}
   \end{solution}
 
+Now let's write a Python function \texttt{tensor} which takes two covectors $\alpha$ and $\beta$, and returns their tensor product $\alpha \otimes \beta$.  
+
+  \begin{solution}
+    \begin{hint}
+      The returned function should take two parameters (say \texttt{v} and \texttt{w}) and output $\alpha(\vec{v}) \cdot \beta(\vec{w})$.
+    \end{hint}
+    \begin{hint}
+      Specifically, you could try \texttt{return lambda v,w: alpha(v) * beta(w)}
+    \end{hint}
+    \begin{python}
+def tensor(alpha,beta):
+  return # the bilinear form alpha tensor beta
+
+def validator():
+  return tensor(lambda x: 4*x[0] + 5*x[1], lambda y: 2*y[0] - 3*y[1])([1,3],[4,5]) == -133
+    \end{python}
+  \end{solution}
 
 \end{question}
-
 
 \end{document}

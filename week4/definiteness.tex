@@ -21,9 +21,9 @@
 Let $M$ be a diagonal matrix.  In a sentence, can you relate the sign of the entries $M_{i,i}$ to the definiteness of the associated bilinear form? 
 	
 \begin{free-response}
-  Given a diagonal $n times n$ matrix $M$ with $M_{i,i} = \lambda_i$, we see that 
+  Given a diagonal $n \times n$ matrix $M$ with $M_{i,i} = \lambda_i$, we see that 
   \(
-  B(\vec{x},\vec{x}) = \begin{bmatrix} x_1 & x_2 & ...& x_n\end{bmatrix} M  \verticalvector{x_1 \\x_2\\ \vdots \\x_n}\vec{v} = \lambda_1x_1^2 +\lambda_2x_2^2+...+\lambda_nx_n^2
+  B(\vec{x},\vec{x}) = \begin{bmatrix} x_1 & x_2 & \vdots & x_n\end{bmatrix} M  \verticalvector{x_1 \\x_2\\ \vdots \\x_n}\vec{v} = \lambda_1x_1^2 +\lambda_2x_2^2+ \cdots +\lambda_nx_n^2
   \)
   
   If the $\lambda_i$ are all positive, this expression is always positive whenever the $x_i$ are not all $0$.  So the bilinear form is positive definite.
@@ -42,7 +42,7 @@ Let $M$ be a diagonal matrix.  In a sentence, can you relate the sign of the ent
 Our goal will now be to reduce the study of general symmetric bilinear forms to those whose associated matrix is diagonal.
 
 	Let $L: \R^n \to R^n$ be a self adjoint linear operator.  Prove that if $\vec{v}_1$ and $\vec{v}_2$ are eigenvectors with 
-	distinct eigenvalues $\lambda_1$  and $\lambda_2$, then $\vec{v_1} \perp \vec{v}_2$.
+	distinct eigenvalues $\lambda_1$  and $\lambda_2$, then $\vec{v}_1 \perp \vec{v}_2$.
 \begin{free-response}
 	\begin{align*}
 		&\langle  L(\vec{v}_1), \vec{v}_2 \rangle = \langle \vec{v}_1  ,L(\vec{v}_2)\rangle\\
@@ -83,11 +83,11 @@ Our goal will now be to reduce the study of general symmetric bilinear forms to 
 	
 	Note that $\langle w, L(u)\rangle = M$, so we also have $\langle L(w), u \rangle = M$, since $L$ is self adjoint.
 	
-	$\langle L(\vec{w}),\vec{u}\rangle \leq |L(\vec{w})||\vec{u}|$ with equality if and only if $L(\vec{w}) \in span(\vec{u})$ by Cauchy-Schwarz.
+	$\langle L(\vec{w}),\vec{u}\rangle \leq |L(\vec{w})||\vec{u}|$ with equality if and only if $L(\vec{w}) \in \mathrm{span}(\vec{u})$ by Cauchy-Schwarz.
 	
 	But $|L(\vec{w})||\vec{u}| = \vec{L(\vec{w})}$ because $\vec{u}$ is a unit vector!
 		
-	Since $M$ is the maximum value of $|L(\vec{u})|$ over all unit vectors $\vec{u}$, we must have  $L(\vec{w}) \in spam{\vec{u}}$
+	Since $M$ is the maximum value of $|L(\vec{u})|$ over all unit vectors $\vec{u}$, we must have  $L(\vec{w}) \in \mathrm{span}{\vec{u}}$
 	
 	We can conclude that $L(\vec{w}) = M\vec{u}$.
 	
@@ -107,7 +107,7 @@ Our goal will now be to reduce the study of general symmetric bilinear forms to 
 	\end{theorem}
 	
 \begin{proof}
-	$L$ has an eigenvector $v_1$.  $L\big|_{v_1^\perp} : \v_1^\perp \to \v_1^\perp$  is another self adjoint linear operator and so it has an eigenvector $v_2$.  
+	$L$ has an eigenvector $\vec{v}_1$.  $L\big|_{\vec{v}_1^\perp} : \vec{v}_1^\perp \to \vec{v}_1^\perp$  is another self adjoint linear operator and so it has an eigenvector $\vec{v}_2$.  
 	Continue in this way until you have constructed all $n$ eigenvectors.  Because of how they are constructed, we have that each one is perpendicular to all of the 
 	eigenvectors which came before it. 
 \end{proof}

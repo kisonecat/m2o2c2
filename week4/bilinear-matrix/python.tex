@@ -1,0 +1,82 @@
+\documentclass{ximera}
+\title{Python}
+
+\begin{document}
+
+\begin{abstract}
+  Use Python to find the linear maps associated to bilinear forms.
+\end{abstract}	
+
+\begin{question}
+  Suppose \texttt{alpha} is a covector $\alpha : \mathbb{R}^n \to \R$.  Write a Python function for converting such a covector in $(\R^n)^*$ into a vector in $\vec{v} \in \R^n$.  More specifically, \texttt{covector\_to\_vector} should take as input a Python function \texttt{alpha}, and return a list of $n$ real numbers.  This list of $n$ real numbers, when regarded as a vector $\vec{v} \in \R^n$, should have the property that $\alpha(\vec{w}) = \langle \vec{v}, \vec{w} \rangle$.
+
+  \begin{solution}
+    \begin{hint}
+      You can determine what $v_i$ must be by consider $\alpha(\vec{e}_i)$.
+    \end{hint}
+    \begin{hint}
+      Define \texttt{e(i)} by \texttt{[0] * i + [1] + [0] * (n-i-1)}.
+    \end{hint}
+    \begin{hint}
+      In other words, \texttt{e = lambda i: [0] * i + [1] + [0] * (n-i-1)}.
+    \end{hint}
+    \begin{hint}
+      Then $\alpha(\vec{e}_i)$ is \texttt{alpha(e(i))}.
+    \end{hint}
+    \begin{hint}
+      So to form a vector, we need only use \texttt{[alpha(e(i)) for i in range(0,n)]}.
+    \end{hint}
+    \begin{python}
+n = 4
+def covector_to_vector(alpha):
+  return # a vector v so that alpha(w) = v dot w
+
+def validator():
+  if covector_to_vector(lambda x: 3*x[0] + 2*x[1] - 17*x[2] + 30*x[3])[1] != 2:
+    return False
+  if covector_to_vector(lambda x: 3*x[0] + 2*x[1] - 17*x[2] + 30*x[3])[2] != -17:
+    return False
+  if covector_to_vector(lambda x: 3*x[0] + 2*x[1] - 17*x[2] + 30*x[3])[3] != 30:
+    return False
+  return True
+    \end{python}
+  \end{solution}
+
+  Suppose \texttt{B} is a bilinear form $B : \mathbb{R}^n \times \mathbb{R}^m \to \R$.  Write a Python function for taking such a bilinear form, and producing the corresponding linear map $L_B$.
+
+  Recall that we encode a linear map $\R^n \to \R^m$ in Python as regular Python function which takes as input a list of $n$ real numbers, and outputs a list of $m$ real numbers.
+
+  \begin{solution}
+    \begin{hint}
+      You may want to make use of \texttt{covector\_to\_vector}.
+    \end{hint}
+    \begin{hint}
+      We defined $L_B(\vec{w}) = B(\cdot,\vec{w})^\top$.
+    \end{hint}
+    \begin{hint}
+      In other words, $L_B$ sends a vector $\vec{w}$ to the vector corresponding to the covector $\vec{x} \mapsto B(\vec{x},\vec{w})$.
+    \end{hint}
+    \begin{hint}
+      So we should return a linear map sending $\vec{w}$ to the \texttt{covector\_to\_vector} applied to $\vec{x} \mapsto B(\vec{x},\vec{w})$.
+    \end{hint}
+    \begin{hint}
+      So we should return \texttt{lambda w: covector_to_vector(lambda x: B(x,w))}.
+    \end{hint}
+    \begin{python}
+n = 4
+m = 3
+def bilinear_to_linear(B):
+  return # the associated linear map L_B
+
+def validator():
+  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7,11])[1] != 21:
+    return False
+  if bilinear_to_linear(lambda x,y: 7 * x[0] * y[1] + 3*x[1]*y[2])([3,5,7,11])[2] != 15:
+    return False
+  return True
+    \end{python}
+  \end{solution}
+
+\end{question}
+
+\end{document}

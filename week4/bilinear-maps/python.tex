@@ -1,0 +1,42 @@
+\documentclass{ximera}
+\title{Python}
+
+\begin{document}
+
+\begin{abstract}
+  Build some bilinear maps in Python.
+\end{abstract}	
+
+\begin{question}
+  Suppose $\vec{v}$ and $\vec{w}$ are both vectors in $\R^4$, represented in Python as two lists of four real numbers called \texttt{v} and \texttt{w}.  Build a Python function \texttt{B} which represents some bilinear form $B : \mathbb{R}^4 \times \mathbb{R}^4 \to \R$.
+
+  \begin{solution}
+    \begin{hint}
+      For example, you could try returning \texttt{v[0] * w[0] + 4 * v[1] * w[3]}.
+    \end{hint}
+    \begin{python}
+def B(v,w):
+  return # the real number B(v,w)
+
+def validator():
+  if B([4,2,3,4],[6,5,4,3]) + B([6,2,3,4],[6,5,4,3]) != B([10,4,6,8],[6,5,4,3]):
+    return False
+
+  if B([1,2,3,4],[6,5,4,3]) + B([1,2,3,4],[6,3,4,3]) != B([1,2,3,4],[12,8,8,6]):
+    return False
+
+  if 2*B([1,2,3,4],[6,5,4,3]) != B([2,4,6,8],[6,5,4,3]):
+    return False
+
+  if 2*B([1,2,3,4],[6,5,4,3]) != B([1,2,3,4],[12,10,8,6]):
+    return False
+
+  return True
+    \end{python}
+  \end{solution}
+
+
+\end{question}
+
+
+\end{document}

@@ -111,15 +111,20 @@ the dot product has these properties immediately after defining the dot product.
   \end{hint}
 
   \begin{hint}
-    So one way to get a bilinear map would be to set $B(x,y) = 10 x y$.  Can you think of other examples?
+    So one way to get a bilinear map would be to set $B(x,y) = 10 x y$.  You can enter this as \texttt{10 * x * y}.
   \end{hint}
 
   \begin{hint}
-    Sure!  Another way to get a bilinear map would be to set $B(x,y) = 13 x y$.
+    Can you think of other examples?
   \end{hint}
 
   \begin{hint}
-    If $B : \R \times \R \to \R$ is bilinear, then it must be $B(x,y) = \lambda x y$ for some $\lambda \in \R$.
+    Sure!  Another way to get a bilinear map would be to set $B(x,y) = 13 x y$.  You can enter this as \texttt{13 * x * y}.
+  \end{hint}
+
+  \begin{hint}
+    In general, if $B : \R \times \R \to \R$ is bilinear, then it must
+    be $B(x,y) = \lambda x y$ for some $\lambda \in \R$.
   \end{hint}
 
   Write a nonzero bilinear map  $B: \R \times \R \to \R$.  
@@ -127,15 +132,15 @@ the dot product has these properties immediately after defining the dot product.
     $B(x,y) = $ \begin{expression-answer}
   	function validator(f) {
     if (f.variables().indexOf('x') == -1) {
-      feedback( 'You should include an "x" in your answer.' );
+      feedback( 'You should include x in your answer.' );
     }
     
      if (f.variables().indexOf('y') == -1) {
-      feedback( 'You should include a "y" in your answer.' );
+      feedback( 'You should include y in your answer.' );
     }
 
     if (f.variables().length > 2) {
-      feedback( 'The only variable you should use are "x" and "y".' );
+      feedback( 'The only variables you should use are x and y.' );
     }
 
     if ((Math.abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:2,y:3})/6) < 0.01) &&

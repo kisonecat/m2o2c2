@@ -1,0 +1,81 @@
+\documentclass{ximera}
+\title{A basis for forms}
+
+\begin{document}
+
+\begin{abstract}
+  A basis for the space of bilinear forms consists of tensors of coordinate functions.
+\end{abstract}	
+
+Prove that the set of bilinear forms $\{ dx_i \otimes dy_j : 1 \leq i \leq n \text{ and } 1\leq j \leq m\}$ forms a basis for the space 
+$\left(\R^n\right)^* \otimes \left(\R^m\right)^*$.
+
+\begin{warning}
+  One of your greatest challenges here will be dealing with the all of the indexes.
+\end{warning}
+	
+\begin{free-response}
+  Let $B:\R^n \times \R^m \to \R$ be a bilinear map.  Let $\vec{x} = \verticalvector{x_1\\x_2\\ \vdots \\ x_n}$ and 
+  $\vec{y} = \verticalvector{y_1\\y_2\\ \vdots \\ y_m}$. Then we can write
+  \begin{align*}
+    B(\vec{x},\vec{y})&=
+    B\left( \verticalvector{x_1\\x_2\\ \vdots \\ x_n}, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right) \\
+    &= \sum_{j=1}^{j=n} x_jB\left( e_j, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right)\\
+    &= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} x_jy_i B\left( e_j , e_i\right)\\
+    &= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j(\vec{x},\vec{y})
+  \end{align*}
+  
+  So $B = \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j$.  This shows that the $dx_i \otimes dy_j$ span all of 
+  $\left(R^n\right)^* \otimes \left(R^m\right)^*$ .
+  
+  To see that the $dx_i \otimes dy_j$ are linearly independent, simply observe that if 
+  $\sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j = 0$, then in particular
+  $\sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j (e_i,e_j)= 0$, which implies that
+  $a_{i,j} = 0$ for all $i,j$.
+\end{free-response}
+
+\hrule
+
+\begin{example}
+  The dot product on $\R^2$ is given by the expression $dx_1 \otimes dy_1 + dx_2 \otimes dy_2$
+\end{example}
+
+\begin{question}
+  Can you write $dx_1 \otimes dy_1 + dx_2 \otimes dy_2$ as $\alpha \otimes \beta$ for some covectors $\alpha, \beta : \R^2 \to \R$?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{No.}
+      \choice{Yes.}
+    \end{multiple-choice}
+  \end{solution}
+
+  Why not?
+  \begin{free-response}
+    Suppose this were possible.  By the rank-nullity theorem, there must be \textit{some} nonzero vector $\vec{v}$ which is in the kernel of $\alpha$.  That is, there is some nonzero vector $\vec{v} \in \R^2$ so that $\alpha(\vec{v}) = 0$.
+
+    But $\langle \vec{v}, \vec{v} \rangle \neq 0$, so $(\alpha \otimes \beta)(\vec{v}, \vec{v}) \neq 0$.
+
+    On the other hand, $(\alpha \otimes \beta)(\vec{v}, \vec{v}) = \alpha(\vec{v}) \cdot \beta(\vec{v}) = 0$, which is a contradiction.
+  \end{free-response}
+
+  \begin{definition}
+    Bilinear forms which can be written as $\alpha \otimes \beta$ are \textbf{pure tensors.}
+  \end{definition}
+  
+  So what we have shown here is that \textit{not all bilinear forms are pure tensors.}
+\end{question}
+
+\hrule
+
+\begin{example}
+  Let $\R^4$ have coordinates $(t,x,y,z)$.  The bilinear form $\eta = -dt \otimes dt +dx \otimes dx + dy\otimes dy + dz \otimes dz $ on $\R^4$ is the \textbf{Minkowski inner product.}
+\end{example}
+
+The \href{http://en.wikipedia.org/wiki/Minkowski_space}{Minkowski
+  inner product} is one of the basic structures underlying the local
+geometry of our universe.
+
+	
+	
+\end{document}

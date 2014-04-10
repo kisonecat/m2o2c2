@@ -1,0 +1,174 @@
+\documentclass{ximera}
+\title{Some nice covectors}
+
+\begin{document}
+
+\begin{abstract}
+  Bilinear forms can be written in terms of particularly nice covectors.
+\end{abstract}	
+
+Let us recall some notation from the section on derivatives.
+	
+Let $\vec{e}_i$ be the standard basis for $\R^n$.  The covector $\vec{e}_i^\top : \R^n \to \R$ is 
+$$
+\vec{e}_i^\top(\vec{v}) = \langle \vec{e}_i, \vec{v} \rangle.
+$$
+\begin{question}
+  We can build more complicated examples, too.  Suppose $L : \R^5 \to \R$ is the covector given by
+  $$
+  L = 4 \, \vec{e}_3^\top - 2 \, \vec{e}_4^\top + \vec{e}_5^\top.
+  $$
+  \begin{solution}
+    \begin{hint}
+      Set $\vec{v} = \begin{bmatrix} 1 \\ 4 \\ 2 \\ 3 \\ 5 \end{bmatrix}$.  We are considering $L(\vec{v})$.
+    \end{hint}
+    \begin{hint}
+      Then $L(\vec{v}) = (4 \, \vec{e}_3^\top - 2 \, \vec{e}_4^\top + \vec{e}_5^\top)(\vec{v})$.
+    \end{hint}
+    \begin{hint}
+      So $L(\vec{v}) = 4 \, \vec{e}_3^\top(\vec{v}) - 2 \, \vec{e}_4^\top(\vec{v}) + \vec{e}_5^\top(\vec{v})$.
+    \end{hint}
+    \begin{hint}
+      Replacing $\vec{e}_i^\top(\vec{v})$ by $\langle \vec{v}, \vec{e}_i \rangle$ yields $L(\vec{v}) = 4 \, \langle \vec{v}, \vec{e}_3 \rangle - 2 \, \langle \vec{v}, \vec{e}_4 \rangle + \langle \vec{v}, \vec{e}_5 \rangle$.
+    \end{hint}
+    \begin{hint}
+      In this case, $\langle \vec{v}, \vec{e}_3 \rangle = 2$.
+    \end{hint}
+    \begin{hint}
+      And $\langle \vec{v}, \vec{e}_4 \rangle = 3$.
+    \end{hint}
+    \begin{hint}
+      And $\langle \vec{v}, \vec{e}_5 \rangle = 5$.
+    \end{hint}
+    \begin{hint}
+      We conclude $L(\vec{v}) = 4 \cdot 2 - 2 \cdot 3 + 5 = 8 - 6 + 5 = 7$.
+    \end{hint}
+    Then $L\left( \begin{bmatrix} 1 \\ 4 \\ 2 \\ 3 \\ 5 \end{bmatrix} \right) = $ \answer{$7$}.
+  \end{solution}
+
+  This is a special case of something quite general.
+  \begin{theorem}
+    Any covector $\R^n \to \R$ can be written as a linear combination of the covectors $\vec{e}_i^\top$.
+  \end{theorem}
+
+  Why is this?  Think of a covector as
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{a row vector $\begin{bmatrix} a_1 & a_2  & \cdots & a_n\end{bmatrix}$.}
+      \choice{a column vector $\begin{bmatrix} a_1 \\ a_2   \\ \vdots \\ a_n\end{bmatrix}$.}
+    \end{multiple-choice}
+  \end{solution}
+  Then we can write that row vector as
+  $$
+  a_1\begin{bmatrix} 1& 0& \cdots &0\end{bmatrix} + a_2\begin{bmatrix} 0& 1&0& \cdots &0\end{bmatrix} 
+  + \cdots + a_n \begin{bmatrix} 0&\cdots&0&1\end{bmatrix}.
+  $$
+  But those row vectors are just the duals to the standard basis, so we can write the covector as
+  $$
+  a_1 \vec{e}_1^\top + a_2 \vec{e}_2^\top + \cdots + a_n \vec{e}_n^\top.
+  $$
+
+  \hrule
+
+  How is this related to derivatives?
+
+  Define the \textbf{coordinate functions} to be $\pi_i:\R^n \to \R$ given by $\pi_i (x_1,x_2,x_3,\ldots,x_n) = x_i$. 
+  
+  What is the derivative of $\pi_i$ at any point $\mathbf{p}$ in $\R^n$?
+  \begin{solution}
+    \begin{hint}
+      This is a special case of a general theorem.
+
+      \begin{theorem}
+        The derivative of a linear map (at any point) is the same linear map.
+      \end{theorem}
+    \end{hint}
+
+    \begin{hint}
+      In this case, $\pi_i$ is a linear map.
+    \end{hint}
+
+    \begin{hint}
+      So $D\pi_i(\mathbf{p}) = \pi_i$.
+    \end{hint}
+
+    \begin{hint}
+      But another way to write $\pi_i$ is $\vec{e}_i^\top$.
+    \end{hint}
+    \begin{multiple-choice}
+      \choice[correct]{$D\pi_i(\mathbf{p}) = \vec{e}_i^\top$.}
+      \choice{$D\pi_i(\mathbf{p}) = \vec{e}_i$.}
+      \choice{$D\pi_i(\mathbf{p}) = \vec{0}$.}
+    \end{multiple-choice}
+  \end{solution}
+  
+  As a result of this, we will often write $dx_i$ as a more suggestive notation for the covector with the rather more cumbersome name $\vec{e}_i^\top$.  Let's do some calculations with this new notation.
+	
+  \begin{solution}
+    \begin{hint}
+      $dx_2$ will select the second entry of any vector 
+    \end{hint}
+    \begin{hint}
+      $dx_2(\verticalvector{3,6,4})=6$
+    \end{hint}
+    $dx_2(\verticalvector{3,6,4})=$ \answer{$6$}
+  \end{solution}
+
+  We can also consider the tensor product of these covectors.
+  \begin{solution}
+    \begin{hint}
+      $dx_1 \otimes dx_2 \left(\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}\right) = dx_1\left(\verticalvector{2\\5\\3}\right)dx_2\left(\verticalvector{7\\9\\4}\right)$
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \hphantom{dx_1 \otimes dx_2 \left(\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}\right)} &= 2(9)\\
+        &= 18 
+      \end{align*}
+    \end{hint}
+    $dx_1 \otimes dx_2 (\verticalvector{2\\5\\3},\verticalvector{7\\9\\4}) = $\answer{$18$}
+  \end{solution}
+\end{question}
+
+Prove that the set of bilinear forms $\{ dx_i \otimes dy_j : 0 \leq i \leq n \text{ and } 0\leq j \leq m\}$ forms a basis for the space 
+$\left(R^n\right)^* \otimes \left(R^m\right)^*$ 
+\begin{warning}
+  One of your greatest challenges here will be dealing with the all of the indexes!
+\end{warning}
+	
+\begin{free-response}
+  Let $B:\R^n \times \R^m \to \R$ be a bilinear map.  Let $\vec{x} = \verticalvector{x_1\\x_2\\ \vdots \\ x_n}$ and 
+  $\vec{y} = \verticalvector{y_1\\y_2\\ \vdots \\ y_m}$. Then we can write
+  \begin{align*}
+    B(\vec{x},\vec{y})&=
+    B\left( \verticalvector{x_1\\x_2\\ \vdots \\ x_n}, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right) \\
+    &= \sum_{j=1}^{j=n} x_jB\left( e_j, \verticalvector{y_1\\y_2\\ \vdots \\ y_m}\right)\\
+    &= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} x_jy_i B\left( e_j , e_i\right)\\
+    &= \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j(\vec{x},\vec{y})
+  \end{align*}
+  
+  So $B = \sum_{j=1}^{j=n} \sum_{i=1}^{i=m} B\left( e_j,e_i\right) dx_i \otimes dy_j$.  This shows that the $dx_i \otimes dy_j$ span all of 
+  $\left(R^n\right)^* \otimes \left(R^m\right)^*$ .
+  
+  To see that the $dx_i \otimes dy_j$ are linearly independent, simply observe that if 
+  $\sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j = 0$, then in particular
+  $\sum_{j=1}^{j=n} \sum_{i=1}^{i=m} a_{i,J} dx_i \otimes dy_j (e_i,e_j)= 0$, which implies that
+  $a_{i,j} = 0$ for all $i,j$.
+\end{free-response}
+
+\begin{example}
+  The dot product on $\R^2$ is given by the expression $dx_1 \otimes dy_1 + dx_2 \otimes dy_2$
+\end{example}
+
+\begin{example}
+  Let $\R^4$ have coordinates $(t,x,y,z)$.  The bilinear form $\eta = -dt \otimes dt +dx \otimes dx + dy\otimes dy + dz \otimes dz $ on $\R^4$ is incredibly important to physics.  
+  It is called the \href{http://en.wikipedia.org/wiki/Minkowski_space}{Minkowski inner product}, and is one of the basic structures underlying the local geometry of our 
+  universe.
+\end{example}
+
+
+	
+	
+	
+	
+	
+\end{document}

@@ -8,6 +8,88 @@
   ``Local'' means ``after restricting to a small neighborhood.''
 \end{abstract}
 
+\begin{definition}
+  Let $X \subset \R^n$ and $f : X \to \R$.  To say that the
+  \textbf{maximum value} of $f$ occurs at the point $\mathbf{p} \in X$
+  is to say that, for all $\mathbf{q} \in X$, we have $f(\mathbf{p})
+  \geq f(\mathbf{q})$.
 
+  Conversely, to say that the \textbf{minimum value} of $f$ occurs at
+  the point $\mathbf{p} \in X$ is to say that, for all $\mathbf{q} \in
+  X$, we have $f(\mathbf{p}) \leq f(\mathbf{q})$.
+
+  Sometimes people use the term ``extremum value'' to speak of both
+  maximum values and minimum values.  Sometimes people say ``maxima''
+  instead of maximums and ``minima'' instead of minimums.
+\end{definition}
+
+A function need not achieve a maximum or a minimum value.
+
+Our goal will be to use calculus to search for maximums and minimums,
+but that raises a problem.  The derivative at a point is only
+describing what is happening around that point, so if we use calculus
+to search for extreme values, then we will only see ``local''
+extremes.
+
+\begin{definition}
+  Let $X \subset \R^n$ and $f : X \to \R$.  To say that a
+  \textbf{local maximum} of $f$ occurs at the point $\mathbf{p} \in X$
+  is to say that there is an $\epsilon > 0$ so that for all
+  $\mathbf{q} \in X$ within $\epsilon$ of $\mathbf{p}$, we have
+  $f(\mathbf{p}) \geq f(\mathbf{q})$.
+
+  Conversely, to say that a \textbf{local minimum} of $f$ occurs at
+  the point $\mathbf{p} \in X$ is to say that there is an $\epsilon >
+  0$ so that for all $\mathbf{q} \in X$ within $\epsilon$ of
+  $\mathbf{p}$, we have $f(\mathbf{p}) \leq f(\mathbf{q})$.
+\end{definition}
+
+Here's an example of how this works out in practice.  Let $g : \R^2
+\to \R$ be the function given by
+$$
+g(x,y) = x^2 + y^2 + y^3
+$$
+\begin{question}
+  Does this function $g$ achieve a minimum value?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{No.}
+      \choice{Yes.}
+    \end{multiple-choice}
+  \end{solution}
+
+  That's correct: there is no ``global'' minimum.  No matter how
+  negative you want the output to $g$ to be, you can achieve it by
+  looking at $g(0,y)$ where $y$ is a very negative number.
+
+  On the other hand, if we restrict our attention near the point
+  $(0,0)$, then $g$ is nonnegative there.
+  \begin{solution}
+    Whenever $(x,y)$ is within \begin{expression-answer}
+      function validator(f) {
+        if (f.variables().length != 0) {
+          feedback('Your answer should be a number.');
+          return 0;
+        }
+
+        if (f.evaluate({}) <= 0) {
+          feedback('Your answer should be nonnegative.');
+          return 0;
+        }
+
+        if (f.evaluate({}) > 1) {
+          feedback('Your answer cannot be larger than 1.');
+          return 0;
+        }
+        
+        return 1;
+      }
+    \end{expression-answer} of $(0,0)$, then $g(x,y) \geq g(0,0) = 0$.
+  \end{solution}
+
+  As a result, $g$ achieves a local minimum at $(0,0)$, in spite of
+  the fact that there is no global maximum.
+\end{question}
 
 \end{document}

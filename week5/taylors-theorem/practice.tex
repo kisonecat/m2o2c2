@@ -160,12 +160,12 @@
 				\end{hint}
 				\begin{hint}
 					\begin{align*}
-						f(x,y,z) \approx 1+\begin{bmatrix} e & 0& 2 \end{bmatrix}\verticalvector{x\\y\\z-1} + \frac{1}{2}\begin{bmatrix} x & y& z-1\end{bmatrix}\begin{bmatrix}  
+						f(x,y,z) &\approx 1+\begin{bmatrix} e & 0& 2 \end{bmatrix}\verticalvector{x\\y\\z-1} + \frac{1}{2}\begin{bmatrix} x & y& z-1\end{bmatrix}\begin{bmatrix}  
 									0 & e & e\\
 									e & 0 & 0\\
 									e & 0 & 2\\
 									\end{bmatrix} \verticalvector{x\\y\\z-1}\\
-									&= 1+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2
+									&= 1+ex+2(z-1)+exy+ex(z-1)+(z-1)^2
 					\end{align*}
 				\end{hint}
 				The second order taylor expansion of $f$ about the point $(0,0,1)$ is $f(x,y,z) \approx$\answer{$1+e+ex+2(z-1)+exy+ex(z-1)+2(z-1)^2$}

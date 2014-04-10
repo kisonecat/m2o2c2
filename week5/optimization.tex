@@ -1,0 +1,100 @@
+\documentclass{ximera}
+
+\title{Optimization}
+
+\begin{document}
+
+\begin{abstract}
+  Optimization means finding a biggest (or smallest) value.
+\end{abstract}
+
+Suppose $A$ is a subset of $\R^n$, meaning that each element of $A$ is
+a vector in $\R^n$.  Maybe $A$ contains all vectors in $\R^n$, maybe
+not.  Further suppose $f : A \to \R$ is a function.
+
+\begin{question}
+  Is there a vector $\vec{v} \in A$ so that $f(\vec{v})$ is at least
+  as large as any other output of $f$?
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice{This is always the case.}
+      \choice[correct]{This is not necessarily the case.}
+    \end{multiple-choice}
+  \end{solution}
+
+  It really does depend on $A$ and on $f$.
+
+  For example, suppose $f(\vec{v}) = \langle \vec{v}, \vec{v}
+  \rangle$, meaning $f$ sends $\vec{v}$ to the square of the length of
+  $\vec{v}$.  Further suppose that $A = \{ \vec{v} \in \R^n : |v| \le
+  1 \}$.
+
+  Then for all $\vec{v} \in A$, it is the case that $f(\vec{v}) \le
+  1$.  And yet, there is not a single vector $\vec{v} \in A$ so that
+  $f(\vec{v})$ is at least as large as all outputs of $f$.
+
+  If you claim that you have found a vector $\vec{v}$ so that
+  $f(\vec{v})$ is as large as any output of
+\end{question}
+
+\hrule
+
+\begin{question}
+  Let's consider an example.  Let $g : \R^2 \to \R$ be the function given by
+  $$
+  g \left( \begin{bmatrix} x \\ y \end{bmatrix} \right) = 10 - (x+1)^2 - (y-2)^2.
+  $$  
+
+  \begin{solution}
+    \begin{hint}
+      No matter what $x$ is, $(x+1)^2 \geq 0$.
+    \end{hint}
+
+    \begin{hint}
+      No matter what $y$ is, $(y-2)^2 \geq 0$.
+    \end{hint}
+
+    \begin{hint}
+      No matter what $x$ and $y$ are, $(x+1)^2 + (y-2)^2 \geq 0$.
+    \end{hint}
+
+    \begin{hint}
+      No matter what $x$ and $y$ are, $- (x+1)^2 - (y-2)^2 \leq 0$.
+    \end{hint}
+
+    \begin{hint}
+      No matter what $x$ and $y$ are, $10 - (x+1)^2 - (y-2)^2 \leq 10$.
+    \end{hint}
+
+    \begin{hint}
+      If $(x,y) = (-1,2)$, then $10 - (x+1)^2 - (y-2)^2 = 10$.
+    \end{hint}
+
+    \begin{hint}
+      Consequently, the largest possible output of $g$ is $10$.
+    \end{hint}
+
+    The largest possible output of $g$ is \answer{$10$}.
+  \end{solution}
+
+  \begin{solution}
+    This largest possible output occurs when $x$ is \answer{$-1$}.
+  \end{solution}
+
+  \begin{solution}
+    This largest possible output occurs when $y$ is \answer{$2$}.
+  \end{solution}
+
+  In this case, we were able to think through the situation by
+  considering some algebra---namely the fact that when we square a
+  real number, the result is nonnegative.
+
+  Here is the key idea that motivates everything we are about to do:
+  \textbf{using the second derivative, we can approximate complicated
+    functions by ``quadratic'' functions, and quadratic functions we
+    can analyze just as we analyzed this example.}
+
+\end{question}
+
+\end{document}

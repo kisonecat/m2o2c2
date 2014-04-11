@@ -2,8 +2,81 @@
 
 <%= week_title( 5, "Second derivative" ) %>
 
-<p id="week-summary">In this fifth week, we use consider the second derivative as a bilinear form.</p>
+<p id="week-summary">In this fifth week, we use consider the second
+derivative as a bilinear form.</p>
 
-<p><strong>Stay tuned!</strong>  This content is coming soon.</p>
+<p>This course is not just linear algebra: we are now ready
+to <em>use</em> all this linear algebra to produce linaer
+aprpoximations to functions.  And we won't just be finding linear
+approximations; having studied bilinear forms, we are in a position to
+consider how small changes to the input <em>affects</em>how small
+changes to the input <em>affects</em> the output.  This is
+the <strong>second derivative</strong> and what with it involving two
+small changes, it depends&mdash;in a bilinear way!&mdash;on two
+parameters.  That's right: the first derivative at a point was a
+linear map, and <strong>the second derivative is bilinear</strong>.
+
+<p>And we really can't say this enough: thank you so much for all the
+work that you are putting into this course.  It is obviously a huge
+experiment, but the work you are doing is helping to improve online
+math education.  We really appreciate your spending your valuable time
+with us doing mathematics.</p>
+
+<p>We had a great time
+at <a href="/m2o2c2-001/wiki/officehours"><i class="icon-film"></i>&nbsp;Office
+Hours</a> last week; if you would like to participate in a future
+Office Hours Hangout,
+please <a href="/m2o2c2-001/forum/list?forum_id=10003"><i class="icon-comments"></i>&nbsp;post
+to the Office Hours forum</a>.  The next Office Hours will be
+on <strong>, April 16th at 12:00pm (noon) Eastern time</strong>.  I
+hope you can make it.  And if you are confused about anything at all,
+finding yourself interested in something and wanting to dig deeper,
+excited, sad, or otherwise just interested in chatting, please <a href="/m2o2c2-001/forum"><i class="icon-comments"></i>&nbsp;post to the course forum</a>.</p>
+
+<h4>What will this penultimate week, Week 5, bring us?</h4>
+
+<p>In Week 5, we'll be seeing how multilinear algebra can be used to
+understand the second derivative.  Having a framework within which to
+understand the second derivative lets us formulate a second derivative
+test for maximums and minimums.</p>
+
+<h4>What are is the partial derivative of the partial derivative?</h4>
+
+<p>We have already met <strong>partial derivatives</strong>, where we have a function like \(f : \mathbb{R}^n \to \mathbb{R}\) and we differentiate with respect to a single input, say \(\displaystyle\frac{\partial f}{\partial x_i}\).  The key fact here is that the partial derivative is again a function \(\mathbb{R}^n \to \mathbb{R}\), so we can take a partial derivative of a partial derivative, yielding a <strong>second partial derivative</strong>.  
+The <a href="http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week5/second-partials/">activity
+on partial derivatives</a> culminates with the fact that <strong>partials commute</strong>, meaning that, subject to some conditions, \(\displaystyle\frac{\partial^2}{\partial x_i \partial x_j} = \displaystyle\frac{\partial^2}{\partial x_j \partial x_i}\).</p>
+
+
+<h4>How is the second derivative a bilinear form?</h4>
+
+<p>We already saw how we can represent the derivative at a point as a
+linear map.  Seeing as the second derivative is about wiggling in two
+directions, it is perhaps not so shocking that the second derivative
+is <strong>bilinear</strong>.  An <a href="http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week5/second-derivative/">activity
+on the second derivative</a> discusses these ideas both intuitively and rigorously.</p>
+
+<h4>What can I do with all this?</h4>
+
+<p>There are a couple applications of this way of thinking.</p>
+
+<p>One application is <strong>multivariable Taylor series</strong>.  The <a href="http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week5/taylors-theorem/">activity on Taylor series</a> introduces this, and we'll discuss this much further next week, in Week 6.</p>
+
+<p>The other application has to do with <strong>solving optimization
+problems</strong>, meaning finding the largest (or smallest) possible
+output for a function of many variables.
+The <a href="http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week5/optimization/">activity
+on optimization</a> discusses critical points, the second derivative
+test, Lagrange mulipliers, and hill climbing.</p>
+
+<h4>By the end of the week&hellip;</h4>
+
+<p>To earn the points you will need to earn a certificate, please remember to complete
+the <a href="/m2o2c2-001/quiz/attempt?quiz_id=37"><i class="icon-pencil"></i>&nbsp;End
+of Week 5 Quiz</a>.</p>
+
+<p>After this, there is just one more quiz (to finish Week 6) and then
+the Final Examination.  We will make sure to provide review material
+(e.g., a practice exam) to help you prepare for the real Final
+Examination.
 
 <%= week_pager(5) %>

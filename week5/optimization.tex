@@ -35,7 +35,11 @@ not.  Further suppose $f : A \to \R$ is a function.
   $f(\vec{v})$ is at least as large as all outputs of $f$.
 
   If you claim that you have found a vector $\vec{v}$ so that
-  $f(\vec{v})$ is as large as any output of
+  $f(\vec{v})$ is as large as any output of $f$, then you should consider the input
+  $$
+  \vec{w} = \frac{1 + |\vec{v}|}{2} \cdot \vec{v},
+  $$
+  and note that $f(\vec{w}) \gt f(\vec{v})$.
 \end{question}
 
 \hrule

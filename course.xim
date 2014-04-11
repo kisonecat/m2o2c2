@@ -85,3 +85,17 @@ week4
     week4/self-adjoint/matrix
     week4/self-adjoint/python
   week4/definiteness
+week5
+  week5/second-partials
+    week5/second-partials/partials-commute
+  week5/second-derivative
+    week5/second-derivative/intuitively
+    week5/second-derivative/rigorously
+  week5/taylors-theorem
+    week5/taylors-theorem/statement
+    week5/taylors-theorem/practice
+  week5/optimization
+    week5/optimization/definitions
+    week5/optimization/critical-points
+    week5/optimization/second-derivative-test
+    week5/optimization/lagrange

@@ -1,0 +1,87 @@
+\documentclass{ximera}
+
+\title{Hill climbing in Python}
+
+\begin{document}
+
+\begin{abstract}
+  Hill climbing is a computational technique for finding a local maximum.
+\end{abstract}
+
+Let's try \textbf{hill climbing} to---at least numerically---attempt
+to find a local maximum.
+
+The idea is the following: \textbf{the gradient points up hill} so if
+I want to find a local maximum, I should start somewhere and follow
+the gradient up.  Hopefully I'll find a point where the gradient
+vanishes (i.e., a critical point).
+
+\begin{question}
+  Here's the procedure that I'd like you to code in Python:
+  \begin{enumerate}
+  \item Start with some point $\mathbf{p}$.
+  \item Replace $\mathbf{p}$ with $\mathbf{p}$ plus a small multiple of $\nabla f(\mathbf{p})$.
+  \item If $\nabla f(\mathbf{p})$ is very small, stop!
+  \item Otherwise, repeat.
+  \end{enumerate}
+
+
+  \begin{solution}
+    \begin{hint}
+       You might want to use some code to add and scale vectors, like
+\begin{verbatim}
+def add_vector(v,w):
+  return [sum(v) for v in zip(v,w)]
+def scale_vector(c,v):
+  return [c*x for x in v]
+\end{verbatim}
+    \end{hint}
+    \begin{hint}
+      You may also want some code to compute the gradient numerically.
+\begin{verbatim}
+epsilon = 0.001
+def gradient(f, p):
+  n = len(p)
+  ei = lambda i: [0]*i + [epsilon] + [0]*(n-i-1)
+  return [ (f(add_vector(p, ei(i))) - f(p)) / epsilon for i in range(n) ]      
+\end{verbatim}
+    \end{hint}
+    \begin{hint}
+To do the hill climbing, we can put together these pieces.
+\begin{verbatim}
+def climb_hill(f, starting_point):
+  p = starting_point
+  nabla = gradient(f,p)
+  while vector_length(nabla) > epsilon:
+    p = add_vector(p, scale_vector(epsilon,nabla))
+    nabla = gradient(f,p)
+  return p
+\end{verbatim}
+    \end{hint}
+    \begin{python}
+def climb_hill(f, starting_point):
+  p = starting_point
+  # while gradient of f is pretty big at p
+  #   p = p + multiple of gradient f
+  # return p
+#
+# here's an example to try
+p = [3,6,2]
+f = lambda x: 10 - (x[0] + x[1])**2 - (x[0] - 3)**2 - (x[2] - 4)**2
+print(climb_hill(f, p))
+
+def validator():
+  f = lambda x: 10 - (x[0] - 2)**4 - (x[1] - 3)**2 - (x[2] - 4)**2
+  p = climb_hill(f, [3,6,2])
+  return abs(p[0] - 2) < 0.1 and abs(p[1] - 3) < 0.1 and abs(p[2] - 4) < 0.1
+    \end{python}
+  \end{solution}
+
+Use your program to find the maximum value of the function $f : \R^3 \to \R$ given by
+$$
+f(x,y,z) = 10 - (x+y)^2 - (x-3)^2 - (z-4)^2.
+$$
+
+\end{question}
+
+\end{document}

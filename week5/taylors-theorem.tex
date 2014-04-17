@@ -1,185 +1,199 @@
 \documentclass{article}
+\newcommand{\R}{R}
+\usepackage{amsmath}
+\newcommand{\verticalvector}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newenvironment{definition}{}{}
+\newcommand{\answer}[1]{#1}
+\newenvironment{question}{}{}
+\newenvironment{matrix-answer}{}{}
+\newenvironment{hint}{}{}
+\newenvironment{solution}{}{}
+\newenvironment{theorem}{}{}
+\newenvironment{multiple-choice}{}{}
+\newcommand{\choice}{}
 
 \title{Taylor series}
 
 \begin{document}
-	\begin{abstract}
-		The second derivative allows us to approximate functions better than just the first derivative
-	\end{abstract}
-	
-	As it stands, the second derivative lets us get approximations of the first derivative.  The first derivative allows us to get approximations of the original function.
-	In the following extended question, we will see how we can use the second derivative to get more information about the first derivative, which then lets us get more
-	information about the original function.  This will lead to approximations with second order accuracy, rather than just first order accuracy.  This is the essence of 
-	the second order Taylor's theorem.
-	
-	\begin{question}
-	Let $f:\R^2 \to \R$ be a function.  All we know about $f$ at the point $(1,2)$ is the following:
-		\begin{itemize}
-			\item $f(1,2) = 6$
-			\item \(Df(1,2) = \begin{bmatrix} 4 & 5 \end{bmatrix}\)
-			\item \( D^2f(1,2)  = \begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix}\)
-		\end{itemize} 
-		
-		Suppose that we want to approximate $f(1.1,1.9)$ as accurately as we can given this information.
-		We can simply use the linear approximation to $f$ at $(1,2)$:
-		
-		\begin{solution}
-			\begin{hint}
-				\begin{align*}
-					f(1.1,1.9 &\approx 6+\begin{bmatrix} 4 & 5 \end{bmatrix} \verticalvector{0.1\\-0.1}\\
-							&=6+0.4-0.5\\
-							&=5.9
-				\end{align*}
-			\end{hint}
-			Using the linear approximation to $f$ at $(1,2)$, $f(1.1,1.9) \approx$ \answer{$5.9$}
-		\end{solution}
-		
-		This approximation ignores the second order data provided by the second derivative: we have essentially 
-		assumed that the first derivative is constant along the line from $(1,2)$ to $(1.1,2.2)$.  Since we know the second 
-		derivative at the point $(1,2)$ we can estimate how the derivative is changing along this line assuming the second 
-		derivative was constant, and get a better approximation.
-		
-		For example, we could use the following three step process:
-		
-		\begin{itemize}
-			\item Use the linear approximation to $f$ at $(1,2)$ to approximate $f(1.05,1.95)$
-			\item Use the second derivative to approximate $Df(1.05,1.95)$
-			\item Use the linear approximation to $f$ at $(1.05,1.95)$ to approximate $f(1.1,1.9)$
-		\end{itemize}
-		
-		\begin{solution}
-			\begin{hint}
-				\begin{align*}
-					f(1.05,1.95) &\approx 6+\begin{bmatrix} 4 & 5 \end{bmatrix} \verticalvector{0.05\\-0.05}\\
-							&=6+0.2-0.25\\
-							&=5.95
-				\end{align*}
-			\end{hint}
-			Let's try that here:  $f(1.05,1.95) \approx$ \answer{$5.95$}
-		\end{solution}
-		\begin{solution}
-			\begin{hint}
-				\begin{align*}
-					Df(1.05,1.95) &\approx Df(1,2)+\begin{bmatrix} 0.05 & -0.05\end{bmatrix}\begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix}\\
-										&= \begin{bmatrix} 4 & 5 \end{bmatrix} + \begin{bmatrix} 0.05(1)+-0.05(-2) & 0.05(-2)+-0.05(3)\end{bmatrix}\\
-										&=\begin{bmatrix} 4 & 5 \end{bmatrix} + \begin{bmatrix} 0.15 & -0.25\end{bmatrix}
-										&=\begin{bmatrix} 4.15 & 4.75\end{bmatrix}
-				\end{align*}
-			\end{hint}
-			Using the second derivative, $Df(1.05,1.95) $ is approximately:
-			\begin{matrix-answer}
-				correctMatrix = [['4.15','4.75']]
-			\end{matrix-answer}
-		\end{solution}
-		\begin{solution}
-				\begin{hint}
-				\begin{align*}
-					f(1.1,1.9) &\approx 5.95+\begin{bmatrix} 4.15 & 4.75 \end{bmatrix} \verticalvector{0.05\\-0.05}\\
-							&=5.95+4.15(0.05)+4.75(-0.05)\\
-							&=5.92
-				\end{align*}
-				\end{hint}
-			Using the linear approximation to $f$ at $(1.05,1.95)$, $f(1.1,1.9) \approx$ \answer{$5.92$ }
-		\end{solution}
-		
-		So this method allowed us to get a slightly better approximation of $f(1.1,2.2)$ using the fact that the $Df_{\mathbf{p}}(\verticalvector{1\\-1})$ is increasing
-		as $\mathbf{p}$ moves from $(1,2)$ in the direction $\verticalvector{1\\-1}$.  We really got a slightly higher estimate from $f(1.9,2.1)$ using this two step
-		approximation compared to using the linear approximation because 
-		$D^2f(1,2)\left(\verticalvector{1\\-1},\verticalvector{1\\-1} \right) = 8$ is positive.  
-		
-		We do not have to limit ourselves to only using a two step approximation:  we could get better and better approximations of $f(1.1,1.9)$
-		by using more and more partitions of the line segment from $(1,2)$ to $(1.1,1.9)$.  For example, we could use ten partitions:
-		\begin{itemize}
-			\item Use the linear approximation to $f$ at $(1,2)$ to approximate $f(1.01,1.99)$
-			\item Use the second derivative to approximate $Df(1.01,1.99)$
-			\item Use the linear approximation to $f$ at $(1.01,1.99)$ to approximate $f(1.02,1.98)$
-			\item Use the second derivative to approximate $Df(1.02,1.98)$
-			\item Use the linear approximation to $f$ at $(1.02,1.98)$ to approximate $f(1.03,1.97)$
-			\item $\vdots$
-			\item  Use the linear approximation to $f$ at $(1.09,1.91)$ to approximate $f(1.1,1.9)$
-		\end{itemize}
-		
-		This kind of process, where we are summing more and more of smaller and smaller values to approximate something, 
-		furiously demands to be phrased as an integral.
-		
-		\begin{solution}
-			\begin{hint}
-				Notice that \begin{align*}
-					D^2f\left(\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\right)
-					&=\begin{bmatrix} 0.1 \frac{1}{n}, -0.1\frac{1}{n}\end{bmatrix}  \begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix} \verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\\
-					&=\left(0.1(0.1)(1)+0.1(-0.1)(-2)+(0.1)(-0.1)(-2)+(-0.1)(-0.1)(3)\right)\frac{1}{n^2}\\
-					&=0.08\frac{1}{n^2}
-				\end{align*}
-			\end{hint}
-			\begin{hint}
-				By partitioning $[0,1]$ into $n$ little pieces of equal width, the contribution to the sum 
-					\begin{itemize}
-						\item over $[0,\frac{1}{n}]$ is \(Df(1,2)\left( 0.1\frac{1}{n} \\ -0.1\frac{1}{n}\right) = \begin{bmatrix} 4 &5\end{bmatrix} \verticalvector{0.1\frac{1}{n} \\ -0.1\frac{1}{n}} = -0.1\frac{1}{n}\)
-						\item over $[\frac{1}{n}, \frac{2}{n}]$ is 
-                                                  \begin{align*}
-                                                    Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-                                                    &\approx Df(1,2)\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}+D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-                                                    &= -0.1\frac{1}{n} + 0.08\frac{1}{n^2}
-                                                  \end{align*}
-						\item over $[\frac{2}{n},\frac{3}{n}]$ is
-                                                  \begin{align*}
-                                                    Df(1+2(0.1\frac{1}{n}),2+2((-0.1)\frac{1}{n})) \left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-                                                    &approx  Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-                                                  &approx -0.1\frac{1}{n} + 0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
-                                                  &=1.4\frac{1}{n}+0.08\frac{2}{n}\frac{1}{n}
-                                                \end{align*}
-                                              \item $\vdots$
-                                              \item over $[\frac{k+1}{n},\frac{k+2}{n}]$ is
-                                                \begin{align*}
-                                                  Df(1+(k+1)(0.1\frac{1}{n}),2+(k+1)((-0.1)\frac{1}{n}))\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-                                                  &approx  Df(1+(k)0.1\frac{1}{n},2+(k)(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-                                                &approx -0.1\frac{1}{n} + (k-1)0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
-                                               &=1.4\frac{1}{n}+0.08\frac{k}{n}\frac{1}{n}
-                                              \end{align*}
-					\end{itemize}
-				
-			\end{hint}
-			\begin{hint}
-				So \(f(1.1,2.2) \approx 6+ \displaystyle\sum_{k=0}^{n} -0.1\frac{1}{n} +0.08\frac{k}{n}\frac{1}{n} \)
-			\end{hint}
-			\begin{hint}
-				By definition of the integral we have \(\displaystyle\lim_{n \to \infty} \displaystyle\sum_{k=0}^{n} -0.1\frac{1}{n} +0.08\frac{k}{n}\frac{1}{n} = \displaystyle\int_0^1 (-0.1+0.08t) dt\)
-			\end{hint}
-			In this case, we get that $f(1.1,1.9) \approx 6+ \displaystyle\int_0^{1} f(t) dt$, where $f(t)=$\answer{ $-0.1+0.08t$}
-		\end{solution}
-		
-		\begin{solution}
-			\begin{hint}
-				\begin{align*}
-					f(1.1,1.9) &\approx 6+ \displaystyle\int_0^1 (-0.1+0.08t) dt\\
-						&=6+\left(-0.1t+\frac{1}{2}(0.08)t^2 \right)\big|_{0}^{1}\\
-						&=6-0.1+0.04\\
-						&=5.94
-				\end{align*}
-			\end{hint}
-			Evaluating this integral we have $f(1.1,1.9) \approx $ \answer{ $5.94$}.  This is the best approximation we can really expect to get given only this
-			information about $f$ at $(1,2)$.
-		\end{solution}
-		
-		Notice that this approximation of $f$ is really just 
-		$f(1,2)+Df(1,2) \left(\verticalvector{0.1\\-0.1} \right)+ \frac{1}{2} D^2f(1,2)\left( \verticalvector{0.1\\-0.1}, \verticalvector{0.1\\-0.1}\right)$.
-		
-		The first two terms are just the regular linear approximation to $f$ at $(1,2)$, but the next term arose from integrating the function 
-		$D^2f( \verticalvector{0.1\\-0.1},\verticalvector{0.1\\-0.1})t$ from $t=0$ to $t=1$.  This is  exactly
-		$\frac{1}{2} D^2f(\verticalvector{0.1\\-0.1},\verticalvector{0.1\\-0.1})$.
-		
-		Generalizing, we might expect in general that 
-		
-		\begin{theorem}
-			\(f(\mathbf{p} + \vec{h}) \approx f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})+ \frac{1}{2} D^2f(\mathbf{p})\left( \vec{h},\vec{h}\right) \)
-		\end{theorem}
-		
-		This is the second order taylor approximation of $f$ at $\mathbf{p}$.   Notice how similar it looks to the second order taylor approximation 
-		of a single variable function!  If we had not taken the time to develop an understanding of $D^2f(\mathbf{p})$ as bilinear map, it would be quite messy 
-		to even state this theorem, and it would only get worse for the higher order Taylor's theorem we will be learning about next week.
-		
-		Hopefully this (admittedly long) discussion has helped you to understand where this approximation comes from!  We will give a rigorous statement
-		and proof of the theorem in the next section.
-		
-	\end{question}
+
+\begin{abstract}
+  The second derivative allows us to approximate functions better than just the first derivative
+\end{abstract}
+
+As it stands, the second derivative lets us get approximations of the first derivative.  The first derivative allows us to get approximations of the original function.
+In the following extended question, we will see how we can use the second derivative to get more information about the first derivative, which then lets us get more
+information about the original function.  This will lead to approximations with second order accuracy, rather than just first order accuracy.  This is the essence of 
+the second order Taylor's theorem.
+
+\begin{question}
+  Let $f:\R^2 \to \R$ be a function.  All we know about $f$ at the point $(1,2)$ is the following:
+  \begin{itemize}
+  \item $f(1,2) = 6$
+  \item \(Df(1,2) = \begin{bmatrix} 4 & 5 \end{bmatrix}\)
+  \item \( D^2f(1,2)  = \begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix}\)
+  \end{itemize} 
+  
+  Suppose that we want to approximate $f(1.1,1.9)$ as accurately as we can given this information.
+  We can simply use the linear approximation to $f$ at $(1,2)$:
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        f(1.1,1.9 &\approx 6+\begin{bmatrix} 4 & 5 \end{bmatrix} \verticalvector{0.1\\-0.1}\\
+        &=6+0.4-0.5\\
+        &=5.9
+      \end{align*}
+    \end{hint}
+    Using the linear approximation to $f$ at $(1,2)$, $f(1.1,1.9) \approx$ \answer{$5.9$}
+  \end{solution}
+  
+  This approximation ignores the second order data provided by the second derivative: we have essentially 
+  assumed that the first derivative is constant along the line from $(1,2)$ to $(1.1,2.2)$.  Since we know the second 
+  derivative at the point $(1,2)$ we can estimate how the derivative is changing along this line assuming the second 
+  derivative was constant, and get a better approximation.
+  
+  For example, we could use the following three step process:
+  
+  \begin{itemize}
+  \item Use the linear approximation to $f$ at $(1,2)$ to approximate $f(1.05,1.95)$
+  \item Use the second derivative to approximate $Df(1.05,1.95)$
+  \item Use the linear approximation to $f$ at $(1.05,1.95)$ to approximate $f(1.1,1.9)$
+  \end{itemize}
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        f(1.05,1.95) &\approx 6+\begin{bmatrix} 4 & 5 \end{bmatrix} \verticalvector{0.05\\-0.05}\\
+        &=6+0.2-0.25\\
+        &=5.95
+      \end{align*}
+    \end{hint}
+    Let's try that here:  $f(1.05,1.95) \approx$ \answer{$5.95$}
+  \end{solution}
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        Df(1.05,1.95) &\approx Df(1,2)+\begin{bmatrix} 0.05 & -0.05\end{bmatrix}\begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix}\\
+        &= \begin{bmatrix} 4 & 5 \end{bmatrix} + \begin{bmatrix} 0.05(1)+-0.05(-2) & 0.05(-2)+-0.05(3)\end{bmatrix}\\
+        &=\begin{bmatrix} 4 & 5 \end{bmatrix} + \begin{bmatrix} 0.15 & -0.25\end{bmatrix}\\
+        &=\begin{bmatrix} 4.15 & 4.75\end{bmatrix}
+      \end{align*}
+    \end{hint}
+    Using the second derivative, $Df(1.05,1.95) $ is approximately:
+    \begin{matrix-answer}
+      correctMatrix = [['4.15','4.75']]
+    \end{matrix-answer}
+  \end{solution}
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        f(1.1,1.9) &\approx 5.95+\begin{bmatrix} 4.15 & 4.75 \end{bmatrix} \verticalvector{0.05\\-0.05}\\
+        &=5.95+4.15(0.05)+4.75(-0.05)\\
+        &=5.92
+      \end{align*}
+    \end{hint}
+    Using the linear approximation to $f$ at $(1.05,1.95)$, $f(1.1,1.9) \approx$ \answer{$5.92$ }
+  \end{solution}
+  
+  So this method allowed us to get a slightly better approximation of $f(1.1,2.2)$ using the fact that the $Df_{\mathbf{p}}(\verticalvector{1\\-1})$ is increasing
+  as $\mathbf{p}$ moves from $(1,2)$ in the direction $\verticalvector{1\\-1}$.  We really got a slightly higher estimate from $f(1.9,2.1)$ using this two step
+  approximation compared to using the linear approximation because 
+  $D^2f(1,2)\left(\verticalvector{1\\-1},\verticalvector{1\\-1} \right) = 8$ is positive.  
+  
+  We do not have to limit ourselves to only using a two step approximation:  we could get better and better approximations of $f(1.1,1.9)$
+  by using more and more partitions of the line segment from $(1,2)$ to $(1.1,1.9)$.  For example, we could use ten partitions:
+  \begin{itemize}
+  \item Use the linear approximation to $f$ at $(1,2)$ to approximate $f(1.01,1.99)$
+  \item Use the second derivative to approximate $Df(1.01,1.99)$
+  \item Use the linear approximation to $f$ at $(1.01,1.99)$ to approximate $f(1.02,1.98)$
+  \item Use the second derivative to approximate $Df(1.02,1.98)$
+  \item Use the linear approximation to $f$ at $(1.02,1.98)$ to approximate $f(1.03,1.97)$
+  \item $\vdots$
+  \item  Use the linear approximation to $f$ at $(1.09,1.91)$ to approximate $f(1.1,1.9)$
+  \end{itemize}
+  
+  This kind of process, where we are summing more and more of smaller and smaller values to approximate something, 
+  furiously demands to be phrased as an integral.
+  
+  \begin{solution}
+    \begin{hint}
+      Notice that \begin{align*}
+        D^2f\left(\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\right)
+        &=\begin{bmatrix} 0.1 \frac{1}{n}, -0.1\frac{1}{n}\end{bmatrix}  \begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix} \verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\\
+        &=\left(0.1(0.1)(1)+0.1(-0.1)(-2)+(0.1)(-0.1)(-2)+(-0.1)(-0.1)(3)\right)\frac{1}{n^2}\\
+        &=0.08\frac{1}{n^2}
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      By partitioning $[0,1]$ into $n$ little pieces of equal width, the contribution to the sum 
+      \begin{itemize}
+      \item over $[0,\frac{1}{n}]$ is \(Df(1,2)\left( 0.1\frac{1}{n} \\ -0.1\frac{1}{n}\right) = \begin{bmatrix} 4 &5\end{bmatrix} \verticalvector{0.1\frac{1}{n} \\ -0.1\frac{1}{n}} = -0.1\frac{1}{n}\)
+      \item over $[\frac{1}{n}, \frac{2}{n}]$ is 
+        \begin{align*}
+          Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+          &\approx Df(1,2)\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}+D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+          &= -0.1\frac{1}{n} + 0.08\frac{1}{n^2}
+        \end{align*}
+      \item over $[\frac{2}{n},\frac{3}{n}]$ is
+        \begin{align*}
+          Df(1+2(0.1\frac{1}{n}),2+2((-0.1)\frac{1}{n})) \left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+          &\approx  Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+          &\approx -0.1\frac{1}{n} + 0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
+          &=1.4\frac{1}{n}+0.08\frac{2}{n}\frac{1}{n}
+        \end{align*}
+      \item $\vdots$
+      \item over $[\frac{k+1}{n},\frac{k+2}{n}]$ is
+        \begin{align*}
+          Df(1+(k+1)(0.1\frac{1}{n}),2+(k+1)((-0.1)\frac{1}{n}))\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+          &\approx  Df(1+(k)0.1\frac{1}{n},2+(k)(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+          &\approx -0.1\frac{1}{n} + (k-1)0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
+          &=1.4\frac{1}{n}+0.08\frac{k}{n}\frac{1}{n}
+        \end{align*}
+      \end{itemize}
+      
+    \end{hint}
+    \begin{hint}
+      So \(f(1.1,2.2) \approx 6+ \displaystyle\sum_{k=0}^{n} -0.1\frac{1}{n} +0.08\frac{k}{n}\frac{1}{n} \)
+    \end{hint}
+    \begin{hint}
+      By definition of the integral we have \(\displaystyle\lim_{n \to \infty} \displaystyle\sum_{k=0}^{n} -0.1\frac{1}{n} +0.08\frac{k}{n}\frac{1}{n} = \displaystyle\int_0^1 (-0.1+0.08t) dt\)
+    \end{hint}
+    In this case, we get that $f(1.1,1.9) \approx 6+ \displaystyle\int_0^{1} f(t) dt$, where $f(t)=$\answer{ $-0.1+0.08t$}
+  \end{solution}
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        f(1.1,1.9) &\approx 6+ \displaystyle\int_0^1 (-0.1+0.08t) dt\\
+        &=6+\left(-0.1t+\frac{1}{2}(0.08)t^2 \right)\big|_{0}^{1}\\
+        &=6-0.1+0.04\\
+        &=5.94
+      \end{align*}
+    \end{hint}
+    Evaluating this integral we have $f(1.1,1.9) \approx $ \answer{ $5.94$}.  This is the best approximation we can really expect to get given only this
+    information about $f$ at $(1,2)$.
+  \end{solution}
+  
+  Notice that this approximation of $f$ is really just 
+  $f(1,2)+Df(1,2) \left(\verticalvector{0.1\\-0.1} \right)+ \frac{1}{2} D^2f(1,2)\left( \verticalvector{0.1\\-0.1}, \verticalvector{0.1\\-0.1}\right)$.
+  
+  The first two terms are just the regular linear approximation to $f$ at $(1,2)$, but the next term arose from integrating the function 
+  $D^2f( \verticalvector{0.1\\-0.1},\verticalvector{0.1\\-0.1})t$ from $t=0$ to $t=1$.  This is  exactly
+  $\frac{1}{2} D^2f(\verticalvector{0.1\\-0.1},\verticalvector{0.1\\-0.1})$.
+  
+  Generalizing, we might expect in general that 
+  
+  \begin{theorem}
+    \(f(\mathbf{p} + \vec{h}) \approx f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})+ \frac{1}{2} D^2f(\mathbf{p})\left( \vec{h},\vec{h}\right) \)
+  \end{theorem}
+  
+  This is the second order taylor approximation of $f$ at $\mathbf{p}$.   Notice how similar it looks to the second order taylor approximation 
+  of a single variable function!  If we had not taken the time to develop an understanding of $D^2f(\mathbf{p})$ as bilinear map, it would be quite messy 
+  to even state this theorem, and it would only get worse for the higher order Taylor's theorem we will be learning about next week.
+  
+  Hopefully this (admittedly long) discussion has helped you to understand where this approximation comes from!  We will give a rigorous statement
+  and proof of the theorem in the next section.
+  
+\end{question}
+
 \end{document}

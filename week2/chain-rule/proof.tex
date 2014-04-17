@@ -13,7 +13,7 @@
 	\\
 	\\
 	Let $L:\R^n \to \R^m$ be a linear map.  Let $S^{n-1} = \{ \vec{v} \in \R^n: |\vec{v}|  = 1\}$ be the unit sphere in $\R^n$.  Then there is a function
-		$F: \S^{n-1} \to \R^m$ defined on this sphere which takes a vector and returns the length of its image under $L$, $F(\vec{v}) = |L(\vec{v})|$.  
+		$F: S^{n-1} \to \R^m$ defined on this sphere which takes a vector and returns the length of its image under $L$, $F(\vec{v}) = |L(\vec{v})|$.  
 		
 	\begin{definition}
 		The maximum value of the function $F$ is called the \textbf{operator norm} of $L$, and is written $|L|_{op}$.
@@ -37,11 +37,11 @@
 	All we know at the beginning of the day is that  
 	\[f(\mathbf{p}+\vec{h}) = f(\mathbf{p})+Df(\mathbf{p})(\vec{h})+\text{fError}(\vec{h})\]
 	 with 
-	\[\lim_{\vec{h} \to 0} \frac{\left| \text{fError}(\vec{h})\right|}{|\vec{h}|} = 0\]
+	\[\displaystyle\lim_{\vec{h} \to 0} \frac{\left| \text{fError}(\vec{h})\right|}{|\vec{h}|} = 0\]
 	 and 
 	 \[g(\mathbf{f(p)}+\vec{u}) = g(f(\mathbf{p}))+Dg(\mathbf{f(p)})(\vec{u})+\text{gError}(\vec{u})\]
 	 with 
-	\[ \lim_{\vec{u} \to 0} \frac{\left| \text{gError}(\vec{u})\right|}{|\vec{u}|} = 0\]
+	\[ \displaystyle\lim_{\vec{u} \to 0} \frac{\left| \text{gError}(\vec{u})\right|}{|\vec{u}|} = 0\]
 	\\
 	\\
 	We will simply compose these two formulas for $f$ and $g$, and try to get some control on the complicated error term which results.
@@ -55,22 +55,29 @@
 	
 	This looks pretty horrible, but at least we can see the error term in red that we have to get some control over.  
 	In particular we will have proven the chain rule if we can show that
-	
+	\\
+	\\
 	\[
-		\lim_{\vec{h} \to 0} \frac{\left|\textcolor{red}{Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)}\right|}{|\vec{h}|} = 0
+		\displaystyle\lim_{\vec{h} \to 0} \frac{\left|\textcolor{red}{Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)}\right|}{|\vec{h}|} = 0
 	\]
-	
-	Since $0 \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right) \right|\\\\ \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right| + \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|$
+	\\
+	\\
+	Since 
+	\\
+	\\
+	\[0 \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right) + \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right) \right|\\\\ \leq \left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right| + \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|\]
+	\\
+	\\
 	by the triangle inequality, we will have the result if we can prove separately that
 	
 	\[
-		\lim_{\vec{h} \to 0} \frac{\left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\left|\vec{h}\right|}  = 0
+		\displaystyle\lim_{\vec{h} \to 0} \frac{\left|Dg(\mathbf{f(p)})\left(\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\left|\vec{h}\right|}  = 0
 	\]
 	
 	and 
 	
 	\[
-	\lim_{\vec{h} \to 0} \frac{ \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\vec{h}} = 0
+	\displaystyle\lim_{\vec{h} \to 0} \frac{ \left| \text{gError}\left(Df(\mathbf{p})(\vec{h})+\text{fError}_{\mathbf{p}}(\vec{h})\right)\right|}{\vec{h}} = 0
 	\]
 	
 	Lets prove the first limit.  This is where operator norms enter the picture.
@@ -105,7 +112,7 @@ if $\vec{h}$ is small enough.
 \\
 \\
 Now we are done!  We have successfully shown that the nasty error term $\textcolor{red}{Error}$ 
-satisfies \[\lim_{\vec{h} \to 0}\frac{\left|\textcolor{red}{Error}(\vec{h})\right|}{|\vec{h}|} = 0\]
+satisfies \[\displaystyle\lim_{\vec{h} \to 0}\frac{\left|\textcolor{red}{Error}(\vec{h})\right|}{|\vec{h}|} = 0\]
 \\
 \\
 Thus $g \circ f$ is differentiable at $\mathbf{p}$, and its derivative is given by $Dg(\mathbf{f(p)}) \circ Df(\mathbf{p})$.

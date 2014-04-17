@@ -1,0 +1,87 @@
+\documentclass{ximera}
+\title{Linear maps, redux}
+
+\begin{document}
+\begin{abstract}
+  Linear maps respect scalar multiplication and vector addition.
+\end{abstract}
+
+\begin{definition}
+  Let $V$ and $W$ be two vector spaces.  A function $L: V \to W$ is a \textit{linear map} if 
+  \begin{description}
+  \item[Respects vector addition] For all $\vec{v}_1,\vec{v}_2 \in V$, $L(\vec{v}_1+\vec{v}_2) = L(\vec{v}_1)+L(\vec{v}_2)$
+  \item[Respects scalar multiplication] For all $c \in \R$ and $\vec{v} \in V$, $L(c\vec{v}) = cL(\vec{v})$
+  \end{description}
+\end{definition}
+
+If the domain and codomain of a linear map are both $V$, then we may
+call it a \textit{linear operator} to emphasize this fact.  For
+instance, you might hear someone say ``$L : V \to V$ is a linear
+operator.''
+
+Let $V$ be the space of all polynomials in one variable $x$, and $W =
+\R$.  For each real number $a \in \R$, define the function $\text{Eval}_a: V
+\to W$ defined by $\text{Eval}_a(p) = p(a)$.  Show that $\text{Eval}_c$ is a linear
+map.
+
+\begin{free-response}	
+  Let $p_1, p_2 \in V$.  Then $\text{Eval}_a(p_1+p_2)  = p_1(a)+p_2(a) = \text{Eval}_a(p_1) + \text{Eval}_a(p_2)$.  Also if $c \in \R$, then $\text{Eval}_a(cp) = cp(a) = c\text{Eval}_a(p)$.  So $\text{Eval}_a$
+  is a linear map.
+\end{free-response}
+
+	%Let $V$ be the set of all solutions to the differential equation $y''=-y$.  Show that $V$ is a vector space with function addition and multiplication.
+	%Show that the map $L:V \to V$ given by $L(f)(x)  = f(-x)$ is a linear map. 
+	%(In particular, make sure it really does take solutions of the differential equation to other solutions!)
+	%This is the "time invariance of the wave equation".
+
+%\begin{free-response}
+%		$V$ is a vector space because 
+%\end{free-response}
+
+
+To make sure linear maps work the way we expect them to in this new context, and to flex our brains a little bit, let's prove some facts about linear functions:
+
+	Let $L:V \to W$ be a linear map.  Show that $L(\vec{0}) = \vec{0}$. 
+	(Note: $\vec{0}$ means different things on either side of the equation.  On the LHS it means the additive identity of $V$, while on the RHS it means the 
+	additive identity of $W$).
+
+\begin{free-response}
+	\begin{align*}
+		L(\vec{0}) &= L(0\vec{0}) \text{ we proved in the last section that $0\vec{v} = \vec{0}$ for any $\vec{v}$}\\
+						&= 0L(\vec{0}) \text{ because $L$ respects scalar multiplication}\\
+						&=\vec{0} \text{ by the same reasoning quoted above}
+	\end{align*}
+	
+	Another way to do this would be by starting with $L(\vec{0}) = L(\vec{0}+\vec{0})$ and using the fact that $L$ respects vector addition.  Try this proof out too!
+	\end{free-response}
+
+	Let $V$ and $W$ be vector spaces, and define a function $\text{\textbf{Zero}}: V \to W$ by $\text{\textbf{Zero}}(\vec{v}) = \vec{0}$ for all $\vec{v} \in V$.  Show that 
+	$\mathrm{Zero}$ is a linear function. 
+
+\begin{free-response}
+	Let $\vec{v}_1,\vec{v}_2 \in V$.  Then
+	\begin{align*}
+		\text{\textbf{Zero}}(\vec{v}_1+\vec{v}_2) &= \vec{0}\\
+						&= \vec{0}+\vec{0}\\
+						&= \text{\textbf{Zero}}(\vec{v}_1)+\text{\textbf{Zero}}(\vec{v}_2)
+	\end{align*}
+	
+	So $\text{\textbf{Zero}}$ respects vector addition
+	
+	Let $\vec{v} \in V$ and $c \in \R$.
+	
+	\begin{align*}
+		\text{\textbf{Zero}}(c\vec{v}) &= \vec{0}\\
+						&= c\vec{0}\\
+						&= c\text{\textbf{Zero}}(\vec{v})
+	\end{align*}
+	
+	So $\text{\textbf{Zero}}$ respects scalar multiplication.
+	
+\end{free-response}
+
+
+
+
+
+\end{document}

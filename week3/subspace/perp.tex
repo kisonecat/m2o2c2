@@ -1,0 +1,55 @@
+\documentclass{ximera}
+\title{Orthogonal Compliment}
+
+\begin{document}
+\begin{abstract}
+	The vectors orthogonal to a subspace give another subspace.
+\end{abstract}
+
+\begin{theorem}
+	Let $U$ be a subspace of $\R^3$.  Then the set $U^\perp = \{ v \in \R^n: \text{ For every \(u \in U\) ,} \angle v ,u\rangle = 0\}$ is a subspace of $\R^n$ 
+	called the \textbf{orthogonal compliment} of $U$
+\end{theorem}
+
+Prove this theorem
+
+\begin{free-response}
+	We need to show that $U^\perp$ is closed under addition and scalar multiplication.
+	
+	Let $\vec{v}_1,\vec{v}_2 \in U^\perp$.  Then for all $\vec{u} \in U$,
+	
+	\begin{align*}
+		\langle \vec{v_1}+\vec{v}_2, \vec{u} \rangle &= \langle \vec{v}_1, \vec{u}\rangle + \langle \vec{v}_2,\vec{u}\rangle\\
+		&= 0+0\\
+		&=0
+	\end{align*}
+	
+	So $\vec{v}_1+\vec{v}_2 \in U^\perp$.
+	
+	Similarly, for any $c \in \R$, if $\vec{v} \in U^\perp$, then for any $\vec{u} \in U$, $\langle c\vec{v}, \vec{u} \rangle = c\langle \vec{v},\vec{u} \rangle = 0$, so 
+	$c\vec{v} \in U^\perp$.
+\end{free-response}
+
+Prove that the orthogonal compliment of the span of a nonzero vector in $\R^n$ has dimension $n-1$.
+
+\begin{hint}
+	Let $\vec{v} \in \R^n$ be the vector in question, and let $V = \textrm{Span}(\vec{v})$.
+	  If you can find a linear map from $\R^n$ to $V$ whose rank is $1$ and whose kernel is $V^\perp$, then the rank-nullity theorem will give you the result.
+\end{hint}
+
+\begin{hint}
+	Define $\pi:\R^n \to U$ by $\pi(w) = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}|^2} v$.
+\end{hint}
+\begin{free-response}
+Let $\vec{v} \in \R^n$ be the vector in question, and let $V = \textrm{Span}(\vec{v})$.
+
+Define $\pi:\R^n \to U$ by $\pi(w) = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}|^2} v$.
+
+Then $\pi$ has rank $1$, because $\pi(\vec{v}) = \vec{v}$, so the image of $\pi$ is all of $V$, which is $1$ dimensional.
+
+On the other hand, the kernel of $\pi$ is $V^\perp$.
+
+By the rank nullity theorem, we have that $dim(V^\perp) = n-1$.
+\end{free-response}
+
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass{ximera}
+\title{Definiteness and the spectral theorem}
+
+\begin{document}
+
+\begin{abstract}
+  ``Definiteness'' describes what we can say about the sign of the output of a bilinear form.
+\end{abstract}
+
+\begin{definition}
+  A bilinear form $B : \R^n \times \R^n \to \R$ is
+  \begin{description}
+  \item[Positive definite] if $B(\vec{v},\vec{v}) > 0 $ for all $\vec{v} \neq \vec{0}$,
+  \item[Positive semidefinite] if $B(\vec{v},\vec{v}) \geq 0 $ for all $\vec{v}$,
+  \item[Negative definite] if $B(\vec{v},\vec{v}) < 0 $ for all $\vec{v} \neq \vec{0}$,
+  \item[Negative semidefinite] if $B(\vec{v},\vec{v}) \leq 0 $ for all $\vec{v}$, and
+  \item[Indefinite] if $B$ there are $v$ and $w$ with $B(v,v)>0$ and $B(w,w)<0$
+  \end{description}
+\end{definition}
+
+Let $M$ be a diagonal matrix.  In a sentence, can you relate the sign of the entries $M_{i,i}$ to the definiteness of the associated bilinear form? 
+	
+\begin{free-response}
+  Given a diagonal $n \times n$ matrix $M$ with $M_{i,i} = \lambda_i$, we see that 
+  \(
+  B(\vec{x},\vec{x}) = \begin{bmatrix} x_1 & x_2 & \vdots & x_n\end{bmatrix} M  \verticalvector{x_1 \\x_2\\ \vdots \\x_n}\vec{v} = \lambda_1x_1^2 +\lambda_2x_2^2+ \cdots +\lambda_nx_n^2
+  \)
+  
+  If the $\lambda_i$ are all positive, this expression is always positive whenever the $x_i$ are not all $0$.  So the bilinear form is positive definite.
+  
+  If the $\lambda_i$ are all nonnegative, this expression is always nonnegative whenever the $x_i$ are not all $0$.  So the bilinear form is positive semidefinite.
+  
+  If the $\lambda_i$ are all negative, this expression is always negative whenever the $x_i$ are not all $0$.  So the bilinear form is negative definite.
+  
+  If the $\lambda_i$ are all nonpositive, this expression is always nonpositive whenever the $x_i$ are not all $0$.  So the bilinear form is negative  semidefinite.
+  
+  If the $\lambda_i>0$ and $\lambda_j<0$  for some $i,j\leq n$, then $B(e_i,e_i) = \lambda_i >0$ and $B(e_j,e_j) = \lambda_j <0$, so the bilinear form 
+  is indefinite. 
+  
+\end{free-response}
+
+Our goal will now be to reduce the study of general symmetric bilinear forms to those whose associated matrix is diagonal.
+
+	Let $L: \R^n \to R^n$ be a self adjoint linear operator.  Prove that if $\vec{v}_1$ and $\vec{v}_2$ are eigenvectors with 
+	distinct eigenvalues $\lambda_1$  and $\lambda_2$, then $\vec{v}_1 \perp \vec{v}_2$.
+\begin{free-response}
+	\begin{align*}
+		&\langle  L(\vec{v}_1), \vec{v}_2 \rangle = \langle \vec{v}_1  ,L(\vec{v}_2)\rangle\\
+		&\langle \lambda_1\vec{v}_1, \vec{v}_2\rangle = \langle  \vec{v}_1,\lambda_2 \vec{v}_2\rangle\\
+		& (\lambda_1 - \lambda_2)\langle \vec{v}_1,\vec{v}_2\rangle =0\\
+		&\langle \vec{v}_1,\vec{v}_2\rangle = 0
+	\end{align*}
+\end{free-response}
+
+	Let $L:\R^n \to \R^n$ be a self adjoint linear operator.  Let $\vec{v}$ be an eigenvector of $L$.  Prove that $L$ restricts to a self adjoint linear operator
+	on the space of vectors perpendicular to $\vec{v}$,  $\vec{v}^\perp$.  
+
+\begin{free-response}
+	All we need to show is that $w \perp v$ implies $L(w) \perp v$.
+	
+	\begin{align*}
+		\langle  L(w), v \rangle &= \langle w, L(v)\rangle\\
+			&= \langle  w, \lambda v\rangle\\
+			&=\lambda \langle w, v \rangle\\
+			&=0
+	\end{align*}
+	
+	so we are done!
+\end{free-response}
+
+\begin{theorem}
+	If $L: \R^n \to \R^n$ is a self adjoint linear operator, then $L$ has an eigenvector.
+\end{theorem}
+
+\begin{proof}
+	First assume that $L$ is not the identically $0$ map.  If it is, we are done because $0$ is an eigenvector in that case.
+	
+	Since the unit sphere in $\R^n$ is \href{http://en.wikipedia.org/wiki/Compact_space}{compact},
+	 the function $\vec{v} \mapsto |L(\vec{v})|$ achieves its maximum $M$.  So there is a unit vector 
+	$\vec{u}$ so that $|L(\vec{u})| = M$, and $|L(v)| \leq M$ for all other unit vectors $\vec{v}$.  $M > 0$ because $L \neq 0$.
+	
+	Now let $w = L(u)/M$.  This is another unit vector.
+	
+	Note that $\langle w, L(u)\rangle = M$, so we also have $\langle L(w), u \rangle = M$, since $L$ is self adjoint.
+	
+	$\langle L(\vec{w}),\vec{u}\rangle \leq |L(\vec{w})||\vec{u}|$ with equality if and only if $L(\vec{w}) \in \mathrm{span}(\vec{u})$ by Cauchy-Schwarz.
+	
+	But $|L(\vec{w})||\vec{u}| = |L(\vec{w})|$ because $\vec{u}$ is a unit vector!
+		
+	Since $M$ is the maximum value of $|L(\vec{u})|$ over all unit vectors $\vec{u}$, we must have  $L(\vec{w}) \in \mathrm{span}(\vec{u})$
+	
+	We can conclude that $L(\vec{w}) = M\vec{u}$.
+	
+	Now either $\vec{u}+\vec{w} \neq 0$ or $\vec{u}-\vec{w} \neq 0$ .  In either case,
+	
+	$L(\vec{u} \pm \vec{w}) = M\vec{u} \pm M\vec{w}$, so the nonzero $\vec{v} \pm \vec{w}$ is an eigenvector of $L$.
+	
+	Credit for this beautiful line of reasoning goes to \href{http://mathoverflow.net/a/118759/1106}{Marcos Cossarini}.  Most proofs of this theorem use either 
+	Lagrange Multipliers (which we will learn about soon), or complex analysis.  Here we use only linear algebra along with the one analytic fact that a continuous 
+	function on a compact set achieves its maximum value.
+\end{proof}
+
+	We can combine the previous theorem and question to prove the ``Spectral Theorem for Real Self-adjoint Operators'':  
+	
+	\begin{theorem}
+		A self adjoint operator $L : \R^n \to \R^n$ has an orthonormal basis of eigenvectors.
+	\end{theorem}
+	
+\begin{proof}
+	$L$ has an eigenvector $\vec{v}_1$.  $L\big|_{\vec{v}_1^\perp} : \vec{v}_1^\perp \to \vec{v}_1^\perp$  is another self adjoint linear operator and so it has an eigenvector $\vec{v}_2$.  
+	Continue in this way until you have constructed all $n$ eigenvectors.  Because of how they are constructed, we have that each one is perpendicular to all of the 
+	eigenvectors which came before it. 
+\end{proof}
+
+This, in some sense, completely answers the question of how to characterize the definiteness of a symmetric bilinear form.  Look at its associated linear operator, 
+which must be self adjoint.  By the Spectral Theorem, it has a orthonormal basis of eigenvectors.  Then 
+
+\begin{itemize}
+	\item $B$ positive definite $\Longleftrightarrow$ $L_B$ has all positive eigenvalues
+	\item $B$ positive semidefinite $\Longleftrightarrow$ $L_B$ has all nonnegative eigenvalues
+	\item $B$ negative definite $\Longleftrightarrow$ $L_B$ has all negative eigenvalues
+	\item $B$ negative semidefinite $\Longleftrightarrow$ $L_B$ has all nonpositive eigenvalues
+	\item $B$ indefinite $\Longleftrightarrow$ $L_B$ has both positive and negative eigenvalues
+\end{itemize}
+
+This will be crucially important when we get to the second derivative test:  it will turn out that the second derivative is a symmetric bilinear form, and the definiteness of this 
+bilinear form is analogous to the concavity of a function of one variable.  Identifying local maxima and minima with the ``second derivative test'' will require analysis of the eigenvalues
+of the associated linear map.
+	
+\end{document}

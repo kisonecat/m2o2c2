@@ -1,0 +1,157 @@
+\documentclass{ximera}
+\title{Bilinear maps}
+
+\begin{document}
+
+\begin{abstract}
+  Bilinear maps are linear in two vector variables separately.
+\end{abstract}	
+
+\begin{definition}
+  Let $V,W$ and $U$ be vector spaces.  A \textbf{bilinear map} $B: V \times W \to U$ is a function of two vector variables which is linear in each variable separately. 
+  That is
+  \begin{description}
+  \item[Additivity in the first slot] For all $\vec{v}_1,\vec{v}_2 \in V$ and 
+    all $\vec{w} \in W$, we have $B(\vec{v}_1+\vec{v}_2,\vec{w}) = B(\vec{v}_1,\vec{w})+B(\vec{v}_2,\vec{w})$
+    
+  \item[Additivity in the second slot] For all $\vec{v} \in V$ and all
+    $\vec{w}_1,\vec{w}_2 \in W$, we have $B(\vec{v},\vec{w}_1+\vec{w}_2) = B(\vec{v},\vec{w}_1)+B(\vec{v},\vec{w}_2)$.
+    
+  \item[Scaling in each slot] For all $c \in \R$ and all $\vec{v} \ in V$ and all
+    $\vec{w} \in W$, we have $B(c\vec{v},\vec{w}) = B(\vec{v},c\vec{w}) = cB(\vec{v},\vec{w})$.
+  \end{description}
+\end{definition}
+	
+A bilinear map from $V \times V \to \R$ is called a \textbf{bilinear
+  form} on $V$.  We will mostly be focusing on bilinear forms on
+$\R^n$, but we will sometimes need to work with more general bilinear
+maps.
+
+\begin{example}	
+The map $B:\R^n \times \R^n \to \R$ given by $B(\vec{v},\vec{w}) = \vec{v} \cdot \vec{w}$ is a bilinear form, since we confirmed that
+the dot product has these properties immediately after defining the dot product.
+\end{example}
+
+\begin{question}
+  $\R^n \times \R^m$ can be identified with $\R^{n+m}$.  Is a bilinear
+  map $\R^n \times \R^m \to \R^k$ linear when viewed as a map from
+  $\R^{n+m} \to \R^k$?  
+
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{No.}
+      \choice{Yes.}
+    \end{multiple-choice}
+  \end{solution}
+
+  You are correct: a bilinear map $\R^n \times \R^m \to \R^k$ is
+  \textit{not} necessarily a linear map when we identify $\R^n \times
+  \R^m$ with $\R^{n+m}$.  Why?  What is an example?
+  \begin{free-response}
+    For example, the dot product $dot:\R^2 \times \R^2 \to \R$ defined
+    by $B(\verticalvector{x\\y},\verticalvector{z\\t})=xz+yt$ is
+    bilinear, but it is certainly not a linear map from $\R^4 \to \R$.
+  \end{free-response}
+\end{question}
+
+	
+\begin{question}
+  Let  $B:\R^2 \times \R^3 \to R$ be a bilinear mapping, and you know the following values of $B$:
+  \begin{itemize}
+  \item $B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}\right) = 2$
+  \item $B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}\right) = 1$
+  \item $B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right) = -3$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}\right) = 2$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}\right) = 5$
+  \item $B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right) = 4$ 
+  \end{itemize}
+			
+  What is $B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)$?
+			
+  \begin{solution}
+    \begin{hint}
+      We need to use the linearity in each slot to break this down into a computation involving only the basis vectors.
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) &= B\left(\verticalvector{3\\0}+\verticalvector{0\\2} ,\verticalvector{4\\2\\1}\right) \\
+        &= B\left(\verticalvector{3\\0},\verticalvector{4\\2\\1}\right)+B\left(\verticalvector{0\\2},\verticalvector{4\\2\\1}\right)\\
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
+        &= 3B\left(\verticalvector{1\\0},\verticalvector{4\\2\\1}\right)+2B\left(\verticalvector{0\\1},\verticalvector{4\\2\\1}\right)\\
+        &= 3\left(4B\left(\verticalvector{1\\0},\verticalvector{1\\0\\0}\right)+2B\left(\verticalvector{1\\0},\verticalvector{0\\1\\0}\right)+ B\left(\verticalvector{1\\0},\verticalvector{0\\0\\1}\right)\right) \\
+        &\hphantom{=} +2\left(4B\left(\verticalvector{0\\1},\verticalvector{1\\0\\0}\right)+2B\left(\verticalvector{0\\1},\verticalvector{0\\1\\0}\right)+ B\left(\verticalvector{0\\1},\verticalvector{0\\0\\1}\right)\right)
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      \begin{align*}
+        \hphantom{B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right)} &= 3\left(4(2)+2(1)+ 1(-3)\right)+2\left( 4(2)+2(5)+1(4)\right) \\
+        &=21+44\\
+        &=65
+      \end{align*}
+    \end{hint}
+    $B\left(\verticalvector{3\\2},\verticalvector{4\\2\\1}\right) = $ \answer{$65$}
+  \end{solution}
+\end{question}
+	
+\begin{question}
+  \begin{hint}
+    If we set $L(x) = B(x,3)$, then $L$ should be a linear map $\R \to \R$.
+  \end{hint}
+
+  \begin{hint}
+    But a linear map $\R \to \R$ is just multiplication, so $B(x,3) = \alpha x$ for some number $\alpha$.
+  \end{hint}
+
+  \begin{hint}
+    But a bilinear map is linear in \textit{both} variables, so $B(17,y) = \beta y$ for some number $\beta$.
+  \end{hint}
+
+  \begin{hint}
+    So one way to get a bilinear map would be to set $B(x,y) = 10 x y$.  You can enter this as \texttt{10 * x * y}.
+  \end{hint}
+
+  \begin{hint}
+    Can you think of other examples?
+  \end{hint}
+
+  \begin{hint}
+    Sure!  Another way to get a bilinear map would be to set $B(x,y) = 13 x y$.  You can enter this as \texttt{13 * x * y}.
+  \end{hint}
+
+  \begin{hint}
+    In general, if $B : \R \times \R \to \R$ is bilinear, then it must
+    be $B(x,y) = \lambda x y$ for some $\lambda \in \R$.
+  \end{hint}
+
+  Write a nonzero bilinear map  $B: \R \times \R \to \R$.  
+  \begin{solution}
+    $B(x,y) = $ \begin{expression-answer}
+  	function validator(f) {
+    if (f.variables().indexOf('x') == -1) {
+      feedback( 'You should include x in your answer.' );
+    }
+    
+     if (f.variables().indexOf('y') == -1) {
+      feedback( 'You should include y in your answer.' );
+    }
+
+    if (f.variables().length > 2) {
+      feedback( 'The only variables you should use are x and y.' );
+    }
+
+    if ((Math.abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:2,y:3})/6) < 0.01) &&
+        (Math.abs(f.evaluate( {x:1,y:1} ) - f.evaluate({x:4,y:3})/12) < 0.01)) {
+          return 1;
+    } else {
+      return 0;
+    }
+  }
+    \end{expression-answer}
+  \end{solution}
+\end{question}
+	
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass{ximera}
+
+\title{Python}
+
+\begin{document}
+
+\begin{abstract}
+  We can find eigenvectors in Python.
+\end{abstract}
+
+Let's suppose I have an $n \times n$ matrix $M$, expressed in Python as a list of lists.  For example, suppose
+$$
+M = \begin{bmatrix}
+6 & 4 & 3 \\
+4 & 5 & 2 \\
+3 & 2 & 7 \\
+\end{bmatrix} = \text{[[6,4,3],[4,5,2],[3,2,7]]}.
+$$
+Further suppose that the matrix $M = (m_{ij})$ is \textbf{symmetric},
+meaning that $m_{ij} = m_{ji}$.  I'd like to compute an eigenvector of
+$M$ quickly.
+
+\begin{question}
+  Here's a procedure that I'd like you to code in Python:
+  \begin{enumerate}
+  \item Start with some vector $\vec{v}$.
+  \item Replace $\vec{v}$ with the result of applying the linear map $L_M$ to the vector $\vec{v}$.
+  \item Normalize $\vec{v}$ so that it has unit length.
+  \item Repeat many times.
+  \end{enumerate}
+
+  You can try \texttt{print eigenvector([[6,4,3],[4,5,2],[3,2,7]])} to
+  see what happens in the case of the matrix above.
+
+  \begin{solution}
+    \begin{python}
+def eigenvector(M):
+  # start with a random vector v
+  v = [1] * len(M[0])
+  # for many, many times
+  #   replace v with Mv
+  #   normalize v
+  # return v 
+
+def validator():
+  v = eigenvector([[6, 5, 5], [5, 2, 3],[5, 3, 8]])
+  if abs((v[1] / v[0]) - 0.6514182851) > 0.01:
+    return False
+  if abs((v[2] / v[0]) - 1.0603152077) > 0.01:
+    return False
+  return True
+    \end{python}
+  \end{solution}
+
+Can you use your program to find, numerically, an eigenvector of the matrix $M$?
+
+\end{question}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

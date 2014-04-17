@@ -1,0 +1,100 @@
+\documentclass{ximera}
+\title{Python}
+
+\begin{document}
+\begin{abstract}
+  Certain Python functions form a vector space?
+\end{abstract}
+
+Let $\mathcal{P}$ be the collection of all Python functions \texttt{f} with the properties that
+\begin{itemize}
+\item \texttt{f} accepts a single numeric parameter,
+\item \texttt{f} returns a single numeric parameter, and
+\item no matter what number \texttt{x} is, the function call \texttt{f(x)} successfully returns a number.
+\end{itemize}
+We'll say that two Python functions are ``equal'' if they produce the same outputs for the same inputs.
+
+\hrule
+
+Now the collection $\mathcal{P}$ (arguably) forms a vector space.  I
+say ``arguably'' because ``numbers'' in Python aren't real numbers,
+but let's just play along and pretend that they are.
+
+\begin{question}
+  What function plays the role of $\vec{0}$ in $\mathcal{P}$?
+  \begin{solution}
+    \begin{python}
+def zero(x):
+  # return ?  
+    
+def validator():
+  return (zero(17) == 0)
+    \end{python}
+  \end{solution}
+
+  Suppose we have two functions \texttt{f} and \texttt{g}.  What is their sum?
+  \begin{solution}
+    \begin{python}
+def vector_sum(f,g):
+  # return a new Python function which is the sum of f and g
+    
+def validator():
+  return (vector_sum(lambda x: x**2, lambda x: x**3)(3) == 36)
+    \end{python}
+  \end{solution}
+
+  \hrule
+
+  Now suppose we have a function \texttt{f} and a scalar \texttt{c}.  What is \texttt{c} times \texttt{f}?
+  \begin{solution}
+    \begin{python}
+def scalar_multiple(c,f):
+  # return a new Python function which is c*f
+    
+def validator():
+  return (scalar_multiple(17, lambda x: x**2)(2) == 68)
+    \end{python}
+  \end{solution}
+
+  \hrule
+
+    Now suppose we have a function \texttt{f} and a point \texttt{a}.  The map \texttt{evaluation_map} sends $\texttt{f} \in \mathcal{P}$ to the value $\texttt{f}(\texttt{a})$.
+  \begin{solution}
+    \begin{python}
+def scalar_multiple(c,f):
+  return (lambda x: c * f(x))
+def vector_sum(f,g):
+  return (lambda x: f(x) + g(x))
+def evaluation_map(a,f):
+  # return the value of f at the point a
+#
+# Now note that evaluation_map(a,vector_sum(f,g)) = evaluation_map(a,f) + evaluation_map(a,g)
+#
+f = lambda x: x**2
+g = lambda x: x**3
+a = 3
+print evaluation_map(a,vector_sum(f,g))
+print evaluation_map(a,f) + evaluation_map(a,g)
+    
+def validator():
+  return (evaluation_map(17,(lambda x: x**2)) == 289)
+    \end{python}
+  \end{solution}
+
+  This is an example of the fact that ``evaluation at \texttt{a}'' is a linear map from $\mathcal{P}$ to the underlying number system.
+
+  \hrule
+
+  Finally, some food for thought: in a little while, we'll be thinking
+  about ``dimension.''  Keep in mind the following question: what is
+  the dimension of the vector space $\mathcal{P}$?  You may want to
+  think about this in the ideal world where ``Python functions'' take
+  honest real numbers as their input and outputs.
+\end{question}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

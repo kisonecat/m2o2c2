@@ -67,7 +67,7 @@ The trickiest part of the above theorem is remembering that you need to apply $D
 The proof of this theorem is a little bit beyond what we want to require you to think about in this course, but the essential idea of the proof is just that
 
 \[
-	(g \circ f)(\mathbf{p} +\vec{h}) \approx g(f(\mathbf{p}) + Df(\mathbf{p})(\vec{v})) \approx g(f(p)) + Dg(\mathbf{f(p)})(Df(\mathbf{p})(\vec{h}))
+	(g \circ f)(\mathbf{p} +\vec{h}) \approx g(f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})) \approx g(f(p)) + Dg(\mathbf{f(p)})(Df(\mathbf{p})(\vec{h}))
 \]
 
 You \textbf{should} understand this essential idea, even if you do not understand the full proof.  We cover the full proof in an \textbf{optional section} after this one.
@@ -113,19 +113,30 @@ You \textbf{should} understand this essential idea, even if you do not understan
 	
 	\begin{solution}
 		\begin{hint}
-			Just plug $(r\cos(\theta),r\sin(\theta))$ into the formula for the Jacobian of $g$ you obtained above.
+			Just plug $(r\cos(t),r\sin(t))$ into the formula for the Jacobian of $g$ you obtained above.
 		\end{hint}
 		\begin{hint}
 			The answer is \[\begin{bmatrix} 2r\cos(t) &2r\sin(t)\end{bmatrix}\]
 		\end{hint}
-		What is the matrix of $Dg(\mathbf{r,t})$?
-		\begin{matrix-derivative}
+		What is the matrix of $Dg(\mathbf{f(r,t)})$?
+		\begin{matrix-answer}
 			correctMatrix = [['2r(cos(t))','2r(sin(t))']]
-		\end{matrix-derivative}
+		\end{matrix-answer}
 	\end{solution}
 	
 	\begin{solution}
-		What is the matrix of $Dg(\mathbf{(r,t)}) \circ Df(r,t)$?
+		\begin{hint}
+			\begin{align*}
+			\begin{bmatrix} 2r\cos(t) &2r\sin(t)\end{bmatrix} \begin{bmatrix}  
+			\cos(t) & -r\sin(t)
+			\\  
+			\sin(t) & r\cos(t)
+			\end{bmatrix} 
+			&= \begin{bmatrix} 2r\cos^2(t) + 2r\sin^2(t)  & -2r^2\cos(t)\sin(t)+2r^2\sin(t)\cos(t) \end{bmatrix}\\
+			&= \begin{bmatrix} 2r & 0\end{bmatrix}
+			\end{align*}
+		\end{hint}
+		What is the matrix of $Dg(\mathbf{f(r,t)}) \circ Df(r,t)$?
 			\begin{matrix-answer}
 				correctMatrix = [['2r','0']]
 			\end{matrix-answer}
@@ -153,7 +164,7 @@ You \textbf{should} understand this essential idea, even if you do not understan
 	This example has demonstrated the chain rule in action!  Computing the derivative of the composite was the same as composing the derivatives.
 \end{question}
 
-The product rule from single variable calculus can be proved by invoking the chain rule for multivariable functions.  I will supply a basic outline of the proof below:
+The product rule from single variable calculus can be proved by invoking the chain rule for multivariable functions. We supply a basic outline of the proof below:
 can you complete this outline to give a full proof?
 \\
 \\
@@ -168,13 +179,13 @@ This should result in the product rule.
 	$D\left( \text{Multiply} \right)$ has the matrix \(\begin{bmatrix} y & x\end{bmatrix}\) at the point $(x,y)\in \R^2$
 	\\
 	\\
-	So $p'(t) =  D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}$ by the multivariable chain rule.
+	So $p'(t) =  D\left( \text{Multiply} \right)\big|_{\text{Both}(t)}\circ D\left(\text{Both}\right)\big|_{t}$ by the multivariable chain rule.
 	\\
 	\\
 	So
 	\begin{align*}
-		p'(t) &= D\left( \text{Multiply} \right)\big|_{\text{Both(t)}}\circ D\left(\text{Both}\right)\big|_{t}\\
-			&= D\left( \text{Multiply} \right)\big|_{(f(t),g(t))}}\circ D\left(\text{Both}\right)\big|_{t}\\
+		p'(t) &= D\left( \text{Multiply} \right)\big|_{\text{Both}(t)}\circ D\left(\text{Both}\right)\big|_{t}\\
+			&= D\left( \text{Multiply} \right)\big|_{(f(t),g(t))}\circ D\left(\text{Both}\right)\big|_{t}\\
 			&= \begin{bmatrix} g(t) & f(t)\end{bmatrix} \verticalvector{f'(t)\\g'(t)}\\
 			&= g(t)f'(t)+f(t)g'(t)
 	\end{align*}

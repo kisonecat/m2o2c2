@@ -1,0 +1,198 @@
+\documentclass{ximera}
+\title{Second derivative test}
+
+\begin{document}
+	\begin{abstract}
+		Definiteness of the second derivative determines extreme behavior at critical points.
+	\end{abstract}
+	
+	In this section, we apply the second derivative to extreme value problems.
+	
+	\begin{theorem}[Second derivative test]
+		Let $f:\R^n \to \R$ be a $\mathcal{C}^2$ function.  Let $\mathbf{p} \in \R^n$ be a critical point of $f$.  Then 
+			\begin{itemize}
+				\item If $D^2f(\mathbf{p})$ is positive definite, $\mathbf{p}$ is a local minimum
+				\item If $D^2f(\mathbf{p})$ is negative definite, $\mathbf{p}$ is a local maximum
+				\item If $D^2f(\mathbf{p})$ is indefinite, then $\mathbf{p}$ is a saddle point
+				\item If $D^2f(\mathbf{p})$ is only positive semidefinite or negative semidefinite, we get no information
+			\end{itemize}
+	\end{theorem}
+	
+	\begin{proof}
+		By the second order taylor's theorem, we have 
+		\[
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + Df(\mathbf{p})(\vec{h})+D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) \text{ for some } \xi \in [0,1]$
+		\]
+		
+		Since $\mathbf{p}$ is a critical point,
+		
+		\[
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p}) + D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) \text{ for some } \xi \in [0,1]$
+		\]
+		
+		If  $D^2f(\mathbf{p})$ is positive definite, then because $f$ is $\mathcal{C}^2$,  $D^2f(\mathbf{p}+\xi\vec{h})$ is also positive semidefinite for 
+		small enough $\vec{h}$ (this just uses continuity of the second derivative).  Thus $D^2f(\mathbf{p}+\xi\vec{h})(\vec{h},\vec{h}) > 0$ for
+		all small enough values of $\vec{h}$, say $|\vec{h}| \leq \epsilon$.  But this just says that $f(\mathbf{p}+\vec{h}) > f(\mathbf{p})$, so $\mathbf{p}$
+		is a local minimum.
+		
+		If $D^2f(\mathbf{p})$ is negative definite, a completely analogous proof works.
+		
+		If $D^2f(\mathbf{p})$ is indefinite, then there are directions $\vec{h}_1$ where $D^2f(\mathbf{p})(\vec{h}_1,\vec{h}_1) > 0$, 
+		and $\vec{h}_2$ where $D^2f(\mathbf{p})(\vec{h}_2,\vec{h}_2) < 0$.  By continuity again, for $|\vec{h_i}| < \epsilon$ , we have
+		$D^2f(\mathbf{p}+\xi\vec{h}_1)(\vec{h}_1,\vec{h}_1) > 0$ and $D^2f(\mathbf{p}+\xi\vec{h}_2)(\vec{h}_2,\vec{h}_2) < 0$.
+		
+		So we have $f(\mathbf{p}+\xi_1\vec{h_1}) > f(\mathbf{p})$ and $f(\mathbf{p}+\xi_2\vec{h_2}) < f(\mathbf{p})$.   Thus $\mathbf{p}$ is neither a local 
+		maximum nor a minimum, and so is a saddle point.
+		
+		The method of proof show why the semidefinite cases might break down.  Without strict positivity or negativity, continuity does not guarantee  
+		that $D^2f$ is still positive definite or negative definite for nearby points:  you might slip into an indefinite case, for instance.
+		
+		For a concrete counterexample in the semidefinite case, consider $f(x,y) = x^2+y^3$.  $(0,0)$ is a critical point, but
+		and the Hessian \(\begin{bmatrix} 2 & 0\\0&0\end{bmatrix}\) is positive semidefinite, but $(0,0)$ is not a local minimum, 
+		since $f(0,-\epsilon) = -\epsilon^3$ is always less than $f(0,0)$.  The trouble here is really that the Hessian at nearby points $(x,y)$ is
+		\(\begin{bmatrix} 2 & 0\\0&6y\end{bmatrix}\), which is indefinite for $y<0$.  				
+	\end{proof}
+	
+	We have already proven in the section on bilinear forms that the definiteness of a bilinear form is completely determined by the sign
+	of the eigenvalues of the associated linear operator.
+	
+	For the following exercises, use whatever means necessary to compute the eigenvalues of the Hessian, use that information to determine the 
+	definiteness of the second derivative, and use this to draw extremum information about $f$.  I recommend using a computer algebra system like 
+	\href{http://www.sagemath.org/}{Sage} to compute the eigenvalues, 
+	but you can also use a free online app like \href{http://www.bluebit.gr/matrix-calculator/}{this one}. 
+	
+	\begin{question}
+		Let $f(x,y) = x^3+e^{3y}-3xe^{y}$
+		\begin{solution}
+			\begin{hint}
+				\begin{align*}
+					Df(x,y)  &= \begin{bmatrix} 0 & 0\end{bmatrix}\\
+					\begin{bmatrix} 3x^2-3xe^y & 3e^{3y}-3xe^y\end{bmatrix} &= \begin{bmatrix} 0 & 0\end{bmatrix}\\
+					&\begin{cases}
+						3x^2-3e^y = 0\\
+						3e^{3y}-3xe^y = 0
+					\end{cases}\\
+					&\begin{cases}
+						x^2=e^y\\
+						e^{3y}=xe^y
+					\end{cases}\\
+					&\begin{cases}
+						x^2=e^y\\
+						x=e^{2y}
+					\end{cases}\\
+					&\begin{cases}
+						x^4=x\\
+						x=e^{2y}
+					\end{cases}
+				\end{align*}
+				
+				To satisfy the first solution, either $x=0 $ or $x=1$.  If $x=0$, then $x=e^{2y}$ has no solutions, so we must have $x=1$.  Thus $(1,0)$ is
+				the only critical point. 
+			\end{hint}
+			What is the critical point of $f$?  Give your answer as a vertical vector.
+			\begin{matrix-answer}
+				correctMatrix = [['1'],['0']]
+			\end{matrix-answer}
+		\end{solution}
+		\begin{solution}
+			\begin{hint}
+				\(\mathcal{H}(x,y) =  \begin{bmatrix} 6x & -3e^y \\ -3e^y & 9e^y \end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				\(\mathcal{H}(0,0) =  \begin{bmatrix} 6 & -3 \\ -3 & 6 \end{bmatrix}\)
+			\end{hint}
+			What is the Hessian matrix of $f$ at $(1,0)$?
+			\begin{matrix-answer}
+				correctMatrix = [['6','-3'],['-3','6']]
+			\end{matrix-answer}
+		\end{solution}
+		\begin{solution}
+			\begin{hint}
+				By using a computer algebra system, we see that the eigenvalues of the Hessian are approximately $4.146$ and $10.854$.  
+			\end{hint}
+			\begin{hint}
+				So $D^2f(1,0)$ is positive definite.
+			\end{hint}
+			\begin{hint}
+				Thus $(1,0)$ is a local minimum.
+			\end{hint}
+			\begin{multiple-choice}
+				\choice{$(1,0)$ is a local maximum}
+				\choice[correct]{$(1,0)$ is a local minimum}
+				\choice{$(1,0)$ is a saddle point}
+				\choice{The second derivative gives no information in this case}
+			\end{multiple-choice}
+		\end{solution}
+		
+		Observe that even though $(1,0)$ is the only local extremum, and this is a local minimum, $(1,0)$ is \textbf{not} a global minimum because $f(1,0) = -1$ but
+		 $f(-10,0) = -1000+1-3(-10)= -969$.  Contemplate this carefully.
+	\end{question}
+	
+	\begin{question}
+		Let $f:\R^3 \to \R$ be defined by $f(x,y,z) = e^{x+y+z}  - x - y - z+ 4z^2+xy$.  $f$ has a critical point at $(0,0,0)$.
+		\begin{solution}
+			\begin{hint}
+				\begin{question}
+					\begin{solution}
+						\begin{hint}
+							\(
+								\begin{bmatrix}
+									1 &2 &1\\
+									2& 1&1\\
+									1&1&9
+								\end{bmatrix}
+							\)
+						\end{hint}
+						The Hessian matrix of $f$ at $(0,0,0)$ is
+						\begin{matrix-answer}
+							correctMatrix = [['1','2','1'],['2','1','1'],['1','1','9']]
+						\end{matrix-answer}
+					\end{solution}
+				\end{question}
+			\end{hint}
+			\begin{hint}
+				According to computer algebra software, the eigenvalues of this matrix are  approximately $4.414$, $-1$ and $1.586$, so the second derivative
+				is indefinite
+			\end{hint}
+			\begin{hint}
+				Thus $f$ has a saddle point at $(0,0,0)$
+			\end{hint}
+			\begin{multiple-choice}
+				\choice{$(0,0,0)$ is a local maximum}
+				\choice{$(0,0,0)$ is a local minimum}
+				\choice[correct]{$(0,0,0)$ is a saddle point}
+				\choice{The second derivative gives no information in this case}
+			\end{multiple-choice}
+		\end{solution}
+	\end{question}
+	
+	\begin{question}
+		Let $f(x,y) = \cos(x+y^2)-x^2$.  $(0,0)$ is a critical point of $f$.
+			\begin{solution}
+				\begin{hint}
+					The hessian matrix of $f$ at $(0,0)$ is \( \begin{bmatrix} -1 & 0\\0&-2\end{bmatrix}\) which plainly has eigenvalues $-1$ and $-2$.
+				\end{hint}
+				\begin{hint}
+					Thus $D^2f(0,0)$ is negative definite
+				\end{hint}
+				\begin{hint}
+					Thus $f$ has a local maximum at $(0,0)$
+				\end{hint}
+				\begin{hint}
+					You can actually see that this is a global maximum, since the largest $\cos$ could ever be is $1$, and the largest $-x^2$ could ever be is $0$,
+					so $1$ is the largest value that $f$ ever attains, and this is attained at $(0,0)$.  In fact this value is attained at infinitely many points on the line $x=0$.
+				\end{hint}
+				\begin{multiple-choice}
+				\choice[correct]{$(0,0)$ is a local maximum}
+				\choice{$(0,0)$ is a local minimum}
+				\choice{$(0,0)$ is a saddle point}
+				\choice{The second derivative gives no information in this case}
+			\end{multiple-choice}
+			\end{solution}
+	\end{question}
+	
+	
+	
+	
+	
+\end{document}

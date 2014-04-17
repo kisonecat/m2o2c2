@@ -3,11 +3,41 @@
 \begin{document}
 
 \begin{abstract}
-  Integrate a one-form.
+  Integrate a covector field.
 \end{abstract}
 
 \begin{exercise}
-	Integrate a vector valued one form.
+  Suppose we have a one-form expressed as a Python function, e.g., \texttt{omega} (which we will often write as $\omega$) which takes a point (expressed as a list) and returns a $1 \times n$ matrix.  For example, perhaps we have that \texttt{omega([7,2,5])} is \texttt{[[5,3,2]]}.
+
+  Let's only consider the case $n = 2$, and suppose that $\omega$ is
+  the derivative of some mystery function $f : \R^2 \to \R$.  If we
+  have access to \texttt{omega} and we know that $f(3,2) = 5$, can we
+  approximate $f(4,3)$?  How might we go about this?
+
+  We can take a path from $(3,2)$ to $(4,3)$, and break it up into
+  small pieces; on each piece, we can use the derivative to
+  approximate how a small change to the input will affect the output.
+  And repeat.
+
+  Do this in Python.
+
+  \begin{solution}
+    \begin{python}
+# suppose the derivative of f is omega, and f(3,2) = 5.
+# so omega([3,2]) is (perhaps) [[-4,3]].
+#
+# integrate(omega) is an approximation to the value of f at (4,3).
+#
+def integrate(omega):
+  return # the value
+
+def validator():
+  return abs(integrate( lambda p: [[2*p[0] - p[1], -p[0] + 1]] ) - 7.0) < 0.05
+    \end{python}
+  \end{solution}
+
+How did you move from $(3,2)$ to $(4,3)$?  Did it matter which path you walked along?
+
 \end{exercise}
 
 \end{document}

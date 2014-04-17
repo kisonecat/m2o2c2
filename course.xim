@@ -27,7 +27,10 @@ week1
     week1/inner-product/length
     week1/inner-product/angle
     week1/inner-product/cauchy-schwarz
+    week1/inner-product/multiply-dot
 week2
+  week2/limits
+    week2/limits/formal-limit
   week2/single-variable-derivative
   week2/multivariable-derivative
     week2/multivariable-derivative/intuition
@@ -50,3 +53,51 @@ week2
     week2/practice/stationary-points
     week2/practice/hypersurfaces
     week2/practice/chain-rule
+week3
+  week3/abstract
+    week3/abstract/vector-space
+    week3/abstract/linear-maps
+    week3/abstract/python
+  week3/bases
+    week3/bases/dimension
+    week3/bases/matrix
+  week3/subspace
+    week3/subspace/kernel
+    week3/subspace/image
+    week3/subspace/rank-nullity
+  week3/eigenstuff
+    week3/eigenstuff/eigenvalues
+    week3/eigenstuff/eigenspace
+    week3/eigenstuff/eigenbasis
+    week3/eigenstuff/python
+  week3/cayley-hamilton
+week4
+  week4/bilinear-maps
+    week4/bilinear-maps/tensors
+    week4/bilinear-maps/covectors
+    week4/bilinear-maps/basis
+    week4/bilinear-maps/python
+  week4/bilinear-matrix
+    week4/bilinear-matrix/python
+  week4/adjoints
+    week4/adjoints/eigenvectors
+  week4/self-adjoint
+    week4/self-adjoint/matrix
+    week4/self-adjoint/python
+  week4/definiteness
+week5
+  week5/second-partials
+    week5/second-partials/partials-commute
+  week5/second-derivative
+    week5/second-derivative/intuitively
+    week5/second-derivative/rigorously
+  week5/taylors-theorem
+    week5/taylors-theorem/example
+    week5/taylors-theorem/statement
+    week5/taylors-theorem/practice
+  week5/optimization
+    week5/optimization/definitions
+    week5/optimization/critical-points
+    week5/optimization/second-derivative-test
+    week5/optimization/lagrange
+    week5/optimization/hill-climbing

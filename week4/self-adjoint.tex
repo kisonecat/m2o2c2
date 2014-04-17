@@ -1,0 +1,59 @@
+\documentclass{ximera}
+\title{Self-adjoint maps}
+
+\begin{document}
+\begin{abstract}
+  Linear maps which equal their own adjoint are important
+\end{abstract}
+
+\begin{definition}
+  A linear operator $L:\R^n \to \R^n$ is \textit{self-adjoint} if $L = L^*$.
+\end{definition}
+
+These ideas also pop up when considering bilinear forms.
+\begin{definition}
+  A bilinear form on $\R^n$ is \textbf{symmetric} if for all $\vec{v},\vec{w} \in \R^n$ we have $B(\vec{v},\vec{w}) = B(\vec{w},\vec{v})$.
+\end{definition}
+
+\begin{question}
+  Consider the bilinear form $B : \R^n \times \R^n \to \R$ given by $B(\vec{v},\vec{w}) = \langle \vec{v}, \vec{w} \rangle$.   In other words, $B$ is just the inner product.  Is $B$ symmetric?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}
+  \end{solution}
+  
+  That's right!
+
+  \begin{example}
+    The dot product on $\R^n$ is a symmetric bilinear form, since we have already shown that $v \cdot w = w \cdot v$.
+  \end{example}
+
+  Which of the following bilinear forms on $\R^2$ are symmetric?
+  \begin{solution}
+    \begin{hint}
+      $B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = x_1y_2+3x_2y_1$ is not symmetric since, for example,
+      $B\left( \verticalvector{1\\0},\verticalvector{0\\1}\right) = 1$, but $B\left( \verticalvector{0\\1},\verticalvector{1\\0}\right) = 3$.
+    \end{hint}
+    \begin{hint}
+      $B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = x_1y_1+5x_2y_2+x_1y_2$ is not symmetric since, for example,
+      $B\left(\verticalvector{1,0},\verticalvector{0,1}\right) = 1$ but  $B\left( \verticalvector{0\\1},\verticalvector{1\\0}\right) = 0$
+    \end{hint}
+    \begin{hint}
+      $B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = 2x_1y_1+4x_2y_2$ is symmetric, since
+      $B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = 2x_1y_1+4x_2y_2 = B\left(\verticalvector{y_1,y_2}, \verticalvector{x_1,x_2}\right) $
+    \end{hint}
+    \begin{multiple-choice}
+      \choice{$B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = x_1y_2+3x_2y_1$}
+      \choice[correct]{$B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = 2x_1y_1+4x_2y_2$}
+      \choice{$B\left(\verticalvector{x_1,x_2},\verticalvector{y_1,y_2}\right) = x_1y_1+5x_2y_2+x_1y_2$}				
+    \end{multiple-choice}
+  \end{solution}
+\end{question}
+
+%\begin{question}
+%	If $B$ is a symmetric bilinear form on $\R^3$, and (BADBAD give action of B on half of pairs of basis vectors), then $B((x_1,x_2,x_3),(y_1,y_2,y_3)) = $?
+%\end{question}
+
+\end{document}

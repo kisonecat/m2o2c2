@@ -1,0 +1,40 @@
+\documentclass{ximera}
+\title{Rigorously}
+
+\begin{document}
+	\begin{abstract}
+		The second derivative enables quadratic approximation
+	\end{abstract}
+	
+	You should know the statement of the following theorem for this course:
+	
+	\begin{theorem}[Second order Taylor's theorem]
+		If $f:\R^n \to \R$ is a twice differentiable function, $\mathbf{p} \in \R^n$ then we have
+		\[
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p})+ Df(\mathbf{p})\vec{h}+\frac{1}{2}D^2f(\mathbf{b+\xi\vec{h}})(\vec{h},\vec{h})
+		\]
+		
+		for some $\xi \in [0,1]$.
+		
+		It follows (after a lot of work!) that
+		
+		\[
+			f(\mathbf{p} + \vec{h}) = f(\mathbf{p})+ Df(\mathbf{p})\vec{h}+\frac{1}{2}D^2f(\mathbf{p})(\vec{h},\vec{h})+ \textrm{Error}(\vec{h})
+		\]
+		
+		with $\displaystyle\lim_{\vec{h} \to \vec{0}} \frac{|\textrm{Error}(\vec{h})|}{|\vec{h}|^2} = 0$
+	\end{theorem}
+	
+	This approximation is also sometimes phrased as 
+	$f(\mathbf{x}) \approx f(\mathbf{p}) + Df(\mathbf{p})(\mathbf{x}-\mathbf{p})+D^2f(\mathbf{p})(\mathbf{x}-\mathbf{p},\mathbf{x}-\mathbf{p})$
+	
+	In the future, we will prove the above theorem. 	To prepare yourself, you should at a minimum make sure you have already worked through 
+	the other two optional sections on \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week2/limits/formal-limit/}{the formal definition of a limit} 
+	and also \href{http://ximera.osu.edu/course/kisonecat/m2o2c2/course/activity/week2/chain-rule/proof/}{ the proof of the chain rule} where operator norms are introduced.
+	
+	\begin{proof}
+	\end{proof}
+
+	
+	
+\end{document}

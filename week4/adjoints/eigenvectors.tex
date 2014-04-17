@@ -1,0 +1,67 @@
+\documentclass{ximera}
+\title{Spectrum of the adjoint}
+
+\begin{document}
+
+\begin{abstract}
+  Taking adjoints doesn't affect the spectrum.
+\end{abstract}
+
+The set of eigenvalues of a linear operator---what we call the
+\textbf{spectrum} of the linear operator---is of fundamental
+importance.  Taking adjoints is one way to build a new linear operator
+from an old linear operator.  Fusing these two ideas together results
+in a question: \textit{how does the spectrum of $L$ relate to the
+  spectrum of its adjoint, $L^*$?}  Surprisingly, the spectrum of $L$
+is the \textit{same} as the spectrum of $L^*$.
+	
+Let's get started: show that if $\vec{v}$ is a nonzero eigenvector of
+$L:\R^n \to \R^n$, with eigenvalue $\lambda$ then there is a nonzero
+eigenvector $\vec{u}$ of $L^*$ with eigenvalue $\lambda$.
+
+\begin{warning}
+  This is a very hard problem.
+\end{warning}
+
+\begin{hint}
+  Consider the map $S: \R^n \to \R^n$ given by $S(\vec{v}) = L^*(\vec{v}) - \lambda \vec{v}$, or in other words $S = L^* - \lambda I$.  Showing that this map has a nontrivial kernel is the same as
+  showing that $L^*$ has $\lambda$ as an eigenvector.
+\end{hint}
+\begin{hint}
+  Notice that $L-\lambda I$ is adjoint to $S = L^* -\lambda I$
+\end{hint}
+\begin{hint}
+  For all $\vec{w} \in \R^n$, we have $\langle S(\vec{w}),\vec{v}\rangle = \langle \vec{w}, L(\vec{v}) - \lambda \vec{v}\rangle = 0$
+\end{hint}
+\begin{hint}
+  Thus $S(\vec{w})$ is in the subspace of vectors perpendicular to the eigenvector $\vec{v}$, which we denote $\vec{v}^\perp$.
+\end{hint}
+\begin{hint}
+  Thus we have that $Im(S) \subset \vec{v}^\perp$.  This implies that $dim(Im(S)) \leq n-1$
+\end{hint}
+\begin{hint}
+  By the rank nullity theorem, we have that $dim(ker(S)) \geq 1$
+\end{hint}
+\begin{hint}
+  So $S$ has a nontrivial kernel, so $L^*$ has a nonzero eigenvector $\vec{u}$ with eigenvalue $\lambda$. 
+\end{hint}
+\begin{free-response}
+  Consider the map $S: \R^n \to \R^n$ given by $S(\vec{v}) = L^*(\vec{v}) - \lambda \vec{v}$.  Showing that this map has a nontrivial kernel is the same as
+  showing that $L^*$ has $\lambda$ as an eigenvector.
+  
+  Notice that $L-\lambda I$ is adjoint to $S = L^* -\lambda I$
+  
+  For all $\vec{w} \in \R^n$, we have $\langle S(\vec{w}),\vec{v}\rangle = \langle \vec{w}, L(\vec{v}) - \lambda \vec{v}\rangle = 0$
+  
+  Thus $S(\vec{w})$ is in the subspace of vectors perpendicular to the eigenvector $\vec{v}$, which we denote $\vec{v}^\perp$.
+  
+  Thus we have that $Im(S) \subset \vec{v}^\perp$.  This implies that $dim(Im(S)) \leq n-1$
+  
+  By the rank nullity theorem, we have that $dim(ker(S)) \geq 1$
+  
+  So $S$ has a nontrivial kernel, so $L^*$ has a nonzero eigenvector $\vec{u}$ with eigenvalue $\lambda$. 
+\end{free-response}
+		
+		
+	
+\end{document}

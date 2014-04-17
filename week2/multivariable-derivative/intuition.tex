@@ -20,7 +20,7 @@ We give the following wishy-washy ``definition'':
 	which allows the following approximation property:
 	
 	\[
-		f(\mathbf{p} + \vec{h}) \approx f(x) + D(f)\big|_{\mathbf{p}}(\vec{h})
+		f(\mathbf{p} + \vec{h}) \approx f(\mathbf{p}) + D(f)\big|_{\mathbf{p}}(\vec{h})
 	\]
 	
 	We will make the sense in which this approximation holds precise in the next section.
@@ -73,17 +73,17 @@ Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1
 	\end{hint}
 	\begin{hint}
 		\begin{align*}
-		3.04 &\approx 3+ D(f)\big|_{(1,2)}\left( \begin{bmatrix}0.01\\0\end{bmatrix} \right)\\
-		0.04 &\approx 0.01D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0 \right) \text{ by the linearity of the derivative}\\
-		D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0 \right) &\approx 4
+		& 3.04  \approx 3+ D(f)\big|_{(1,2)}\left( \verticalvector{0.01\\0} \right) \\
+		& 0.04  \approx 0.01D(f)\big|_{(1,2)}\left( \verticalvector{1\\0} \right) \text{ by the linearity of the derivative}\\
+		& D(f)\big|_{(1,2)}\left( \verticalvector{1\\0} \right) \approx 4
 		\end{align*}
 	\end{hint}
 	\begin{hint}
 		\begin{align*}
-		f(1,2.002) &\approx f(1,2) + D(f)\big|_{(1,2)}\left( \begin{bmatrix}0\\0.002\end{bmatrix} \right)
-		3.002 &\approx 3+ D(f)\big|_{(1,2)}\left( \begin{bmatrix}0\\0.002\end{bmatrix} \right)\\
-		0.002 &\approx 0.002D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0\end{bmatrix} \right) \text{by the linearity of the derivative}\\
-		D(f)\big|_{(1,2)}\left( \begin{bmatrix}1\\0\end{bmatrix} \right) &\approx 1
+		&f(1,2.002) \approx f(1,2) + D(f)\big|_{(1,2)}\left( \verticalvector{0\\0.02} \right)\\
+		&3.002 \approx 3+ D(f)\big|_{(1,2)}\left( \verticalvector{0\\0.02} \right)\\
+		&0.002 \approx 0.002D(f)\big|_{(1,2)}\left( \verticalvector{0\\1} \right) \text{by the linearity of the derivative}\\
+		&D(f)\big|_{(1,2)}\left( \verticalvector{0\\1} \right) \approx 1
 		\end{align*}
 	\end{hint}
 	\begin{hint}
@@ -111,7 +111,7 @@ Let $f:\R^2 \to \R$ be a function with $f(1,2) = 3$, $f(1.01,2) = 3.04$ and $f(1
 	Using your approximation of the  Jacobian matrix, $f(0.9,2.03) \approx $ \answer{$2.63$}
 \end{solution}
 This problem shows that if a function has a derivative, then only knowing how it changes in the coordinate directions lets you determine how it changes in \textbf{any} 
-direction.  This is so important it is worth driving it home:  we only started with information about how $f(1.01,2)$ and $f(1,2.002)$ compared to $f(1,2)$, but because
+direction.  This is so important it is worth driving it home:  we only started with information about how $f(1.01,2)$ and $f(1,2.02)$ compared to $f(1,2)$, but because
 this function had a derivative, we could obtain the approximate value of the function at \textbf{any} near by point by exploiting linearity.  \textbf{This is powerful.}
 \end{question}
 
@@ -123,18 +123,18 @@ returns  a function which takes ( points in $\R^n$) and  returns ( linear maps f
 wanted you to get comfortable with ``higher-order functions'' earlier.  We are not as crazy as we seem.
 
 As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y+x)$, then it will turn out that at any point $(a,b)$,
- the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^3$ given by the matrix 
- $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$ (we do not know why yet, but this is true).  So $Df$ is really a 
- function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$. 
+ the derivative $Df\big|_{(a,b)}$ will be the linear map from $\R^2$ to $\R^2$ given by the matrix 
+ $\begin{bmatrix}2ab & a^2\\ 1 & 1\end{bmatrix}$ (we do not know why yet, but this is true).  So $Df$ is really a 
+ function which takes a point $(a,b)$ and spits out the linear map with matrix $\begin{bmatrix}2ab & a^2\\ 1 & 1\end{bmatrix}$. 
   So what about just plain old $D$?  $D$ takes a function ($f$) and returns the function $Df$ which takes a point $(a,b)$ and returns the linear map
-  whose matrix is $\begin{bmatrix}2ab & 2a^2\\ 1 & 1\end{bmatrix}$.  Letting $L(A,B)$ stand for all the linear functions from 
+  whose matrix is $\begin{bmatrix}2ab & a^2\\ 1 & 1\end{bmatrix}$.  Letting $L(A,B)$ stand for all the linear functions from 
   $A\to B$ and $\text{Func}(A,B)$ be the set of all functions from $A \to B$, we could write $D: \text{Func}(\R^n,\R^m) \to \text{Func}(\R^n,L(\R^n,\R^m))$.
   
   Please do not give up on the course after the last two paragraphs!  Everything is going to be okay.  Hopefully you will be able to slowly digest these statements 
   throughout the course.  Not understanding them now will not hold you back.
 
 \begin{question} 
-	Let $f$ be a function which satisfies $Df\big|_{(x,y,z)} = \begin{bmatrix} 3x^2y^2 & 2x^3y\\ 2x&2y\\ye^{xy} & xe^{xy}\end{bmatrix}$.
+	Let $f$ be a function which satisfies $Df\big|_{(x,y)} = \begin{bmatrix} 3x^2y^2 & 2x^3y\\ 2x&2y\\ye^{xy} & xe^{xy}\end{bmatrix}$.
 	
 		\begin{solution}
 			\begin{hint}
@@ -145,17 +145,17 @@ As an example, if $f:\R^2 \to \R^2$ is the function defined by $f(x,y) = (x^2y,y
 				\begin{bmatrix} 12 & 4\\2 & 4 \\ 2e^{2} & e^{2}\end{bmatrix} \verticalvector{0.01\\-0.02}\)
 			\end{hint}
 			\begin{hint}
-				\( f(1.01,1.99) \approx (2,3,1)+ \verticalvector{12(0.01)+4(-0.04)\\ 2(0.01)+4(-0.02)\\2e^2(0.01)+e^2(-0.02)}\)
+				\( f(1.01,1.99) \approx (2,3,1)+ \verticalvector{12(0.01)+4(-0.02)\\ 2(0.01)+4(-0.02)\\2e^2(0.01)+e^2(-0.02)}\)
 			\end{hint}
 			\begin{hint}
-				\( f(1.01,1.99) \approx (2.08,2.94,1)\)
+				\( f(1.01,1.99) \approx (2.04,2.94,1)\)
 			\end{hint}
 			\begin{hint}
-				Format this as $\verticalvector{2.08\\2.94\\1}$
+				Format this as $\verticalvector{2.04\\2.94\\1}$
 			\end{hint}
 			Given that \(f(1,2) = (2,3,1)\).  Approximate \(f(1.01,1.98)\).  
 			\begin{matrix-answer}
-				correctMatrix = [['2.08'],['2.94'],['1']]
+				correctMatrix = [['2.04'],['2.94'],['1']]
 			\end{matrix-answer}
 		\end{solution}
 \end{question}

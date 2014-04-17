@@ -24,13 +24,23 @@ def fi(v):
   return v[0] * (v[1]**2)
 \end{verbatim}
 In other words, our functions will send an $n$-tuple to a single real number.
-In that case, \texttt{partial(fi,1)([2,3])} should be 12, since
+In this case where $f_i(x,y) = xy^2$, we should have that \texttt{partial(fi,1)([2,3])} is close to $12$, since
 $$
 \frac{\partial}{\partial y} \left( x y^2 \right) = 2 xy,
 $$
 and so at the point $(2,3)$, the derivative is $2 \cdot 2 \cdot 3 = 12$.
 
 \begin{solution}
+  \begin{hint}
+\begin{verbatim}
+def partial(fi,j):
+  def derivative(p):
+    p_shifted = p[:]
+    p_shifted[j] += epsilon
+    return (fi(p_shifted) - fi(p))/epsilon
+  return derivative
+\end{verbatim}
+  \end{hint}
   \begin{python}
 epsilon = 0.0001
 n = 2
@@ -40,8 +50,8 @@ def partial(fi,j):
   def derivative(p):
     return # the partial derivative of fi in the j-th coordinate at p
   return derivative
-
-# this should be 12
+#
+# this should be close to 12
 print partial(lambda v: v[0] * v[1]**2, 1)([2,3])
 
 def validator():
@@ -59,7 +69,7 @@ $i$th component of the output.
 # if f is a function from R^n to R^m,
 #  then component(f,i) is the function R^n to R,
 #  which just looks at the i-th entry of the output
-
+#
 def component(f,i):
   return lambda p: # the i-th component of the output
 
@@ -79,6 +89,13 @@ Now we put it all together.  For a function $f : \R^n \to \R^m$, the \textbf{Jac
 \]
 
 \begin{solution}
+Implement the function \texttt{jacobian} which takes a function $f : \R^n \to \R^m$ and a point $\mathbf{p} \in \R^n$, and returns the Jacobian matrix of $f$ at the point $\mathbf{p}$.
+\begin{hint}
+  You can write this matrix as
+  \begin{verbatim}
+[[partial(component(f,i),j)(p) for j in range(n)] for i in range(m)]
+\end{verbatim}
+\end{hint}
   \begin{python}
 epsilon = 0.0001
 n = 3 # the dimension of the domain
@@ -87,18 +104,19 @@ def component(f,i):
   return lambda p: f(p)[i]
 def partial(fi,j):
   def derivative(p):
-    p_shifted = p
-    p_shifted[j] = p[j] + epsilon
+    p_shifted = p[:]
+    p_shifted[j] += epsilon
     return (fi(p_shifted) - fi(p))/epsilon
   return derivative
 #
 # f is a function from R^n to R^m
-# jacobian(f) is its Jacobian matrix
-def jacobian(f):
+# jacobian(f,p) is its Jacobian matrix at the point p
+def jacobian(f,p):
   return # the Jacobian matrix
 
 def validator():
-  return component(lambda v: [v[0],v[1]],1)([1,17]) == 17
+  m = jacobian(lambda v: [v[0]**2, (v[1]**3)*(v[0]**2)], [3,7])
+  return abs(m[1][0] - 2058) < 0.1
   \end{python}
 \end{solution}
 

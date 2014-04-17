@@ -5,13 +5,15 @@
 	\begin{abstract}
 		The entries in the Jacobian matrix are partial derivatives
 	\end{abstract}
-	
+
+        \youtube{http://www.youtube.com/watch?v=HCAb4uUZzjU}
+
 	There is a familiar looking formula for the derivative of a differentiable function:
 	
 	\begin{theorem}
 		Let $f:\R^n \to \R^m$ be a differentiable function.  Then
 		\[
-			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
 		\]
 	\end{theorem}
 	
@@ -21,14 +23,14 @@
 		By the definition of the derivative, we have that
 		
 		\begin{align*}
-			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(\vec{h\vec{v}})\right|}{|h\vec{v}|} &= 0\\
+			\lim_{h \to 0} \frac{\left|f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - Df(\mathbf{p})(h\vec{v})\right|}{|h\vec{v}|} &= 0\\
 			\frac{1}{|\vec{v}|}\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}) - hDf(\mathbf{p})(\vec{v})}{h} \right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
-			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p}){h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
+			\lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{v}) - f(\mathbf{p})}{h} - Df(\mathbf{p})(\vec{v})\right| &=0 \text{ since $\frac{1}{|\vec{v}|}$ is a constant}\\
 		\end{align*}
 		
 		We conclude that
 		\[
-			D(f)\big|_{\mathbf{p}}(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
+			D(f)\big|_{\mathbf{p}}(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v}) -f(\mathbf{p})}{h}
 		\]
 	\end{free-response}
 	
@@ -39,13 +41,13 @@
 					\begin{align*}
 						  Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) &= \lim_{h \to 0} \frac{f\left((3,4)+h\verticalvector{-1\\2}\right) - f(3,4)}{h}\\
 						  &= \lim_{h \to 0} \frac{f(3-h,4+2h)-f(3,4)}{h}\\
-						  &= \lim_{h \to 0}\frac{1}{h} \left( ((3-h)^2 -(4+2h)^2,2(3-h)(4+2h)) - (-7,24)\right\\
+						  &= \lim_{h \to 0}\frac{1}{h}  \verticalvector{(3-h)^2 -(4+2h)^2\\2(3-h)(4+2h)} - \verticalvector{-7\\24} \\
 						  &=\lim_{h \to 0}\frac{1}{h} \verticalvector{(3-h)^2 -(4+2h)^2+7\\2(3-h)(4+2h)-24}
 					\end{align*}
 				\end{hint}
 				\begin{hint}
 					\begin{align*}
-						&=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
+						 \hphantom{Df\big|_{(3,4)}\left(\verticalvector{-1\\2}\right) }&=\lim_{h \to 0}\verticalvector{\frac{-22h-3h^2}{h} \\ \frac{4h-4h^2}{h}}\\
 						&=\lim_{h \to 0}\verticalvector{-22-3h\\4-4h}\\
 						&=\verticalvector{-22\\4}
 					\end{align*}
@@ -62,7 +64,7 @@
 	\begin{definition}
 		Let $f: \R^n \to \R$ be a (not necessarily differentiable) function.  We define its partial derivative with respect to $x_i$ by
 		\[
-			\frac{\partial f}{\partial x_i} (\mathbf{p}) = f_{x_i}(\mathbf{p}) := \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{e}_i)-f(\mathbf{p})}{h}
+			\frac{\partial f}{\partial x_i} (\mathbf{p}) = f_{x_i}(\mathbf{p}) := \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{e}_i)-f(\mathbf{p})}{h}
 		\]
 		
 		In other words, $\frac{\partial f}{\partial x_i} (\mathbf{p})$ is the instantaneous rate of change in $f$ by moving only in the $\vec{e}_i$ direction.
@@ -72,15 +74,15 @@
 		There is really only a good visualization of the partial derivatives of a map  $f: \R^2 \to \R$, 
 		because this is really the only type of higher dimensional function we can effectively graph.
 		
-		The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_2 = b$, as pictured below:
+		% The partial derivative $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		% plane $x_2 = b$, as pictured below:
 		
-		BADBAD PICTURE
+		% BADBAD PICTURE
 		
-		Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
-		plane $x_1=a$:
+		% Similarly, the partial derivative  $\frac{\partial f}{\partial x_1} \left(a,b\right)$ is the slope of the line tangent to the slice of the graph of $f$ with the
+		% plane $x_1=a$:
 		
-		BADBAD PICTURE
+		% BADBAD PICTURE
 		
 	\end{example}
 	
@@ -124,8 +126,8 @@
 	 only better notational bookkeeping.
 	
 	\begin{theorem}
-		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to R$, for $i=1,2,3,...,m$.  In other words,
-		$f(\mathbf{p}) = \verticalvector(f_1(\mathbf{p}),f_2(\mathbf{p}),f_3(\mathbf{p}),.,.,., f_m(\mathbf{p}))$.  If $f$ is differentiable at $\mathbf{p}$,
+		Let $f:\R^n \to R^m$ be a function with component functions $f_i:\R^n \to \R$, for $i=1,2,3,...,m$.  In other words,
+		$f(\mathbf{p}) = \verticalvector{f_1(\mathbf{p})\\f_2(\mathbf{p})\\f_3(\mathbf{p})\\ \vdots \\ f_m(\mathbf{p})}$.  If $f$ is differentiable at $\mathbf{p}$,
 		 then its Jacobian matrix at $\mathbf{p}$ is 
                  \[
                  \begin{bmatrix}
@@ -139,8 +141,8 @@
 		  More compactly, we might write
 		  
 		  \[
-		  	\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)
-		  \]
+		  	\begin{bmatrix}\frac{\partial f_i}{\partial x_j} \left( \mathbf{p} \right)		\end{bmatrix}
+		  	  \]
 		  
 
 	\end{theorem}
@@ -155,9 +157,9 @@
 		  \lim_{h \to 0} \left| \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h} - M(\vec{e_i}) \right|&= 0
 		 \end{align*}
 		 
-		 So $\lim_{h \to 0}  \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h}  = M (\vec{e}_i)$.  But for this to be true, the $j^{th}$ row of each side must be equal, so 
+		 So $\displaystyle\lim_{h \to 0}  \frac{f(\mathbf{p}+h\vec{e_i}) - f(\mathbf{p})}{h}  = M (\vec{e}_i)$.  But for this to be true, the $j^{th}$ row of each side must be equal, so 
 		 
-		\[\lim_{h \to 0}  \frac{f_j(\mathbf{p}+h\vec{e_i}) - f_j(\mathbf{p})}{h}  = M _{ji}\]
+		\[\displaystyle\lim_{h \to 0}  \frac{f_j(\mathbf{p}+h\vec{e_i}) - f_j(\mathbf{p})}{h}  = M _{ji}\]
 		
 		But the quantity on the left hand side is $\frac{\partial f_j}{\partial x_i}\big|_{\mathbf{p}}$
 	\end{free-response}
@@ -170,7 +172,7 @@
 																				\frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\end{bmatrix}\)
 		\end{hint}
 		\begin{hint}
-			As an example, $\frac{\partial f_2}{\partial z}\end{bmatrix} = \frac{\partial}{\partial z} xy+yz^2 = 2yz$.  Remember that we 
+			As an example, $\frac{\partial f_2}{\partial z}= \frac{\partial}{\partial z} xy+yz^2 = 2yz$.  Remember that we 
 			just differentiate with respect to $z$, treating $x$ and $y$ as constants. 
 		\end{hint}
 		\begin{hint}
@@ -185,10 +187,10 @@
 		\end{hint}
 		\begin{hint}
 			The Jacobian matrix is \(
-			\begin{align*}
+			\begin{bmatrix}
 				2x & 1 & 3z^2\\
 				y&x+z^2 & 2yz
-			\end{align*}
+			\end{bmatrix}
 			\)
 		\end{hint}
 		What is the Jacobian Matrix of $f$?  This should be a matrix valued function of $x,y,z$.
@@ -198,22 +200,26 @@
 		\end{solution}
 	\end{question}
 		
-   The formula for the derivative $Df(\mathbf{p})(\vec{v}) = \lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}$ looks a lot more familiar
+   The formula for the derivative
+   \[
+   Df(\mathbf{p})(\vec{v}) = \displaystyle\lim_{h \to 0} \frac{f(\mathbf{p}+h\vec{v})-f(\mathbf{p})}{h}
+   \]
+   looks a lot more familiar
    than our definition. You might be asking why we didn't take this formula as our definition of the derivative.  After all, we usually take something that looks like 
 	this as our definition in single variable calculus.
 	
 	In the following two $\textbf{optional}$ exercises you will find out why.
 	\\
 	\\
-	Find a function $f:\R^2\to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
-	$M$ is not a linear map!
+	Find a function $f:\R^2\to \R$ such that at $(0,0)$, the limit $M(\vec{v}) = \displaystyle\lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$, but 
+	$M$ is not a linear map.
 	
 	\begin{hint}
 		Try showing that the function 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
-			0 \text{ if $(x,y) = (0,0)$}
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) \neq (0,0)$} \\
+			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			
 			has the desired properties.
@@ -222,21 +228,21 @@
 		Let 
 		
 		\[f(x,y) = \begin{cases} 
-			\frac{x^3}{x^2+y^2} \text{ if $(x,y) = (0,0)$} \\
-			0 \text{ if $(x,y) = (0,0)$}
+			\frac{x^3}{x^2+y^2} & \text{if $(x,y) \neq (0,0)$} \\
+			0 & \text{if $(x,y) = (0,0)$}
 			\end{cases}\] 
 			
 		Then for any vector $\vec{v} = \verticalvector{a\\b}$, we have 
 		
 		\begin{align*}
-			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+			M\left(\vec{v}\right) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
 							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
 							&=\lim_{h \to 0}\frac{h^3a^3}{h(h^2a^2+h^2b^2)}\\
 							&=\lim_{h \to 0}\frac{a^3}{a^2+b^2}\\
 							&=\frac{a^3}{a^2+b^2}
 		\end{align*}
 		
-		So $M(\verticalvector{a\\b}) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
+		So $M\left(\verticalvector{a\\b}\right) = \frac{a^3}{a^2+b^2}$.  This is certainly not a linear function from $\R^2 \to \R$
 			
 	\end{free-response}
 	
@@ -245,26 +251,26 @@
 	\\
 	\\
 	Find a function $f:\R^2 \to \R$ such that at $(0,0)$, $M(\vec{v}) = \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}$ exists for every vector $\vec{v} \in \R^2$ and 
-	the function $M$ defined this way is linear, but never the less, $f$ is \textbf{not} differentiable at $(0,0)$.
+	the function $M$ defined this way is linear, but nevertheless, $f$ is \textbf{not} differentiable at $(0,0)$.
 	
 	\begin{hint}
 		Try the function \[f(x,y) = \begin{cases}
-			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
-			0 \text{else}
+			1 & \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 & \text{else}
 		\end{cases}\]
 	\end{hint}
 	
 	\begin{free-response}
 	Let 
 	\[f(x,y) = \begin{cases}
-			1 \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
-			0 \text{else}
+			1 & \text{ if $y=x^2$ and $(x,y) \neq (0,0)$}\\
+			0 & \text{else}
 		\end{cases}\]
 		
 	Let $\vec{v} = \verticalvector{a\\b}$.  Then 
 	
 	\begin{align*}
-			M(\vec{v}) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
+			M\left(\vec{v}\right) &= \lim_{h \to 0}\frac{f((0,0)+h\vec{v}) - f(0,0)}{h}\\
 							&= \lim_{h \to 0}\frac{f(ha,hb)}{h}\\
 		\end{align*}
 		
@@ -275,9 +281,9 @@
 		
 		This definitely \textbf{is} a linear function, but $f$ is not differentiable at $(0,0)$ using our definition, since
 		
-		\[\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
+		\[\displaystyle\lim_{\vec{h} \to 0} \frac{\left|f((0,0)+\vec{h}) - f(0,0) - M(\vec{h})\right|}{|\vec{h}|} =  \displaystyle\lim_{\vec{h} \to 0} \frac{\left|f(\vec{h})\right|}{|\vec{h}|} \] 
 		
-		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \lim_{t \to 0} \frac{1}{|t|}$, which
+		does not exist, since taking $\vec{h}$ on the parabola $y=x^2$ yields the limit $\displaystyle\lim_{t \to 0} \left| \frac{f(t,t^2)}{t}\right| = \displaystyle\lim_{t \to 0} \frac{1}{|t|}$, which
 		diverges to $\infty$. 
 		
 	\end{free-response}

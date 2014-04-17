@@ -1,0 +1,124 @@
+\documentclass{ximera}
+\title{Subspaces}
+
+\begin{document}
+\begin{abstract}
+  A subspace is a subset of a vector space which is also a vector space.
+\end{abstract}
+
+\begin{definition}
+  A subset $U$ of a vector space $V$ is a \textbf{subspace} of $V$ if
+  $U$ is a vector space with respect to the scalar multiplication and
+  the vector addition inherited from $V$.
+\end{definition}
+
+\begin{question}
+  Which of the following is a subspace of $\R^2$?
+  \begin{solution}
+    \begin{hint}
+      The vectors $\begin{bmatrix} 1 \\ 2\end{bmatrix}$ and $\begin{bmatrix} 0 \\ 1\end{bmatrix}$ are both on the line $\ell$, but the sum $\begin{bmatrix} 1 \\ 2\end{bmatrix} + \begin{bmatrix} 0 \\ 1\end{bmatrix}$ is \textbf{not} on the line $\ell.$
+    \end{hint}
+
+    \begin{hint}
+      So $\ell$ is not a subspace.
+    \end{hint}
+
+    \begin{hint}
+      The set $P$ consists of a single vector.
+    \end{hint}
+
+    \begin{hint}
+      But the vector in $P$ is not the origin $\begin{bmatrix} 0 \\ 0 \end{bmatrix}$.
+    \end{hint}
+
+    \begin{hint}
+      So $\begin{bmatrix} 1 \\ 2 \end{bmatrix} \in P$ but $10 \cdot \begin{bmatrix} 1 \\ 2 \end{bmatrix} \not\in P$.
+    \end{hint}
+
+    \begin{hint}
+      So $P$ is not a subspace.
+    \end{hint}
+
+    \begin{hint}
+      By process of elimination, the $x$-axis must be a subspace.  Is it really?
+    \end{hint}
+
+    \begin{hint}
+      Yes, if I multiply any vector $\begin{bmatrix} x \\ 0 \end{bmatrix}$ by a scalar, it is still on the $x$-axis.
+    \end{hint}
+
+    \begin{hint}
+      And if I add together two vectors of the form $\begin{bmatrix} x \\ 0 \end{bmatrix}$, the result is still on the $x$-axis.
+    \end{hint}
+
+    \begin{multiple-choice}
+      \choice[correct]{The $x$-axis.}
+      \choice{The set $P = \left\{\begin{bmatrix} 1 \\ 2 \end{bmatrix}\right\}$.}
+      \choice{The line $\ell = \left\{\begin{bmatrix} x \\ y \end{bmatrix} \in \R^2 : y = x + 1\right\}$.}
+    \end{multiple-choice}
+  \end{solution}
+  
+  Let's look at some more examples!  Which of the following is a subspace of $\R^2$?
+  \begin{solution}
+    \begin{hint}
+      The set $A$ is not a subspace because $\verticalvector{1\\0} \in A$, but $-1 \cdot \verticalvector{1\\0}$ is not in $A$, so a scalar multiple of something in $A$ need not be in $A$.
+    \end{hint}
+    \begin{hint}
+      The set $C$ is not a subspace because even though it is closed
+      under scalar multiplication (check this!) it is not closed under
+      vector addition, since $\verticalvector{1\\-2}$ and
+      $\verticalvector{1\\2}$ are both in $C$, but their sum
+      $\verticalvector{2\\0}$ is not (draw a picture of this
+      example!).
+    \end{hint}
+    \begin{hint}
+      As the only choice left, $B$ must be a subspace.
+
+      The reason is that it is just the span of the vector
+      $\verticalvector{2\\1}$, and as such, is closed under scalar
+      multiplication and vector addition.
+    \end{hint}
+    \begin{multiple-choice}
+      \choice{ The set $A = \{ \verticalvector{x\\y} : x>0 \text{ and } y>0  \}$}
+      \choice[correct]{ The set $B = \verticalvector{x\\y}: x=2y$}
+      \choice{ The set $C = \{ \verticalvector{x\\y} : |y| < |x| \}$}
+    \end{multiple-choice}
+  \end{solution}
+
+
+  \begin{solution}
+    \begin{hint}
+      \begin{question}
+        What about the line $y = 3$?  Does it form a subspace of $\R^2$?
+        
+        \begin{solution}
+          \begin{multiple-choice}
+            \choice{Yes.}
+            \choice[correct]{No.}
+          \end{multiple-choice}
+        \end{solution}
+
+        That's right; the tip of the vector $\begin{bmatrix} 0 \\
+          3 \end{bmatrix}$ is on that line, but the scalar multiple of
+        that vector, like $2 \cdot \begin{bmatrix} 0 \\
+          3 \end{bmatrix} = \begin{bmatrix} 0 \\ 6 \end{bmatrix}$, is
+        not on the line.
+      \end{question}
+    \end{hint}
+
+    So when do the points on a line in $\R^2$ form a subspace?
+    \begin{multiple-choice}
+      \choice[correct]{When the line passes through the point $(0,0)$.}
+      \choice{When the line is parallel to the $x$-axis.}
+    \end{multiple-choice}
+  \end{solution}
+
+  This is an important observation.
+
+  \begin{observation}
+    Suppose $U$ is a subspace of a vector space $V$.  Then the ``zero vector'' is in $U$.
+  \end{observation}
+
+\end{question}
+
+\end{document}

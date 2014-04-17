@@ -1,0 +1,242 @@
+\documentclass{ximera}
+\title{Lagrange multipliers}
+
+\begin{document}
+	\begin{abstract}
+		Lagrange multipliers enable constrained optimization
+	\end{abstract}
+	
+	In the previous section we considered unconstrained optimization problems.  Sometimes we want to find extreme values of a function $f:\R^n \to \R$
+	subject to some constraints.  
+	
+	\begin{example}
+		Say we want to maximize $f(x,y) = x^2y$ subject to the contraint that $x^2+y^2=1$.  In  words, we want to know among all points on the unit circle,
+		which of them has the greatest product of the square of the first coordinate with the second coordinate.  One way we can do this is to reduce it to a single variable
+		calculus problem:  we can parameterize the unit circle by $\gamma(t) = (\cos(t),\sin(t))$, and try to maximize $f(\gamma(t)):[0,2\pi] \to \R$. In other words, we
+		are maximizing $\cos^2(t)\sin(t)$ on the interval $[0,2\pi]$.
+	\end{example}
+	
+	\begin{definition}
+		Let $f:\R^n \to \R$ be a function, and $g:\R^n \to \R^m$ be another function.  A point $\mathbf{p}$ is called a \textbf{local maximum of $f$ with constraint 
+		$g(\mathbf{x}) = \vec{0}$} if there is an $\epsilon>0$ such that if $|\mathbf{x}-\mathbf{p}| < \epsilon$ and $g(\mathbf{x}) = 0$, 
+		then $f(\mathbf{x})<f(\mathbf{p})$
+	\end{definition}
+	
+	Give a definition of a constrained local minimum:
+	
+	\begin{free-response}
+		Let $f:\R^n \to \R$ be a function, and $g:\R^n \to \R^m$ be another function.  A point $\mathbf{p}$ is called a \textbf{local minimum of $f$ with constraint 
+		$g(\mathbf{x}) = \vec{0}$} if there is an $\epsilon>0$ such that if $|\mathbf{x}-\mathbf{p}| < \epsilon$ and $g(\mathbf{x}) = 0$, 
+		then $f(\mathbf{x})>f(\mathbf{p})$
+	\end{free-response}
+	
+	The method we outlined above is a great way to find constrained local extrema: If you can parameterize $g^{-1}(\{0\})$, by some function
+	 $M: U \subset \R^k \to \R^n$, 
+	then you can just try to find the unconstrained extrema  of $f\circ M$.  The problem is that, although finding a parameterization of the circle was easy, more general
+	sets might be harder to parameterize.  Some of them might not be parameterizable by just one open set:  you might have to use several patches.  We will not pursue
+	this method further.  Instead we will develop an alternative method, the method of lagrange multipliers.
+	
+	\begin{theorem}
+		Let $f:\R^n \to \R$ and $g:\R^n \to \R^m$. Assume $g$ has the $m$ component functions $g_1,g_2,...,g_n:\R^n \to \R$. If $\mathbf{p}$ is a constrained extrema of $f$ with the constraint $g(\mathbf{x}) = 0$, 
+		and $\textrm{Rank}(Dg(\mathbf{p})) = m$, then there exist $\lambda_1,\lambda_2,...\lambda_m$ with 
+		$Df(\mathbf{p}) = \lambda_1Dg_1(\mathbf{p})+ \lambda_2Dg_2(\mathbf{p})+...+\lambda_mDg_m(\mathbf{p})$.  The scalars $\lambda_i$ are
+		called \textbf{Lagrange Multipliers}.
+	\end{theorem}
+	
+	\begin{proof}
+			The full proof of this theorem would require the \href{http://en.wikipedia.org/wiki/Implicit_function_theorem}{implicit function theorem}.  We will 
+			make one intuitive assumption to get around this.
+			
+			A vector  $\vec{v}$ should be  tangent to the set $g^{-1}(\{\vec{0}\})$ at the point $\mathbf{p}$  if and only if 
+			$Dg(\mathbf{p})(\vec{v}) = 0$.  This is just because moving ``infinitesmally'' in the direction of a tangent vector to 
+			$g^{-1}(\{\vec{0}\})$ should not change the value of $g$ to first order.  
+			
+			Since $\mathbf{p}$ is a constrained maximum, moving in one of these tangent directions should not effect the value of $f$ to first order either.
+			
+			We can summarize these intuitive statements as $\textrm{Null}(Dg(\mathbf{p})) \subset \textrm{Null}(Df(\mathbf{p}))$.  This is the assumption whose
+			formal proof would require the implicit function theorem.
+			
+			Given this assumption, the result follows essentially formally from our work with linear algebra:
+			
+			\begin{align*}
+				\textrm{Null}(Dg(\mathbf{p})) &\subset \textrm{Null}(Df(\mathbf{p}))\\
+				\textrm{Null}(Df(\mathbf{p}))^\perp &\subset \textrm{Null}(Dg(\mathbf{p}))^\perp\\
+				\textrm{Image}(Df(\mathbf{p})^\top) &\subset \textrm{Image}(Dg(\mathbf{p})^\top)\\
+			\end{align*}
+			
+			This last line is exactly what we are trying to prove!
+		\end{proof}
+		
+	Now let's get some practice actually using this theorem as a practical tool.
+
+	\hrule
+
+	First some questions with only one constraint equation:  $g:\R^n \to \R$
+	
+	\begin{question}
+		\begin{solution}
+		\begin{hint}
+			At a point constrained maximum point $(x,y)$ we would need $Df(x,y) = \lambda Dg(x,y)$ for some $\lambda \in \R$.
+		\end{hint}
+		\begin{hint}
+			\begin{question}
+			\begin{solution}
+				What is $Df(x,y)$?
+					\begin{matrix-answer}
+						correctMatrix = [['2xy','x^2']]
+					\end{matrix-answer}
+			\end{solution}
+			\begin{solution}
+				What is $Dg(x,y)$?
+					\begin{matrix-answer}
+						correctMatrix = [['2x','2y']]
+					\end{matrix-answer}
+			\end{solution}
+			\end{question}
+		\end{hint}
+		\begin{hint}
+			So we must have \(\begin{bmatrix} 2xy & x^2\end{bmatrix} = \lambda \begin{bmatrix} 2x & 2 y\end{bmatrix}\)
+		\end{hint}
+		\begin{hint}
+			&\begin{align*}
+				\begin{cases}
+				2xy = 2\lambda x\\
+				x^2 =  2\lambda y
+				\end{cases}\\
+				\begin{cases}
+				y = \lambda \text{  $x \neq 0$ for if it were then $y=0$ by the second equation}\\
+				x^2 =  2\lambda y
+				\end{cases}\\
+				\begin{cases}
+				y = \lambda\\
+				x^2 =  2\lambda^2
+				\end{cases}
+			\end{align*}
+			But $x^2+y^2=1$, so we have $3\lambda^2 = 1$, or $\lambda =\frac{\pm 1}{\sqrt{3}}$
+		\end{hint}
+		\begin{hint}	
+			This results in only $4$ possible extrema at $(\sqrt{\pm \frac{2}{3}}, \pm \frac{1}{\sqrt{3}})$
+		\end{hint}
+		\begin{hint}
+			The values of $f$ at these points are $\pm \sqrt{\frac{2}{3*sqrt(3)}}$.  So the maximum value of $f$ on the unit circle 
+			is $\sqrt{\frac{2}{3*sqrt(3)}}$ and the minimum value is $-\sqrt{\frac{2}{3*sqrt(3)}}$. 
+		\end{hint}
+		The maximum value of $f(x,y) = x^2y$ subject to the constraint $x^2+y^2=1$ is \answer{$2/3*sqrt(3)$}
+		\end{solution}
+	\end{question}
+
+	\hrule
+
+	\begin{question}
+		Let $f:\R^3 \to \R$ be defined by $f(x,y,z) = x^2+y^2+z^2$ subject to the constraint that $g(x,y,z) = xyz -1 = 0 $.  
+		\begin{solution}
+			\begin{hint}
+			    At a point constrained maximum point $(x,y)$ we would need $Df(x,y) = \lambda Dg(x,y)$ for some $\lambda \in \R$.
+		    \end{hint}
+			\begin{hint}
+			\begin{question}
+			\begin{solution}
+				What is $Df(x,y)$?
+					\begin{matrix-answer}
+						correctMatrix = [['2x','2y','2z']]
+					\end{matrix-answer}
+			\end{solution}
+			\begin{solution}
+				What is $Dg(x,y)$?
+					\begin{matrix-answer}
+						correctMatrix = [['yz','xz','xy']]
+					\end{matrix-answer}
+			\end{solution}
+			\end{question}
+		\end{hint}
+			\begin{hint}
+				So we must have \(\begin{bmatrix} 2x & 2y & 2z\end{bmatrix} = \lambda \begin{bmatrix} \lambda yz & \lambda xz & \lambda xy\end{bmatrix}\)
+			\end{hint}
+			\begin{hint}
+				\(
+					\begin{cases}
+						2x &= \lambda yz\\
+						2y &= \lambda xz\\
+						2z &= \lambda xy
+					  \end{cases}
+					\)
+			\end{hint}
+			\begin{hint}
+				Multiplying all of these equations together, we have $8xyz  = \lambda^3(xyz)^2$.  Since $xyz=1$, we have $\lambda^3 = 8$, so $\lambda =2$
+			\end{hint}
+			\begin{hint}
+				\(
+					\begin{cases}
+						x &=  yz\\
+						y &=  xz\\
+						z &=  xy
+					  \end{cases}\\
+					  \\
+					  \begin{cases}
+						x &=  xz^2\\
+						y &=  yx^2\\
+						z &=  zy^2
+					  \end{cases}\\
+					
+					  
+					\)
+			\end{hint}
+			\begin{hint}
+				So $x=\pm 1$, $y= \pm 1$, $z = \pm 1$.  So the only possible location of constrained extrema are $(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)$.  At each of these points
+				$f(x,y,z) =1$.  These are all local minima.  $f$ has no local or global maxima.
+			\end{hint}
+			The minimum value of $f$ subject to this constraint is \answer{$1$}
+		\end{solution}
+		
+	\end{question}
+
+	\hrule
+
+	Here is a question with two constraint equations:  $g:\R^n \to \R^2$
+	
+	\begin{question}
+		\begin{hint}
+			Here $g(x,y,z) = \verticalvector{x^2+y^2+z^2-1\\x+y+z-1}$
+		\end{hint}
+		\begin{hint}
+			We need \( \begin{bmatrix} 1 & -1 & 0\end{bmatrix} = \lambda_1 \begin{bmatrix} 2x & 2y & 2z\end{bmatrix}+ \lambda_2\begin{bmatrix}  1 & 1 & 1\end{bmatrix}\)
+		\end{hint}
+		\begin{hint}
+				\(\begin{cases}
+					2\lambda_1 x+\lambda_2 = 1\\
+					2\lambda_1 y+\lambda_2 = -1\\
+					2\lambda_1 z+\lambda_2 = 0 
+				\end{cases}\)
+				
+				Adding these all together and using that $(x+y+z)=1$, we have $2\lambda_1+3\lambda_2 = 0$.
+				\\
+				\\
+				So the last equation becomes $-3\lambda_2 z+\lambda_2 = 0$, or $\lambda_2(1-3z) = 0$.  $\lambda_2 \neq 0$, for otherwise $\lambda_1=0$, which leads to 
+				a contradiction.
+				\\
+				\\
+				So We know that $z = \frac{1}{3}$
+		\end{hint}
+		\begin{hint}
+			There are only two points satisfying both constraints and with $z = \frac{1}{3}$
+		\end{hint}
+		\begin{hint}
+			Solving the system of $2$ equations
+			
+			\(
+				\begin{cases}
+					x^2+y^2+(\frac{1}{3})^2 = 1\\
+					x+y+\frac{1}{3} = 0
+				\end{cases}
+			\) 
+			
+			we obtain that the only two points which work are $(\frac{1-\sqrt{2}}{3},\frac{1+\sqrt{2}}{3},\frac{1}{3})$ and $(\frac{1+\sqrt{2}}{3},\frac{1-\sqrt{2}}{3},\frac{1}{3})$.
+		\end{hint}
+		\begin{hint}
+			So the maximum value of $x-y$ is $\frac{2\sqrt{2}}{3}$
+		\end{hint}
+		The maximum value of  $f(x,y,z) = x-y$ subject to the two constraints that $x^2+y^2+z^2 = 1$ and $x+y+z=1$ is \answer{2sqrt(2)/3}
+
+	\end{question}		
+		
+\end{document}

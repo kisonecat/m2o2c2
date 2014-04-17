@@ -23,11 +23,11 @@ associated linear map $L_{B_L^*} : \R^n \to \R^m$.
   \begin{solution}
     \begin{multiple-choice}
       \choice[correct]{the codomain of $L$.}
-      \choice{the codomain of $L$.}
+      \choice{the domain of $L$.}
     \end{multiple-choice}
   \end{solution}
 
-  Right!  The minor surprise is that $L$ went from $\R^m$ to $\R^n$, but $L_{B_L^*}$ goes ``the other way'' from $\R^n$ to $\R^m$.
+  Right! The minor surprise is that $L$ went from $\R^m$ to $\R^n$, but $L_{B_L^*}$ went ``the other way'' from $\R^n$ to $\R^m$.
 \end{question}
 
 
@@ -72,7 +72,7 @@ Show that $\langle \vec{v}, L(\vec{w})\rangle = \langle  L^*(\vec{v}),\vec{w}\ra
   Let's write $(\ell_{ij})$ for the entries of the matrix for $L$, and
   $(\ell^*_{ij})$ for the entries of the matrix for $L^*$.  The fact
   that $\langle \vec{e}_2, L(\vec{e}_1) \rangle = -4$ amounts to
-  saying $\ell_{2,1} = -4$, and then since $\langle L^*(\vec{e}_1), \vec{e}_2 \rangle = -4$, we have that $\ell^*_{1,2} = -4$.
+  saying $\ell_{2,1} = -4$, and then since $\langle L^*(\vec{e}_2), \vec{e}_1 \rangle = -4$, we have that $\ell^*_{1,2} = -4$.
 
   \begin{solution}
     \begin{hint}
@@ -101,7 +101,7 @@ Show that $\langle \vec{v}, L(\vec{w})\rangle = \langle  L^*(\vec{v}),\vec{w}\ra
     If $L$ has matrix $M$ with respect to the standard basis, then $L^*$ has matrix $M^\top$.    
   \end{theorem}
   
-  Recall that $M^\top$ is the \textbf{transpose} of $M$, meaning that $M_{ij} = M^\top_{ij}$.
+  Recall that $M^\top$ is the \textbf{transpose} of $M$, meaning that $M_{ij} = M^\top_{ji}$.
   
   It is your turn to prove this theorem.
   

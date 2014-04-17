@@ -1,4 +1,4 @@
-\documentclass{ximera}
+\documentclass{article}
 
 \title{Taylor series}
 
@@ -105,7 +105,7 @@
 		\begin{solution}
 			\begin{hint}
 				Notice that \begin{align*}
-					D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\right)
+					D^2f\left(\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\right)
 					&=\begin{bmatrix} 0.1 \frac{1}{n}, -0.1\frac{1}{n}\end{bmatrix}  \begin{bmatrix} 1 & -2 \\ -2 & 3\end{bmatrix} \verticalvector{0.1\frac{1}{n}\\-0.1\frac{1}{n}}\\
 					&=\left(0.1(0.1)(1)+0.1(-0.1)(-2)+(0.1)(-0.1)(-2)+(-0.1)(-0.1)(3)\right)\frac{1}{n^2}\\
 					&=0.08\frac{1}{n^2}
@@ -116,26 +116,26 @@
 					\begin{itemize}
 						\item over $[0,\frac{1}{n}]$ is \(Df(1,2)\left( 0.1\frac{1}{n} \\ -0.1\frac{1}{n}\right) = \begin{bmatrix} 4 &5\end{bmatrix} \verticalvector{0.1\frac{1}{n} \\ -0.1\frac{1}{n}} = -0.1\frac{1}{n}\)
 						\item over $[\frac{1}{n}, \frac{2}{n}]$ is 
-							\begin{align*}
-								Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-								&\approx Df(1,2)\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}+D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-								&= -0.1\frac{1}{n} + 0.08\frac{1}{n^2}
-							\end{align*}
+                                                  \begin{align*}
+                                                    Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+                                                    &\approx Df(1,2)\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}+D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+                                                    &= -0.1\frac{1}{n} + 0.08\frac{1}{n^2}
+                                                  \end{align*}
 						\item over $[\frac{2}{n},\frac{3}{n}]$ is
-							\begin{align*}
-								Df(1+2(0.1\frac{1}{n}),2+2((-0.1)\frac{1}{n}))\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-								&approx  Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-								&approx -0.1\frac{1}{n} + 0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
-								&=1.4\frac{1}{n}+0.08\frac{2}{n}\frac{1}{n}
-							\end{align*}
-							\item $\vdots$
-							\item over $[\frac{k+1}{n},\frac{k+2}{n}]$ is
-								\begin{align*}
-								Df(1+(k+1)(0.1\frac{1}{n}),2+(k+1)((-0.1)\frac{1}{n}))\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
-								&approx  Df(1+(k)0.1\frac{1}{n},2+(k)(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\right)\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
-								&approx -0.1\frac{1}{n} + (k-1)0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
-								&=1.4\frac{1}{n}+0.08\frac{k}{n}\frac{1}{n}
-							\end{align*}
+                                                  \begin{align*}
+                                                    Df(1+2(0.1\frac{1}{n}),2+2((-0.1)\frac{1}{n})) \left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+                                                    &approx  Df(1+0.1\frac{1}{n},2+(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+                                                  &approx -0.1\frac{1}{n} + 0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
+                                                  &=1.4\frac{1}{n}+0.08\frac{2}{n}\frac{1}{n}
+                                                \end{align*}
+                                              \item $\vdots$
+                                              \item over $[\frac{k+1}{n},\frac{k+2}{n}]$ is
+                                                \begin{align*}
+                                                  Df(1+(k+1)(0.1\frac{1}{n}),2+(k+1)((-0.1)\frac{1}{n}))\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) 
+                                                  &approx  Df(1+(k)0.1\frac{1}{n},2+(k)(-0.1)\frac{1}{n})\left( \verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}} \right) +D^2f\left(\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}},\verticalvector{0.1\frac{1}{n}\\(-0.1)\frac{1}{n}}\right)\\
+                                                &approx -0.1\frac{1}{n} + (k-1)0.08\frac{1}{n^2}+ 0.08\frac{1}{n^2}\\
+                                               &=1.4\frac{1}{n}+0.08\frac{k}{n}\frac{1}{n}
+                                              \end{align*}
 					\end{itemize}
 				
 			\end{hint}
@@ -162,7 +162,7 @@
 		\end{solution}
 		
 		Notice that this approximation of $f$ is really just 
-		$f(1,2)+Df(1,2) \left(\verticalvector{0.1\\-0.1} \right)+ \frac{1}{2} D^2f(1,2)\( \verticalvector{0.1\\-0.1}, \verticalvector{0.1\\-0.1}\\)$.
+		$f(1,2)+Df(1,2) \left(\verticalvector{0.1\\-0.1} \right)+ \frac{1}{2} D^2f(1,2)\left( \verticalvector{0.1\\-0.1}, \verticalvector{0.1\\-0.1}\right)$.
 		
 		The first two terms are just the regular linear approximation to $f$ at $(1,2)$, but the next term arose from integrating the function 
 		$D^2f( \verticalvector{0.1\\-0.1},\verticalvector{0.1\\-0.1})t$ from $t=0$ to $t=1$.  This is  exactly

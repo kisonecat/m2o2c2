@@ -2,9 +2,77 @@
 \title{Python}
 \begin{document}
 \begin{abstract}
-	There are numerical examples of higher-order Taylor series.
+  There are numerical examples of higher-order Taylor series.
 \end{abstract}
 
-In this exercise, we continue to compare $e^{x+y}$ to the Taylor series for $e^x \cdot e^y$.
-	
+In this exercise, given a function \verb|f|, we compute a higher-order
+Taylor series for \verb|f| numerically.
+
+\begin{question}
+  Suppose \verb|f| is a Python function with two real inputs, perhaps
+\begin{verbatim}
+def f(x,y):
+  return 2.71828182845904**(x+y)
+\end{verbatim}
+We have a couple of ``numerical differentiation'' functions
+\begin{verbatim}
+epsilon = 0.001
+def partial_x(f):
+  return lambda x,y: (f(x+epsilon,y) - f(x,y))/epsilon
+def partial_y(f):
+  return lambda x,y: (f(x,y+epsilon) - f(x,y))/epsilon
+\end{verbatim}
+We can build a linear approximation function.
+\begin{verbatim}
+epsilon = 0.001
+def linear_approximation(f):
+  return lambda x,y: f(0,0) + x*partial_x(f)(0,0) + y*partial_y(f)(0,0) 
+\end{verbatim}
+It is now your task to build a ``quadratic approximation'' function.
+
+  \begin{solution}
+    \begin{hint}
+We need only write down the second order Taylor series.
+\begin{verbatim}
+def quadratic_approximation(f):
+  return lambda x, y: f(0,0) + x*partial_x(f)(0,0) + y*partial_y(f)(0,0) + x*x*partial_x(partial_x(f))(0,0)/2 + y*y*partial_y(partial_y(f))(0,0)/2 + x*y*partial_x(partial_y(f))(0,0)
+\end{verbatim}
+    \end{hint}
+    \begin{python}
+epsilon = 0.001
+def partial_x(f):
+  return lambda x,y: (f(x+epsilon,y) - f(x,y))/epsilon
+def partial_y(f):
+  return lambda x,y: (f(x,y+epsilon) - f(x,y))/epsilon
+def quadratic_approximation(f):
+  return lambda x,y: # the second order Taylor series approximation
+#
+# here's an example to try
+f = lambda x,y: 2.71828182845904**(x+y)
+print(quadratic_approximation(f)(0.1,0.2)) # should be about exp(0.3), which is about 1.35
+
+def validator():
+  f = lambda x,y: x*y
+  if abs(quadratic_approximation(f)(2,3) - 6) > 0.1:
+    return False
+  f = lambda x,y: x*x
+  if abs(quadratic_approximation(f)(2,3) - 4) > 0.1:
+    return False
+  f = lambda x,y: y*y
+  if abs(quadratic_approximation(f)(2,3) - 9) > 0.1:
+    return False
+  f = lambda x,y: x
+  if abs(quadratic_approximation(f)(2,3) - 2) > 0.1:
+    return False
+  f = lambda x,y: y
+  if abs(quadratic_approximation(f)(2,3) - 3) > 0.1:
+    return False
+  return True
+    \end{python}
+  \end{solution}
+
+  If you like this, you could build a version of this that produces a third order approximation.
+  
+\end{question}
+
 \end{document}

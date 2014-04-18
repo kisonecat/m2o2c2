@@ -101,3 +101,11 @@ week5
     week5/optimization/second-derivative-test
     week5/optimization/lagrange
     week5/optimization/hill-climbing
+week6
+  week6/multilinear
+    week6/multilinear/symmetry
+  week6/higher-order-derivatives
+    week6/higher-order-derivatives/symmetry
+  week6/full-taylor
+    week6/full-taylor/python
+  week6/denouement

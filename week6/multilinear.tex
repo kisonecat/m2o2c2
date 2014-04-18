@@ -1,97 +1,133 @@
 \documentclass{ximera}
 \title{Multilinear forms}
 \begin{document}
-	\begin{abstract}
-		Multilinear forms are separately linear in multiple vector variables 
-	\end{abstract}
+
+\begin{abstract}
+  Multilinear forms are separately linear in multiple vector variables.
+\end{abstract}
 	
-	\begin{definition}
-		Let $X$ be a set.  We introduce the notation $X^k$ to stand for the set of all ordered $k$-tuples of elements of $X$.  In other words, $X^k = X \times X \times X...\times X$, 
-		 with $k$ ``factors'' of $X$.
-	\end{definition}	
+\begin{definition}
+  Let $X$ be a set.  We introduce the notation $X^k$ to stand for the set of all ordered $k$-tuples of elements of $X$.  In other words, $X^k = X \times X \times \cdots \times X$, 
+  with $k$ ``factors'' of $X$.
+\end{definition}	
+
+For example, if $X = \{ \text{cat}, \text{dog} \}$, then $X^3$ is a
+set with eight elements, consisting of $3$-tuples of either
+$\text{cat}$ or $\text{dog}$.  For example,
+$(\text{cat},\text{cat},\text{dog}) \in X^3$.
 	
-	\begin{definition}
-		A $k$-linear  form on a vector space $V$ is a function $T: V^k \to \R$ which is linear in each vector variable.  In other words, given $k-1$ vectors
-		 $v_1,v_2,...,v_{i-1},v_{i+1},...,v_k$, the map $T_i: V \to \R$ defined by $T_i(v) = T(v_1,v_2,...,v_{i-1},v,v_{i+1},...,v_k)$ is linear.
-	\end{definition}
-	
-	The $k$ linear forms on $V$ form a vector space.
-	
-	\begin{question}
-		Let $T:\R^2\times \R^2 \times \R^2 \to \R$ be a trilinear form on $\R^2$.  Suppose we know that
-			\begin{itemize}
-				\item $T\left( \verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{1\\0}\right) = 1$
-				\item $T\left( \verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{0\\1}\right) = 2$
-				\item $T\left( \verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{1\\0}\right) = 3$
-				\item $T\left( \verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{0\\1}\right) = 4$
-				\item $T\left( \verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{1\\0}\right) = 5$
-				\item $T\left( \verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{0\\1}\right) = 6$
-				\item $T\left( \verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{1\\0}\right) = 7$
-				\item $T\left( \verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{0\\1}\right) = 8$
-			\end{itemize}
-			
-			\begin{solution}
-				\begin{hint}
-					\begin{align*}
-						T\left( \verticalvector{1\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right) 
-						&= T\left(\verticalvector{1\\0},\verticalvector{1\\2},\verticalvector{1\\0}\right)+T\left(\verticalvector{0\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right)\\
-						&=T\left(\verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{1\\0}\right)+2T\left(\verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{1\\0}\right)+
-						T\left(\verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{1\\0}\right)+ 2T\left(\verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{1\\0}\right)\\
-						&=1+2(3)+5+2(7)\\
-						&=26
-					\end{align*}
-				\end{hint}
-					$T\left( \verticalvector{1\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right) = $\answer{26}
-			\end{solution}
-			
-			
-	\end{question}
-	
-	From the last example, and by analogy with the bilinear case, it is clear that if you know the value of a $k-$linear form on all $(dim V)^k$ $k$-tuples of basis vectors of 
-			$V$, then you can find the value of $T$ on any $k$-tuple of vectors.
-			
-			\begin{definition}
-				Let $T:V^{k_1} \to \R$ and $S:V^{k_2} \to \R$ be multilinear forms.  Then we define their tensor product by $T \otimes S: V^{k_1 + k_2} \to \R$ by multiplication:
-				$(T \otimes S)(v_1,v_2,...,v_{k_1+k_2}) = T(v_1,v_2,...,v_{k_1})S(v_{k_1+1},v_{k_1+2},...,v_{k_1+k_2})$.
-			\end{definition}
-			
-			\begin{theorem}
-				The $k$-linear forms $dx_{i_1} \otimes dx_{i_2} \otimes ... \otimes dx_{i_k}$ where $1<i_j<n $ form a basis for the space of all multilinear $k$-forms on $\R^n$.  In fact
-				
-				\[
-					T = \sum T(e_{i_1},e_{i_2},...,e_{i_k}) dx_{i_1} \otimes dx_{i_2} \otimes ... \otimes dx_{i_k}
-				\]
-				
-				Where the sum ranges of all $n^k$  $k$-tuples of basis vectors.
-			\end{theorem}
-			
-			The proof is as straightforward as the corresponding proof for bilinear forms, but the notation is truly awful.
-			
-		\begin{question}
-			\begin{solution}
-				\begin{hint}
-					\(
-						dx_1 \otimes dx_2 \otimes dx_2 (\verticalvector{1\\2},\verticalvector{-2\\4},\verticalvector{5\\6}) &= 1 \cdot 4 \cdot 6 = 24
-					\)
-				\end{hint}
-				$dx_1 \otimes dx_2 \otimes dx_2 (\verticalvector{1\\2},\verticalvector{-2\\4},\verticalvector{5\\6}) = $\answer{$24$}
-			\end{solution}
-		\end{question}
-		
-		\begin{question} 
-		Let $T = dx_1 \otimes dx_1 \otimes dx_1 + 4 dx_2 \otimes dx_2\otimes dx_1$ be a trilinear form on $\R^2$.
-		Let $v = \verticalvector{x\\y}$
-			\begin{solution}
-				\begin{hint}
-					\begin{align*}T(v,v,v) &= 
-					dx_1 \otimes dx_1 \otimes dx_1( \verticalvector{x\\y},\verticalvector{x\\y},\verticalvector{x\\y}) 
-					+ 4 dx_2 \otimes dx_2\otimes dx_1(\verticalvector{x\\y},\verticalvector{x\\y},\verticalvector{x\\y})\\
-					&=x \cdot x \cdot y+ 4y \cdot y \cdot x\\
-					&=x^3+4y^2x
-					\end{align*}
-				\end{hint}
-				As a function of $x,$ and $y$,   $T(v,v,v)=$ \answer{ $x^3+4y^2x$}
-			\end{solution}
-			As this example shows, applying a $k$-linear form to the same vector three times gives a homogeneous polynomial of degree $k$.
-		\end{question}
+\begin{definition}
+  A $k$-linear  form on a vector space $V$ is a function $T: V^k \to \R$ which is linear in each vector variable.  In other words, given $(k-1)$ vectors
+  $v_1,v_2, \ldots ,v_{i-1},v_{i+1}, \ldots ,v_k$, the map $T_i: V \to \R$ defined by $T_i(v) = T(v_1,v_2, \ldots ,v_{i-1},v,v_{i+1}, \ldots ,v_k)$ is linear.
+\end{definition}
+
+The $k$-linear forms on $V$ form a vector space.
+
+\begin{question}
+  Let $T:\R^2\times \R^2 \times \R^2 \to \R$ be a trilinear form on $\R^2$.  Suppose we know that
+  \begin{itemize}
+  \item $T\left( \verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{1\\0}\right) = 1$
+  \item $T\left( \verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{0\\1}\right) = 2$
+  \item $T\left( \verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{1\\0}\right) = 3$
+  \item $T\left( \verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{0\\1}\right) = 4$
+  \item $T\left( \verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{1\\0}\right) = 5$
+  \item $T\left( \verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{0\\1}\right) = 6$
+  \item $T\left( \verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{1\\0}\right) = 7$
+  \item $T\left( \verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{0\\1}\right) = 8$
+  \end{itemize}
+  
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}
+        T\left( \verticalvector{1\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right) 
+        &= T\left(\verticalvector{1\\0},\verticalvector{1\\2},\verticalvector{1\\0}\right)+T\left(\verticalvector{0\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right)\\
+        &=T\left(\verticalvector{1\\0},\verticalvector{1\\0},\verticalvector{1\\0}\right)+2T\left(\verticalvector{1\\0},\verticalvector{0\\1},\verticalvector{1\\0}\right)+
+        T\left(\verticalvector{0\\1},\verticalvector{1\\0},\verticalvector{1\\0}\right)+ 2T\left(\verticalvector{0\\1},\verticalvector{0\\1},\verticalvector{1\\0}\right)\\
+        &=1+2(3)+5+2(7)\\
+        &=26
+      \end{align*}
+    \end{hint}
+    $T\left( \verticalvector{1\\1},\verticalvector{1\\2},\verticalvector{1\\0}\right) = $\answer{26}
+  \end{solution}
+  
+\end{question}
+
+From the last example---and by analogy with the bilinear case---it is
+clear that if you know the value of a $k-$linear form on all
+$k$-tuples of basis vectors of $V$ (there are $(dim V)^k$ of such),
+then you can find the value of $T$ on any $k$-tuple of vectors.
+
+\begin{definition}
+  Let $T:V^{k_1} \to \R$ and $S:V^{k_2} \to \R$ be multilinear forms.  Then we define their tensor product by $T \otimes S: V^{k_1 + k_2} \to \R$ by multiplication:
+  $(T \otimes S)(v_1,v_2, \ldots ,v_{k_1+k_2}) = T(v_1,v_2, \ldots ,v_{k_1})S(v_{k_1+1},v_{k_1+2}, \ldots ,v_{k_1+k_2})$.
+\end{definition}
+
+\begin{theorem}
+  The $k$-linear forms $dx_{i_1} \otimes dx_{i_2} \otimes \cdots \otimes dx_{i_k}$ where $1<i_j<n $ form a basis for the space of all multilinear $k$-forms on $\R^n$.  In fact,
+  \[
+  T = \sum T(e_{i_1},e_{i_2}, \ldots ,e_{i_k}) dx_{i_1} \otimes dx_{i_2} \otimes \cdots \otimes dx_{i_k},
+  \]
+  where the sum ranges of all $n^k$  $k$-tuples of basis vectors.
+\end{theorem}
+
+The proof is as straightforward as the corresponding proof for bilinear forms, but the notation is something awful.
+
+\begin{question}
+  \begin{solution}
+    \begin{hint}
+      \(dx_1 \left(\verticalvector{1\\2}\right) = 1.\)
+    \end{hint}
+    \begin{hint}
+      \(dx_2 \left(\verticalvector{-2\\4}\right) &= 4.\)
+    \end{hint}
+    \begin{hint}
+      \(dx_2 \left(\verticalvector{5\\6}\right)) &= 6.\)
+    \end{hint}
+    \begin{hint}
+      So putting this all together, we have
+      \[
+      \left(dx_1 \otimes dx_2 \otimes dx_2\right) \left(\verticalvector{1\\2},\verticalvector{-2\\4},\verticalvector{5\\6}\right) &= 1 \cdot 4 \cdot 6 = 24
+      \]
+    \end{hint}
+    $\left( dx_1 \otimes dx_2 \otimes dx_2 \right) \left(\verticalvector{1\\2},\verticalvector{-2\\4},\verticalvector{5\\6}\right) = $\answer{$24$}.
+  \end{solution}
+\end{question}
+
+\begin{question} 
+  Let $T = dx_1 \otimes dx_1 \otimes dx_1 + 4 dx_2 \otimes dx_2\otimes dx_1$ be a trilinear form on $\R^2$.
+  Let $\vec{v} = \verticalvector{x\\y}$
+  \begin{solution}
+    \begin{hint}
+      \begin{align*}T(\vec{v},\vec{v},\vec{v}) &= 
+        dx_1 \otimes dx_1 \otimes dx_1( \verticalvector{x\\y},\verticalvector{x\\y},\verticalvector{x\\y}) 
+        + 4 dx_2 \otimes dx_2\otimes dx_1(\verticalvector{x\\y},\verticalvector{x\\y},\verticalvector{x\\y})\\
+        &=x \cdot x \cdot y+ 4y \cdot y \cdot x\\
+        &=x^3+4y^2x
+      \end{align*}
+    \end{hint}
+    As a function of $x$ and $y$,   $T(\vec{v},\vec{v},\vec{v})=$ \answer{ $x^3+4y^2x$}
+  \end{solution}
+
+  As this example shows, applying a trilinear form to the same vector
+  three times gives a polynomial.  
+  \begin{solution}
+    \begin{hint}
+      The monomial $x^3$ has degree three.
+    \end{hint}
+    \begin{hint}
+      The monomial $4 x^2 x$ also has degree three.
+    \end{hint}
+    \begin{hint}
+      So the total degree of each monomial is three.
+    \end{hint}
+    The total degree of each monomial is \answer{$3$}.
+  \end{solution}
+
+  What we are seeing is a special case of the following result.
+  \begin{theorem}
+    Applying a $k$-linear form to the same vector $k$-times gives a
+    homogeneous polynomial of degree $k$.
+  \end{theorem}
+\end{question}
+
 \end{document}

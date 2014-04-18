@@ -1,77 +1,78 @@
 \documentclass{ximera}
+
 \title{Higher order derivatives}
+
 \begin{document}
+
 \begin{abstract}
-	The kth derivative of a function is a k-linear map
+  Higher derivatives of a function are multilinear maps.
 \end{abstract}
 
-The $(k+1)^{st}$ order derivative of a function $f: \R^n \to \R$  at a point $\mathbf{p}$ is a $(k+1)-$linear form  $D^{k+1} f(\mathbf{p})$ 
-which allows us to approximate changes in the $k^{th}$ order derivative as follows
-	
+The $(k+1)^{\text{st}}$ order derivative of a function $f: \R^n \to \R$  at a point $\mathbf{p}$ is a $(k+1)$-linear form  $D^{k+1} f(\mathbf{p})$,
+which allows us to approximate changes in the $k^{th}$ order derivative.  This approximation works as follows.
+
 \begin{definition}
-	$D^k(\mathbf{p} + \vec{v_{k+1}})(\vec{v_1},\vec{v}_2,...,\vec{v}_k)  = 
-	D^k(\mathbf{p})(\vec{v_1},\vec{v}_2,...,\vec{v}_k) + D^{k+1}(\mathbf{p})(\vec{v_1},\vec{v}_2,...,\vec{v}_k,\vec{v}_{k+1})+ 
-	\textrm{Error}(\mathbf{p})(\vec{v_1},\vec{v}_2,...,\vec{v}_k,\vec{v}_{k+1})$ where 
-	
-	\(
-		\displaystyle\lim_{\vec{v}_1,\vec{v}_2,...,\vec{v}_{k+1} \to \vec{0} } 
-		\frac{\textrm{Error}(\mathbf{p})(\vec{v_1},\vec{v}_2,...,\vec{v}_k,\vec{v}_{k+1})}{|\vec{v_1}||\vec{v_2}|...|\vec{v_{k+1}}|} = 0
-	\)
+  $D^k(\mathbf{p} + \vec{v_{k+1}})(\vec{v_1},\vec{v}_2,\ldots,\vec{v}_k)  = 
+  D^k(\mathbf{p})(\vec{v_1},\vec{v}_2,\ldots,\vec{v}_k) + D^{k+1}(\mathbf{p})(\vec{v_1},\vec{v}_2,\ldots,\vec{v}_k,\vec{v}_{k+1})+ 
+  \textrm{Error}(\mathbf{p})(\vec{v_1},\vec{v}_2,\ldots,\vec{v}_k,\vec{v}_{k+1})$ where 
+  \(
+  \displaystyle\lim_{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_{k+1} \to \vec{0} } 
+  \frac{\textrm{Error}(\mathbf{p})(\vec{v_1},\vec{v}_2,\ldots,\vec{v}_k,\vec{v}_{k+1})}{|\vec{v_1}||\vec{v_2}|\cdots|\vec{v_{k+1}}|} = 0
+  \)
 \end{definition}
 
 \begin{theorem}
-	$D^kf(\mathbf{p}) = \sum \frac{\partial^kf}{\partial x_{i_1} \partial x_{i_2}... \partial x_{i_k}} dx_{i_1} \otimes dx_{i_2} \otimes ... \otimes dx_{i_k}$, where the sum ranges 
-	over all $k-$ tuples of basis covectors.
+  $D^kf(\mathbf{p}) = \sum \frac{\partial^kf}{\partial x_{i_1} \partial x_{i_2} \cdots \partial x_{i_k}} dx_{i_1} \otimes dx_{i_2} \otimes \cdots \otimes dx_{i_k}$, where the sum ranges 
+  over all $k$-tuples of basis covectors.
 \end{theorem}
 
 \begin{question}
-	$f:\R^2 \to \R$ is defined by $f(x,y) = x^2y$.  
-	\begin{solution}
-	\begin{hint}
-		The only terms which are not zero are the terms involving $2$ partial derivatives with respect to $x$ and $1$ partial derivative with respect to $y$.
-	\end{hint}
-	\begin{hint}
-		So $D^3f = \frac{\partial ^3 f}{\partial x \partial x \partial y} dx \otimes dx \otimes dy+ \frac{\partial ^3 f}{\partial x \partial y \partial x} dx \otimes dy \otimes dx+ \frac{\partial ^3 f}{\partial y \partial x \partial y} dy \otimes dx \otimes dx$
-	\end{hint}
-	\begin{hint}
-		So $D^3f(0,0,0) = 2 dx\otimes dx \otimes dy+ 2 dx\otimes dy \otimes dx+2 dy\otimes dx \otimes dx$
-	\end{hint}
-	\begin{hint}
-		So $D^3f(0,0,0)(\verticalvector{1\\2},\verticalvector{3\\4},\verticalvector{0\\1}) =2( 2 \cdot 3 \cdot 1)+2( 1 \cdot 4 \cdot 0)+2(2 \cdot 3 \cdot 0) = 12$
-	\end{hint}
-	$D^3f(0,0)(\verticalvector{1\\2},\verticalvector{3\\4},\verticalvector{0\\1})=$\answer{$12$}
-	\end{solution}
+  $f:\R^2 \to \R$ is defined by $f(x,y) = x^2y$.  
+  \begin{solution}
+    \begin{hint}
+      The only terms which are not zero are the terms involving $2$ partial derivatives with respect to $x$ and $1$ partial derivative with respect to $y$.
+    \end{hint}
+    \begin{hint}
+      So $D^3f = \frac{\partial ^3 f}{\partial x \partial x \partial y} dx \otimes dx \otimes dy+ \frac{\partial ^3 f}{\partial x \partial y \partial x} dx \otimes dy \otimes dx+ \frac{\partial ^3 f}{\partial y \partial x \partial y} dy \otimes dx \otimes dx$
+    \end{hint}
+    \begin{hint}
+      So $D^3f(0,0,0) = 2 dx\otimes dx \otimes dy+ 2 dx\otimes dy \otimes dx+2 dy\otimes dx \otimes dx$
+    \end{hint}
+    \begin{hint}
+      So $D^3f(0,0,0)(\verticalvector{1\\2},\verticalvector{3\\4},\verticalvector{0\\1}) =2( 2 \cdot 3 \cdot 1)+2( 1 \cdot 4 \cdot 0)+2(2 \cdot 3 \cdot 0) = 12$
+    \end{hint}
+    $D^3f(0,0)(\verticalvector{1\\2},\verticalvector{3\\4},\verticalvector{0\\1})=$\answer{$12$}
+  \end{solution}
 \end{question}
 
 \begin{question}
-	Assume \(D^2f(\mathbf{p}) = 3dx_1\otimes dx_2 + 3dx_2 \otimes dx_1\).  In other words, the matrix of $D^f(\mathbf{p})$ is 
-	\(\begin{bmatrix} 0 & 3\\ 3&0 \end{bmatrix}\).  Assume $D^3f(\mathbf{p}) = dx \otimes dx \otimes dx$.
-	\begin{solution}
-		\begin{hint}
-			By the definition of higher order derivatives, we have
-			
-			\(
-				D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})(\vec{v}_1,\vec{v_2}) \approx D^2f(\mathbf{p})(\vec{v_1},\vec{v_2}) + D^3f(\verticalvector{0.3\\0.2\\0.2},\vec{v_1},\vec{v_2})
-			\)
-			
-			
-		\end{hint}
-		\begin{hint}
-			So 
-			\begin{align*}
-			D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})(\vec{v}_1,\vec{v_2}) &\approx 
-				3dx_1\otimes dx_2(\vec{v}_1,\vec{v}_2) + 3dx_2 \otimes dx_1 (\vec{v}_1,\vec{v_2}) + dx \otimes dx \otimes dx (\verticalvector{0.3\\0.2\\0.3},\vec{v_1},\vec{v_2})\\
-					&=3dx_1\otimes dx_2(\vec{v}_1,\vec{v}_2) + 3dx_2 \otimes dx_1 (\vec{v}_1,\vec{v_2})  + 0.3 dx \otimes dx (\vec{v_1},\vec{v_2})
-			\end{align*}
-		\end{hint}
-	\begin{hint}
-		The matrix of this bilinear form is \(\begin{bmatrix} 0.3 & 3\\3&0\end{bmatrix}\)
-	\end{hint}
-		The matrix of the bilinear form $D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})$ is approximately
-		\begin{matrix-answer}
-			correctMatrix = [['0.3','3'],['3','0']]
-		\end{matrix-answer}
-	\end{solution}
+  Assume \(D^2f(\mathbf{p}) = 3dx_1\otimes dx_2 + 3dx_2 \otimes dx_1\).  In other words, the matrix of $D^f(\mathbf{p})$ is 
+  \(\begin{bmatrix} 0 & 3\\ 3&0 \end{bmatrix}\).  Assume $D^3f(\mathbf{p}) = dx \otimes dx \otimes dx$.
+  \begin{solution}
+    \begin{hint}
+      By the definition of higher order derivatives, we have
+      
+      \(
+      D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})(\vec{v}_1,\vec{v_2}) \approx D^2f(\mathbf{p})(\vec{v_1},\vec{v_2}) + D^3f(\verticalvector{0.3\\0.2\\0.2},\vec{v_1},\vec{v_2})
+      \)
+      
+    \end{hint}
+    \begin{hint}
+      So 
+      \begin{align*}
+        D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})(\vec{v}_1,\vec{v_2}) &\approx 
+        3dx_1\otimes dx_2(\vec{v}_1,\vec{v}_2) + 3dx_2 \otimes dx_1 (\vec{v}_1,\vec{v_2}) + dx \otimes dx \otimes dx (\verticalvector{0.3\\0.2\\0.3},\vec{v_1},\vec{v_2})\\
+        &=3dx_1\otimes dx_2(\vec{v}_1,\vec{v}_2) + 3dx_2 \otimes dx_1 (\vec{v}_1,\vec{v_2})  + 0.3 dx \otimes dx (\vec{v_1},\vec{v_2})
+      \end{align*}
+    \end{hint}
+    \begin{hint}
+      The matrix of this bilinear form is \(\begin{bmatrix} 0.3 & 3\\3&0\end{bmatrix}\)
+    \end{hint}
+    The matrix of the bilinear form $D^2f(\mathbf{p}+\verticalvector{0.3\\0.2\\0.3})$ is approximately
+    \begin{matrix-answer}
+      correctMatrix = [['0.3','3'],['3','0']]
+    \end{matrix-answer}
+  \end{solution}
 \end{question}
 
 

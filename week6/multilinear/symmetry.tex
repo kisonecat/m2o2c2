@@ -1,0 +1,99 @@
+\documentclass{ximera}
+\title{Symmetry}
+\begin{document}
+
+\begin{abstract}
+  Various sorts of symmetry are possible for multilinear forms.
+\end{abstract}
+
+\begin{definition}	
+ A $k$-linear form $F$ is a \textbf{symmetric} if 
+ $$
+ F(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k) = F(\vec{v}_{i_1}, \vec{v}_{i_2}, \ldots, \vec{v}_{i_k}),
+ $$
+ whenever $(i_1,i_2,\ldots,i_k})$ is a rearrangement of $(1,2,\ldots,k)$.
+\end{definition}
+
+\begin{question}
+  Let $B : \R^2 \times \R^2 \to \R$ be the bilinear form
+  $$
+  B = dx_1 \otimes dx_2 + dx_2 \otimes dx_1.
+  $$
+  \begin{solution}
+    \begin{hint}
+      $dx_1 \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \right) = 1$.
+    \end{hint}
+    \begin{hint}
+      $dx_2 \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \right) = 2$.
+    \end{hint}
+    \begin{hint}
+      $dx_1 \left( \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 3$.
+    \end{hint}
+    \begin{hint}
+      $dx_2 \left( \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 4$.
+    \end{hint}
+    \begin{hint}
+      $(dx_1 \otimes dx_2) \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 1 \cdot 4$.
+    \end{hint}
+    \begin{hint}
+      $(dx_2 \otimes dx_1) \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 2 \cdot 3$.
+    \end{hint}
+    \begin{hint}
+      $B \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 1 \cdot 4 + 2 \cdot 3 = 4 + 6 = 10$.
+    \end{hint}
+
+    $B \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = $ \answer{$10$}.
+  \end{solution}
+
+  \begin{solution}
+    \begin{hint}
+      $B \left( \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \end{bmatrix} \right) = 3 \cdot 2 + 4 \cdot 1 = 6 + 4 = 10.$
+    \end{hint}
+
+    $B \left( \begin{bmatrix} 3 \\ 4 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \end{bmatrix} \right) = $ \answer{$10$}.
+  \end{solution}
+
+  Is the bilinear form $B$ symmetric?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice[correct]{Yes.}
+      \choice{No.}
+    \end{multiple-choice}
+  \end{solution}
+
+  \hrule
+
+  Now let's consider trilinear forms.
+
+  Let $T : \R^2 \times \R^2 \times \R^2 \to \R$ be the trilinear form
+  $$
+  T = dx_1 \otimes dx_1 \otimes dx_2 + dx_1 \otimes dx_2 \otimes dx_1
+  $$
+  Is the triilinear form $T$ symmetric?
+  \begin{solution}
+    \begin{multiple-choice}
+      \choice{Yes.}
+      \choice[correct]{No.}
+    \end{multiple-choice}
+  \end{solution}  
+
+  For example, compare
+  $$
+  T\left( \begin{bmatrix} 1 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \end{bmatrix}, \begin{bmatrix} 1 & 0 \end{bmatrix} \right)
+  $$
+  to the value of 
+  $$
+  T\left( \begin{bmatrix} 0 & 0 \end{bmatrix}, \begin{bmatrix} 1 & 0 \end{bmatrix}, \begin{bmatrix} 1 & 0 \end{bmatrix} \right).
+  $$
+
+  Can you cook up some examples of \textit{symmetric} trilinear forms?
+  \begin{free-response}
+    Sure!   Here is an example:
+    $$
+    T = dx_1 \otimes dx_1 \otimes dx_2 + dx_1 \otimes dx_2 \otimes dx_1 + dx_2 \otimes dx_1 \otimes dx_1.
+    $$
+  \end{free-response}
+
+\end{question}
+
+\end{document}

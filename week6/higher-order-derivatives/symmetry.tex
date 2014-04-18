@@ -1,0 +1,31 @@
+\documentclass{ximera}
+
+\title{Symmetry}
+
+\begin{document}
+
+\begin{abstract}
+  In many nice situations, higher-order derivatives are symmetric.
+\end{abstract}
+
+Recall that we once saw the following theorem.
+\begin{theorem}
+  Let $f:\R^n \to \R$ be a differentiable function.  Assume that the partial derivatives $f_{x_i}:\R^n \to \R$ are all differentiable, and the second partial derivatives
+  $f_{x_i,x_j}$ are continuous.  Then $f_{x_i,x_j} = f_{x_j,x_i}$.
+\end{theorem}
+After interpreting the ``second derivative'' as a bilinear form, we
+were then able to say something nicer (though the hypothesis is
+stronger, so this is a weaker theorem).
+\begin{theorem}
+  Let $f:\R^n \to \R$ be a continuously twice differentiable function; then the bilinear form representing the second derivative is symmetric.
+\end{theorem}
+
+And finally, we are in a position to formulate the higher-order
+version of this theorem.
+\begin{theorem}
+  Let $f:\R^n \to \R$ be a continuously $k$-times differentiable
+  function; then the $k$-linear form representing the $k$-th order
+  derivative is a symmetric form.
+\end{theorem}
+
+\end{document}

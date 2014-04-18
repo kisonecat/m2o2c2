@@ -1,11 +1,12 @@
-\documentclass[numbers]{ximera}
+
 
 
 \input{preamble.tex}
 
 \let\masterdocument\document
 \let\endmasterdocument\enddocument
-\let\masterinput\input
+\let\otherinput\input %% Numbering starts a page too soon without this
+\newcommand{\masterinput}[1]{\otherinput{#1}\clearpage} %% Numbering starts a page too soon without this
 
 \begin{masterdocument}
 
@@ -18,8 +19,18 @@
     \end{center}
     %\vspace*{\fill}
   \end{titlepage}
-
 \setcounter{page}{2}
+
+
+\makeatletter
+\newpagestyle{contents}{
+\sethead[\textsl{Contents}][][] % even
+{}{}{\textsl{Contents}} % odd
+\setfoot[\thepage][][] % even
+{}{}{\thepage} % odd
+}
+\pagestyle{contents}
+\makeatother
 
 \tableofcontents
 
@@ -28,7 +39,8 @@
 \renewcommand{\input}{\setbox0\vbox}
 \renewenvironment{document}{}{}
 
-
+\clearpage
+\pagestyle{main}
 
 \masterinput{./week1/Rn.tex}
 \masterinput{./week1/vector-spaces.tex}
@@ -49,5 +61,12 @@
 \masterinput{./week1/inner-product/length.tex}
 \masterinput{./week1/inner-product/angle.tex}
 \masterinput{./week1/inner-product/cauchy-schwarz.tex}
+
+\masterinput{./week2/limits.tex}
+\masterinput{./week2/limits/formal-limit.tex}
+\masterinput{./week2/}
+
+
+
 
 \end{masterdocument}

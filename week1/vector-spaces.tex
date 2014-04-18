@@ -17,12 +17,15 @@ defined soon).  This additional structure will transform $\R^n$ from a
 mere set into a ``vector space.''  To distinguish between $\R^n$ as a
 set and $\R^n$ as a vector space, we think of elements of $\R^n$ as a
 set as being ordered lists, such as
- 
- \[\mathbf{p} = (x_1,x_2,x_3,\dots,x_n),\]
- 
-but elements of $\R^n$ the vector space will be written typographically as vertically oriented lists flanked with square brackets, like this 
- 
-  \[ \vec{v}= \verticalvector{x_1\\x_2\\x_3\\.\\.\\x_n}\]
+\[
+\mathbf{p} = (x_1,x_2,x_3,\dots,x_n),
+\]
+but elements of $\R^n$ the vector space will be written
+typographically as vertically oriented lists flanked with square
+brackets, like this
+\[ 
+\vec{v}= \verticalvector{x_1\\x_2\\x_3\\\vdots\\x_n}
+\]
  
 We will try to stick to the convention that bold letters like $\mathbf{p}$ represent points, while letters with little arrows above them (like $\vec{v}$) represent vectors. 
 
@@ -32,7 +35,7 @@ the underlying set of points $\R^n$.
  
 Vector addition is defined as follows:
  
-\[\verticalvector{x_1\\x_2\\.\\.\\x_n} +\verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1+y_1\\x_2+y_2\\.\\.\\x_n+y_n}\]
+\[\verticalvector{x_1\\x_2\\\vdots\\x_n} +\verticalvector{y_1\\y_2\\\vdots\\y_n}=\verticalvector{x_1+y_1\\x_2+y_2\\\vdots\\x_n+y_n}\]
 
 \begin{warning}
   You cannot add vectors in $\R^n$ and $\R^m$ unless $n = m$.
@@ -40,12 +43,17 @@ Vector addition is defined as follows:
 
 An element of $\R$ is a number, but it is also called a ``scalar'' in this context, and vectors can be multiplied by scalars as follows:
 	
-\[ c\verticalvector{x_1\\x_2\\.\\.\\x_n} = \verticalvector{cx_1\\cx_2\\.\\.\\cx_n} \]
+\[ c\verticalvector{x_1\\x_2\\\vdots\\x_n} = \verticalvector{cx_1\\cx_2\\\vdots\\cx_n} \]
  	 
 \begin{warning}
   We have not yet defined a notion of multiplication for vectors.  You might think it is reasonable to define 
-  \[\verticalvector{x_1\\x_2\\.\\.\\x_n} \verticalvector{y_1\\y_2\\.\\.\\y_n}=\verticalvector{x_1y_1\\x_2y_2\\.\\.\\x_ny_n}\], but 
-  actually this operation is not especially useful, and will \textit{never} be utilized in this course.  We will have a notion of ``vector multiplication'' called the \textit{dot product}, but that is not the (faulty) definition above.
+\[
+\verticalvector{x_1\\x_2\\\vdots\\x_n} \verticalvector{y_1\\y_2\\\vdots\\y_n}=\verticalvector{x_1y_1\\x_2y_2\\\vdots\\x_ny_n},
+\] but 
+actually this operation is not especially useful, and will
+\textit{never} be utilized in this course.  We will have a notion of
+``vector multiplication'' called the \textit{dot product}, but that is
+not the (faulty) definition above.
 \end{warning}
 
 \begin{question}

@@ -6,7 +6,7 @@
 
 \begin{abstract}
   Basis vectors span the space without redundancy.
-\end{abstract}
+\end{abstract}\maketitle
 
   \begin{definition}
     A vector space is called \textbf{finite dimensional} if it has a finite list of spanning vectors.  A space which is not finite dimensional is called \textit{infinite dimensional}.
@@ -124,16 +124,25 @@ This problem generalizes:
 	\end{theorem}
 Prove this theorem
  \begin{free-response}
- 	We will follow the same procedure that we did above.  Assume $(v_1,v_2,\ldots,v_n)$ is a list of vectors which spans $V$, and $(w_1,w_2,\ldots,w_m)$ is a linearly
- 	independent list of vectors.  We must show that $m<n$.
+ 	We will follow the same procedure that we did above.  Assume
+        $(v_1,v_2,\ldots,v_n)$ is a list of vectors which spans $V$,
+        and $(w_1,w_2,\ldots,w_m)$ is a linearly independent list of
+        vectors.  We must show that $m<n$.
  	
- 	$(w_1,v_1,v_2,\ldots,v_n)$ is linearly dependent since $w_1$ is in the span of the $v_i$.  
- 	By the theorem above, we can remove on of the $v_i$ and still have a spanning list of length $n$.
+ 	$(w_1,v_1,v_2,\ldots,v_n)$ is linearly dependent since $w_1$
+        is in the span of the $v_i$.  By the theorem above, we can
+        remove on of the $v_i$ and still have a spanning list of
+        length $n$.
  	
- 	Repeating this, we can always add one $w$ vector to the beginning of the list, while deleting a $v$ vector from the end of the list.  This maintains a list of length 
- 	$n$ which spans all of $V$.  We know that it must be a $v$ which gets deleted, because the $w$s are all linearly independent. 
- 	 If $m>n$, then at the $n^{th]$ stage of this process we obtain that $(w_1,w_2,\ldots,w_n)$ spans all of $V$, which contradicts the fact that $w_{n+1}$ is supposed 
- 	 to be linearly independent from the rest of the $w$.
+ 	Repeating this, we can always add one $w$ vector to the
+        beginning of the list, while deleting a $v$ vector from the
+        end of the list.  This maintains a list of length $n$ which
+        spans all of $V$.  We know that it must be a $v$ which gets
+        deleted, because the $w$s are all linearly independent.  If
+        $m>n$, then at the $n^{th}$ stage of this process we obtain
+        that $(w_1,w_2,\ldots,w_n)$ spans all of $V$, which
+        contradicts the fact that $w_{n+1}$ is supposed to be linearly
+        independent from the rest of the $w$.
  \end{free-response}
  
  \begin{definition}

@@ -4,7 +4,7 @@
 \begin{document}
 	\begin{abstract}
 		Lagrange multipliers enable constrained optimization
-	\end{abstract}
+	\end{abstract}\maketitle
 	
 	In the previous section we considered unconstrained optimization problems.  Sometimes we want to find extreme values of a function $f:\R^n \to \R$
 	subject to some constraints.  
@@ -98,7 +98,7 @@
 			So we must have \(\begin{bmatrix} 2xy & x^2\end{bmatrix} = \lambda \begin{bmatrix} 2x & 2 y\end{bmatrix}\)
 		\end{hint}
 		\begin{hint}
-			&\begin{align*}
+			\begin{align*}
 				\begin{cases}
 				2xy = 2\lambda x\\
 				x^2 =  2\lambda y
@@ -165,7 +165,7 @@
 				Multiplying all of these equations together, we have $8xyz  = \lambda^3(xyz)^2$.  Since $xyz=1$, we have $\lambda^3 = 8$, so $\lambda =2$
 			\end{hint}
 			\begin{hint}
-				\(
+				\[
 					\begin{cases}
 						x &=  yz\\
 						y &=  xz\\
@@ -176,10 +176,8 @@
 						x &=  xz^2\\
 						y &=  yx^2\\
 						z &=  zy^2
-					  \end{cases}\\
-					
-					  
-					\)
+					  \end{cases}
+					\]
 			\end{hint}
 			\begin{hint}
 				So $x=\pm 1$, $y= \pm 1$, $z = \pm 1$.  So the only possible location of constrained extrema are $(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)$.  At each of these points

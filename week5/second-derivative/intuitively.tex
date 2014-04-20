@@ -5,7 +5,7 @@
 
 \begin{abstract}
 	The second derivative is a bilinear form.
-\end{abstract}
+\end{abstract}\maketitle
 	
 	From our perspective, the second derivative of a function $f: \R^n \to \R$ at a point will be a bilinear form on $\R^n$.  
 	Let us take some time to understand, intuitively, why that should be the case.
@@ -56,31 +56,34 @@ With all of this as motivation, we make the following wishy washy "definition"
 We will make the sense in which this approximation holds precise in another section, but for now this is good enough.
 
 \begin{question}
-	If $f: \R^2 \to \R$ is a function, and \(Df\big|_{\mathbf{(1,2)}} = \begin{bmatrix}  -1 & 1\end{bmatrix} \) 
-	and \(Hf\big|_{\mathbf{(1,2)}} =  \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix}\). $Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3})$.
-		\begin{solution}
-			\begin{hint}
-				By the fundamental approximating property, we have 
-				\(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}}(-0.2\\0.3)  \approx Df\Big|_\mathbf{(1,2)}{\verticalvector{-0.2\\0.3}} 
-				+ D^2f\big_\mathbf{(1,2)} \left( \verticalvector{0.2\\0.1},\verticalvector{-0.2\\0.3}\right)\)
-			\end{hint}
-			\begin{hint}
-				Thus \(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}}(-0.2\\0.3)  \approx
-					\begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
-					+ \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\)
-			\end{hint}
-			\begin{hint}
-				\begin{align*}
-					Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) &\approx \begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
-					+ \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\\
-					&=-1(-0.2)+1(0.3)+
-					+ (0.2)(0)(-0.2)+(0.2)(4)(0.3)+(0.1)(4)(-0.2)+(0.1)(1)(0.3)\\
-					&= 0.2+0.3+0+0.12-0.08+0.03\\
-					&=0.57
-				\end{align*}	
-			\end{hint}
-			$Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) \approx$ \answer{0.57}
-		\end{solution}
+If $f: \R^2 \to \R$ is a function, and $Df\big|_{\mathbf{(1,2)}}
+= \begin{bmatrix} -1 & 1\end{bmatrix}$ and $Hf\big|_{\mathbf{(1,2)}} = \begin{bmatrix} 0 & 4\\4 &
+    1\end{bmatrix}$. $Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3})$.
+    \begin{solution}
+      \begin{hint}
+	By the fundamental approximating property, we have
+        \(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}(-0.2\\0.3)
+          \approx Df\Big|_\mathbf{(1,2)}{\verticalvector{-0.2\\0.3}} +
+          D^2f\big|_\mathbf{(1,2)} \left(
+          \verticalvector{0.2\\0.1},\verticalvector{-0.2\\0.3}\right)\)
+      \end{hint}
+      \begin{hint}
+	Thus \(Df\big|_{\mathbf{(1,2)}+\verticalvector{0.2\\0.1}}(-0.2\\0.3)  \approx
+	  \begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
+	    + \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\)
+      \end{hint}
+      \begin{hint}
+	\begin{align*}
+	  Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) &\approx \begin{bmatrix}  -1 & 1\end{bmatrix}  \verticalvector{-0.2\\0.3}
+	    + \begin{bmatrix} 0.2\\0.1\end{bmatrix} \begin{bmatrix} 0 & 4\\4 & 1\end{bmatrix} \verticalvector{-0.2\\0.3}\\
+		&=-1(-0.2)+1(0.3)+
+		+ (0.2)(0)(-0.2)+(0.2)(4)(0.3)+(0.1)(4)(-0.2)+(0.1)(1)(0.3)\\
+		&= 0.2+0.3+0+0.12-0.08+0.03\\
+		&=0.57
+	\end{align*}	
+      \end{hint}
+      $Df\big|_{(1.2,1.1)}(\verticalvector{-0.2\\0.3}) \approx$ \answer{0.57}
+    \end{solution}
 		
 		Note that the computation really splits into a first order change ($Df|_p(\vec{h})$) and a second order change ($D^2f(\vec{h_1},\vec{h_2})$).  In this case
 		the first order change was $0.5$, and the second order change was $0.07$.  

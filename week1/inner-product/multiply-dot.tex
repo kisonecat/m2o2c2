@@ -4,7 +4,7 @@
 
 \begin{abstract}
 	There is a quick way to multiply matrices using dot products
-\end{abstract}
+\end{abstract}\maketitle
 
 \begin{question}
 	Let $M =  \begin{bmatrix}2&3\\4&5\\1&2\end{bmatrix}$, and $\vec{e}_2 = \verticalvector{0\\1\\0}$.
@@ -99,7 +99,7 @@ component of the matrix.  What happens when we apply this insight to a product o
 Prove this theorem
 \begin{free-response}
 	We can prove this by combining the other two theorems in this section.  $C_{i,j} = \vec{e_i}^\top C \vec{e}_j$ by the second theorem.  But $C = AB$, so we have 
-	$C_{i,j} = \vec{e_i}^\topAB\vec{e}_j$.  By the first theorem $\vec{e_i}^\topA$ is the $i^{th}$ row of $A$, and by our definition of matrix multiplication, 
+	$C_{i,j} = \vec{e_i}^\top AB\vec{e}_j$.  By the first theorem $\vec{e_i}^\top A$ is the $i^{th}$ row of $A$, and by our definition of matrix multiplication, 
 	$B\vec{e}_j$ is the $j^{th}$ column of $B$. So $C_{i,j}$ is the product of the $i^{th}$ row of $A$ with the $k^{th}$ column of $B$.
 \end{free-response}
 

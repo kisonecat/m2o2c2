@@ -4,7 +4,7 @@
 \begin{document}
 \begin{abstract}
   Matrices record where basis vectors go.
-\end{abstract}
+\end{abstract}\maketitle
 
 In our first brush with linear algebra, we only dealt with linear maps
 between the spaces spaces $\R^n$ for varying $n$.  For those maps and
@@ -89,7 +89,7 @@ domain and codomain.
   column and $j^{th}$ row is $a_{i,j}$
 \end{definition}
 
-\begin{problem}
+\begin{question}
   Let $\mathcal{B}_1 = \left(\verticalvector{1\\1}_{\mathcal{E}_2},\verticalvector{1\\0}_{\mathcal{E}_2}\right)$ and $\mathcal{B}_2 = \left(\verticalvector{1\\0\\0}_{\mathcal{E}_3},\verticalvector{0\\0\\1}_{\mathcal{E}_3},\verticalvector{0\\1\\0}_{\mathcal{E}_3}\right)$ be bases
   for $\R^2$ and $\R^3$, respectively. 
 
@@ -123,9 +123,9 @@ domain and codomain.
       correctMatrix = [['2','1'],['0','0'],['1','1']]
     \end{matrix-answer}
   \end{solution}
-\end{problem}
+\end{question}
 
-\begin{problem}
+\begin{question}
   Let $P_2$ be the space of polynomials of degree at most $2$.  Let $\mathcal{B}_0 = (1,x,x^2)$ and $\mathcal{B}_1 = (1,(x-1),(x-1)^2)$.  
   Consider the map $L:P_2 \to \R$ given by $L(p) = p(1)$.  
   \begin{solution}
@@ -137,9 +137,7 @@ domain and codomain.
       \end{align*}
     \end{hint}
     \begin{hint}
-      \begin{bmatrix}
         The matrix of $L$ with respect to $\mathcal{B}_0$ is \( \begin{bmatrix} 1&1&1 \end{bmatrix}\)
-      \end{bmatrix}
     \end{hint}
     What is the matrix of this linear map with respect to the basis $\mathcal{B}_0$?  
     \begin{matrix-answer}
@@ -156,9 +154,7 @@ domain and codomain.
       \end{align*}
     \end{hint}
     \begin{hint}
-      \begin{bmatrix}
         The matrix of $L$ with respect to $\mathcal{B}_1$ is \( \begin{bmatrix} 1&0&0 \end{bmatrix}\)
-      \end{bmatrix}
     \end{hint}
     What is the matrix of this linear map with respect to the basis $\mathcal{B}_1$?  
     
@@ -166,9 +162,9 @@ domain and codomain.
       correctMatrix = [['1','0','0']]
     \end{matrix-answer}
   \end{solution}
-\end{problem}
+\end{question}
 
-\begin{problem}
+\begin{question}
   Let $P_3$ be the space of polynomials of degree at most $3$.  Let $\mathcal{B} = (1,x,x^2,x^3)$.  Consider the map $L:P_3 \to P_3$ given by 
   $L(p(x)) = \frac{d}{dx} p(x)$. This map is linear (why?).  
   \begin{solution}
@@ -192,6 +188,6 @@ domain and codomain.
       correctMatrix = [['0','1','0','0'],['0','0','2','0'],['0','0','0','3'],['0','0','0','0']]
     \end{matrix-answer}
   \end{solution}
-\end{problem}
+\end{question}
 
 \end{document}
